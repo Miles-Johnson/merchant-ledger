@@ -1,0 +1,9 @@
+[build]
+builder = "nixpacks"
+buildCommand = "cd webapp && npm install && npm run build && cd .. && pip install -r requirements.txt"
+
+[deploy]
+startCommand = "python api/app.py"
+healthcheckPath = "/search?q=iron"
+healthcheckTimeout = 30
+restartPolicyType = "on_failure"

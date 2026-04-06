@@ -21,10 +21,28 @@ load_dotenv()
 DIST_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "webapp", "dist"))
 
 DATABASE_URL = os.getenv("DATABASE_URL")
-if not DATABASE_URL:
-    raise RuntimeError("DATABASE_URL environment variable is required")
 
-pool = ThreadedConnectionPool(minconn=1, maxconn=10, dsn=DATABASE_URL)
+pool_kwargs = {"minconn": 1, "maxconn": 10}
+if DATABASE_URL:
+    pool_kwargs["dsn"] = DATABASE_URL
+    if os.getenv("RAILWAY_ENVIRONMENT"):
+        pool_kwargs["sslmode"] = "require"
+else:
+    db_name = os.getenv("DB_NAME") or os.getenv("PGDATABASE")
+    if not db_name:
+        raise RuntimeError("DATABASE_URL or DB_NAME/PGDATABASE must be set")
+
+    pool_kwargs.update(
+        {
+            "host": os.getenv("DB_HOST") or os.getenv("PGHOST") or "localhost",
+            "port": int(os.getenv("DB_PORT") or os.getenv("PGPORT") or 5432),
+            "dbname": db_name,
+            "user": os.getenv("DB_USER") or os.getenv("PGUSER"),
+            "password": os.getenv("DB_PASSWORD") or os.getenv("PGPASSWORD"),
+        }
+    )
+
+pool = ThreadedConnectionPool(**pool_kwargs)
 
 app = Flask(__name__, static_folder=DIST_DIR, static_url_path="/")
 CORS(app)
@@ -337,4 +355,5 @@ def serve_spa(path: str):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)

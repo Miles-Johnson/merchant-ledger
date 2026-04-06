@@ -8,4 +8,6 @@ data/_tmp_*
 node_modules/
 webapp/node_modules/
 webapp/build/
+webapp/dist/
+data/merchant_ledger.dump
 .DS_Store
