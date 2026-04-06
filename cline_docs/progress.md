@@ -135,3 +135,17 @@ Detailed milestone timeline moved to:
 - Final gate latest run remains stable:
   - `Passed 14/15`, `Regressions: 0`
   - Known outstanding fail unchanged: `Grid: lantern up (iron)`.
+
+
+## Update (2026-04-06): Move to Clean Directory + GitHub
+
+### Completed in This Pass
+- Moved project into clean workspace: `C:/Users/Kjol/projects/merchant-ledger`.
+- Created repo-level `.gitignore` including logs (`*.log`) and temp files (`data/_tmp_*`).
+- Added root `README.md` with stack/run instructions.
+- Initialized git and created first commit.
+- Published public GitHub repo and pushed initial history.
+- Removed migrated project files from old `VintagestoryData` location after explicit confirmation.
+
+### Current Canonical Repo
+- https://github.com/Miles-Johnson/merchant-ledger

@@ -54,3 +54,9 @@
 ## Historical Material
 Detailed technical chronology moved to:
 - `cline_docs/deprecated/techContext_historical.md`
+
+
+## Update (2026-04-06): Repository Location
+- **New project root:** `C:/Users/Kjol/projects/merchant-ledger`
+- Previous mixed path under Vintage Story data is no longer the active project root.
+- Git remote: `origin -> https://github.com/Miles-Johnson/merchant-ledger.git`

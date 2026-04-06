@@ -130,3 +130,10 @@ Detailed timeline moved to:
 - Final gate after this pass:
   - `Passed 14/15`, `Regressions: 0`.
   - Remaining known fail unchanged: `Grid: lantern up (iron)`.
+
+
+## Update (2026-04-06): Project Relocation + GitHub Publish
+- Project root moved from `c:/Users/Kjol/AppData/Roaming/VintagestoryData` to **`C:/Users/Kjol/projects/merchant-ledger`**.
+- Repository initialized and first commit created in new root.
+- Public GitHub remote published and synced.
+- Old mixed game-data location was cleaned of project files after confirmation.
