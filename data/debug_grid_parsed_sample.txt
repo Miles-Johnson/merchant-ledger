@@ -1,0 +1,10 @@
+1. 1x item:hammer-*; 1x item:chisel-*; 2x item:firewood; 1x block:rock-*; 3x item:rope
+2. 1x item:leather-normal-plain (variants=plain,orange,black,red,blue,purple,white,yellow,gray,green); 1x item:plank-*
+3. 1x item:leather-normal-plain (variants=plain,orange,black,red,blue,purple,white,yellow,gray,green); 1x item:plank-*
+4. 1x item:leather-normal-plain (variants=plain,orange,black,red,blue,purple,white,yellow,gray,green); 1x item:plank-*
+5. 1x item:metalchain-iron; 1x item:armor-head-antique-blackguard-broken
+6. 1x item:metalplate-iron; 1x item:armor-head-antique-blackguard-damaged
+7. 1x item:metalchain-iron; 1x item:armor-body-antique-blackguard-broken
+8. 1x item:metalplate-iron; 1x item:armor-body-antique-blackguard-damaged
+9. 1x item:metalchain-iron; 1x item:armor-legs-antique-blackguard-broken
+10. 1x item:metalplate-iron; 1x item:armor-legs-antique-blackguard-damaged

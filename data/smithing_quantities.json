@@ -1,0 +1,15 @@
+{
+  "_comment": "Quantities derived from in-game smithing voxel patterns. Each full ingot provides ~42 metal bits. Count filled voxels in pattern ÷ 42, round up.",
+  "metalplate-*": 2,
+  "armor-body-plate-*": 3,
+  "armor-torso-plate-*": 3,
+  "hammerhead-*": 2,
+  "helvehammerhead-*": 2,
+  "axehead-*": 2,
+  "pickaxehead-*": 2,
+  "prospectingpickhead-*": 2,
+  "hoehead-*": 2,
+  "sawblade-*": 2,
+  "scythehead-*": 2,
+  "shears-*": 2
+}

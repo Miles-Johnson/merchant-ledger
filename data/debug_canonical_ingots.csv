@@ -1,0 +1,111 @@
+game_code,display_name,match_tier,lr_item_id
+item:ingot-bismuth,Bismuth,exact,1
+item:ingot-bismuthbronze,Bismuth Bronze,exact,15
+item:ingot-blackbronze,Black Bronze,exact,17
+item:ingot-blistersteel,Ingot Blistersteel,unmatched,
+item:ingot-brass,Brass,exact,2
+item:ingot-chromium,Ingot Chromium,unmatched,
+item:ingot-copper,Copper,exact,3
+item:ingot-cupronickel,Cupronickel,exact,4
+item:ingot-electrum,Electrum,exact,5
+item:ingot-gold,Gold,exact,6
+item:ingot-iron,Iron,exact,7
+item:ingot-lead,Lead,exact,8
+item:ingot-leadsolder,Ingot Leadsolder,unmatched,
+item:ingot-meteoriciron,Meteoric Iron,exact,9
+item:ingot-molybdochalkos,Ingot Molybdochalkos,unmatched,
+item:ingot-nickel,Nickel,exact,10
+item:ingot-platinum,Ingot Platinum,unmatched,
+item:ingot-silver,Silver,exact,11
+item:ingot-silversolder,Ingot Silversolder,unmatched,
+item:ingot-stainlesssteel,Ingot Stainlesssteel,unmatched,
+item:ingot-steel,Steel,exact,12
+item:ingot-tin,Tin,exact,13
+item:ingot-tinbronze,Tin Bronze,exact,16
+item:ingot-titanium,Ingot Titanium,unmatched,
+item:ingot-uranium,Ingot Uranium,unmatched,
+item:ingot-zinc,Zinc,exact,14
+item:metalplate-{metal},Metalplate,unmatched,
+item:metalplate-bismuth,Metalplate Bismuth,unmatched,
+item:metalplate-bismuthbronze,Bismuth Bronze,exact,15
+item:metalplate-blackbronze,Black Bronze,exact,17
+item:metalplate-brass,Metalplate Brass,unmatched,
+item:metalplate-copper,Metalplate Copper,unmatched,
+item:metalplate-cupronickel,Cupronickel,exact,4
+item:metalplate-electrum,Metalplate Electrum,unmatched,
+item:metalplate-gold,Metalplate Gold,unmatched,
+item:metalplate-iron,Metalplate Iron,unmatched,
+item:metalplate-lead,Metalplate Lead,unmatched,
+item:metalplate-meteoriciron,Meteoric Iron,exact,9
+item:metalplate-molybdochalkos,Metalplate Molybdochalkos,unmatched,
+item:metalplate-silver,Metalplate Silver,unmatched,
+item:metalplate-steel,Metalplate Steel,unmatched,
+item:metalplate-tin,Metalplate Tin,unmatched,
+item:metalplate-tinbronze,Metalplate Tinbronze,unmatched,
+item:metalplate-uranium,Metalplate Uranium,unmatched,
+item:metalplate-zinc,Metalplate Zinc,unmatched,
+item:nugget-cassiterite,Nugget Cassiterite,unmatched,
+item:nugget-chromite,Nugget Chromite,unmatched,
+item:nugget-galena,Nugget Galena,unmatched,
+item:nugget-malachite,Nugget Malachite,unmatched,
+item:nugget-nativecopper,Nugget Nativecopper,unmatched,
+item:nugget-nativegold,Nugget Nativegold,unmatched,
+item:ore-anthracite,Anthracite,exact,51
+item:ore-bituminouscoal,Ore Bituminouscoal,unmatched,
+item:ore-borax,Borax,exact,50
+item:ore-cinnabar,Cinnabar,exact,25
+item:ore-graphite,Graphite,exact,29
+item:ore-lapislazuli,Lapis Lazuli,exact,18
+item:ore-lignite,Lignite,exact,53
+item:ore-olivine,Olivine,exact,34
+item:ore-quartz,Ore Quartz,unmatched,
+item:powder-alum,Alum,exact,24
+item:powder-borax,Borax,exact,50
+item:powder-charcoal,Charcoal,exact,48
+item:powder-cinnabar,Cinnabar,exact,25
+item:powder-flint,Powder Flint,unmatched,
+item:powder-iron-oxide,Powder Iron Oxide,unmatched,
+item:powder-iron-raw,Powder Iron Raw,unmatched,
+item:powder-lapislazuli,Lapis Lazuli,exact,18
+item:powder-sulfur,Sulfur,exact,21
+item:powdered-metal-chromite,Powdered Metal Chromite,unmatched,
+item:powdered-metal-gold,Powdered Metal Gold,unmatched,
+item:powdered-metal-lead,Powdered Metal Lead,unmatched,
+item:powdered-metal-nickel,Powdered Metal Nickel,unmatched,
+item:powdered-metal-rusty,Powdered Metal Rusty,unmatched,
+item:powdered-metal-silver,Powdered Metal Silver,unmatched,
+item:powdered-metal-uranium,Powdered Metal Uranium,unmatched,
+item:powdered-ore-boneash,Powdered Ore Boneash,unmatched,
+item:powdered-ore-cassiterite,Powdered Ore Cassiterite,unmatched,
+item:powdered-ore-chromite,Powdered Ore Chromite,unmatched,
+item:powdered-ore-chromiumoxide,Powdered Ore Chromiumoxide,unmatched,
+item:powdered-ore-coal,Powdered Ore Coal,unmatched,
+item:powdered-ore-fluorite,Powdered Ore Fluorite,unmatched,
+item:powdered-ore-galena,Powdered Ore Galena,unmatched,
+item:powdered-ore-graphite,Powdered Ore Graphite,unmatched,
+item:powdered-ore-hematite,Powdered Ore Hematite,unmatched,
+item:powdered-ore-ilmenite,Powdered Ore Ilmenite,unmatched,
+item:powdered-ore-kernite,Powdered Ore Kernite,unmatched,
+item:powdered-ore-leadoxide,Powdered Ore Leadoxide,unmatched,
+item:powdered-ore-limonite,Powdered Ore Limonite,unmatched,
+item:powdered-ore-litharge,Powdered Ore Litharge,unmatched,
+item:powdered-ore-magnesiumhydroxide,Powdered Ore Magnesiumhydroxide,unmatched,
+item:powdered-ore-magnesiumoxide,Powdered Ore Magnesiumoxide,unmatched,
+item:powdered-ore-magnetite,Powdered Ore Magnetite,unmatched,
+item:powdered-ore-manganesedioxide,Powdered Ore Manganesedioxide,unmatched,
+item:powdered-ore-manganeseoxide,Powdered Ore Manganeseoxide,unmatched,
+item:powdered-ore-massicot,Powdered Ore Massicot,unmatched,
+item:powdered-ore-olivine,Powdered Ore Olivine,unmatched,
+item:powdered-ore-rhodochrosite,Powdered Ore Rhodochrosite,unmatched,
+item:powdered-ore-sphalerite,Powdered Ore Sphalerite,unmatched,
+item:powdered-ore-whitelead,Powdered Ore Whitelead,unmatched,
+item:powdered-ore-yellowcake,Powdered Ore Yellowcake,unmatched,
+item:powdered-ore-zincoxide,Powdered Ore Zincoxide,unmatched,
+item:powdered-stone-andesite,Powdered Stone Andesite,unmatched,
+item:powdered-stone-basalt,Powdered Stone Basalt,unmatched,
+item:powdered-stone-bauxite,Powdered Stone Bauxite,unmatched,
+item:powdered-stone-obsidian,Powdered Stone Obsidian,unmatched,
+item:powdered-stone-phyllite,Powdered Stone Phyllite,unmatched,
+item:powdered-stone-shale,Powdered Stone Shale,unmatched,
+item:powdered-stone-slate,Powdered Stone Slate,unmatched,
+item:powderflask-{metal},Powderflask,unmatched,

@@ -1,0 +1,66 @@
+Item ID,Crops,Count,Base Value (Copper Sovereigns),Last Value,Current Price,Industrial Town,Industrial City,Market Town,Market City,Religious Town,Temple City,Trend,% Change
+,,,,,,,,,,,,,
+,"Unproccesed grown items, animals, fauna, naturally grown or excreted items. The Empire does not buy Flax, Bamboo, or Seeds. Historic Values will be added to show trend over time by addition of new column after 'Last Value'",,,,,,,,,,,,
+AGRICULTURAL GOODS,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Item ID,Crops (Equiv. Seeds are 1:1 trade in necessity),Count,Base Value (Copper Sovereigns),3/1/2026 VALUE,Current Price,Industrial Town,Industrial City,Market Town,Market City,Religious Town,Temple City,Trend,% Change
+AG001,Cabbage,64,10,10,12,8,6,13,14,13,14,,20.00%
+AG002,Carrot,64,6,6,8,5,4,9,9,9,10,,33.33%
+AG003,Cassava,64,12,12,15,10,8,17,17,17,18,,25.00%
+AG004,Dried Cassava,64,14,14,17,11,9,19,20,19,20,,21.43%
+AG005,Tree Fruits,64,8,8,16,10,8,18,18,18,19,,100.00%
+AG006,Onion,64,5,5,8,5,4,9,9,9,10,,60.00%
+AG007,Parsnip,64,5,5,8,5,4,9,9,9,10,,60.00%
+AG008,Peanut,64,8,8,11,7,6,12,13,12,13,,37.50%
+AG009,Pineapple ,32,8,8,10,7,5,11,12,11,12,,25.00%
+AG010,Melon,32,9,9,14,9,7,15,16,15,17,,55.56%
+AG011,Pumpkin,32,8,8,13,8,7,14,15,14,16,,62.50%
+AG012,Soybean,64,5,5,7,5,4,8,8,8,8,,40.00%
+AG013,Turnip,64,6,6,8,5,4,9,9,9,10,,33.33%
+AG014,Sunflower,64,5,5,7,5,4,8,8,8,8,,40.00%
+AG015,Spelt / Rye,64,5,5,5,3,3,6,6,6,6,,0.00%
+AG016,Amaranth,64,8,8,12,8,6,13,14,13,14,,50.00%
+AG017,Mushrooms,64,15,15,30,20,15,33,35,33,36,,100.00%
+AG018,Pipeleaf,32,6,6,16,10,8,18,18,18,19,,166.67%
+AG019,Cocoa Pods,32,10,10,20,13,10,22,23,22,24,,100.00%
+AG020,Rice,64,9,9,7,5,4,8,8,8,8,,-22.22%
+AG021,Bamboo Shoots,64,8,8,12,8,6,13,14,13,14,,50.00%
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Item ID,Animals (Alive & Empire will keep cages),Count,Base Value (Copper Sovereigns),3/1/2026 VALUE,Current Price,Industrial Town,Industrial City,Market Town,Market City,Religious Town,Temple City,Trend,% Change
+AG022,Elks (Limit 10),1,15,15,17,11,9,19,20,19,20,,13.33%
+AG023,Bees (skep),1,6,6,9,6,5,10,10,10,11,,50.00%
+AG024,Sheep (Limit 40),3,12,12,18,12,9,20,21,20,22,,50.00%
+AG025,Pigs (Limit 30),3,7,7,11,7,6,12,13,12,13,,57.14%
+AG026,Chickens (Limit 40),3,4,4,7,5,4,8,8,8,8,,75.00%
+AG027,Moose (Limit 3),1,15,15,20,13,10,22,23,22,24,,33.33%
+AG028,Hare,1,5,5,10,7,5,11,12,11,12,,100.00%
+AG029,"Medium Goats (Limit 20, Musk Ox & Takin Gold Goat)",3,10,10,15,10,8,17,17,17,18,,50.00%
+,"Large Goats (Limit 15, Angora goat, Alpine Ibex, Nubian Ibex, Markhor goat, Mountain goat, Nubian goat, Sirohi goat, Turdag goat, Valais goat)",3,13,-,15,10,8,17,17,17,18,#N/A,#VALUE!
+AG030,Wolf (Limit 10),1,15,15,25,16,13,28,29,28,30,,66.67%
+AG031,Elephant (Limit 3),1,50,50,80,52,40,88,92,88,96,,60.00%
+AG032,Fish (Dead) (No Limit),32,8,8,40,26,20,44,46,44,48,,400.00%
+AG033,Sun Bear (Limit 10),1,20,20,28,18,14,31,32,31,34,,40.00%
+AG043,Panda Bear (Limit 10),1,30,-,37,24,19,41,43,41,44,#N/A,#VALUE!
+AG044,Black Bear (Limit 20),1,40,-,43,28,22,47,49,47,52,#N/A,#VALUE!
+AG045,Brown Bear (Limit 20),1,50,-,54,35,27,59,62,59,65,#N/A,#VALUE!
+AG046,Polar Bear,1,60,-,66,43,33,73,76,73,79,#N/A,#VALUE!
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Item ID,Animal Goods,Count,Base Value (Copper Soverigns),3/1/2026 VALUE,Current Price,Industrial Town,Industrial City,Market Town,Market City,Religious Town,Temple City,Trend,% Change
+AG034,Prepared Small Hide,64,3,3,3,2,2,3,3,3,4,,0.00%
+AG035,Prepared Medium Hide,32,2,2,3,2,2,3,3,3,4,,50.00%
+AG036,Prepared Large Hide,16,3,3,4,3,2,4,5,4,5,,33.33%
+AG037,Prepared Huge Hide,8,6,6,7,5,4,8,8,8,8,,16.67%
+AG038,Fat,64,8,8,9,6,5,10,10,10,11,,12.50%
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+,,,,,,,,,,,,,
+Item ID,Wood,Count,Base Value (Copper Soverigns),3/1/2026 VALUE,Current Price,Industrial Town,Industrial City,Market Town,Market City,Religious Town,Temple City,Trend,% Change
+AG039,Logs,16,1,1,1,1,1,1,1,1,1,,0.00%
+AG040,Planks,32,3,3,3,2,2,3,3,3,4,,0.00%
+AG041,Firewood,32,4,4,4,3,2,4,5,4,5,,0.00%
+AG042,Resin,32,5,5,6,4,3,7,7,7,7,,20.00%

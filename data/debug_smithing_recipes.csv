@@ -1,0 +1,154 @@
+output_game_code,output_qty_raw,ingredients_raw
+block:anvilpart-base-{metal},,"item:ingot-* (variants=iron,meteoriciron)"
+block:anvilpart-top-{metal},,"item:ingot-* (variants=iron,meteoriciron)"
+block:cokeovendoor-closed-north,,item:ingot-* (variants=iron)
+block:maltiezcrossbows:wallmount-{metal}-east,,"item:game:ingot-* (variants=iron,tinbronze,copper,steel,brass)"
+block:maltiezfirearms:wallmount-{metal}-east,,"item:game:ingot-* (variants=iron,tinbronze,copper,steel,brass)"
+block:plugandfeather-{metal}-0-down-north,,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+block:spile-{metal}-north,,"item:game:ingot-* (variants=copper,brass,tinbronze,blackbronze,titanium,steel)"
+block:spile-{metal}-north,4,"item:game:ingot-* (variants=copper,brass,tinbronze,blackbronze,titanium,steel)"
+block:tankard-metal-{metal},1,"item:game:ingot-* (variants=iron,copper,tinbronze,bismuthbronze,blackbronze,brass,silver,steel,meteoriciron,gold,platinum)"
+item:aculinaryartillery:bighook-{metal},4,"item:game:ingot-* (variants=copper,brass,tinbronze,blackbronze,titanium,steel)"
+item:alchemy:herbrackhook-{metal},8,"item:game:ingot-* (variants=bismuth,bismuthbronze,blackbronze,brass,chromium,copper,cupronickel,electrum,gold,iron,lead,meteoriciron,molybdochalkos,nickel,platinum,silver,stainlesssteel,steel,tin,tinbronze,titanium,uranium,zinc)"
+item:alchemy:herbrackhook-{metal},4,"item:game:ingot-* (variants=bismuth,bismuthbronze,blackbronze,brass,chromium,copper,cupronickel,electrum,gold,iron,lead,meteoriciron,molybdochalkos,nickel,platinum,silver,stainlesssteel,steel,tin,tinbronze,titanium,uranium,zinc)"
+item:alchemy:herbracktop-{metal},,"item:game:ingot-* (variants=bismuth,bismuthbronze,blackbronze,brass,chromium,copper,cupronickel,electrum,gold,iron,lead,meteoriciron,molybdochalkos,nickel,platinum,silver,stainlesssteel,steel,tin,tinbronze,titanium,uranium,zinc)"
+item:armory:armor-arms-plate-{metal}-vanilla,,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel,gold,silver)"
+item:armory:armor-feet-plate-{metal}-vanilla,,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel,gold,silver)"
+item:armory:armor-hands-plate-{metal}-vanilla,,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel,gold,silver)"
+item:armory:armor-head-plate-{metal}-light,,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:armory:armor-head-plate-{metal}-open,,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel,gold,silver)"
+item:armory:armor-legs-plate-{metal}-vanilla,,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel,gold,silver)"
+item:armory:armor-torso-plate-{metal}-vanilla,,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel,gold,silver)"
+item:armory:part-greatsword-{metal},,"item:game:ingot-* (variants=steel,iron,meteoriciron)"
+item:armory:part-halberd-{metal},1,"item:game:ingot-* (variants=iron,meteoriciron,steel)"
+item:armory:part-hammerhead-steel,,item:game:ingot-steel
+item:armory:part-javelinhead-{metal},2,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:armory:part-javelinhead-{metal},3,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:armory:part-longaxehead-{metal},,"item:game:ingot-* (variants=tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:armory:part-longsword-{metal},,"item:game:ingot-* (variants=tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:armory:part-macehead-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze)"
+item:armory:part-macehead-{metal},,"item:game:ingot-* (variants=iron,meteoriciron)"
+item:armory:part-poleaxehead-steel,,item:game:ingot-steel
+item:armory:part-sabre-{metal},,"item:game:ingot-* (variants=tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:armory:part-shortsword-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:armory:shield-light-plain-copper,,item:game:ingot-copper
+item:armory:shield-light-plain-steel,,item:game:ingot-steel
+item:arrowhead-{metal},9,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:arrowhead-{metal},6,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:axehead-{metal},,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:axehead-shepherds-{metal},,item:game:ingot-* (variants=iron)
+item:bighook-{metal},,"item:game:ingot-* (variants=copper,brass,tinbronze,blackbronze,titanium,steel)"
+item:bladehead-falx-{metal},,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:bladehead-short-{metal},,item:ingot-* (variants=iron)
+item:boss-{metal},,"item:ingot-* (variants=tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:bracelet-{metal},3,"item:game:ingot-* (variants=silver,gold,copper,tinbronze)"
+item:buckethandle-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:chain-{metal},,"item:game:ingot-* (variants=silver,gold,copper,tinbronze)"
+item:chisel-{metal},,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:chisel-roughcut-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:chutesection-copper,,item:ingot-* (variants=copper)
+item:claymoreblade,,item:game:ingot-* (variants=meteoriciron)
+item:claymoreblade,,item:game:ingot-* (variants=iron)
+item:cleaver-{metal},,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:coinage:punchpart-{metal},,"item:game:ingot-* (variants=blackbronze,iron,meteoriciron,steel)"
+item:crowbar-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:doortool-{metal},,"item:game:ingot-* (variants=bismuthbronze,tinbronze,blackbronze,steel,meteoriciron,iron)"
+item:finishingchiselhead-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:forlornblade-{metal},,item:game:ingot-* (variants=meteoriciron)
+item:game:armor-head-plate-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel,gold,silver)"
+item:game:clothes-arm-bronze-armlet,,item:game:ingot-tinbronze
+item:hammerhead-{metal},,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:handplaner-{metal},,"item:game:ingot-* (variants=iron,meteoriciron,steel,blackbronze,tinbronze,bismuthbronze,copper)"
+item:handwedge-{metal},,"item:game:ingot-* (variants=iron,meteoriciron,steel,tinbronze,bismuthbronze,blackbronze,copper)"
+item:hayforkhead-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:helvehammerhead-{metal},,"item:ingot-* (variants=tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:hoehead-{metal},,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:hook-{metal},4,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron)"
+item:hook-{metal},1,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron)"
+item:hoop-{metal},,"item:ingot-* (variants=tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:hydrateordiedrate:kegtap,,item:game:ingot-* (variants=brass)
+item:hydrateordiedrate:pipesection-{metal},,"item:game:ingot-* (variants=copper,lead)"
+item:igniscustomstuff:part-dwarvenbattleaxehead-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:igniscustomstuff:part-dwarvenshieldband-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:igniscustomstuff:part-dwarvenshortaxehead-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:igniscustomstuff:part-dwarvenshorthammerhead-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:igniscustomstuff:part-dwarvenspearhead-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:igniscustomstuff:part-dwarvenwarhammerhead-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:igniscustomstuff:part-elvenglaivehead-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:igniscustomstuff:part-elvenshieldband-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:igniscustomstuff:part-elvenshortaxehead-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:igniscustomstuff:part-elvenswordhead-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:igniscustomstuff:part-executionerswordhead-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:igniscustomstuff:part-narsilhead-{metal},,item:game:ingot-* (variants=meteoriciron)
+item:ingot-iron,,item:ironbloom
+item:ingot-steel,,item:ingot-* (variants=blistersteel)
+item:knifeblade-{metal},,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:laddermaker-{metal},,"item:game:ingot-* (variants=iron,meteoriciron,steel)"
+item:locktool-{metal},,"item:game:ingot-* (variants=bismuthbronze,tinbronze,blackbronze,steel,meteoriciron,iron)"
+item:maltiezcrossbows:bow-steel-heavy,,item:game:ingot-steel
+item:maltiezcrossbows:bow-steel-light,,item:game:ingot-steel
+item:maltiezcrossbows:parts-goatfoot-steel,,item:game:ingot-steel
+item:maltiezcrossbows:parts-latch-iron,,item:game:ingot-iron
+item:maltiezcrossbows:parts-latch-meteoriciron,,item:game:ingot-meteoriciron
+item:maltiezcrossbows:parts-lock-{metal},,"item:game:ingot-* (variants=tinbronze,bismuthbronze,blackbronze,steel)"
+item:maltiezcrossbows:parts-stirrup-{metal},,"item:game:ingot-* (variants=tinbronze,bismuthbronze,blackbronze)"
+item:maltiezcrossbows:parts-stirrup-steel,,item:game:ingot-steel
+item:maltiezcrossbows:parts-windlass-steel,,item:game:ingot-steel
+item:maltiezfirearms:barrel-arquebus-iron,,item:game:ingot-iron
+item:maltiezfirearms:barrel-arquebus-meteoriciron,,item:game:ingot-meteoriciron
+item:maltiezfirearms:barrel-blunderbuss-iron,,item:game:ingot-iron
+item:maltiezfirearms:barrel-blunderbuss-meteoriciron,,item:game:ingot-meteoriciron
+item:maltiezfirearms:bayonet-blade-socket,,item:game:ingot-steel
+item:maltiezfirearms:cockinglever-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:maltiezfirearms:cylinder-bullets-steel,,item:game:ingot-steel
+item:maltiezfirearms:flaskfurniture-{metal},,"item:game:ingot-* (variants=brass,copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:maltiezfirearms:ramrod-arquebus-iron,,item:game:ingot-iron
+item:maltiezfirearms:ramrod-arquebus-meteoriciron,,item:game:ingot-meteoriciron
+item:maltiezfirearms:ramrod-carbine-steel,,item:game:ingot-steel
+item:maltiezfirearms:ramrod-musket-steel,,item:game:ingot-steel
+item:maltiezfirearms:ramrod-pistol-bismuthbronze,,item:game:ingot-bismuthbronze
+item:maltiezfirearms:ramrod-pistol-blackbronze,,item:game:ingot-blackbronze
+item:maltiezfirearms:ramrod-pistol-steel,,item:game:ingot-steel
+item:maltiezfirearms:ramrod-pistol-tinbronze,,item:game:ingot-tinbronze
+item:mboxcomb,,item:game:ingot-* (variants=steel)
+item:metalchain-{metal},,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,gold,silver,meteoriciron,steel)"
+item:metalnailsandstrips-{metal},4,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:metalnailsandstrips-{metal},8,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:metalplate-{metal},,"item:ingot-* (variants=copper,brass,tinbronze,bismuthbronze,blackbronze,cupronickel,silver,gold,iron,lead,nickel,tin,zinc,bismuth,chromium,electrum,platinum,titanium,molybdochalkos,meteoriciron,steel)"
+item:metalscale-{metal},2,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:musicblockcone,,item:game:ingot-* (variants=brass)
+item:padlock-{metal},,"item:ingot-* (variants=tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:paintbrush-{metal},2,"item:game:ingot-* (variants=iron,meteoriciron,steel)"
+item:paintscraper-{metal},2,"item:game:ingot-* (variants=iron,meteoriciron,steel,tinbronze,bismuthbronze,blackbronze,copper)"
+item:pantograph-{metal},,"item:game:ingot-* (variants=bismuthbronze,tinbronze,blackbronze,steel,meteoriciron,iron)"
+item:part-buckle-{metal},2,"item:game:ingot-* (variants=brass,copper,tinbronze,bismuthbronze,blackbronze,gold,silver,iron,meteoriciron,steel)"
+item:pathmaker-{metal},,"item:game:ingot-* (variants=iron,meteoriciron,steel,tinbronze,blackbronze,bismuthbronze)"
+item:pickaxehead-{metal},,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:poundercap-{metal},,"item:ingot-* (variants=tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:prospectingpickhead-{metal},,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:rod-{metal},,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,gold,silver,iron,meteoriciron,steel,cupronickel,electrum)"
+item:rollingpin-{metal},,"item:game:ingot-* (variants=blackbronze,copper,iron,meteoriciron,steel,tinbronze)"
+item:rpvoicechat:royalhornhandle,,item:game:ingot-brass
+item:rpvoicechat:telegraphwire,3,item:game:ingot-copper
+item:rubblehammerhead-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:sawblade-{metal},,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:sax,,item:game:ingot-* (variants=brass)
+item:scythehead-{metal},,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:shears-{metal},,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:shoeframe-{metal},,item:game:ingot-* (variants=)
+item:shovelhead-{metal},,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:simplepantograph-{metal},,"item:game:ingot-* (variants=copper,bismuthbronze,tinbronze,blackbronze,steel,meteoriciron,iron)"
+item:smokingpipestem-{metal},,"item:game:ingot-* (variants=copper,brass,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,lead,tin,zinc,bismuth,chromium,platinum,titanium,molybdochalkos,meteoriciron,steel)"
+item:spearhead-{metal},,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze)"
+item:spytube-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuth,bismuthbronze,blackbronze,gold,silver,iron,meteoriciron,brass,steel)"
+item:steeldrum,,item:game:ingot-* (variants=steel)
+item:tailorsdelight:awlthorn-{metal},,"item:game:ingot-* (variants=copper,cupronickel,electrum,gold,silver,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:tailorsdelight:metalband-{metal},,"item:game:ingot-* (variants=copper,cupronickel,brass,electrum,gold,silver,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:token-{metal},,"item:game:ingot-* (variants=gold,silver,copper)"
+item:treeshaker:shakerhead-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,steel)"
+item:trumpet,,item:game:ingot-* (variants=brass)
+item:visorhelmets:armor-head-{metal}-closed,,item:game:ingot-* (variants=steel)
+item:visorhelmets:armor-head-{metal}-closed,,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,iron,meteoriciron,gold,silver)"
+item:visorhelmets:armor-neck-{metal},,item:game:ingot-* (variants=steel)
+item:wedgechiselhead-{metal},,"item:game:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"
+item:wrench-{metal},,"item:ingot-* (variants=copper,tinbronze,bismuthbronze,blackbronze,silver,gold,iron,meteoriciron,steel)"

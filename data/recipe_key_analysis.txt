@@ -1,0 +1,233 @@
+
+=== BASE:alloy (9 files, 0 parse errors, 9 parsed) ===
+  ingredients: 9/9 (100%)
+  output: 9/9 (100%)
+
+=== BASE:barrel (40 files, 1 parse errors, 39 parsed) ===
+  ingredients: 39/39 (100%)
+  output: 39/39 (100%)
+  code: 39/39 (100%)
+  sealhours: 30/39 (77%)
+
+=== BASE:clayforming (29 files, 0 parse errors, 29 parsed) ===
+  pattern: 29/29 (100%)
+  ingredient: 29/29 (100%)
+  name: 29/29 (100%)
+  output: 29/29 (100%)
+  enabled: 2/29 (7%)
+
+=== BASE:cooking (14 files, 0 parse errors, 14 parsed) ===
+  perishableprops: 14/14 (100%)
+  ingredients: 14/14 (100%)
+  shape: 14/14 (100%)
+  code: 14/14 (100%)
+  cooksinto: 8/14 (57%)
+
+=== BASE:grid (254 files, 112 parse errors, 142 parsed) ===
+  height: 141/142 (99%)
+  width: 141/142 (99%)
+  ingredients: 141/142 (99%)
+  ingredientpattern: 141/142 (99%)
+  output: 141/142 (99%)
+  shapeless: 36/142 (25%)
+  name: 33/142 (23%)
+  recipegroup: 29/142 (20%)
+  requirestrait: 11/142 (8%)
+  enabled: 4/142 (3%)
+  attributes: 3/142 (2%)
+
+=== BASE:knapping (12 files, 0 parse errors, 12 parsed) ===
+  name: 12/12 (100%)
+  output: 12/12 (100%)
+  pattern: 12/12 (100%)
+  ingredient: 12/12 (100%)
+
+=== BASE:smithing (34 files, 0 parse errors, 34 parsed) ===
+  name: 34/34 (100%)
+  output: 34/34 (100%)
+  pattern: 34/34 (100%)
+  ingredient: 34/34 (100%)
+
+=== MOD:acorns (11 files, 0 parse errors, 11 parsed) ===
+  path: 11/11 (100%)
+  side: 11/11 (100%)
+  file: 11/11 (100%)
+  value: 11/11 (100%)
+  op: 11/11 (100%)
+  dependson: 11/11 (100%)
+
+=== MOD:barrel (107 files, 1 parse errors, 106 parsed) ===
+  ingredients: 106/106 (100%)
+  output: 106/106 (100%)
+  code: 106/106 (100%)
+  sealhours: 85/106 (80%)
+  recipegroup: 5/106 (5%)
+  enabled: 4/106 (4%)
+  name: 4/106 (4%)
+  comment: 3/106 (3%)
+  height: 1/106 (1%)
+  width: 1/106 (1%)
+  shapeless: 1/106 (1%)
+
+=== MOD:clayforming (43 files, 0 parse errors, 43 parsed) ===
+  name: 43/43 (100%)
+  output: 43/43 (100%)
+  pattern: 43/43 (100%)
+  ingredient: 43/43 (100%)
+  enabled: 9/43 (21%)
+
+=== MOD:cooking (35 files, 0 parse errors, 35 parsed) ===
+  perishableprops: 33/35 (94%)
+  ingredients: 33/35 (94%)
+  shape: 33/35 (94%)
+  code: 33/35 (94%)
+  cooksinto: 29/35 (83%)
+  isfood: 12/35 (34%)
+  enabled: 3/35 (9%)
+  comment: 3/35 (9%)
+  path: 2/35 (6%)
+  side: 2/35 (6%)
+  file: 2/35 (6%)
+  value: 2/35 (6%)
+  op: 2/35 (6%)
+  recipegroup: 1/35 (3%)
+
+=== MOD:grid (1199 files, 76 parse errors, 1123 parsed) ===
+  height: 1095/1123 (98%)
+  width: 1095/1123 (98%)
+  ingredients: 1095/1123 (98%)
+  ingredientpattern: 1095/1123 (98%)
+  output: 1095/1123 (98%)
+  recipegroup: 356/1123 (32%)
+  name: 263/1123 (23%)
+  shapeless: 254/1123 (23%)
+  requirestrait: 188/1123 (17%)
+  enabled: 116/1123 (10%)
+  copyattributesfrom: 70/1123 (6%)
+  attributes: 50/1123 (4%)
+  averagedurability: 32/1123 (3%)
+  dependson: 32/1123 (3%)
+  path: 28/1123 (2%)
+  file: 28/1123 (2%)
+  value: 28/1123 (2%)
+  op: 28/1123 (2%)
+  code: 26/1123 (2%)
+  allowedvariants: 24/1123 (2%)
+  comment: 10/1123 (1%)
+  showincreatedby: 5/1123 (0%)
+  skipvariants: 2/1123 (0%)
+  _comment: 1/1123 (0%)
+  compatibility: 1/1123 (0%)
+
+=== MOD:knapping (12 files, 0 parse errors, 12 parsed) ===
+  name: 12/12 (100%)
+  output: 12/12 (100%)
+  pattern: 12/12 (100%)
+  ingredient: 12/12 (100%)
+
+=== MOD:kneading (102 files, 0 parse errors, 102 parsed) ===
+  ingredients: 95/102 (93%)
+  output: 95/102 (93%)
+  path: 7/102 (7%)
+  side: 7/102 (7%)
+  file: 7/102 (7%)
+  value: 7/102 (7%)
+  op: 7/102 (7%)
+  enabled: 3/102 (3%)
+  dependson: 2/102 (2%)
+
+=== MOD:loompatterns (17 files, 0 parse errors, 17 parsed) ===
+  pattern: 17/17 (100%)
+  enabled: 17/17 (100%)
+  input: 17/17 (100%)
+  output: 17/17 (100%)
+  code: 17/17 (100%)
+
+=== MOD:meals (27 files, 0 parse errors, 27 parsed) ===
+  path: 27/27 (100%)
+  side: 27/27 (100%)
+  file: 27/27 (100%)
+  value: 27/27 (100%)
+  op: 27/27 (100%)
+  dependson: 27/27 (100%)
+
+=== MOD:mixing (7 files, 0 parse errors, 7 parsed) ===
+  path: 4/7 (57%)
+  side: 4/7 (57%)
+  file: 4/7 (57%)
+  value: 4/7 (57%)
+  op: 4/7 (57%)
+  dependson: 4/7 (57%)
+  ingredients: 3/7 (43%)
+  code: 3/7 (43%)
+  perishableprops: 3/7 (43%)
+  shape: 3/7 (43%)
+
+=== MOD:primitivesurvival (1 files, 0 parse errors, 1 parsed) ===
+  path: 1/1 (100%)
+  side: 1/1 (100%)
+  file: 1/1 (100%)
+  value: 1/1 (100%)
+  op: 1/1 (100%)
+  dependson: 1/1 (100%)
+
+=== MOD:simmering (63 files, 0 parse errors, 63 parsed) ===
+  ingredients: 63/63 (100%)
+  simmering: 63/63 (100%)
+
+=== MOD:smithing (77 files, 0 parse errors, 77 parsed) ===
+  output: 77/77 (100%)
+  pattern: 77/77 (100%)
+  ingredient: 77/77 (100%)
+  name: 68/77 (88%)
+  enabled: 4/77 (5%)
+  code: 1/77 (1%)
+
+=== MOD:teapot (1 files, 0 parse errors, 1 parsed) ===
+  ingredients: 1/1 (100%)
+  duration: 1/1 (100%)
+  maxtemperature: 1/1 (100%)
+  mintemperature: 1/1 (100%)
+  output: 1/1 (100%)
+  code: 1/1 (100%)
+
+
+=== CROSS-TYPE KEY PRESENCE ===
+  _comment: present in 1 types -> ['MOD:grid']
+  allowedvariants: present in 1 types -> ['MOD:grid']
+  attributes: present in 2 types -> ['BASE:grid', 'MOD:grid']
+  averagedurability: present in 1 types -> ['MOD:grid']
+  code: present in 9 types -> ['BASE:barrel', 'BASE:cooking', 'MOD:barrel', 'MOD:cooking', 'MOD:grid', 'MOD:loompatterns', 'MOD:mixing', 'MOD:smithing', 'MOD:teapot']
+  comment: present in 3 types -> ['MOD:barrel', 'MOD:cooking', 'MOD:grid']
+  compatibility: present in 1 types -> ['MOD:grid']
+  cooksinto: present in 2 types -> ['BASE:cooking', 'MOD:cooking']
+  copyattributesfrom: present in 1 types -> ['MOD:grid']
+  dependson: present in 6 types -> ['MOD:acorns', 'MOD:grid', 'MOD:kneading', 'MOD:meals', 'MOD:mixing', 'MOD:primitivesurvival']
+  duration: present in 1 types -> ['MOD:teapot']
+  enabled: present in 9 types -> ['BASE:clayforming', 'BASE:grid', 'MOD:barrel', 'MOD:clayforming', 'MOD:cooking', 'MOD:grid', 'MOD:kneading', 'MOD:loompatterns', 'MOD:smithing']
+  file: present in 7 types -> ['MOD:acorns', 'MOD:cooking', 'MOD:grid', 'MOD:kneading', 'MOD:meals', 'MOD:mixing', 'MOD:primitivesurvival']
+  height: present in 3 types -> ['BASE:grid', 'MOD:barrel', 'MOD:grid']
+  ingredient: present in 6 types -> ['BASE:clayforming', 'BASE:knapping', 'BASE:smithing', 'MOD:clayforming', 'MOD:knapping', 'MOD:smithing']
+  ingredientpattern: present in 2 types -> ['BASE:grid', 'MOD:grid']
+  ingredients: present in 11 types -> ['BASE:alloy', 'BASE:barrel', 'BASE:cooking', 'BASE:grid', 'MOD:barrel', 'MOD:cooking', 'MOD:grid', 'MOD:kneading', 'MOD:mixing', 'MOD:simmering', 'MOD:teapot']
+  input: present in 1 types -> ['MOD:loompatterns']
+  isfood: present in 1 types -> ['MOD:cooking']
+  maxtemperature: present in 1 types -> ['MOD:teapot']
+  mintemperature: present in 1 types -> ['MOD:teapot']
+  name: present in 9 types -> ['BASE:clayforming', 'BASE:grid', 'BASE:knapping', 'BASE:smithing', 'MOD:barrel', 'MOD:clayforming', 'MOD:grid', 'MOD:knapping', 'MOD:smithing']
+  op: present in 7 types -> ['MOD:acorns', 'MOD:cooking', 'MOD:grid', 'MOD:kneading', 'MOD:meals', 'MOD:mixing', 'MOD:primitivesurvival']
+  output: present in 14 types -> ['BASE:alloy', 'BASE:barrel', 'BASE:clayforming', 'BASE:grid', 'BASE:knapping', 'BASE:smithing', 'MOD:barrel', 'MOD:clayforming', 'MOD:grid', 'MOD:knapping', 'MOD:kneading', 'MOD:loompatterns', 'MOD:smithing', 'MOD:teapot']
+  path: present in 7 types -> ['MOD:acorns', 'MOD:cooking', 'MOD:grid', 'MOD:kneading', 'MOD:meals', 'MOD:mixing', 'MOD:primitivesurvival']
+  pattern: present in 7 types -> ['BASE:clayforming', 'BASE:knapping', 'BASE:smithing', 'MOD:clayforming', 'MOD:knapping', 'MOD:loompatterns', 'MOD:smithing']
+  perishableprops: present in 3 types -> ['BASE:cooking', 'MOD:cooking', 'MOD:mixing']
+  recipegroup: present in 4 types -> ['BASE:grid', 'MOD:barrel', 'MOD:cooking', 'MOD:grid']
+  requirestrait: present in 2 types -> ['BASE:grid', 'MOD:grid']
+  sealhours: present in 2 types -> ['BASE:barrel', 'MOD:barrel']
+  shape: present in 3 types -> ['BASE:cooking', 'MOD:cooking', 'MOD:mixing']
+  shapeless: present in 3 types -> ['BASE:grid', 'MOD:barrel', 'MOD:grid']
+  showincreatedby: present in 1 types -> ['MOD:grid']
+  side: present in 6 types -> ['MOD:acorns', 'MOD:cooking', 'MOD:kneading', 'MOD:meals', 'MOD:mixing', 'MOD:primitivesurvival']
+  simmering: present in 1 types -> ['MOD:simmering']
+  skipvariants: present in 1 types -> ['MOD:grid']
+  value: present in 7 types -> ['MOD:acorns', 'MOD:cooking', 'MOD:grid', 'MOD:kneading', 'MOD:meals', 'MOD:mixing', 'MOD:primitivesurvival']
+  width: present in 3 types -> ['BASE:grid', 'MOD:barrel', 'MOD:grid']

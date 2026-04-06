@@ -1,0 +1,69 @@
+item_id,display_name,lr_category
+IN024,Alum,industrial_goods
+IN034,Amethyst,industrial_goods
+IN049,Anthracite,industrial_goods
+IN001,Bismuth,industrial_goods
+IN015,Bismuth Bronze,industrial_goods
+IN059,Bismuthinite Chunk,industrial_goods
+IN017,Black Bronze,industrial_goods
+IN050,Black Coal,industrial_goods
+IN023,Blasting powder,industrial_goods
+IN022,Blue Clay,industrial_goods
+IN048,Borax,industrial_goods
+IN002,Brass,industrial_goods
+IN054,Cassiterite Chunk,industrial_goods
+IN046,Charcoal,industrial_goods
+IN065,Chromite Chunk,industrial_goods
+IN025,Cinnabar,industrial_goods
+IN068,Clear Quartz,industrial_goods
+IN032,Cloudy Quartz,industrial_goods
+IN045,Coke,industrial_goods
+IN003,Copper,industrial_goods
+IN052,Copper Chunk (HAVENT CHANGED),industrial_goods
+IN004,Cupronickel,industrial_goods
+IN035,Diamond,industrial_goods
+IN005,Electrum,industrial_goods
+IN036,Emerald,industrial_goods
+IN067,Fire Clay,industrial_goods
+IN028,Fluorite,industrial_goods
+IN055,Galena Chunk,industrial_goods
+IN043,Giant Quarried Stone,industrial_goods
+IN006,Gold,industrial_goods
+IN056,Gold Chunk,industrial_goods
+IN029,Graphite,industrial_goods
+IN026,Halite,industrial_goods
+IN060,Hematite Chunk,industrial_goods
+IN042,Huge Quarried Stone,industrial_goods
+IN063,Ilmenite Chunk,industrial_goods
+IN007,Iron,industrial_goods
+IN030,Kernite,industrial_goods
+IN018,Lapis Lazuli,industrial_goods
+IN041,Large Quarried Stone,industrial_goods
+IN008,Lead,industrial_goods
+IN051,Lignite,industrial_goods
+IN044,Lime,industrial_goods
+IN061,Limonite Chunk,industrial_goods
+IN062,Magnetite Chunk,industrial_goods
+IN053,Malachite Chunk,industrial_goods
+IN038,Marble,industrial_goods
+IN040,Medium Quarried Stone,industrial_goods
+IN009,Meteoric Iron,industrial_goods
+IN047,Mortar,industrial_goods
+IN010,Nickel,industrial_goods
+IN033,Olivine,industrial_goods
+IN064,Pentlandite Chunk,industrial_goods
+IN037,Peridot,industrial_goods
+IN031,Phosphorite,industrial_goods
+IN019,Potash,industrial_goods
+IN066,Rhodochrosite Chunk,industrial_goods
+IN020,Saltpeter,industrial_goods
+IN011,Silver,industrial_goods
+IN057,Silver Chunk,industrial_goods
+IN039,Small Quarried Stone,industrial_goods
+IN058,Sphalerite Chunk,industrial_goods
+IN012,Steel,industrial_goods
+IN021,Sulfur,industrial_goods
+IN027,Sylvite,industrial_goods
+IN013,Tin,industrial_goods
+IN016,Tin Bronze,industrial_goods
+IN014,Zinc,industrial_goods

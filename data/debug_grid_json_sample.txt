@@ -1,0 +1,218 @@
+FILE: daub-raw.json
+{
+  ingredientPattern: "DG,WC",
+  ingredients: {
+    G: {
+      type: "item",
+      code: "drygrass",
+      quantity: 2,
+    },
+    D: {
+      type: "block",
+      code: "soil-*-none",
+      quantity: 1,
+    },
+    W: {
+      type: "block",
+      code: "sand-*",
+      name: "rock",
+      allowedVariants: [
+        "andesite",
+      ],
+      quantity: 1,
+    },
+    C: {
+      type: "item",
+      code: "clay-*",
+      name: "clay",
+      allowedVariants: [
+        "red",
+      ],
+      quantity: 1,
+    },
+  },
+  width: 2,
+  height: 2,
+  output: {
+    type: "item",
+    code: "daubraw-browngolden",
+    quantity: 8,
+  },
+}
+
+FILE: daub-raw.json
+{
+  ingredientPattern: "DG,WC",
+  ingredients: {
+    G: {
+      type: "item",
+      code: "drygrass",
+      quantity: 2,
+    },
+    D: {
+      type: "block",
+      code: "soil-*-none",
+      quantity: 1,
+    },
+    W: {
+      type: "block",
+      code: "sand-*",
+      name: "rock",
+      allowedVariants: [
+        "chalk",
+        "limestone",
+      ],
+      quantity: 1,
+    },
+    C: {
+      type: "item",
+      code: "clay-*",
+      name: "clay",
+      allowedVariants: [
+        "red",
+      ],
+      quantity: 1,
+    },
+  },
+  width: 2,
+  height: 2,
+  output: {
+    type: "item",
+    code: "daubraw-browngolden",
+    quantity: 8,
+  },
+}
+
+FILE: daub-raw.json
+{
+  ingredientPattern: "DG,WC",
+  ingredients: {
+    G: {
+      type: "item",
+      code: "drygrass",
+      quantity: 2,
+    },
+    D: {
+      type: "block",
+      code: "soil-*-none",
+      quantity: 1,
+    },
+    W: {
+      type: "block",
+      code: "sand-*",
+      name: "rock",
+      allowedVariants: [
+        "granite",
+      ],
+      quantity: 1,
+    },
+    C: {
+      type: "item",
+      code: "clay-*",
+      name: "clay",
+      allowedVariants: [
+        "red",
+      ],
+      quantity: 1,
+    },
+  },
+  width: 2,
+  height: 2,
+  output: {
+    type: "item",
+    code: "daubraw-browngolden",
+    quantity: 8,
+  },
+}
+
+FILE: drystone.json
+{
+  ingredientPattern: "LLL,LCL,LLL",
+  ingredients: {
+    L: {
+      type: "item",
+      code: "stone-*",
+      name: "rock",
+      allowedVariants: [
+        "andesite",
+        "chalk",
+        "chert",
+        "conglomerate",
+        "limestone",
+        "claystone",
+        "granite",
+        "sandstone",
+        "shale",
+        "basalt",
+        "peridotite",
+        "phyllite",
+        "slate",
+        "bauxite",
+        "suevite",
+      ],
+    },
+    C: {
+      type: "item",
+      code: "stonebrick-*",
+      name: "rock",
+      allowedVariants: [
+        "andesite",
+        "chalk",
+        "chert",
+        "conglomerate",
+        "limestone",
+        "claystone",
+        "granite",
+        "sandstone",
+        "shale",
+        "basalt",
+        "peridotite",
+        "phyllite",
+        "slate",
+        "bauxite",
+        "suevite",
+      ],
+    },
+  },
+  width: 3,
+  height: 3,
+  output: {
+    type: "block",
+    code: "drystone-{rock}",
+    quantity: 1,
+  },
+}
+
+FILE: hunterbackpack.json
+{
+  ingredientPattern: "CPC,CCC",
+  ingredients: {
+    P: {
+      type: "item",
+      code: "hide-pelt-*",
+      allowedVariants: [
+        "medium",
+        "large",
+        "huge",
+      ],
+      quantity: 1,
+    },
+    C: {
+      type: "item",
+      code: "*",
+      allowedVariants: [
+        "papyrustops",
+        "cattailtops",
+      ],
+      quantity: 3,
+    },
+  },
+  name: "hunterbackpack",
+  width: 3,
+  height: 2,
+  output: {
+    type: "item",
+    code: "hunterbackpack",
+  },
+}
+

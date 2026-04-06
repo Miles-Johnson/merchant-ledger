@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VS Sovereign Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Lost Realm — Copper Sovereign Price Calculator</h1>
+      <p class="subtitle">Estimate your order cost in <strong>Copper Sovereigns</strong> using market pricing and crafting breakdowns.</p>
+      <p class="hint">Example: <code>4 iron plates, 1 bismuth lantern</code></p>
+
+      <section class="controls">
+        <label for="orderInput">What do you need?</label>
+        <p class="helper">Enter item names with quantities, separated by commas.</p>
+        <div class="order-input-wrap">
+          <textarea id="orderInput" rows="3" placeholder="e.g. 32 iron ingot, 4 copper plates, 1 gold lantern"></textarea>
+          <div id="orderSuggestions" class="autocomplete hidden"></div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="settlementSelect">Your settlement type</label>
+            <p class="helper">Prices can vary by settlement. Choose yours to use local rates.</p>
+            <select id="settlementSelect"></select>
+          </div>
+          <button id="calcBtn">Calculate</button>
+        </div>
+      </section>
+
+      <section id="status" class="status"></section>
+
+      <section id="results" class="results hidden">
+        <p class="helper table-note">All prices shown in Copper Sovereigns.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Qty</th>
+              <th>Price Each (Sovereigns)</th>
+              <th>Crafting Cost Each</th>
+              <th>Price Total (Sovereigns)</th>
+              <th>Crafting Total</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody id="lineItemsBody"></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4"><strong>Order Totals (Copper Sovereigns)</strong></td>
+              <td id="listedTotal"></td>
+              <td id="calculatedTotal"></td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>

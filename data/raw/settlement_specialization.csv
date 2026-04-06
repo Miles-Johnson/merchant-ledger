@@ -1,0 +1,8 @@
+Specialization,Category Multiplied,Agricultural  Multiplier,Industrial Multiplier,Artisanal Multiplier
+Industrial Town,POSTIVE Industrial Goods (i) NEGATIVE ALL other Goods,0.65,1.2,0.65
+Religious Town,POSITIVE ALL goods,1.1,1.1,1.1
+Market Town,POSITIVE Agricultural Goods (Ag) POSITIVE Artisanal Goods (Ar) NEGATIVE 50% Industrial Goods,1.1,0.65,1.15
+,,,,
+Industiral City,POSTIVE Industrial Goods (i) NEGATIVE ALL other Goods,0.5,1.3,0.5
+Temple City,POSITIVE ALL goods,1.2,1.2,1.2
+Market City,POSITIVE Agricultural Goods (Ag) POSITIVE Artisanal Goods (Ar) NEGATIVE 50% Industrial Goods,1.15,0.5,1.2
