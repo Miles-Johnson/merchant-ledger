@@ -1,51 +1,34 @@
 # Progress
 
-## Complete
-- Consolidated architecture to **Gen 3 as sole active runtime path**.
-- Activated direct JSON parser pipeline (`parse_recipes_json.py`) and retired legacy parse path from active runbook.
-- Implemented recipe-family semantics across grid/smithing/knapping/clayforming/alloy/barrel/cooking with unknown-type fallback handling.
-- Stabilized canonical linking and kept recipe output unlinked count at zero in validated runs.
-- Added/maintained manual pricing correction flows (nuggets, processed ore chain).
-- Implemented final validation gate + baseline regression tracking.
-- Completed **Path B deterministic LR linking** rollout:
-  - authoritative mapping file active (`data/lr_item_mapping.json`)
-  - mapping-first linkage in `build_canonical_items.py`
-  - `_force_unlinked` support
-  - mapping warnings persistence (`data/lr_mapping_warnings.json`)
-  - resolver mapped-tier metalplate guardrail bypass + warning logging
-  - alias collision hardening for armor plate vs metalplate families
-- Completed **Task 0 — FTA/Guild pricing removed** (pricing stack simplified; dead runtime code removed).
-- Completed **Task 1 — Price precedence fixed** (manual overrides applied last; LR tried first).
-- Completed **Task 2 — Silent parse failures fixed** (parser exits non-zero on parse/insert failure).
-- Completed **Task 3 — Lantern variant intent fixed** (resolver inference fallback + material-aware variant selection).
-- Completed **Task 4 — Alloy output quantity fixed** (output qty parsed from recipe JSON).
-- Completed **Task 5 — Multi-placeholder recipe expansion fixed** (+72 previously missing recipe rows).
-- Completed **Task 6 — Structured API error handling** (`/calculate` now returns 400/404/200+flag/500 appropriately).
+## Session 2026-04-18
+- parse_recipes_json.py fixed for broader corpus ingestion.
+- compute_primitive_prices.py added to pipeline.
+- Primitive rules added: rock, stone, sand, soil, flint, salt, drygrass, brineportion, needle, iron hoop, parchment, bowl fired, debarked log, support beams, bones, driftwood/flotsam, slush, metalnailsandstrips, metalnailsandstrips_cupronickel, anvil_copper (WRONG PRICE — needs correction to 10×), driftwood, slush, gear_rusty (pending), anvil_meteoriciron (pending).
+- Manual LR links added: mushrooms, linen, candles, glass.
+- Audit script JSON schema fixed (scalar summary keys restored).
 
-## Current State
-- Core system is functional end-to-end through pipeline + API.
-- Historical implementation detail is preserved in deprecated memory files.
-- Core memory bank now focused on active truth, not historical play-by-play.
-- Final gate target has reached **15/15** per latest task bundle (lantern variant intent resolved).
-- Mapping hygiene is clean: unresolved LR item IDs = 0 and mapping warnings empty.
-- Mapping coverage snapshot: **29 mapped LR item_ids out of 475 scaffold IDs** (446 remaining for curation).
-- Triage snapshot for remaining 446 scaffold IDs:
-  - row-level linked canonicals: `exact=52`, `high=0`, `low=9`, `unmatched=0`, `manual=80`, `none/null=422`
-  - per-LR-item best-tier: `exact=34`, `high=0`, `low=7`, `unmatched=0`, `manual=26`, `none_or_null=379`
+## Session 2026-04-19
+- Resolver priority order corrected: LR → Override → Recipe.
+- Cycle handling hardened: cyclic paths now invalid, not partially priced.
+- Confirmed flaxfibers now resolves via override (0.015625) not bad recipe (was 1.03125).
+- Confirmed isTool flag is present in game recipe JSON and already handled at parse time.
+- Confirmed smithing recipes have no tool ingredient by structure.
+- Identified deconstruction recipe problem (eyepatch → flaxfibers) — not yet deleted.
+- Identified anvil rule 6k is wrong (1× ingot, should be 10×).
+- Identified hook_copper chisel blocker as likely missing isTool flag in mod recipe.
+- Memory bank updated to reflect correct system state.
 
-## Remaining High-Value Work
-1. Continue LR mapping curation for remaining scaffold IDs with priority:
-   - `unmatched` pricing gaps
-   - `high`/`low` fuzzy-risk candidates
-   - `exact` fuzzy survivors (lower risk)
-2. Continue reducing unresolved ingredient count where economically meaningful.
-3. Keep final-gate pass rate stable after any parser/resolver/linking changes.
+## Current Snapshot (2026-04-19)
+- Canonicals: 14,210
+- Priced: 7,011 (49.3%)
+- Gaps: 7,449
+  - no_lr_no_recipe: 2,271
+  - no_lr_recipe_incomplete: 4,928
+  - no_lr_no_price_override: 250
 
-## Operational Acceptance Checks
-- Run pipeline: `python run_pipeline.py`
-- Run gate: `python scripts/final_gate_validate.py`
-- Confirm no regressions in `data/final_gate_validation.json`.
-
-## Historical Material
-Detailed milestone timeline moved to:
-- `cline_docs/deprecated/progress_historical.md`
+## Known Debt
+- Audit does not call resolver — numbers are conservative lower bounds.
+- Final gate baseline is stale — needs rewrite after pricing stabilises.
+- Bad deconstruction recipes in DB (recipes 2750, 2751) — cleanup pending.
+- Anvil rule 6k price is wrong — correction pending.
+- Pending rule families: pelts, crushed, powdered, hooks, anvil correction, gear_rusty.

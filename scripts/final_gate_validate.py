@@ -22,6 +22,7 @@ from api.app import app
 class Case:
     label: str
     order: str
+    material: str | None = None
     expected_source: str | None = "recipe"
     expected_recipe_type: str | None = None
     expected_top_ingredients: dict[str, float] | None = None
@@ -35,6 +36,7 @@ CASES: list[Case] = [
     Case(
         label="Grid: lantern up (iron)",
         order="1 lantern up",
+        material="iron",
         expected_source="recipe",
         expected_recipe_type="grid",
         # Intent check: should include metalplate-iron path, not tinbronze.
@@ -53,7 +55,7 @@ CASES: list[Case] = [
     Case(
         label="Smithing: metal plate iron",
         order="1 metal plate iron",
-        expected_source="recipe",
+        expected_source="lr_price",
         expected_recipe_type="smithing",
         expected_top_ingredients={"ingot_iron": 2.0},
     ),
@@ -146,9 +148,16 @@ def _to_float(value: Any) -> float | None:
 
 
 def _check_case(client, case: Case) -> dict[str, Any]:
+    request_payload: dict[str, Any] = {
+        "order": case.order,
+        "settlement_type": "current",
+    }
+    if case.material:
+        request_payload["material"] = case.material
+
     response = client.post(
         "/calculate",
-        json={"order": case.order, "settlement_type": "current"},
+        json=request_payload,
     )
     data = response.get_json(silent=True) or {}
     item = ((data.get("items") or [{}])[0]) if isinstance(data, dict) else {}

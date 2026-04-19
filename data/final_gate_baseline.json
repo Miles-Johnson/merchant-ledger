@@ -1,43 +1,43 @@
 {
-  "timestamp": "2026-04-06T15:20:11",
+  "timestamp": "2026-04-18T17:33:00",
   "summary": {
     "total": 15,
-    "passed": 14,
-    "failed": 1,
-    "regressions": 0
+    "passed": 6,
+    "failed": 9,
+    "regressions": 9
   },
   "cases": [
     {
       "label": "Grid: lantern up (iron)",
       "order": "1 lantern up",
       "passed": false,
-      "source": "recipe",
-      "recipe_type": "grid",
-      "unit_cost": 66.75
+      "source": "unresolved",
+      "recipe_type": null,
+      "unit_cost": null
     },
     {
       "label": "Grid: chest",
       "order": "1 chest",
-      "passed": true,
-      "source": "recipe",
-      "recipe_type": "grid",
-      "unit_cost": 2.1125
+      "passed": false,
+      "source": "unresolved",
+      "recipe_type": null,
+      "unit_cost": null
     },
     {
       "label": "Smithing: metal plate iron",
       "order": "1 metal plate iron",
-      "passed": true,
-      "source": "recipe",
-      "recipe_type": "smithing",
-      "unit_cost": 16.0
+      "passed": false,
+      "source": "lr_price",
+      "recipe_type": null,
+      "unit_cost": 301.0
     },
     {
       "label": "Smithing: pickaxe head iron",
       "order": "1 pickaxe head iron",
-      "passed": true,
-      "source": "recipe",
-      "recipe_type": "smithing",
-      "unit_cost": 8.0
+      "passed": false,
+      "source": "lr_price",
+      "recipe_type": null,
+      "unit_cost": 20.0
     },
     {
       "label": "Barrel: leather",
@@ -45,39 +45,39 @@
       "passed": true,
       "source": "lr_price",
       "recipe_type": null,
-      "unit_cost": 1.0
+      "unit_cost": 17.0
     },
     {
       "label": "Cooking: candle",
       "order": "1 candle",
-      "passed": true,
-      "source": "recipe",
-      "recipe_type": "cooking",
-      "unit_cost": 27.0
+      "passed": false,
+      "source": "lr_price",
+      "recipe_type": null,
+      "unit_cost": 0.40625
     },
     {
       "label": "Alloy: tin bronze ingot",
       "order": "1 tin bronze ingot",
-      "passed": true,
+      "passed": false,
       "source": "lr_price",
-      "recipe_type": "alloy",
+      "recipe_type": null,
       "unit_cost": 6.0
     },
     {
       "label": "Knapping: flint knife blade",
       "order": "1 flint knife blade",
-      "passed": true,
-      "source": "recipe",
-      "recipe_type": "knapping",
+      "passed": false,
+      "source": "unresolved",
+      "recipe_type": null,
       "unit_cost": null
     },
     {
       "label": "Multi-step: plate body armor iron",
       "order": "1 plate body armor iron",
       "passed": true,
-      "source": "recipe",
-      "recipe_type": "grid",
-      "unit_cost": 120.0
+      "source": "lr_price",
+      "recipe_type": null,
+      "unit_cost": 349.0
     },
     {
       "label": "Spot: bismuth bronze ingot",
@@ -98,26 +98,26 @@
     {
       "label": "Spot: flint arrowhead",
       "order": "1 flint arrowhead",
-      "passed": true,
-      "source": "recipe",
-      "recipe_type": "knapping",
+      "passed": false,
+      "source": "unresolved",
+      "recipe_type": null,
       "unit_cost": null
     },
     {
       "label": "Spot: iron axe head",
       "order": "1 iron axe head",
       "passed": true,
-      "source": "recipe",
-      "recipe_type": "smithing",
-      "unit_cost": 8.0
+      "source": "lr_price",
+      "recipe_type": null,
+      "unit_cost": 7.0
     },
     {
       "label": "Spot: tannin",
       "order": "1 tannin",
-      "passed": true,
-      "source": "recipe",
-      "recipe_type": "barrel",
-      "unit_cost": 0.00625
+      "passed": false,
+      "source": "unresolved",
+      "recipe_type": null,
+      "unit_cost": null
     },
     {
       "label": "Spot: iron ingot",

@@ -1,0 +1,657 @@
+canonical_id: rope
+  display_name: Coil of rope
+  match_tier: unmatched
+  lr_price: none
+  override: none
+  has_recipe: yes
+  ingredients (x1 output):
+    - wildvine_section_north x3
+      canonical_id: wildvine_section_north
+        display_name: Wildvine Section Norths
+        match_tier: unmatched
+        lr_price: none
+        override: 0.03125
+        has_recipe: yes
+        ingredients (x1 output):
+          - wildvine_end_north x1
+            canonical_id: wildvine_end_north
+              display_name: Wildvine End Norths
+              match_tier: unmatched
+              lr_price: none
+              override: none
+              has_recipe: yes
+              ingredients (x1 output):
+                - wildvine_section_north x1
+                  canonical_id: wildvine_section_north
+                    → CYCLE DETECTED
+=== SUMMARY ===
+Fully resolvable: no
+Unpriced blockers: []
+Estimated unit cost: incomplete
+ 
+canonical_id: flaxtwine
+  display_name: Flax twine
+  match_tier: unmatched
+  lr_price: none
+  override: none
+  has_recipe: yes
+  ingredients (x1 output):
+    - flaxfibers x4
+      canonical_id: flaxfibers
+        display_name: Flax fibers
+        match_tier: unmatched
+        lr_price: none
+        override: 0.015625
+        has_recipe: yes
+        ingredients (x1 output):
+          - clothes_face_eyepatchr x1
+            canonical_id: clothes_face_eyepatchr
+              display_name: Clothes Face Eyepatchrs
+              match_tier: unmatched
+              lr_price: none
+              override: none
+              has_recipe: yes
+              ingredients (x1 output):
+                - flaxfibers x2
+                  canonical_id: flaxfibers
+                    → CYCLE DETECTED
+                - cloth_black x1
+                  canonical_id: cloth_black
+                    display_name: Black cloth
+                    match_tier: manual
+                    lr_price: 1
+                    override: none
+                    has_recipe: yes
+                    ingredients (x1 output):
+                      - dye_black x2
+                        canonical_id: dye_black
+                          display_name: Black dye
+                          match_tier: unmatched
+                          lr_price: none
+                          override: none
+                          has_recipe: yes
+                          ingredients (x1E+1 output):
+                            - dye_gray x1E+1
+                              canonical_id: dye_gray
+                                display_name: Gray dye
+                                match_tier: unmatched
+                                lr_price: none
+                                override: none
+                                has_recipe: yes
+                                ingredients (x1E+1 output):
+                                  - waterportion x1E+1
+                                    canonical_id: waterportion
+                                      display_name: Water
+                                      match_tier: unmatched
+                                      lr_price: none
+                                      override: 0
+                                      has_recipe: yes
+                                      ingredients (x1 output):
+                                        - slush x1
+                                          canonical_id: slush
+                                            display_name: Slush
+                                            match_tier: unmatched
+                                            lr_price: none
+                                            override: 0
+                                            has_recipe: no
+                                            → BASE MATERIAL (override: 0)
+                                  - gear_rusty x1
+                                    canonical_id: gear_rusty
+                                      display_name: Rusty gear
+                                      match_tier: unmatched
+                                      lr_price: none
+                                      override: none
+                                      has_recipe: yes
+                                      ingredients (x1 output):
+                                        - clothes_neck_gear_amulet_rusty x1
+                                          canonical_id: clothes_neck_gear_amulet_rusty
+                                            display_name: Rusty gear amulet
+                                            match_tier: unmatched
+                                            lr_price: none
+                                            override: none
+                                            has_recipe: yes
+                                            ingredients (x1 output):
+                                              - rope x1
+                                                canonical_id: rope
+                                                  display_name: Coil of rope
+                                                  match_tier: unmatched
+                                                  lr_price: none
+                                                  override: none
+                                                  has_recipe: yes
+                                                  ingredients (x1 output):
+                                                    - wildvine_section_north x3
+                                                      canonical_id: wildvine_section_north
+                                                        display_name: Wildvine Section Norths
+                                                        match_tier: unmatched
+                                                        lr_price: none
+                                                        override: 0.03125
+                                                        has_recipe: yes
+                                                        ingredients (x1 output):
+                                                          - wildvine_end_north x1
+                                                            canonical_id: wildvine_end_north
+                                                              display_name: Wildvine End Norths
+                                                              match_tier: unmatched
+                                                              lr_price: none
+                                                              override: none
+                                                              has_recipe: yes
+                                                              ingredients (x1 output):
+                                                                - wildvine_section_north x1
+                                                                  canonical_id: wildvine_section_north
+                                                                    → CYCLE DETECTED
+                                              - gear_rusty x1
+                                                canonical_id: gear_rusty
+                                                  → CYCLE DETECTED
+                            - gear_rusty x1
+                              canonical_id: gear_rusty
+                                display_name: Rusty gear
+                                match_tier: unmatched
+                                lr_price: none
+                                override: none
+                                has_recipe: yes
+                                ingredients (x1 output):
+                                  - clothes_neck_gear_amulet_rusty x1
+                                    canonical_id: clothes_neck_gear_amulet_rusty
+                                      display_name: Rusty gear amulet
+                                      match_tier: unmatched
+                                      lr_price: none
+                                      override: none
+                                      has_recipe: yes
+                                      ingredients (x1 output):
+                                        - rope x1
+                                          canonical_id: rope
+                                            display_name: Coil of rope
+                                            match_tier: unmatched
+                                            lr_price: none
+                                            override: none
+                                            has_recipe: yes
+                                            ingredients (x1 output):
+                                              - wildvine_section_north x3
+                                                canonical_id: wildvine_section_north
+                                                  display_name: Wildvine Section Norths
+                                                  match_tier: unmatched
+                                                  lr_price: none
+                                                  override: 0.03125
+                                                  has_recipe: yes
+                                                  ingredients (x1 output):
+                                                    - wildvine_end_north x1
+                                                      canonical_id: wildvine_end_north
+                                                        display_name: Wildvine End Norths
+                                                        match_tier: unmatched
+                                                        lr_price: none
+                                                        override: none
+                                                        has_recipe: yes
+                                                        ingredients (x1 output):
+                                                          - wildvine_section_north x1
+                                                            canonical_id: wildvine_section_north
+                                                              → CYCLE DETECTED
+                                        - gear_rusty x1
+                                          canonical_id: gear_rusty
+                                            → CYCLE DETECTED
+                      - cloth_mordant x1
+                        canonical_id: cloth_mordant
+                          display_name: Mordanted cloth
+                          match_tier: manual
+                          lr_price: 1
+                          override: none
+                          has_recipe: yes
+                          ingredients (x1 output):
+                            - dilutedalumportion x2
+                              canonical_id: dilutedalumportion
+                                display_name: Diluted alum
+                                match_tier: unmatched
+                                lr_price: none
+                                override: none
+                                has_recipe: yes
+                                ingredients (x5 output):
+                                  - waterportion x5
+                                    canonical_id: waterportion
+                                      display_name: Water
+                                      match_tier: unmatched
+                                      lr_price: none
+                                      override: 0
+                                      has_recipe: yes
+                                      ingredients (x1 output):
+                                        - slush x1
+                                          canonical_id: slush
+                                            display_name: Slush
+                                            match_tier: unmatched
+                                            lr_price: none
+                                            override: 0
+                                            has_recipe: no
+                                            → BASE MATERIAL (override: 0)
+                                  - crushed_alum x1
+                                    canonical_id: crushed_alum
+                                      display_name: Crushed alum
+                                      match_tier: mapped
+                                      lr_price: 0.375
+                                      override: 0.075
+                                      has_recipe: no
+                                      → BASE MATERIAL (override: 0.075)
+                            - cloth_plain x1
+                              canonical_id: cloth_plain
+                                display_name: Plain cloth
+                                match_tier: manual
+                                lr_price: 1
+                                override: none
+                                has_recipe: yes
+                                ingredients (x1 output):
+                                  - linen x1
+                                    canonical_id: linen
+                                      display_name: Linen *
+                                      match_tier: manual
+                                      lr_price: 1
+                                      override: none
+                                      has_recipe: no
+                                      → BASE MATERIAL (lr_price: 1)
+                                  - stick x1
+                                    canonical_id: stick
+                                      display_name: Stick
+                                      match_tier: unmatched
+                                      lr_price: none
+                                      override: 0.03125
+                                      has_recipe: yes
+                                      ingredients (x2 output):
+                                        - flotsam_driftwood_1 x1
+                                          canonical_id: flotsam_driftwood_1
+                                            display_name: Driftwood
+                                            match_tier: unmatched
+                                            lr_price: none
+                                            override: 0.03125
+                                            has_recipe: no
+                                            → BASE MATERIAL (override: 0.03125)
+=== SUMMARY ===
+Fully resolvable: no
+Unpriced blockers: []
+Estimated unit cost: incomplete
+ 
+canonical_id: flaxfibers
+  display_name: Flax fibers
+  match_tier: unmatched
+  lr_price: none
+  override: 0.015625
+  has_recipe: yes
+  ingredients (x1 output):
+    - clothes_face_eyepatchr x1
+      canonical_id: clothes_face_eyepatchr
+        display_name: Clothes Face Eyepatchrs
+        match_tier: unmatched
+        lr_price: none
+        override: none
+        has_recipe: yes
+        ingredients (x1 output):
+          - flaxfibers x2
+            canonical_id: flaxfibers
+              → CYCLE DETECTED
+          - cloth_black x1
+            canonical_id: cloth_black
+              display_name: Black cloth
+              match_tier: manual
+              lr_price: 1
+              override: none
+              has_recipe: yes
+              ingredients (x1 output):
+                - dye_black x2
+                  canonical_id: dye_black
+                    display_name: Black dye
+                    match_tier: unmatched
+                    lr_price: none
+                    override: none
+                    has_recipe: yes
+                    ingredients (x1E+1 output):
+                      - dye_gray x1E+1
+                        canonical_id: dye_gray
+                          display_name: Gray dye
+                          match_tier: unmatched
+                          lr_price: none
+                          override: none
+                          has_recipe: yes
+                          ingredients (x1E+1 output):
+                            - waterportion x1E+1
+                              canonical_id: waterportion
+                                display_name: Water
+                                match_tier: unmatched
+                                lr_price: none
+                                override: 0
+                                has_recipe: yes
+                                ingredients (x1 output):
+                                  - slush x1
+                                    canonical_id: slush
+                                      display_name: Slush
+                                      match_tier: unmatched
+                                      lr_price: none
+                                      override: 0
+                                      has_recipe: no
+                                      → BASE MATERIAL (override: 0)
+                            - gear_rusty x1
+                              canonical_id: gear_rusty
+                                display_name: Rusty gear
+                                match_tier: unmatched
+                                lr_price: none
+                                override: none
+                                has_recipe: yes
+                                ingredients (x1 output):
+                                  - clothes_neck_gear_amulet_rusty x1
+                                    canonical_id: clothes_neck_gear_amulet_rusty
+                                      display_name: Rusty gear amulet
+                                      match_tier: unmatched
+                                      lr_price: none
+                                      override: none
+                                      has_recipe: yes
+                                      ingredients (x1 output):
+                                        - rope x1
+                                          canonical_id: rope
+                                            display_name: Coil of rope
+                                            match_tier: unmatched
+                                            lr_price: none
+                                            override: none
+                                            has_recipe: yes
+                                            ingredients (x1 output):
+                                              - wildvine_section_north x3
+                                                canonical_id: wildvine_section_north
+                                                  display_name: Wildvine Section Norths
+                                                  match_tier: unmatched
+                                                  lr_price: none
+                                                  override: 0.03125
+                                                  has_recipe: yes
+                                                  ingredients (x1 output):
+                                                    - wildvine_end_north x1
+                                                      canonical_id: wildvine_end_north
+                                                        display_name: Wildvine End Norths
+                                                        match_tier: unmatched
+                                                        lr_price: none
+                                                        override: none
+                                                        has_recipe: yes
+                                                        ingredients (x1 output):
+                                                          - wildvine_section_north x1
+                                                            canonical_id: wildvine_section_north
+                                                              → CYCLE DETECTED
+                                        - gear_rusty x1
+                                          canonical_id: gear_rusty
+                                            → CYCLE DETECTED
+                      - gear_rusty x1
+                        canonical_id: gear_rusty
+                          display_name: Rusty gear
+                          match_tier: unmatched
+                          lr_price: none
+                          override: none
+                          has_recipe: yes
+                          ingredients (x1 output):
+                            - clothes_neck_gear_amulet_rusty x1
+                              canonical_id: clothes_neck_gear_amulet_rusty
+                                display_name: Rusty gear amulet
+                                match_tier: unmatched
+                                lr_price: none
+                                override: none
+                                has_recipe: yes
+                                ingredients (x1 output):
+                                  - rope x1
+                                    canonical_id: rope
+                                      display_name: Coil of rope
+                                      match_tier: unmatched
+                                      lr_price: none
+                                      override: none
+                                      has_recipe: yes
+                                      ingredients (x1 output):
+                                        - wildvine_section_north x3
+                                          canonical_id: wildvine_section_north
+                                            display_name: Wildvine Section Norths
+                                            match_tier: unmatched
+                                            lr_price: none
+                                            override: 0.03125
+                                            has_recipe: yes
+                                            ingredients (x1 output):
+                                              - wildvine_end_north x1
+                                                canonical_id: wildvine_end_north
+                                                  display_name: Wildvine End Norths
+                                                  match_tier: unmatched
+                                                  lr_price: none
+                                                  override: none
+                                                  has_recipe: yes
+                                                  ingredients (x1 output):
+                                                    - wildvine_section_north x1
+                                                      canonical_id: wildvine_section_north
+                                                        → CYCLE DETECTED
+                                  - gear_rusty x1
+                                    canonical_id: gear_rusty
+                                      → CYCLE DETECTED
+                - cloth_mordant x1
+                  canonical_id: cloth_mordant
+                    display_name: Mordanted cloth
+                    match_tier: manual
+                    lr_price: 1
+                    override: none
+                    has_recipe: yes
+                    ingredients (x1 output):
+                      - dilutedalumportion x2
+                        canonical_id: dilutedalumportion
+                          display_name: Diluted alum
+                          match_tier: unmatched
+                          lr_price: none
+                          override: none
+                          has_recipe: yes
+                          ingredients (x5 output):
+                            - waterportion x5
+                              canonical_id: waterportion
+                                display_name: Water
+                                match_tier: unmatched
+                                lr_price: none
+                                override: 0
+                                has_recipe: yes
+                                ingredients (x1 output):
+                                  - slush x1
+                                    canonical_id: slush
+                                      display_name: Slush
+                                      match_tier: unmatched
+                                      lr_price: none
+                                      override: 0
+                                      has_recipe: no
+                                      → BASE MATERIAL (override: 0)
+                            - crushed_alum x1
+                              canonical_id: crushed_alum
+                                display_name: Crushed alum
+                                match_tier: mapped
+                                lr_price: 0.375
+                                override: 0.075
+                                has_recipe: no
+                                → BASE MATERIAL (override: 0.075)
+                      - cloth_plain x1
+                        canonical_id: cloth_plain
+                          display_name: Plain cloth
+                          match_tier: manual
+                          lr_price: 1
+                          override: none
+                          has_recipe: yes
+                          ingredients (x1 output):
+                            - linen x1
+                              canonical_id: linen
+                                display_name: Linen *
+                                match_tier: manual
+                                lr_price: 1
+                                override: none
+                                has_recipe: no
+                                → BASE MATERIAL (lr_price: 1)
+                            - stick x1
+                              canonical_id: stick
+                                display_name: Stick
+                                match_tier: unmatched
+                                lr_price: none
+                                override: 0.03125
+                                has_recipe: yes
+                                ingredients (x2 output):
+                                  - flotsam_driftwood_1 x1
+                                    canonical_id: flotsam_driftwood_1
+                                      display_name: Driftwood
+                                      match_tier: unmatched
+                                      lr_price: none
+                                      override: 0.03125
+                                      has_recipe: no
+                                      → BASE MATERIAL (override: 0.03125)
+=== SUMMARY ===
+Fully resolvable: no
+Unpriced blockers: []
+Estimated unit cost: incomplete
+ 
+canonical_id: liquidbarrel_north
+  display_name: Liquidbarrel Norths
+  match_tier: unmatched
+  lr_price: none
+  override: none
+  has_recipe: yes
+  ingredients (x1 output):
+    - stick x4
+      canonical_id: stick
+        display_name: Stick
+        match_tier: unmatched
+        lr_price: none
+        override: 0.03125
+        has_recipe: yes
+        ingredients (x2 output):
+          - flotsam_driftwood_1 x1
+            canonical_id: flotsam_driftwood_1
+              display_name: Driftwood
+              match_tier: unmatched
+              lr_price: none
+              override: 0.03125
+              has_recipe: no
+              → BASE MATERIAL (override: 0.03125)
+    - plank_birch x3
+      canonical_id: plank_birch
+        display_name: Board (Birch)
+        match_tier: manual
+        lr_price: 0.0625
+        override: none
+        has_recipe: yes
+        ingredients (x4 output):
+          - thinplanks_birch_ud x1
+            canonical_id: thinplanks_birch_ud
+              display_name: Thinplanks Birch Uds
+              match_tier: unmatched
+              lr_price: none
+              override: none
+              has_recipe: yes
+              ingredients (x1 output):
+                - plank_birch x4
+                  canonical_id: plank_birch
+                    → CYCLE DETECTED
+    - ingot_bismuth x2
+      canonical_id: ingot_bismuth
+        display_name: Bismuth ingot
+        match_tier: mapped
+        lr_price: 4
+        override: none
+        has_recipe: no
+        → BASE MATERIAL (lr_price: 4)
+=== SUMMARY ===
+Fully resolvable: no
+Unpriced blockers: []
+Estimated unit cost: incomplete
+ 
+canonical_id: armor_arms_plate_iron_vanilla
+  display_name: Armor Arms Plate Iron Vanillas
+  match_tier: unmatched
+  lr_price: none
+  override: none
+  has_recipe: yes
+  ingredients (x1 output):
+    - armor_arms_plate_iron_vanilla x1
+      canonical_id: armor_arms_plate_iron_vanilla
+        → CYCLE DETECTED
+    - metalplate_iron x1
+      canonical_id: metalplate_iron
+        display_name: Iron plate
+        match_tier: mapped
+        lr_price: 301
+        override: none
+        has_recipe: yes
+        ingredients (x1 output):
+          - ingot_iron x2
+            canonical_id: ingot_iron
+              display_name: Iron ingot
+              match_tier: mapped
+              lr_price: 5
+              override: none
+              has_recipe: yes
+              ingredients (x8 output):
+                - anvil_iron x1
+                  canonical_id: anvil_iron
+                    display_name: Iron anvil
+                    match_tier: manual
+                    lr_price: 25
+                    override: none
+                    has_recipe: no
+                    → BASE MATERIAL (lr_price: 25)
+=== SUMMARY ===
+Fully resolvable: no
+Unpriced blockers: []
+Estimated unit cost: incomplete
+ 
+canonical_id: hook_copper
+  display_name: Hook Coppers
+  match_tier: unmatched
+  lr_price: none
+  override: none
+  has_recipe: yes
+  ingredients (x2 output):
+    - chisel x1
+      canonical_id: chisel
+        display_name: Chisel *S
+        match_tier: unmatched
+        lr_price: none
+        override: none
+        has_recipe: no
+        → UNPRICED BASE
+    - butcherhook_copper_north x1
+      canonical_id: butcherhook_copper_north
+        display_name: Butcherhook Copper Norths
+        match_tier: unmatched
+        lr_price: none
+        override: none
+        has_recipe: yes
+        ingredients (x1 output):
+          - stick x8
+            canonical_id: stick
+              display_name: Stick
+              match_tier: unmatched
+              lr_price: none
+              override: 0.03125
+              has_recipe: yes
+              ingredients (x2 output):
+                - flotsam_driftwood_1 x1
+                  canonical_id: flotsam_driftwood_1
+                    display_name: Driftwood
+                    match_tier: unmatched
+                    lr_price: none
+                    override: 0.03125
+                    has_recipe: no
+                    → BASE MATERIAL (override: 0.03125)
+          - plank x4
+            canonical_id: plank
+              display_name: Planks
+              match_tier: manual
+              lr_price: 0.0625
+              override: none
+              has_recipe: no
+              → BASE MATERIAL (lr_price: 0.0625)
+          - resin_2 x1
+            canonical_id: resin_2
+              display_name: Resin
+              match_tier: exact
+              lr_price: 0.15625
+              override: none
+              has_recipe: no
+              → BASE MATERIAL (lr_price: 0.15625)
+          - hook_copper x2
+            canonical_id: hook_copper
+              → CYCLE DETECTED
+          - metalnailsandstrips x2
+            canonical_id: metalnailsandstrips
+              display_name: Nails And Strips
+              match_tier: unmatched
+              lr_price: none
+              override: 2
+              has_recipe: no
+              → BASE MATERIAL (override: 2)
+=== SUMMARY ===
+Fully resolvable: no
+Unpriced blockers: ['chisel']
+Estimated unit cost: incomplete

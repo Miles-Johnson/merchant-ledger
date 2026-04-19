@@ -1,6 +1,6 @@
 # Vintage Story Merchant Ledger
 
-Vintage Story Merchant Ledger is a pricing and recipe-costing toolkit for a roleplay server economy. It unifies Lodestone Registry (Empire) prices, FTA prices, and recipe decomposition to return deterministic costs in Copper Sovereigns.
+Vintage Story Merchant Ledger is a pricing and recipe-costing toolkit for a roleplay server economy. It uses Lodestone Registry (Empire) prices as the authoritative source, with recipe decomposition fallback, to return deterministic costs in Copper Sovereigns.
 
 ## Tech Stack
 
@@ -14,7 +14,7 @@ Vintage Story Merchant Ledger is a pricing and recipe-costing toolkit for a role
 - `scripts/` - ingestion, parsing, canonical linking, validation, resolver logic
 - `api/` - API service
 - `webapp/` - frontend app
-- `data/` - source pricing CSVs and validation/debug outputs
+- `data/` - LR workbook source data and validation/debug outputs
 - `migrations/` - SQL schema migration files
 - `cline_docs/` - project memory bank and historical context
 
@@ -52,6 +52,12 @@ Optional validation gate:
 python scripts/final_gate_validate.py
 ```
 
+Optional informational pricing-gap audit (read-only):
+
+```bash
+python scripts/audit_pricing_gaps.py
+```
+
 ## Start the API
 
 ```bash
@@ -76,4 +82,5 @@ npm run dev
 ## Notes
 
 - This repository is tuned for a **specific Vintage Story roleplay server economy** and associated pricing sheets.
-- LR (Empire) prices are primary when available, with FTA/recipe fallbacks.
+- LR (Empire) workbook prices are the only active price-ingestion source.
+- Legacy FTA/CSV pricing artifacts are deprecated and retained only for reference/audit.

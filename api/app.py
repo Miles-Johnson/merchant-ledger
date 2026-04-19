@@ -4,6 +4,7 @@ from __future__ import annotations
 import os
 import sys
 import re
+import math
 
 from dotenv import load_dotenv
 from flask_cors import CORS
@@ -68,6 +69,7 @@ def _infer_variant_from_game_code(game_code: str) -> tuple[str | None, str | Non
     if family not in {
         "ingot",
         "nugget",
+        "lantern-up",
         "pickaxehead",
         "axehead",
         "shovelhead",
@@ -104,19 +106,51 @@ def health() -> tuple:
 
 @app.post("/calculate")
 def calculate() -> tuple:
-    data = request.get_json(silent=True) or {}
-    order = (data.get("order") or "").strip()
-    settlement_type = (data.get("settlement_type") or "current").strip() or "current"
+    data = request.get_json(silent=True)
+    if data is None:
+        data = {}
+    if not isinstance(data, dict):
+        return jsonify({"error": "Request body must be a JSON object", "code": "invalid_request"}), 400
+
+    order_value = data.get("order")
+    if order_value is None or not isinstance(order_value, str) or not order_value.strip():
+        return jsonify({"error": "order is required", "code": "invalid_request"}), 400
+
+    order = order_value.strip()
+    settlement_type_value = data.get("settlement_type")
+    settlement_type = (
+        settlement_type_value.strip()
+        if isinstance(settlement_type_value, str)
+        else "current"
+    ) or "current"
     labor_markup = bool(data.get("labor_markup", False))
     include_all_alternatives = bool(data.get("include_all_alternatives", False))
-    material = (data.get("material") or "").strip().lower() or None
+    material_value = data.get("material")
+    material = material_value.strip().lower() if isinstance(material_value, str) else ""
+    material = material or None
 
-    if not order:
-        return jsonify({"error": "order is required"}), 400
+    quantity_segment_pattern = re.compile(r"^\s*(\d+(?:\.\d+)?)\s+(.+)$")
+    for part in order.split(","):
+        segment = (part or "").strip()
+        if not segment:
+            continue
+        if re.match(r"^[+-]?\d", segment) and not quantity_segment_pattern.match(segment):
+            return jsonify({"error": f"Invalid quantity format in segment: '{segment}'", "code": "invalid_request"}), 400
 
     conn = None
     try:
         items = parse_order_input(order)
+        if not items:
+            return jsonify({"error": "No valid item names were provided", "code": "invalid_request"}), 400
+
+        for item in items:
+            raw_item = (item.get("raw") or "").strip()
+            quantity = item.get("quantity")
+            if not raw_item:
+                return jsonify({"error": "No valid item names were provided", "code": "invalid_request"}), 400
+            if not isinstance(quantity, (int, float)) or not math.isfinite(float(quantity)) or float(quantity) <= 0:
+                return jsonify({"error": f"Invalid quantity for item '{raw_item}'", "code": "invalid_request"}), 400
+
         conn = pool.getconn()
         result = process_order(
             items,
@@ -126,9 +160,20 @@ def calculate() -> tuple:
             include_all_alternatives=include_all_alternatives,
             material=material,
         )
+
+        not_found_item = next((item for item in result.get("items", []) if item.get("source") == "not_found"), None)
+        if not_found_item is not None:
+            query = (not_found_item.get("display_name") or "").strip()
+            return jsonify({"error": "Item not found", "code": "item_not_found", "query": query}), 404
+
+        if any(item.get("source") == "unresolved" for item in result.get("items", [])):
+            result = dict(result)
+            result["unresolvable"] = True
+
         return jsonify(result), 200
-    except Exception as exc:
-        return jsonify({"error": str(exc)}), 500
+    except Exception:
+        app.logger.exception("Unexpected error while processing /calculate request")
+        return jsonify({"error": "Internal server error", "code": "server_error"}), 500
     finally:
         if conn is not None:
             pool.putconn(conn)
@@ -164,13 +209,11 @@ def search() -> tuple:
             ci.variant_material,
             ci.game_code,
             ci.lr_item_id,
-            ci.fta_item_id,
             ci.match_tier,
             li.lr_category,
             li.price_current,
-            fi.unit_price as fta_price,
             po.unit_price as override_price,
-            CASE WHEN ci.lr_item_id IS NOT NULL OR ci.fta_item_id IS NOT NULL THEN 1 ELSE 0 END as has_linked_price,
+            CASE WHEN ci.lr_item_id IS NOT NULL OR po.unit_price IS NOT NULL THEN 1 ELSE 0 END as has_linked_price,
             CASE WHEN EXISTS (
                 SELECT 1
                 FROM recipes r
@@ -192,7 +235,6 @@ def search() -> tuple:
         FROM item_aliases ia
         JOIN canonical_items ci ON ia.canonical_id = ci.id
         LEFT JOIN lr_items li ON ci.lr_item_id = li.id
-        LEFT JOIN fta_items fi ON ci.fta_item_id = fi.id
         LEFT JOIN price_overrides po ON ci.id = po.canonical_id
         WHERE similarity(ia.alias, %(q)s) > 0.15
           AND (ci.game_code IS NULL OR ci.game_code NOT LIKE '%%-*')
@@ -201,7 +243,7 @@ def search() -> tuple:
           AND ci.display_name NOT LIKE '%%}%%'
     )
     SELECT canonical_id, display_name, variant_family, variant_material, game_code,
-           lr_item_id, fta_item_id, match_tier, lr_category, price_current, fta_price,
+           lr_item_id, match_tier, lr_category, price_current,
            override_price, has_linked_price, has_recipe, matched_alias, score
     FROM ranked
     WHERE rn = 1
@@ -226,16 +268,14 @@ def search() -> tuple:
             variant_material = row[3]
             game_code = row[4]
             lr_item_id = row[5]
-            fta_item_id = row[6]
-            match_tier = row[7]
-            lr_category = row[8]
-            price_current = float(row[9]) if row[9] is not None else None
-            fta_price = float(row[10]) if row[10] is not None else None
-            override_price = float(row[11]) if row[11] is not None else None
-            has_recipe = bool(row[13])
-            matched_alias = row[14]
-            score = round(float(row[15]), 2) if row[15] is not None else None
-            has_any_price = (lr_item_id is not None) or (fta_item_id is not None) or (override_price is not None)
+            match_tier = row[6]
+            lr_category = row[7]
+            price_current = float(row[8]) if row[8] is not None else None
+            override_price = float(row[9]) if row[9] is not None else None
+            has_recipe = bool(row[11])
+            matched_alias = row[12]
+            score = round(float(row[13]), 2) if row[13] is not None else None
+            has_any_price = (lr_item_id is not None) or (override_price is not None)
 
             if not variant_family:
                 inferred_family, inferred_material = _infer_variant_from_game_code(game_code)
@@ -256,7 +296,6 @@ def search() -> tuple:
                         "match_tier": match_tier,
                         "lr_category": lr_category,
                         "price_current": price_current,
-                        "fta_price": fta_price,
                         "matched_alias": matched_alias,
                         "score": score,
                     }
@@ -283,7 +322,6 @@ def search() -> tuple:
                     "match_tier": match_tier,
                     "lr_category": lr_category,
                     "price_current": price_current,
-                    "fta_price": fta_price,
                     "matched_alias": matched_alias,
                     "score": score,
                 }

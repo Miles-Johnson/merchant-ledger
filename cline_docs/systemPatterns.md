@@ -1,95 +1,80 @@
 # System Patterns
 
-## 1) Canonical-First Architecture Pattern
-- Normalize diverse game/mod data into canonical identities.
-- Resolve all pricing and recipe traversal from canonical IDs.
-- Keep alias search and canonical linkage as first-class components.
+## 1) Canonical-first runtime
+- All pricing + recipe traversal runs through `canonical_items.id`.
+- Resolver and diagnostics must reference canonical IDs (not raw game_code).
 
-## 2) Direct JSON Recipe Parsing Pattern
-- Parse recipe JSON/JSON5 directly from base + mod content.
-- Insert typed outputs/ingredients directly into `recipes` + `recipe_ingredients`.
-- Avoid lossy text/workbook intermediary parsing in active pipeline.
+## 2) Pricing precedence (AUTHORITATIVE — do not reorder)
+- **LR direct price → manual/computed override → recipe decomposition**
+- LR wins immediately if present.
+- Override wins over any recipe result if: recipe is partial, recipe failed, or recipe cost >= override cost.
+- Recipe is only used when neither LR nor override exists, OR when recipe is cheaper than override.
+- This order was corrected in session 2026-04-19. Prior docs showing override as final fallback are WRONG.
 
-## 3) Price Source Precedence Pattern
-1. LR direct price first.
-2. Recipe decomposition when LR direct pricing is unavailable.
-3. Manual override path applied last for selected economics corrections.
+## 3) Recipe ingestion integrity
+- `scripts/parse_recipes_json.py` is authoritative.
+- Scans base + mod roots, uses absolute mod cache path, isolates per-file errors.
+- Current scale: ~2,139 files, ~22,489 recipes, ~56,564 ingredients.
+- `isTool: true` flag in recipe JSON is already handled at ingestion — tool ingredients are excluded from `recipe_ingredients` at parse time for grid recipes.
+- Smithing recipes have no tool ingredient by structure (anvil is implicit crafting station).
 
-## 4) Resolver Performance + Safety Pattern
-- Request-scoped memoization for recursive subtree reuse.
-- Cycle detection guard (`_visited`) on recursion.
-- First-success short-circuit behavior for recipe alternatives (default fast path).
+## 4) Resolver safety + fallback behavior
+- Cycle guard is mandatory.
+- When a cycle is detected on any ingredient, that entire recipe path is marked invalid (is_partial=True, unit_cost=None).
+- Override is checked BEFORE recipe traversal (see Pattern #2).
+- Cycle fallback: if all recipe paths are cyclic and override exists, override wins.
 
-## 5) Variant Handling Pattern
-- Variant groups carry deterministic primary entries.
-- Search supports family grouping (`variant_family`, `variant_material`).
-- Calculate path can remap within a variant family via material override.
-- Resolver includes `game_code` inference fallback when direct mapping is incomplete.
-- Recipe variant selection is material-aware to preserve deterministic intent (e.g., lantern/plate material correctness).
+## 5) Pricing derivation rules (locked)
+- Rock = `IN043 (Giant Quarried Stone) current_price / 216`
+- Stone = `rock / 10`
+- Sand / Soil / Flint / Salt = stone price
+- Drygrass / Brineportion / Needle = `1/64`
+- Debarked log = `log_price / 4`
+- Parchment = `2 × min(cattail, papyrus) price`
+- Iron hoop = `1.4 × iron ingot price`
+- Anvils = `10 × parent ingot LR price` (all metal variants)
+- gear_rusty = `5.0 CS` (foraged flat rate)
+- metalnailsandstrips = `2.0 CS`
+- metalnailsandstrips_cupronickel = `2.25 CS`
+- Bowl fired = `1 × clay price`
+- Support beams = component wood cost
+- Bones = primitive fallback
+- Driftwood / flotsam = stick price
+- Slush = 0
 
-## 6) Recipe-Type Semantics Pattern
-- Grid qty from symbol counts.
-- Smithing qty via voxel fill (`ceil(bits/42)`).
-- Cooking uses minimum required slots only (`minQuantity`).
-- Alloy supports ratio-based ingredient quantities.
-- Alloy output quantity is parsed from recipe JSON output metadata.
-- Barrel preserves liquid/solid quantity semantics.
+## 6) Pending pricing rules (designed, not yet implemented)
+- Pelts = `0.8 × (prepared hide LR current price ÷ stack size)` per size tier (small/medium/large/huge)
+- Crushed materials = `ingot_price / 20` (1 nugget = 1/20 ingot)
+- Powdered materials = `ingot_price / 40` (1 crushed → 2 powdered)
+- Bighook = `ingot_price / 20` (5 units of metal, 1 unit = 5 material, 100 units = 1 ingot)
+- These are blocked pending resolver cleanup (deconstruction filter) being confirmed stable first.
 
-## 12) Parser Fail-Fast Integrity Pattern
-- Recipe parse pipeline must fail hard (non-zero exit) on any parse or insert failure.
-- Silent partial-success behavior is explicitly disallowed.
-- Pipeline automation should treat parser non-zero exits as corpus/data integrity failures.
+## 7) Manual LR linking policy
+- Keep explicit targeted mappings in `scripts/apply_manual_lr_links.py`.
+- Active links: mushrooms, linen block variants, candle variants, glass slab/item variants.
+- Do NOT link `item:metalchain-*` to LR chain rows (those are armor-market rows).
+- Do NOT link pipeleaf (out of scope).
 
-## 13) Multi-Placeholder Expansion Pattern
-- Recipes containing multiple placeholders are expanded via Cartesian product materialization.
-- Expanded variants are inserted as discrete recipe rows to preserve complete ingredient chains.
-- Missing expansions are treated as corpus completeness defects.
+## 8) Deconstruction / reverse recipe policy
+- Deconstruction recipes (complex item → raw material) must not be used for forward pricing.
+- Known confirmed bad recipes: Accessorize eyepatch → flaxfibers (recipes 2750, 2751).
+- These are currently still in the DB. Priority fix is override precedence (Pattern #2), which makes them harmless for now. DB cleanup is pending.
+- Detection method: structural (output is simpler than inputs). No reliable JSON flag found yet for all cases.
+- Diagnostic to detect more bad recipes is pending.
 
-## 14) Structured API Error Mapping Pattern
-- `/calculate` distinguishes client vs domain vs server failures with stable status mapping:
-  - `400` invalid request/input
-  - `404` unresolved/not found
-  - `200` with warning/flag for recoverable partial states
-  - `500` unexpected internal error
-- Error semantics are part of client contract and must not collapse to blanket `500`.
+## 9) Tool handling in recipes
+- `isTool: true` in raw recipe JSON = non-consumed tool ingredient.
+- Parser already excludes these from `recipe_ingredients` at ingestion (confirmed 2026-04-19).
+- No `is_tool` column needed in DB — tools are simply never inserted.
+- If a tool still appears as a blocker, the recipe file is missing the `isTool` flag (data issue, not code issue).
 
-## 7) Manual Economics Correction Pattern
-- Nugget pricing derived from ingot economics (`/20` rule).
-- Processed ore chain pricing uses deterministic override generation, with fallback ratios when source ratio is unavailable.
-- All manual corrections are traceable in `price_overrides` notes.
+## 10) Gate + audit interpretation
+- Final gate baseline is stale — must be rewritten against current corpus after pricing stabilises.
+- Audit script (`audit_pricing_gaps.py`) currently has independent pricing logic (does not call resolver).
+- Audit rewrite to call resolver directly is pending — current gap counts are conservative lower bounds.
+- Blocker-frequency SQL over-reports false positives; resolver is authoritative.
 
-## 8) Validation Gate Pattern
-- Keep a repeatable final gate (`scripts/final_gate_validate.py`).
-- Persist baseline (`data/final_gate_baseline.json`).
-- Detect regressions explicitly rather than relying on ad-hoc checks.
-
-## 9) Operational Reliability Pattern
-- Run pipeline stages serially.
-- Avoid overlapping parser/build/link sessions.
-- Clear stale idle transactions when lock/deadlock symptoms appear.
-
-## Historical Material
-Detailed evolution history moved to:
-- `cline_docs/deprecated/systemPatterns_historical.md`
-
-## 10) Fragment-Derived Override Pattern (Nuggets/Bits)
-- When fragment canonicals (`item:nugget-%`, `item:metalbit-%`) require stable economics, derive unit prices from linked ingot economics using the deterministic `/20` rule.
-- Materialize missing nugget canonicals from priced ingot canonicals when absent, and stamp variant metadata (`variant_family='nugget'`, `variant_material=<metal>`).
-- Enforce provenance in `price_overrides.note` with explicit machine-readable notes:
-  - `auto:nugget_from_ingot`
-  - `auto:metalbit_from_ingot`
-- Prevent false LR exact-link contamination by clearing `item:metalbit-%` exact links that point to LR ingot rows; preserve manual mappings.
-- After creating/linking new canonicals, regenerate aliases so search can resolve new priced entities consistently.
-
-## 11) Path B Deterministic LR Linking Pattern
-- Treat `data/lr_item_mapping.json` as authoritative linkage input (`_status="active"`).
-- Use mapping-first canonical linking in `build_canonical_items.py` before fuzzy fallback.
-- Preserve explicit exclusions through `_force_unlinked` for known non-authoritative families (e.g., `metalchain`, `metalbit`).
-- Constrain linkage provenance with explicit tiers:
-  - `mapped` (authoritative mapping)
-  - `manual`
-  - `exact` / `high` / `low` (fuzzy fallback)
-  - `unmatched` / `none` (no robust link)
-- Persist mapping hygiene output in `data/lr_mapping_warnings.json`; treat non-empty `missing_lr_item_ids`, `duplicate_game_codes`, or `invalid_entries` as curation blockers.
-- Resolver guardrail exception: allow `match_tier='mapped'` metalplates to bypass plate-family ambiguity checks while emitting warning logs.
-- Alias-generation guardrail: keep armor plate aliases isolated from metalplate material aliases to prevent cross-family collisions.
+## 11) Operational pattern
+- Run pipeline serially; avoid overlapping sessions.
+- Confirm compile before pipeline run.
+- Confirm audit numbers after every significant change.

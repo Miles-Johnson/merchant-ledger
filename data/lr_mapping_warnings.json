@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-04-19T17:05:52",
+  "mapping_file": "data\\lr_item_mapping.json",
+  "mapping_active": true,
+  "missing_lr_item_ids": [],
+  "duplicate_game_codes": {},
+  "invalid_entries": []
+}

@@ -1,0 +1,89 @@
+{
+  "unknown_item": {
+    "status": 404,
+    "body": {
+      "code": "item_not_found",
+      "error": "Item not found",
+      "query": "totallymadeupitemxyz"
+    }
+  },
+  "missing_order": {
+    "status": 400,
+    "body": {
+      "code": "invalid_request",
+      "error": "order is required"
+    }
+  },
+  "valid_known": {
+    "status": 200,
+    "body": {
+      "items": [
+        {
+          "canonical_id": "ingot_copper",
+          "completeness_ratio": null,
+          "crafting_breakdown": {
+            "canonical_id": "ingot_copper",
+            "completeness_ratio": 1.0,
+            "display_name": "Copper ingot",
+            "ingredients": [
+              {
+                "canonical_id": "anvil_copper",
+                "completeness_ratio": null,
+                "crafting_breakdown": null,
+                "crafting_cost": null,
+                "display_name": "Copper",
+                "ingredients": null,
+                "is_partial": false,
+                "lr_unit_price": 6.0,
+                "match_tier": "exact",
+                "price_source": "lr_price",
+                "quality_prices": null,
+                "quantity": 1.0,
+                "recipe_alternative": null,
+                "recipe_type": null,
+                "resolved_ingredient_count": null,
+                "source": "lr_price",
+                "total_cost": 6.0,
+                "total_ingredient_count": null,
+                "unit_cost": 6.0
+              }
+            ],
+            "is_partial": false,
+            "match_tier": "manual",
+            "quality_prices": null,
+            "quantity": 1.0,
+            "recipe_type": "grid",
+            "resolved_ingredient_count": 1,
+            "source": "recipe",
+            "total_cost": 0.75,
+            "total_ingredient_count": 1,
+            "unit_cost": 0.75
+          },
+          "crafting_cost": 0.75,
+          "display_name": "Copper ingot",
+          "ingredients": null,
+          "is_partial": false,
+          "lr_unit_price": 6.0,
+          "match_tier": "manual",
+          "price_source": "lr_price",
+          "quality_prices": null,
+          "quantity": 1.0,
+          "recipe_alternative": null,
+          "recipe_type": null,
+          "resolved_ingredient_count": null,
+          "source": "lr_price",
+          "total_cost": 6.0,
+          "total_ingredient_count": null,
+          "unit_cost": 6.0
+        }
+      ],
+      "settlement_type": "current",
+      "totals": {
+        "has_unresolved": false,
+        "total_combined": 6.0,
+        "total_lr_cost": 6.0,
+        "total_recipe_cost": 0.0
+      }
+    }
+  }
+}

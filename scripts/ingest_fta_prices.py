@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """
-Ingest Faelyn Trade Association (FTA) price sheets into fta_items.
+[DEPRECATED] Ingest Faelyn Trade Association (FTA) price sheets into fta_items.
+
+This script is retained for historical/reference use only. The active pricing
+pipeline is LR-workbook-only via scripts/ingest_lr_prices.py.
 
 Reads DATABASE_URL from environment and parses the local workbook:
   C:/Users/Kjol/Desktop/Vintage Story Modded Multiplayer/Calculator Data/FTA Spreadsheets/Copy of Pie baron FTA price sheet.xlsx
@@ -112,7 +115,7 @@ def parse_price_fields(price_value_raw: object) -> Tuple[Optional[Decimal], Opti
 
 
 def save_debug_csv(sheet_name: str, debug_rows: List[Dict[str, object]]) -> str:
-    raw_dir = os.path.join("data", "raw")
+    raw_dir = os.path.join("data", "raw", "deprecated_prices_20260416")
     os.makedirs(raw_dir, exist_ok=True)
 
     slug = re.sub(r"[^a-z0-9]+", "_", sheet_name.lower()).strip("_")

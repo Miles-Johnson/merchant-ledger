@@ -22,6 +22,212 @@ SETTLEMENT_COLUMNS = {
 
 QUALITY_PREFIXES = ("uncommon", "rare", "epic", "legendary")
 
+# Non-consumable tool policy (applied at resolver-time so raw recipe truth remains intact).
+# Anchored prefix matching is intentionally conservative to avoid false positives.
+NON_CONSUMABLE_TOOL_ROOTS = (
+    "sewingkit",
+    "sewing",
+    "pickaxe",
+    "shovel",
+    "scythe",
+    "hammer",
+    "chisel",
+    "knife",
+    "axe",
+    "awl",
+    "saw",
+    "sew",
+)
+
+VARIANT_INFER_FAMILY_WHITELIST = {
+    "ingot",
+    "nugget",
+    "lantern-up",
+    "pickaxehead",
+    "axehead",
+    "shovelhead",
+    "hoehead",
+    "swordhead",
+    "knifeblade",
+    "arrowhead",
+    "hammerhead",
+    "chiselhead",
+    "sawblade",
+    "helvehammerhead",
+    "scythepart",
+    "javelin",
+    "metalplate",
+    "armor-body-chain",
+    "armor-body-plate",
+    "armor-head-chain",
+    "armor-head-plate",
+    "armor-legs-chain",
+    "armor-legs-plate",
+}
+
+
+def _infer_variant_from_game_code(game_code):
+    text = (game_code or "").strip().lower()
+    if not text.startswith("item:"):
+        return None, None
+
+    tail = text.split(":", 1)[1]
+    if "-" not in tail:
+        return None, None
+
+    family, material = tail.rsplit("-", 1)
+    if family not in VARIANT_INFER_FAMILY_WHITELIST:
+        return None, None
+
+    if not material:
+        return None, None
+
+    return family, material
+
+
+def _material_token_matches(text, material):
+    normalized_text = (text or "").strip().lower()
+    normalized_material = (material or "").strip().lower()
+    if not normalized_text or not normalized_material:
+        return False
+
+    pattern = rf"(^|[_\-\s]){re.escape(normalized_material)}($|[_\-\s])"
+    return re.search(pattern, normalized_text) is not None
+
+
+def _ingredient_matches_material(input_canonical_id, ingredient_game_code, ingredient_display_name, material):
+    return (
+        _material_token_matches(input_canonical_id, material)
+        or _material_token_matches(ingredient_game_code, material)
+        or _material_token_matches(ingredient_display_name, material)
+    )
+
+
+def _normalize_tool_match_text(value):
+    text = (value or "").strip().lower()
+    if not text:
+        return ""
+
+    if ":" in text:
+        # canonical ids rarely include ":", game codes commonly do (item:/block:)
+        return text.split(":")[-1]
+
+    return text
+
+
+def _matches_non_consumable_tool_root(value):
+    normalized = _normalize_tool_match_text(value)
+    if not normalized:
+        return False
+
+    for root in NON_CONSUMABLE_TOOL_ROOTS:
+        pattern = rf"^{re.escape(root)}($|[_\-\s:])"
+        if re.search(pattern, normalized):
+            return True
+
+    return False
+
+
+def _is_non_consumable_tool_ingredient(
+    input_canonical_id,
+    input_game_code,
+    ingredient_game_code,
+    ingredient_display_name,
+):
+    """Return True when ingredient should be treated as a non-consumable tool."""
+    return any(
+        _matches_non_consumable_tool_root(candidate)
+        for candidate in (
+            input_canonical_id,
+            input_game_code,
+            ingredient_game_code,
+            ingredient_display_name,
+        )
+    )
+
+
+def _filter_recipe_results_for_material(recipe_results, material):
+    normalized_material = (material or "").strip().lower()
+    if not normalized_material:
+        return recipe_results
+
+    max_match_score = max((r.get("_material_match_score", 0) or 0) for r in recipe_results) if recipe_results else 0
+    if max_match_score <= 0:
+        return recipe_results
+
+    return [r for r in recipe_results if (r.get("_material_match_score", 0) or 0) == max_match_score]
+
+
+def _resolve_wildcard_input_canonical_id(
+    input_game_code,
+    settlement_type,
+    db_conn,
+    _visited,
+    _memo,
+    material=None,
+    include_all_alternatives=False,
+):
+    """Resolve wildcard recipe inputs (currently clay-*) to cheapest priced variant."""
+    normalized_input = (input_game_code or "").strip().lower()
+    if "clay-*" not in normalized_input:
+        return None
+
+    wildcard_prefix = normalized_input.replace("*", "%")
+
+    with db_conn.cursor() as cur:
+        cur.execute(
+            """
+            SELECT id
+            FROM canonical_items
+            WHERE lower(game_code) LIKE %s
+            ORDER BY id
+            """,
+            (wildcard_prefix,),
+        )
+        candidate_ids = [row[0] for row in cur.fetchall() if row and row[0]]
+
+    if not candidate_ids:
+        with db_conn.cursor() as cur:
+            cur.execute(
+                """
+                SELECT id
+                FROM canonical_items
+                WHERE lower(id) LIKE 'clay-%'
+                ORDER BY id
+                """
+            )
+            candidate_ids = [row[0] for row in cur.fetchall() if row and row[0]]
+
+    best_canonical_id = None
+    best_unit_cost = None
+    for candidate_id in candidate_ids:
+        candidate_result = calculate_cost(
+            candidate_id,
+            settlement_type,
+            db_conn,
+            quantity=1,
+            _visited=_visited.copy(),
+            _memo=_memo,
+            material=material,
+            include_recipe_alternative=False,
+            include_all_alternatives=include_all_alternatives,
+        )
+
+        candidate_unit_cost = candidate_result.get("unit_cost") if isinstance(candidate_result, dict) else None
+        if candidate_unit_cost is None:
+            continue
+
+        candidate_unit_cost = float(candidate_unit_cost)
+        if (
+            best_unit_cost is None
+            or candidate_unit_cost < best_unit_cost
+            or (candidate_unit_cost == best_unit_cost and candidate_id < (best_canonical_id or candidate_id))
+        ):
+            best_unit_cost = candidate_unit_cost
+            best_canonical_id = candidate_id
+
+    return best_canonical_id
+
 
 def _build_recipe_result_for_canonical(
     canonical_id,
@@ -30,6 +236,7 @@ def _build_recipe_result_for_canonical(
     qty_requested,
     _visited,
     _memo,
+    material=None,
     include_all_alternatives=False,
 ):
     with db_conn.cursor() as cur:
@@ -55,6 +262,7 @@ def _build_recipe_result_for_canonical(
         qty_requested=qty_requested,
         _visited=_visited,
         _memo=_memo,
+        material=material,
         include_all_alternatives=include_all_alternatives,
     )
 
@@ -67,6 +275,7 @@ def _find_recipe_alternative_for_display_name(
     qty_requested,
     _visited,
     _memo,
+    material=None,
     include_all_alternatives=False,
 ):
     """When LR-linked canonical has no recipe path, try same-display-name siblings."""
@@ -94,6 +303,7 @@ def _find_recipe_alternative_for_display_name(
             qty_requested=qty_requested,
             _visited=_visited,
             _memo=_memo,
+            material=material,
             include_all_alternatives=include_all_alternatives,
         )
         if sibling_recipe and sibling_recipe.get("source") == "recipe":
@@ -114,6 +324,7 @@ def _build_recipe_result(
     qty_requested,
     _visited,
     _memo,
+    material=None,
     include_all_alternatives=False,
     recipe_type_filter=None,
 ):
@@ -150,8 +361,18 @@ def _build_recipe_result(
         with db_conn.cursor() as cur:
             cur.execute(
                 """
-                SELECT input_canonical_id, qty, ratio_min, ratio_max, variant_group_id, is_primary_variant
-                FROM recipe_ingredients
+                SELECT
+                    ri.input_canonical_id,
+                    ri.input_game_code,
+                    ri.qty,
+                    ri.ratio_min,
+                    ri.ratio_max,
+                    ri.variant_group_id,
+                    ri.is_primary_variant,
+                    ci.game_code,
+                    ci.display_name
+                FROM recipe_ingredients ri
+                LEFT JOIN canonical_items ci ON ci.id = ri.input_canonical_id
                 WHERE recipe_id = %s
                 """,
                 (recipe_id,),
@@ -160,19 +381,36 @@ def _build_recipe_result(
 
         ingredient_results = []
         recipe_partial = False
+        recipe_has_cycle_or_unresolved = False
         ingredient_total_cost = 0.0
         total_ingredient_count = 0
         resolved_ingredient_count = 0
+        material_match_score = 0
 
         for (
             input_canonical_id,
+            input_game_code,
             ing_qty,
             ratio_min,
             ratio_max,
             variant_group_id,
             is_primary_variant,
+            ingredient_game_code,
+            ingredient_display_name,
         ) in ingredient_rows:
-            if input_canonical_id is None:
+            resolved_input_canonical_id = input_canonical_id
+            if resolved_input_canonical_id is None:
+                resolved_input_canonical_id = _resolve_wildcard_input_canonical_id(
+                    input_game_code=input_game_code,
+                    settlement_type=settlement_type,
+                    db_conn=db_conn,
+                    _visited=_visited,
+                    _memo=_memo,
+                    material=material,
+                    include_all_alternatives=include_all_alternatives,
+                )
+
+            if resolved_input_canonical_id is None:
                 continue
 
             if variant_group_id is not None and not is_primary_variant:
@@ -189,22 +427,66 @@ def _build_recipe_result(
             else:
                 resolved_ing_qty = 1.0
 
+            if _is_non_consumable_tool_ingredient(
+                resolved_input_canonical_id,
+                input_game_code,
+                ingredient_game_code,
+                ingredient_display_name,
+            ):
+                ingredient_result = {
+                    "canonical_id": resolved_input_canonical_id,
+                    "display_name": ingredient_display_name or resolved_input_canonical_id,
+                    "quantity": resolved_ing_qty,
+                    "unit_cost": 0.0,
+                    "total_cost": 0.0,
+                    "source": "non_consumable_tool",
+                    "price_source": "non_consumable_tool",
+                    "lr_unit_price": None,
+                    "crafting_cost": None,
+                    "crafting_breakdown": None,
+                    "is_partial": False,
+                    "match_tier": None,
+                    "recipe_type": None,
+                    "ingredients": None,
+                    "quality_prices": None,
+                    "resolved_ingredient_count": None,
+                    "total_ingredient_count": None,
+                    "completeness_ratio": None,
+                    "non_consumable_tool": True,
+                }
+                ingredient_results.append(ingredient_result)
+                resolved_ingredient_count += 1
+                continue
+
             ingredient_result = calculate_cost(
-                input_canonical_id,
+                resolved_input_canonical_id,
                 settlement_type,
                 db_conn,
                 resolved_ing_qty,
                 _visited.copy(),
                 include_recipe_alternative=False,
                 _memo=_memo,
+                material=material,
                 include_all_alternatives=include_all_alternatives,
             )
             ingredient_results.append(ingredient_result)
+
+            if _ingredient_matches_material(
+                resolved_input_canonical_id,
+                ingredient_game_code,
+                ingredient_display_name,
+                material,
+            ):
+                material_match_score += 1
 
             ingredient_source = ingredient_result.get("source")
             ingredient_unit_cost = ingredient_result.get("unit_cost")
             ingredient_total_cost_value = ingredient_result.get("total_cost")
             ingredient_is_partial = bool(ingredient_result.get("is_partial"))
+            ingredient_error = ingredient_result.get("error")
+
+            if ingredient_source == "unresolved" or ingredient_error == "circular_reference":
+                recipe_has_cycle_or_unresolved = True
 
             if (
                 ingredient_source in {"unresolved", "not_found"}
@@ -237,6 +519,13 @@ def _build_recipe_result(
             unit_cost = None
             total_cost = None
 
+        # Hard fail recipe paths that encountered unresolved/cycle ingredients so
+        # caller can safely fall back to override/LR precedence.
+        if recipe_has_cycle_or_unresolved:
+            recipe_partial = True
+            unit_cost = None
+            total_cost = None
+
         recipe_result = {
             "_recipe_id": recipe_id,
             "canonical_id": canonical_id,
@@ -253,8 +542,11 @@ def _build_recipe_result(
             "resolved_ingredient_count": resolved_ingredient_count,
             "total_ingredient_count": total_ingredient_count,
             "completeness_ratio": completeness_ratio,
+            "_material_match_score": material_match_score,
         }
         recipe_results.append(recipe_result)
+
+    recipe_results = _filter_recipe_results_for_material(recipe_results, material)
 
     candidates = [r for r in recipe_results if r["unit_cost"] is not None]
     complete_candidates = [r for r in candidates if not r.get("is_partial")]
@@ -262,21 +554,28 @@ def _build_recipe_result(
     if complete_candidates:
         best_complete = min(
             complete_candidates,
-            key=lambda r: (r["unit_cost"], r.get("_recipe_id", float("inf"))),
+            key=lambda r: (
+                -(r.get("_material_match_score") or 0),
+                r["unit_cost"],
+                r.get("_recipe_id", float("inf")),
+            ),
         )
         best_complete.pop("_recipe_id", None)
+        best_complete.pop("_material_match_score", None)
         return best_complete
 
     if candidates:
         best_candidate = sorted(
             candidates,
             key=lambda r: (
+                -(r.get("_material_match_score") or 0),
                 -(r.get("completeness_ratio") or 0.0),
                 -(r.get("resolved_ingredient_count") or 0),
                 r.get("unit_cost") if r.get("unit_cost") is not None else float("inf"),
             ),
         )[0]
         best_candidate.pop("_recipe_id", None)
+        best_candidate.pop("_material_match_score", None)
         return best_candidate
 
     # If recipe structure exists but pricing is incomplete/unavailable, surface the
@@ -292,6 +591,7 @@ def _build_recipe_result(
         best_partial = sorted(
             partial_candidates,
             key=lambda r: (
+                -(r.get("_material_match_score") or 0),
                 -(r.get("completeness_ratio") or 0.0),
                 -(r.get("resolved_ingredient_count") or 0),
                 r.get("_recipe_id", float("inf")),
@@ -302,6 +602,7 @@ def _build_recipe_result(
         best_partial["unit_cost"] = None
         best_partial["total_cost"] = None
         best_partial.pop("_recipe_id", None)
+        best_partial.pop("_material_match_score", None)
         return best_partial
 
     return {
@@ -395,7 +696,6 @@ def get_lr_price(canonical_id, settlement_type, db_conn):
 
     Returns:
         - (None, None) if no price can be resolved
-        - source='manual_override' for price_overrides hits
         - source='lr_price' for lr_items-backed pricing
         - unit_price_current for lr_items-backed pricing
     """
@@ -405,20 +705,7 @@ def get_lr_price(canonical_id, settlement_type, db_conn):
     with db_conn.cursor() as cur:
         cur.execute(
             """
-            SELECT unit_price
-            FROM price_overrides
-            WHERE canonical_id = %s
-            """,
-            (canonical_id,),
-        )
-        override_row = cur.fetchone()
-        if override_row and override_row[0] is not None:
-            return float(override_row[0]), "manual_override"
-
-    with db_conn.cursor() as cur:
-        cur.execute(
-            """
-            SELECT lr_item_id
+            SELECT lr_item_id, game_code, match_tier
             FROM canonical_items
             WHERE id = %s
             """,
@@ -428,11 +715,11 @@ def get_lr_price(canonical_id, settlement_type, db_conn):
         if not row or row[0] is None:
             return None, None
 
-        lr_item_id = row[0]
+        lr_item_id, game_code, match_tier = row
 
         query = sql.SQL(
             """
-            SELECT count, {settlement_col}, unit_price_current
+            SELECT count, {settlement_col}, unit_price_current, lr_sub_category
             FROM lr_items
             WHERE id = %s
             """
@@ -443,7 +730,21 @@ def get_lr_price(canonical_id, settlement_type, db_conn):
         if not price_row:
             return None, None
 
-        count_value, settlement_price_value, current_unit_price = price_row
+        count_value, settlement_price_value, current_unit_price, lr_sub_category = price_row
+
+        # Guardrail: metalplate game-code rows should not inherit LR ingot pricing
+        # from fuzzy/contains canonical linkage. If linked LR row is not explicitly
+        # in the PLATE sub-category, prefer recipe pricing.
+        normalized_game_code = (game_code or "").strip().lower()
+        normalized_lr_sub_category = (lr_sub_category or "").strip().upper()
+        if normalized_game_code.startswith("item:metalplate-") and normalized_lr_sub_category != "PLATE":
+            if (match_tier or "").lower() == "mapped":
+                print(
+                    "[WARN] mapped-tier metalplate LR link bypassed sub-category guardrail: "
+                    f"canonical_id={canonical_id}, lr_item_id={lr_item_id}, lr_sub_category={lr_sub_category}"
+                )
+            else:
+                return None, None
 
         if settlement_price_value not in (None, 0) and count_value not in (None, 0):
             return float(settlement_price_value) / float(count_value), "lr_price"
@@ -454,15 +755,14 @@ def get_lr_price(canonical_id, settlement_type, db_conn):
         return float(current_unit_price), "lr_price"
 
 
-def get_fta_price(canonical_id, db_conn):
-    """Return (unit_price, 'fta_price') for a canonical item's linked FTA entry."""
+def get_manual_override_price(canonical_id, db_conn):
+    """Return (unit_price, 'manual_override') for canonical override rows."""
     with db_conn.cursor() as cur:
         cur.execute(
             """
-            SELECT fi.unit_price
-            FROM canonical_items ci
-            JOIN fta_items fi ON fi.id = ci.fta_item_id
-            WHERE ci.id = %s
+            SELECT unit_price
+            FROM price_overrides
+            WHERE canonical_id = %s
             """,
             (canonical_id,),
         )
@@ -471,7 +771,7 @@ def get_fta_price(canonical_id, db_conn):
     if not row or row[0] is None:
         return None, None
 
-    return float(row[0]), "fta_price"
+    return float(row[0]), "manual_override"
 
 
 def get_lr_quality_prices(canonical_id, settlement_type, db_conn):
@@ -622,17 +922,23 @@ def resolve_variant_material_canonical(canonical_id, material, db_conn):
     with db_conn.cursor() as cur:
         cur.execute(
             """
-            SELECT variant_family
+            SELECT variant_family, game_code
             FROM canonical_items
             WHERE id = %s
             """,
             (canonical_id,),
         )
         row = cur.fetchone()
-        if not row or not row[0]:
+        if not row:
             return canonical_id
 
         variant_family = row[0]
+        if not variant_family:
+            inferred_family, _inferred_material = _infer_variant_from_game_code(row[1])
+            if not inferred_family:
+                return canonical_id
+            variant_family = inferred_family
+
         cur.execute(
             """
             SELECT id
@@ -656,6 +962,7 @@ def calculate_cost(
     quantity=1,
     _visited=None,
     _memo=None,
+    material=None,
     include_recipe_alternative=True,
     include_all_alternatives=False,
     labor_markup=False,
@@ -679,6 +986,32 @@ def calculate_cost(
             return _scale_cost_result(cached_value, qty_requested)
 
     if canonical_id in _visited:
+        override_unit_price, override_price_source = get_manual_override_price(canonical_id, db_conn)
+        if override_unit_price is not None:
+            unit_cost = override_unit_price * 1.2 if labor_markup else override_unit_price
+            result = {
+                "canonical_id": canonical_id,
+                "display_name": canonical_id,
+                "quantity": qty_requested,
+                "unit_cost": unit_cost,
+                "total_cost": unit_cost * qty_requested,
+                "source": override_price_source or "manual_override",
+                "price_source": override_price_source or "manual_override",
+                "lr_unit_price": None,
+                "crafting_cost": None,
+                "crafting_breakdown": None,
+                "is_partial": False,
+                "match_tier": None,
+                "recipe_type": None,
+                "ingredients": None,
+                "quality_prices": None,
+                "resolved_ingredient_count": None,
+                "total_ingredient_count": None,
+                "completeness_ratio": None,
+            }
+            _memo[memo_key] = copy.deepcopy(result)
+            return result
+
         result = {
             "canonical_id": canonical_id,
             "display_name": canonical_id,
@@ -688,7 +1021,6 @@ def calculate_cost(
             "source": "unresolved",
             "price_source": "unresolved",
             "lr_unit_price": None,
-            "fta_unit_price": None,
             "crafting_cost": None,
             "crafting_breakdown": None,
             "is_partial": True,
@@ -721,45 +1053,6 @@ def calculate_cost(
     match_tier = item_row[1] if item_row else None
 
     lr_unit_price, lr_price_source = get_lr_price(canonical_id, settlement_type, db_conn)
-    fta_unit_price, _fta_price_source = get_fta_price(canonical_id, db_conn)
-
-    alloy_recipe_result = None
-    if _has_recipe_type(canonical_id, "alloy", db_conn):
-        alloy_recipe_result = _build_recipe_result(
-            canonical_id=canonical_id,
-            display_name=display_name,
-            match_tier=match_tier,
-            settlement_type=settlement_type,
-            db_conn=db_conn,
-            qty_requested=qty_requested,
-            _visited=_visited,
-            _memo=_memo,
-            include_all_alternatives=include_all_alternatives,
-            recipe_type_filter="alloy",
-        )
-
-    recipe_result = alloy_recipe_result or _build_recipe_result(
-        canonical_id=canonical_id,
-        display_name=display_name,
-        match_tier=match_tier,
-        settlement_type=settlement_type,
-        db_conn=db_conn,
-        qty_requested=qty_requested,
-        _visited=_visited,
-        _memo=_memo,
-        include_all_alternatives=include_all_alternatives,
-    )
-
-    crafting_unit_cost = recipe_result.get("unit_cost") if recipe_result else None
-    crafting_breakdown = recipe_result if recipe_result and recipe_result.get("ingredients") else recipe_result
-
-    if labor_markup and crafting_unit_cost is not None:
-        crafting_unit_cost = float(crafting_unit_cost) * 1.2
-        if isinstance(crafting_breakdown, dict):
-            crafting_breakdown = copy.deepcopy(crafting_breakdown)
-            crafting_breakdown["unit_cost"] = crafting_unit_cost
-            crafting_breakdown["total_cost"] = crafting_unit_cost * qty_requested
-
     if lr_unit_price is not None:
         unit_cost = lr_unit_price * 1.2 if labor_markup else lr_unit_price
         quality_prices = get_lr_quality_prices(canonical_id, settlement_type, db_conn)
@@ -773,9 +1066,8 @@ def calculate_cost(
             "source": lr_price_source or "lr_price",
             "price_source": lr_price_source or "lr_price",
             "lr_unit_price": lr_unit_price,
-            "fta_unit_price": fta_unit_price,
-            "crafting_cost": crafting_unit_cost,
-            "crafting_breakdown": crafting_breakdown,
+            "crafting_cost": None,
+            "crafting_breakdown": None,
             "is_partial": False,
             "match_tier": match_tier,
             "recipe_type": None,
@@ -789,20 +1081,110 @@ def calculate_cost(
         _memo[memo_key] = copy.deepcopy(result)
         return result
 
-    if fta_unit_price is not None:
-        unit_cost = fta_unit_price * 1.2 if labor_markup else fta_unit_price
+    # Check override before recipe traversal.
+    override_unit_price, override_price_source = get_manual_override_price(canonical_id, db_conn)
+
+    alloy_recipe_result = None
+    if _has_recipe_type(canonical_id, "alloy", db_conn):
+        alloy_recipe_result = _build_recipe_result(
+            canonical_id=canonical_id,
+            display_name=display_name,
+            match_tier=match_tier,
+            settlement_type=settlement_type,
+            db_conn=db_conn,
+            qty_requested=qty_requested,
+            _visited=_visited,
+            _memo=_memo,
+            material=material,
+            include_all_alternatives=include_all_alternatives,
+            recipe_type_filter="alloy",
+        )
+
+    recipe_result = alloy_recipe_result or _build_recipe_result(
+        canonical_id=canonical_id,
+        display_name=display_name,
+        match_tier=match_tier,
+        settlement_type=settlement_type,
+        db_conn=db_conn,
+        qty_requested=qty_requested,
+        _visited=_visited,
+        _memo=_memo,
+        material=material,
+        include_all_alternatives=include_all_alternatives,
+    )
+
+    crafting_unit_cost = recipe_result.get("unit_cost") if recipe_result else None
+    recipe_is_usable = (
+        recipe_result is not None
+        and not recipe_result.get("is_partial")
+        and recipe_result.get("unit_cost") is not None
+    )
+
+    if override_unit_price is not None:
+        if (
+            not recipe_is_usable
+            or crafting_unit_cost is None
+            or float(crafting_unit_cost) >= float(override_unit_price)
+        ):
+            unit_cost = override_unit_price * 1.2 if labor_markup else override_unit_price
+            result = {
+                "canonical_id": canonical_id,
+                "display_name": display_name,
+                "quantity": qty_requested,
+                "unit_cost": unit_cost,
+                "total_cost": unit_cost * qty_requested,
+                "source": override_price_source or "manual_override",
+                "price_source": override_price_source or "manual_override",
+                "lr_unit_price": None,
+                "crafting_cost": crafting_unit_cost,
+                "crafting_breakdown": recipe_result,
+                "is_partial": False,
+                "match_tier": match_tier,
+                "recipe_type": None,
+                "ingredients": None,
+                "quality_prices": None,
+                "recipe_alternative": None,
+                "resolved_ingredient_count": None,
+                "total_ingredient_count": None,
+                "completeness_ratio": None,
+            }
+            _memo[memo_key] = copy.deepcopy(result)
+            return result
+
+    if recipe_is_usable:
+        recipe_result["price_source"] = recipe_result.get("source")
+        recipe_result["lr_unit_price"] = None
+        recipe_result["crafting_cost"] = crafting_unit_cost
+        recipe_result["crafting_breakdown"] = None
+
+        if labor_markup and recipe_result.get("unit_cost") is not None:
+            recipe_result["unit_cost"] = float(recipe_result["unit_cost"]) * 1.2
+            recipe_result["total_cost"] = recipe_result["unit_cost"] * qty_requested
+
+        _memo[memo_key] = copy.deepcopy(recipe_result)
+        return recipe_result
+
+    if recipe_result:
+        recipe_result["price_source"] = recipe_result.get("source")
+        recipe_result["lr_unit_price"] = None
+        recipe_result["crafting_cost"] = crafting_unit_cost
+        recipe_result["crafting_breakdown"] = None
+        _memo[memo_key] = copy.deepcopy(recipe_result)
+        return recipe_result
+
+    if override_unit_price is not None:
+        unit_cost = override_unit_price * 1.2 if labor_markup else override_unit_price
         result = {
             "canonical_id": canonical_id,
             "display_name": display_name,
             "quantity": qty_requested,
             "unit_cost": unit_cost,
             "total_cost": unit_cost * qty_requested,
-            "source": "fta_price",
-            "price_source": "fta_price",
+            "source": override_price_source or "manual_override",
+            "price_source": override_price_source or "manual_override",
             "lr_unit_price": None,
-            "fta_unit_price": fta_unit_price,
-            "crafting_cost": crafting_unit_cost,
-            "crafting_breakdown": crafting_breakdown,
+            "crafting_cost": None,
+            "crafting_breakdown": None,
             "is_partial": False,
             "match_tier": match_tier,
             "recipe_type": None,
@@ -816,44 +1198,28 @@ def calculate_cost(
         _memo[memo_key] = copy.deepcopy(result)
         return result
 
-    if not recipe_result:
-        result = {
-            "canonical_id": canonical_id,
-            "display_name": display_name,
-            "quantity": qty_requested,
-            "unit_cost": None,
-            "total_cost": None,
-            "source": "unresolved",
-            "price_source": "unresolved",
-            "lr_unit_price": None,
-            "fta_unit_price": None,
-            "crafting_cost": None,
-            "crafting_breakdown": None,
-            "is_partial": False,
-            "match_tier": match_tier,
-            "recipe_type": None,
-            "ingredients": None,
-            "quality_prices": None,
-            "resolved_ingredient_count": None,
-            "total_ingredient_count": None,
-            "completeness_ratio": None,
-        }
-        _memo[memo_key] = copy.deepcopy(result)
-        return result
-
-    recipe_result["price_source"] = recipe_result.get("source")
-    recipe_result["lr_unit_price"] = None
-    recipe_result["fta_unit_price"] = None
-    recipe_result["crafting_cost"] = crafting_unit_cost
-    # Avoid self-referential cycles when recipe is already the primary payload.
-    recipe_result["crafting_breakdown"] = None
-
-    if labor_markup and recipe_result.get("unit_cost") is not None:
-        recipe_result["unit_cost"] = float(recipe_result["unit_cost"]) * 1.2
-        recipe_result["total_cost"] = recipe_result["unit_cost"] * qty_requested
-
-    _memo[memo_key] = copy.deepcopy(recipe_result)
-    return recipe_result
+    result = {
+        "canonical_id": canonical_id,
+        "display_name": display_name,
+        "quantity": qty_requested,
+        "unit_cost": None,
+        "total_cost": None,
+        "source": "unresolved",
+        "price_source": "unresolved",
+        "lr_unit_price": None,
+        "crafting_cost": None,
+        "crafting_breakdown": None,
+        "is_partial": True,
+        "match_tier": match_tier,
+        "recipe_type": None,
+        "ingredients": None,
+        "quality_prices": None,
+        "resolved_ingredient_count": None,
+        "total_ingredient_count": None,
+        "completeness_ratio": None,
+    }
+    _memo[memo_key] = copy.deepcopy(result)
+    return result
 
 
 def parse_order_input(raw_string):
@@ -922,7 +1288,6 @@ def process_order(
                 "source": "not_found",
                 "price_source": "not_found",
                 "lr_unit_price": None,
-                "fta_unit_price": None,
                 "crafting_cost": None,
                 "crafting_breakdown": None,
                 "is_partial": False,
@@ -941,6 +1306,7 @@ def process_order(
                 db_conn,
                 quantity,
                 _memo=memo,
+                material=material,
                 include_all_alternatives=include_all_alternatives,
                 labor_markup=labor_markup,
             )

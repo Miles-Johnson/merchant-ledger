@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 SCRIPTS = [
     "scripts/ingest_lr_prices.py",
-    "scripts/ingest_fta_prices.py",
+    "scripts/compute_primitive_prices.py",
     "scripts/parse_recipes_json.py",
     "scripts/build_canonical_items.py",
     "scripts/apply_manual_lr_links.py",
@@ -20,15 +20,7 @@ SCRIPTS = [
 
 QUERIES = {
     "lr_items_loaded": "SELECT COUNT(*) FROM lr_items",
-    "fta_items_loaded": "SELECT COUNT(*) FROM fta_items",
     "canonical_with_lr_link": "SELECT COUNT(*) FROM canonical_items WHERE lr_item_id IS NOT NULL",
-    "canonical_with_fta_link": "SELECT COUNT(*) FROM canonical_items WHERE fta_item_id IS NOT NULL",
-    "canonical_with_both_links": """
-        SELECT COUNT(*)
-        FROM canonical_items
-        WHERE lr_item_id IS NOT NULL
-          AND fta_item_id IS NOT NULL
-    """,
 }
 
 

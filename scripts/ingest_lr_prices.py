@@ -1,71 +1,79 @@
 #!/usr/bin/env python3
 """
-Ingest Lost Realm economy price sheets into lr_items.
+Ingest Lost Realm economy price workbook into lr_items.
 
-Reads DATABASE_URL from environment and upserts rows from the three
-published Google Sheets CSV sources:
-  - industrial_goods
-  - agricultural_goods
-  - artisanal_goods
+Reads DATABASE_URL from environment and parses local workbook:
+  data/raw/lr_economy_workbook.xlsx
 """
 
 import csv
-import io
 import os
 import re
 import sys
-import urllib.request
+from collections import Counter
 from decimal import Decimal, InvalidOperation
 from typing import Dict, Iterable, List, Optional, Tuple
 
 import psycopg2
 from dotenv import load_dotenv
+from openpyxl import load_workbook
 
 
 load_dotenv()
 
 
-SOURCES: List[Tuple[str, str]] = [
-    (
-        "industrial_goods",
-        "https://docs.google.com/spreadsheets/d/e/2PACX-1vR73BLsil5C-xCp_P-_VCMWhSRliwou5FWfyhMmAbOTc4a91OcwpkxC0J_R0tdmuYilv8_OVWtJqtlj/pub?gid=1468550541&single=true&output=csv",
-    ),
-    (
-        "agricultural_goods",
-        "https://docs.google.com/spreadsheets/d/e/2PACX-1vR73BLsil5C-xCp_P-_VCMWhSRliwou5FWfyhMmAbOTc4a91OcwpkxC0J_R0tdmuYilv8_OVWtJqtlj/pub?gid=403466432&single=true&output=csv",
-    ),
-    (
-        "artisanal_goods",
-        "https://docs.google.com/spreadsheets/d/e/2PACX-1vR73BLsil5C-xCp_P-_VCMWhSRliwou5FWfyhMmAbOTc4a91OcwpkxC0J_R0tdmuYilv8_OVWtJqtlj/pub?gid=393020471&single=true&output=csv",
-    ),
-    (
-        "settlement_specialization",
-        "https://docs.google.com/spreadsheets/d/e/2PACX-1vR73BLsil5C-xCp_P-_VCMWhSRliwou5FWfyhMmAbOTc4a91OcwpkxC0J_R0tdmuYilv8_OVWtJqtlj/pub?gid=174237392&single=true&output=csv",
-    ),
+WORKBOOK_PATH = os.path.join("data", "raw", "lr_economy_workbook.xlsx")
+
+SHEETS: List[Tuple[str, str]] = [
+    ("AGRICULTURAL GOODS", "agricultural_goods"),
+    ("INDUSTRIAL GOODS", "industrial_goods"),
+    ("ARTISANAL GOODS", "artisanal_goods"),
+    ("Settlement Specialization", "settlement_specialization"),
 ]
 
+ITEM_ID_RE = re.compile(r"^[A-Z]{2,}\d+$")
 
-def fetch_csv(url: str) -> str:
-    with urllib.request.urlopen(url, timeout=30) as response:
-        return response.read().decode("utf-8-sig")
+STANDARD_COL_MAPS: Dict[str, Dict[str, int]] = {
+    # Item ID, Name, Count, Base Value, Last Value, Current Price, settlements...
+    "agricultural_goods": {
+        "current_price": 5,
+        "industrial_town": 6,
+        "industrial_city": 7,
+        "market_town": 8,
+        "market_city": 9,
+        "religious_town": 10,
+        "temple_city": 11,
+    },
+    # Item ID, Name, Count, Base Value, NA, Last Value, Current Price, settlements...
+    "industrial_goods": {
+        "current_price": 6,
+        "industrial_town": 7,
+        "industrial_city": 8,
+        "market_town": 9,
+        "market_city": 10,
+        "religious_town": 11,
+        "temple_city": 12,
+    },
+}
+
+STANDARD_HEADER_ALIASES: Dict[str, Tuple[str, ...]] = {
+    "current_price": ("current price",),
+    "industrial_town": ("industrial town",),
+    "industrial_city": ("industrial city",),
+    "market_town": ("market town",),
+    "market_city": ("market city",),
+    "religious_town": ("religious town",),
+    "temple_city": ("temple city",),
+}
 
 
-def save_csv_to_disk(category: str, csv_text: str) -> str:
-    raw_dir = os.path.join("data", "raw")
-    os.makedirs(raw_dir, exist_ok=True)
-
-    output_path = os.path.join(raw_dir, f"{category}.csv")
-    with open(output_path, "w", encoding="utf-8", newline="") as f:
-        f.write(csv_text)
-
-    return output_path
+def normalize_cell(value: object) -> str:
+    if value is None:
+        return ""
+    return str(value).strip()
 
 
-def normalize_cell(value: Optional[str]) -> str:
-    return (value or "").strip()
-
-
-def parse_numeric(value: Optional[str]) -> Optional[Decimal]:
+def parse_numeric(value: object) -> Optional[Decimal]:
     text = normalize_cell(value)
     if text in ("", "-"):
         return None
@@ -77,19 +85,14 @@ def parse_numeric(value: Optional[str]) -> Optional[Decimal]:
         raise ValueError(f"Invalid numeric value: {value!r}") from exc
 
 
-def parse_numeric_loose(value: Optional[str]) -> Optional[Decimal]:
-    """Parse numeric values but tolerate spreadsheet error tokens.
-
-    Used for price columns so malformed trend/formula leftovers (e.g. #VALUE!)
-    do not cause an entire item row to be skipped.
-    """
+def parse_numeric_loose(value: object) -> Optional[Decimal]:
     try:
         return parse_numeric(value)
     except ValueError:
         return None
 
 
-def parse_int(value: Optional[str]) -> int:
+def parse_int(value: object) -> int:
     text = normalize_cell(value)
     if text == "":
         raise ValueError("Count is blank")
@@ -102,135 +105,86 @@ def parse_int(value: Optional[str]) -> int:
     return int(match.group(1))
 
 
-def get_col(row: List[str], idx: int) -> str:
+def get_col(row: List[object], idx: int) -> object:
     if idx < len(row):
-        return normalize_cell(row[idx])
-    return ""
+        return row[idx]
+    return None
 
 
-ITEM_ID_RE = re.compile(r"^[A-Z]{2,}\d+$")
+def resolve_standard_col_map(ws, category: str) -> Optional[Dict[str, int]]:
+    """Resolve standard category column indexes from header labels.
 
-
-STANDARD_PRICE_HEADER_LABELS: Dict[str, str] = {
-    "current_price": "current price",
-    "industrial_town": "industrial town",
-    "industrial_city": "industrial city",
-    "market_town": "market town",
-    "market_city": "market city",
-    "religious_town": "religious town",
-    "temple_city": "temple city",
-}
-
-
-def detect_standard_price_col_map(category: str, csv_text: str) -> Optional[Dict[str, int]]:
-    """Detect non-tiered price column positions from header rows.
-
-    Uses the first section header containing exact ``Current Price`` as canonical,
-    then verifies repeated section headers are consistent. If required headers are
-    missing or inconsistent between sections, returns None so ingestion can skip
-    this category safely instead of ingesting misaligned values.
+    This ensures we use the workbook's *Current Price* column by name rather
+    than relying only on fixed index assumptions.
     """
+    default_map = STANDARD_COL_MAPS.get(category)
+    try:
+        header_row = next(ws.iter_rows(min_row=1, max_row=1, values_only=True))
+    except StopIteration:
+        return default_map
 
-    reader = csv.reader(io.StringIO(csv_text))
-    canonical_map: Optional[Dict[str, int]] = None
-    canonical_headers: Optional[List[str]] = None
-    canonical_line: Optional[int] = None
+    header_lookup: Dict[str, int] = {}
+    for idx, value in enumerate(header_row):
+        label = normalize_cell(value).lower()
+        if label and label not in header_lookup:
+            header_lookup[label] = idx
 
-    for line_no, row in enumerate(reader, start=1):
-        normalized = [normalize_cell(cell) for cell in row]
-        lowered = [cell.lower() for cell in normalized]
+    resolved: Dict[str, int] = {}
+    for logical_key, aliases in STANDARD_HEADER_ALIASES.items():
+        found_idx = None
+        for alias in aliases:
+            if alias in header_lookup:
+                found_idx = header_lookup[alias]
+                break
+        if found_idx is None:
+            if default_map is None:
+                return None
+            found_idx = default_map[logical_key]
+        resolved[logical_key] = found_idx
 
-        if "current price" not in lowered:
-            continue
-
-        row_map: Dict[str, int] = {}
-        missing: List[str] = []
-
-        for key, label in STANDARD_PRICE_HEADER_LABELS.items():
-            if label not in lowered:
-                missing.append(label)
-            else:
-                row_map[key] = lowered.index(label)
-
-        if missing:
-            print(
-                (
-                    f"  [WARN] {category}: header row at line {line_no} is missing required "
-                    f"non-tiered price headers {missing!r}; headers={normalized!r}. "
-                    "Skipping category to avoid misaligned ingestion."
-                ),
-                file=sys.stderr,
-            )
-            return None
-
-        if canonical_map is None:
-            canonical_map = row_map
-            canonical_headers = normalized
-            canonical_line = line_no
-            continue
-
-        if row_map != canonical_map:
-            print(
-                (
-                    f"  [WARN] {category}: inconsistent section header layout at line {line_no}; "
-                    f"detected map={row_map}, canonical map={canonical_map} (line {canonical_line}). "
-                    f"Section headers={normalized!r}, canonical headers={canonical_headers!r}. "
-                    "Skipping category to avoid misaligned ingestion."
-                ),
-                file=sys.stderr,
-            )
-            return None
-
-    if canonical_map is None:
-        print(
-            (
-                f"  [WARN] {category}: could not find any non-tiered header row containing "
-                "exact 'Current Price'; positional parsing may be incorrect. "
-                "Skipping category to avoid misaligned ingestion."
-            ),
-            file=sys.stderr,
-        )
-        return None
-
-    return canonical_map
+    return resolved
 
 
-def extract_sub_category(row: List[str]) -> Optional[str]:
-    """Best-effort extraction of section labels from mixed-format CSV rows."""
-    second_col = get_col(row, 1)
+def extract_sub_category(row: List[object], category: str) -> Optional[str]:
+    second_col = normalize_cell(get_col(row, 1))
     if not second_col:
         return None
 
     upper = second_col.upper()
     if "ITEM ID" in upper:
         return None
-    if upper in {"INDUSTRIAL GOODS", "AGRICULTURAL GOODS", "ARTISANAL GOODS"}:
+    if upper in {
+        "INDUSTRIAL GOODS",
+        "AGRICULTURAL GOODS",
+        "ARTISANAL GOODS",
+        "SETTLEMENT SPECIALIZATION",
+    }:
         return None
     if second_col.startswith("Notes:"):
+        return None
+    if category == "settlement_specialization" and second_col in {
+        "Category Multiplied",
+        "Agricultural  Multiplier",
+        "Industrial Multiplier",
+        "Artisanal Multiplier",
+    }:
         return None
 
     return second_col.strip(" ,") or None
 
 
 def parse_standard_row(
-    row: List[str],
+    row: List[object],
     category: str,
     sub_category: Optional[str],
     standard_col_map: Dict[str, int],
 ) -> Dict[str, object]:
-    """Parse industrial/agricultural (and non-tier artisanal-style) rows."""
-    has_quality_tiers = any(
-        parse_numeric_loose(get_col(row, idx)) is not None
-        for idx in (17, 28, 39)
-    )
+    has_quality_tiers = any(parse_numeric_loose(get_col(row, idx)) is not None for idx in (17, 28, 39))
 
     if has_quality_tiers:
-        # Some sheets now use the same quality-tier block layout as artisanal goods.
-        # Common price remains base_value/count (handled downstream via base_value),
-        # while current + settlement columns here represent uncommon tier values.
         return {
-            "item_id": get_col(row, 0).upper(),
-            "display_name": get_col(row, 1),
+            "item_id": normalize_cell(get_col(row, 0)).upper(),
+            "display_name": normalize_cell(get_col(row, 1)),
             "lr_category": category,
             "lr_sub_category": sub_category,
             "count": parse_int(get_col(row, 2)),
@@ -274,13 +228,12 @@ def parse_standard_row(
         }
 
     return {
-        "item_id": get_col(row, 0).upper(),
-        "display_name": get_col(row, 1),
+        "item_id": normalize_cell(get_col(row, 0)).upper(),
+        "display_name": normalize_cell(get_col(row, 1)),
         "lr_category": category,
         "lr_sub_category": sub_category,
         "count": parse_int(get_col(row, 2)),
         "base_value": parse_numeric_loose(get_col(row, 3)),
-        # Non-tiered layout is detected from headers per file/category.
         "price_current": parse_numeric_loose(get_col(row, standard_col_map["current_price"])),
         "price_industrial_town": parse_numeric_loose(get_col(row, standard_col_map["industrial_town"])),
         "price_industrial_city": parse_numeric_loose(get_col(row, standard_col_map["industrial_city"])),
@@ -320,46 +273,28 @@ def parse_standard_row(
     }
 
 
-def parse_artisanal_row(row: List[str], category: str, sub_category: Optional[str]) -> Dict[str, object]:
-    """Parse artisanal rows, including quality-tiered blocks.
-
-    Tiered blocks have uncommon/rare/epic/legendary current + settlement columns.
-    Non-tiered artisanal blocks (e.g. transport, alcohol, medicinal) keep the
-    standard current+settlement shape.
-    """
-    item_id = get_col(row, 0).upper()
+def parse_artisanal_row(row: List[object], category: str, sub_category: Optional[str]) -> Dict[str, object]:
+    item_id = normalize_cell(get_col(row, 0)).upper()
     count = parse_int(get_col(row, 2))
     base_value = parse_numeric_loose(get_col(row, 3))
 
-    has_quality_tiers = any(
-        parse_numeric_loose(get_col(row, idx)) is not None
-        for idx in (17, 28, 39)
-    )
+    has_quality_tiers = any(parse_numeric_loose(get_col(row, idx)) is not None for idx in (17, 28, 39))
 
     if has_quality_tiers:
-        # Uncommon block starts at col 6 (current), settlements 7..12
-        price_current = parse_numeric_loose(get_col(row, 6))
-        price_industrial_town = parse_numeric_loose(get_col(row, 7))
-        price_industrial_city = parse_numeric_loose(get_col(row, 8))
-        price_market_town = parse_numeric_loose(get_col(row, 9))
-        price_market_city = parse_numeric_loose(get_col(row, 10))
-        price_religious_town = parse_numeric_loose(get_col(row, 11))
-        price_temple_city = parse_numeric_loose(get_col(row, 12))
-
         return {
             "item_id": item_id,
-            "display_name": get_col(row, 1),
+            "display_name": normalize_cell(get_col(row, 1)),
             "lr_category": category,
             "lr_sub_category": sub_category,
             "count": count,
             "base_value": base_value,
-            "price_current": price_current,
-            "price_industrial_town": price_industrial_town,
-            "price_industrial_city": price_industrial_city,
-            "price_market_town": price_market_town,
-            "price_market_city": price_market_city,
-            "price_religious_town": price_religious_town,
-            "price_temple_city": price_temple_city,
+            "price_current": parse_numeric_loose(get_col(row, 6)),
+            "price_industrial_town": parse_numeric_loose(get_col(row, 7)),
+            "price_industrial_city": parse_numeric_loose(get_col(row, 8)),
+            "price_market_town": parse_numeric_loose(get_col(row, 9)),
+            "price_market_city": parse_numeric_loose(get_col(row, 10)),
+            "price_religious_town": parse_numeric_loose(get_col(row, 11)),
+            "price_temple_city": parse_numeric_loose(get_col(row, 12)),
             "has_quality_tiers": True,
             "price_uncommon_current": parse_numeric_loose(get_col(row, 6)),
             "price_uncommon_industrial_town": parse_numeric_loose(get_col(row, 7)),
@@ -391,10 +326,9 @@ def parse_artisanal_row(row: List[str], category: str, sub_category: Optional[st
             "price_legendary_temple_city": parse_numeric_loose(get_col(row, 45)),
         }
 
-    # Non-tiered artisanal rows (e.g. transport/alcohol/medicinal/crafting goods)
     return {
         "item_id": item_id,
-        "display_name": get_col(row, 1),
+        "display_name": normalize_cell(get_col(row, 1)),
         "lr_category": category,
         "lr_sub_category": sub_category,
         "count": count,
@@ -438,64 +372,90 @@ def parse_artisanal_row(row: List[str], category: str, sub_category: Optional[st
     }
 
 
-def parse_rows(csv_text: str, category: str) -> Tuple[List[Dict[str, object]], int]:
-    """
-    Parse rows from one CSV.
+def save_debug_csv(category: str, rows: List[Dict[str, object]]) -> str:
+    raw_dir = os.path.join("data", "raw", "deprecated_prices_20260416")
+    os.makedirs(raw_dir, exist_ok=True)
+    output_path = os.path.join(raw_dir, f"lr_{category}_parsed.csv")
 
-    Returns:
-      (parsed_rows, skipped_rows)
-    """
-    standard_col_map: Optional[Dict[str, int]] = None
-    if category != "artisanal_goods":
-        standard_col_map = detect_standard_price_col_map(category, csv_text)
-        if standard_col_map is None:
-            total_rows = len(list(csv.reader(io.StringIO(csv_text))))
-            return [], total_rows
+    if not rows:
+        with open(output_path, "w", encoding="utf-8", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["note"])
+            writer.writerow(["no parsed rows"])
+        return output_path
 
-    reader = csv.reader(io.StringIO(csv_text))
+    fieldnames = list(rows[0].keys())
+    with open(output_path, "w", encoding="utf-8", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in rows:
+            writer.writerow(row)
+    return output_path
+
+
+def dedupe_rows_by_item_id(rows: List[Dict[str, object]], category: str) -> Tuple[List[Dict[str, object]], int]:
+    """Keep first occurrence for duplicate item IDs and warn.
+
+    Some workbook revisions contain duplicate item IDs across sections (e.g. IN067,
+    IN068 in industrial). We keep the first row encountered to preserve earlier
+    canonical sections and avoid silent overwrite order dependence during UPSERT.
+    """
+    seen = set()
+    deduped: List[Dict[str, object]] = []
+    duplicates = 0
+
+    counts = Counter(str(r.get("item_id", "")) for r in rows)
+    dup_ids = [item_id for item_id, count in counts.items() if item_id and count > 1]
+    if dup_ids:
+        print(
+            f"  [WARN] {category}: duplicate item_id values detected: {dup_ids}. Keeping first occurrence.",
+            file=sys.stderr,
+        )
+
+    for row in rows:
+        item_id = str(row.get("item_id", ""))
+        if item_id in seen:
+            duplicates += 1
+            continue
+        seen.add(item_id)
+        deduped.append(row)
+
+    return deduped, duplicates
+
+
+def parse_sheet(ws, category: str) -> Tuple[List[Dict[str, object]], int]:
+    if category == "settlement_specialization":
+        # Settlement multipliers are handled by a dedicated script; retain sheet parse no-op.
+        scanned = sum(1 for _ in ws.iter_rows(min_row=1, values_only=True))
+        return [], scanned
+
+    standard_col_map = resolve_standard_col_map(ws, category)
     parsed: List[Dict[str, object]] = []
     skipped = 0
-    skipped_examples: List[Tuple[int, str, List[str]]] = []
     current_sub_category: Optional[str] = None
 
-    for line_no, row in enumerate(reader, start=1):
-        # Strict positional mapping: only rows with a canonical item ID in col0
-        # are considered data rows. Header text/content is ignored.
-        item_id_cell = get_col(row, 0).upper()
+    for row in ws.iter_rows(min_row=1, values_only=True):
+        row_vals: List[object] = list(row)
+        item_id_cell = normalize_cell(get_col(row_vals, 0)).upper()
+
         if not ITEM_ID_RE.match(item_id_cell):
-            maybe_sub_category = extract_sub_category(row)
+            maybe_sub_category = extract_sub_category(row_vals, category)
             if maybe_sub_category:
                 current_sub_category = maybe_sub_category
-
             skipped += 1
-            if category == "agricultural_goods" and len(skipped_examples) < 5:
-                skipped_examples.append((line_no, "non_canonical_item_id", row.copy()))
             continue
 
         try:
             if category == "artisanal_goods":
-                parsed.append(parse_artisanal_row(row, category, current_sub_category))
+                parsed.append(parse_artisanal_row(row_vals, category, current_sub_category))
             else:
-                parsed.append(parse_standard_row(row, category, current_sub_category, standard_col_map))
+                if standard_col_map is None:
+                    skipped += 1
+                    continue
+                parsed.append(parse_standard_row(row_vals, category, current_sub_category, standard_col_map))
         except ValueError as err:
             skipped += 1
-            print(
-                f"  [WARN] Skipping malformed row ({category}, line {line_no}): {err}",
-                file=sys.stderr,
-            )
-            if category == "agricultural_goods" and len(skipped_examples) < 5:
-                skipped_examples.append((line_no, f"malformed: {err}", row.copy()))
-
-    if category == "agricultural_goods" and skipped_examples:
-        print(
-            "  [DEBUG] First 5 skipped rows for agricultural_goods (raw columns):",
-            file=sys.stderr,
-        )
-        for ex_line_no, reason, raw_row in skipped_examples:
-            print(
-                f"    line {ex_line_no} [{reason}]: {raw_row!r}",
-                file=sys.stderr,
-            )
+            print(f"  [WARN] Skipping malformed row ({category}): {err}", file=sys.stderr)
 
     return parsed, skipped
 
@@ -635,10 +595,9 @@ RETURNING (xmax = 0) AS inserted;
 """
 
 
-def ingest_category(cur, category: str, rows: Iterable[Dict[str, object]]) -> Tuple[int, int]:
+def ingest_category(cur, rows: Iterable[Dict[str, object]]) -> Tuple[int, int]:
     inserted = 0
     updated = 0
-
     for row in rows:
         cur.execute(UPSERT_SQL, row)
         was_inserted = cur.fetchone()[0]
@@ -646,7 +605,6 @@ def ingest_category(cur, category: str, rows: Iterable[Dict[str, object]]) -> Tu
             inserted += 1
         else:
             updated += 1
-
     return inserted, updated
 
 
@@ -656,41 +614,61 @@ def main() -> int:
         print("[ERROR] DATABASE_URL environment variable is not set.", file=sys.stderr)
         return 1
 
+    if not os.path.exists(WORKBOOK_PATH):
+        print(f"[ERROR] Workbook not found: {WORKBOOK_PATH}", file=sys.stderr)
+        return 1
+
     print("Starting Lost Realm price ingestion...")
+    print(f"Workbook: {WORKBOOK_PATH}")
+
+    try:
+        wb = load_workbook(WORKBOOK_PATH, data_only=True)
+    except Exception as exc:
+        print(f"[ERROR] Failed to open workbook: {exc}", file=sys.stderr)
+        return 1
 
     all_rows: Dict[str, List[Dict[str, object]]] = {}
+    sheet_stats: Dict[str, Tuple[int, int]] = {}
 
-    for category, url in SOURCES:
-        print(f"\nFetching {category}...")
-        try:
-            csv_text = fetch_csv(url)
-            saved_path = save_csv_to_disk(category, csv_text)
-            print(f"  Saved raw CSV to {saved_path}")
-            parsed_rows, skipped_rows = parse_rows(csv_text, category)
-            all_rows[category] = parsed_rows
-            print(
-                f"  Parsed {len(parsed_rows)} rows"
-                + (f" (skipped {skipped_rows})" if skipped_rows else "")
-            )
-        except Exception as exc:
-            print(f"  [ERROR] Failed to fetch/parse {category}: {exc}", file=sys.stderr)
+    for sheet_name, category in SHEETS:
+        if sheet_name not in wb.sheetnames:
+            print(f"  [WARN] Sheet not found (skipping): {sheet_name}", file=sys.stderr)
             continue
 
-    if not all_rows:
-        print("[ERROR] No CSVs were successfully fetched/parsed; nothing to ingest.", file=sys.stderr)
+        print(f"\nParsing sheet: {sheet_name}")
+        ws = wb[sheet_name]
+        parsed_rows, skipped = parse_sheet(ws, category)
+        deduped_rows, deduped_count = dedupe_rows_by_item_id(parsed_rows, category)
+        debug_path = save_debug_csv(category, parsed_rows)
+        all_rows[category] = deduped_rows
+        sheet_stats[category] = (len(parsed_rows), skipped + deduped_count)
+        print(f"  Saved debug CSV: {debug_path}")
+        print(
+            f"  Parsed {len(deduped_rows)} rows"
+            + (
+                f" (skipped {skipped + deduped_count})"
+                if (skipped + deduped_count)
+                else ""
+            )
+        )
+
+    data_categories = {k: v for k, v in all_rows.items() if k != "settlement_specialization"}
+    if not data_categories:
+        print("[ERROR] No LR item categories were parsed; nothing to ingest.", file=sys.stderr)
         return 1
 
     try:
         with psycopg2.connect(database_url) as conn:
             with conn.cursor() as cur:
                 totals: Dict[str, Tuple[int, int]] = {}
-                for category, rows in all_rows.items():
-                    ins, upd = ingest_category(cur, category, rows)
+                for category, rows in data_categories.items():
+                    ins, upd = ingest_category(cur, rows)
                     totals[category] = (ins, upd)
 
                 print("\nIngestion summary:")
                 for category, (ins, upd) in totals.items():
-                    print(f"  {category}: inserted={ins}, updated={upd}")
+                    parsed, skipped = sheet_stats.get(category, (0, 0))
+                    print(f"  {category}: parsed={parsed}, skipped={skipped}, inserted={ins}, updated={upd}")
 
     except Exception as exc:
         print(f"[ERROR] Database ingestion failed: {exc}", file=sys.stderr)

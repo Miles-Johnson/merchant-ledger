@@ -16,6 +16,7 @@ from __future__ import annotations
 import os
 import sys
 import math
+from itertools import product
 from collections import Counter
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
@@ -29,8 +30,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-BASE_RECIPE_ROOT = Path(r"C:\Games\Vintagestory\assets\survival\recipes")
-MOD_UNPACK_GLOB = "unpack*"
+BASE_RECIPE_ROOTS = [
+    Path(r"C:\Games\Vintagestory\assets\survival\recipes"),
+]
+MOD_CACHE_ROOT = Path(r"C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack")
 KNOWN_RECIPE_TYPES = {
     "grid",
     "smithing",
@@ -43,6 +46,7 @@ KNOWN_RECIPE_TYPES = {
 
 UNKNOWN_WARNED_KEYS: set[tuple[str, str]] = set()
 UNKNOWN_WARN_SUPPRESSED = 0
+MAX_VARIANT_COMBINATIONS = 500
 
 
 INSERT_RECIPE_SQL = """
@@ -179,11 +183,12 @@ def detect_source_mod(path: Path) -> str:
 
 
 def iter_recipe_files() -> Iterable[Path]:
-    if BASE_RECIPE_ROOT.is_dir():
-        yield from BASE_RECIPE_ROOT.rglob("*.json")
+    for base_recipe_root in BASE_RECIPE_ROOTS:
+        if base_recipe_root.is_dir():
+            yield from base_recipe_root.rglob("*.json")
 
     # Mods: scan only files under recipe directories, not every JSON in unpack cache.
-    for unpack_root in Path("Cache").glob(MOD_UNPACK_GLOB):
+    for unpack_root in MOD_CACHE_ROOT.iterdir() if MOD_CACHE_ROOT.is_dir() else []:
         if not unpack_root.is_dir():
             continue
         for recipes_dir in unpack_root.rglob("recipes"):
@@ -238,7 +243,36 @@ def count_grid_symbols(pattern: Any) -> Counter[str]:
     return symbol_counts
 
 
-def variant_rows_for_grid_recipe(recipe: dict[str, Any]) -> list[dict[str, str]]:
+def build_variant_rows(
+    placeholders_to_variants: dict[str, list[str]],
+    filepath: Path,
+    recipe_type: str,
+    max_combinations: int = MAX_VARIANT_COMBINATIONS,
+) -> list[dict[str, str]] | None:
+    if not placeholders_to_variants:
+        return [{}]
+
+    for variants in placeholders_to_variants.values():
+        if not variants:
+            return [{}]
+
+    total_combinations = 1
+    for variants in placeholders_to_variants.values():
+        total_combinations *= len(variants)
+        if total_combinations > max_combinations:
+            print(
+                f"[WARN] Skipping {recipe_type} recipe at {filepath}: "
+                f"variant expansion would produce {total_combinations} combinations "
+                f"(cap={max_combinations})."
+            )
+            return None
+
+    placeholders = list(placeholders_to_variants.keys())
+    variant_lists = [placeholders_to_variants[p] for p in placeholders]
+    return [dict(zip(placeholders, combo)) for combo in product(*variant_lists)]
+
+
+def variant_rows_for_grid_recipe(recipe: dict[str, Any], filepath: Path) -> list[dict[str, str]] | None:
     ingredients = recipe.get("ingredients") if isinstance(recipe.get("ingredients"), dict) else {}
 
     placeholders_to_variants: dict[str, list[str]] = {}
@@ -261,18 +295,7 @@ def variant_rows_for_grid_recipe(recipe: dict[str, Any]) -> list[dict[str, str]]
         else:
             placeholders_to_variants[placeholder_name] = [str(v).strip() for v in allowed if str(v).strip()]
 
-    if not placeholders_to_variants:
-        return [{}]
-
-    if len(placeholders_to_variants) > 1:
-        # Keep step 1.1 scoped; do not compute cross-products yet.
-        return [{}]
-
-    placeholder, variants = next(iter(placeholders_to_variants.items()))
-    if not variants:
-        return [{}]
-
-    return [{placeholder: variant} for variant in variants]
+    return build_variant_rows(placeholders_to_variants, filepath, "grid")
 
 
 def apply_variant_template(text: str, variant_map: dict[str, str]) -> str:
@@ -296,7 +319,9 @@ def handle_grid(cur, recipe: dict[str, Any], source_mod: str, filepath: Path) ->
         return 0
 
     output_qty = parse_qty(output_obj.get("quantity") or output_obj.get("stacksize") or output_obj.get("stackSize"), Decimal("1"))
-    variants = variant_rows_for_grid_recipe(recipe)
+    variants = variant_rows_for_grid_recipe(recipe, filepath)
+    if variants is None:
+        return 0
     inserted = 0
 
     for variant_map in variants:
@@ -469,14 +494,9 @@ def handle_barrel(cur, recipe: dict[str, Any], source_mod: str, filepath: Path) 
         else:
             placeholders_to_variants[placeholder_name] = clean_variants
 
-    variant_rows: list[dict[str, str]] = [{}]
-    if placeholders_to_variants:
-        if len(placeholders_to_variants) > 1:
-            # Keep scope consistent with existing parser stages (single placeholder expansion).
-            variant_rows = [{}]
-        else:
-            placeholder, variants = next(iter(placeholders_to_variants.items()))
-            variant_rows = [{placeholder: variant} for variant in variants]
+    variant_rows = build_variant_rows(placeholders_to_variants, filepath, "barrel")
+    if variant_rows is None:
+        return 0
 
     inserted = 0
     for variant_map in variant_rows:
@@ -655,11 +675,19 @@ def handle_alloy(cur, recipe: dict[str, Any], source_mod: str, filepath: Path) -
     if not output_game_code:
         return 0
 
+    output_qty = parse_qty(
+        output_obj.get("quantity")
+        or output_obj.get("stackSize")
+        or output_obj.get("stacksize")
+        or output_obj.get("litres"),
+        Decimal("1"),
+    )
+
     cur.execute(
         INSERT_RECIPE_SQL,
         (
             output_game_code,
-            Decimal("1"),
+            output_qty,
             "alloy",
             source_mod,
         ),
@@ -969,11 +997,17 @@ def main() -> int:
         return 1
 
     files_seen = 0
-    parse_failures = 0
+    files_skipped = 0
+    recipes_skipped = 0
     recipes_seen_by_type: Counter[str] = Counter()
     inserted_by_type: Counter[str] = Counter()
 
+    print(f"[INFO] Base recipe roots: {BASE_RECIPE_ROOTS}")
+    print(f"[INFO] Mod cache root: {MOD_CACHE_ROOT}")
+
     try:
+        # psycopg2 context manager commits on clean exit, rolls back on exception.
+        # All parse + insert work is inside this single transaction.
         with psycopg2.connect(database_url) as conn:
             with conn.cursor() as cur:
                 cur.execute("TRUNCATE TABLE recipe_ingredients, recipes RESTART IDENTITY CASCADE")
@@ -986,8 +1020,9 @@ def main() -> int:
 
                     try:
                         recipes = parse_json5_file(filepath)
-                    except Exception:
-                        parse_failures += 1
+                    except Exception as exc:
+                        print(f"[SKIP] Malformed recipe file {filepath} ({recipe_type}): {exc}")
+                        files_skipped += 1
                         continue
 
                     for recipe in recipes:
@@ -998,11 +1033,9 @@ def main() -> int:
                         try:
                             inserted = dispatch_recipe(cur, recipe_type, recipe, source_mod, filepath)
                         except Exception as exc:
-                            print(
-                                f"[WARN] Failed to parse recipe in {filepath} "
-                                f"(type={recipe_type}): {exc}"
-                            )
-                            inserted = 0
+                            print(f"[SKIP] Failed to insert recipe in {filepath} ({recipe_type}): {exc}")
+                            recipes_skipped += 1
+                            continue
                         if inserted:
                             inserted_by_type[recipe_type] += int(inserted)
 
@@ -1012,12 +1045,15 @@ def main() -> int:
 
     print("=== parse_recipes_json.py summary ===")
     print(f"Files walked: {files_seen}")
-    print(f"Parse failures: {parse_failures}")
     print("Recipe counts by type:")
     for recipe_type in sorted(recipes_seen_by_type.keys()):
         print(f"- {recipe_type}: {recipes_seen_by_type[recipe_type]}")
     print(f"Total recipes discovered: {sum(recipes_seen_by_type.values())}")
     print(f"Total recipes inserted: {sum(inserted_by_type.values())}")
+    if files_skipped:
+        print(f"Files skipped (malformed): {files_skipped}")
+    if recipes_skipped:
+        print(f"Recipes skipped (insert error): {recipes_skipped}")
     if UNKNOWN_WARN_SUPPRESSED:
         print(f"Suppressed duplicate unknown-type warnings: {UNKNOWN_WARN_SUPPRESSED}")
     print("Done.")

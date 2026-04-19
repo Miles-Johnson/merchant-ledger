@@ -1,176 +1,94 @@
 {
-  "timestamp": "2026-04-06T15:20:11",
+  "timestamp": "2026-04-18T17:33:00",
   "summary": {
     "total": 15,
-    "passed": 14,
-    "failed": 1,
-    "regressions": 0
+    "passed": 6,
+    "failed": 9,
+    "regressions": 9
   },
   "results": [
     {
       "label": "Grid: lantern up (iron)",
       "order": "1 lantern up",
       "status_code": 200,
-      "source": "recipe",
-      "recipe_type": "grid",
-      "unit_cost": 66.75,
-      "total_cost": 66.75,
-      "is_partial": true,
-      "completeness_ratio": 0.75,
-      "top_level_ingredients": [
-        {
-          "canonical_id": "glassslab_plain_down_free",
-          "display_name": "Glassslab Plain Down Frees",
-          "quantity": 2.0,
-          "unit_cost": 0.375,
-          "total_cost": 0.75,
-          "source": "recipe",
-          "is_partial": false
-        },
-        {
-          "canonical_id": "candle",
-          "display_name": "Candle",
-          "quantity": 1.0,
-          "unit_cost": 27.0,
-          "total_cost": 27.0,
-          "source": "recipe",
-          "is_partial": true
-        },
-        {
-          "canonical_id": "metalplate_bismuthbronze",
-          "display_name": "Bismuth Bronze",
-          "quantity": 1.0,
-          "unit_cost": 7.0,
-          "total_cost": 7.0,
-          "source": "lr_price",
-          "is_partial": false
-        },
-        {
-          "canonical_id": "metalplate_electrum",
-          "display_name": "Electrum plate",
-          "quantity": 1.0,
-          "unit_cost": 32.0,
-          "total_cost": 32.0,
-          "source": "recipe",
-          "is_partial": false
-        }
-      ],
+      "source": "unresolved",
+      "recipe_type": null,
+      "unit_cost": null,
+      "total_cost": null,
+      "is_partial": false,
+      "completeness_ratio": null,
+      "top_level_ingredients": [],
       "failures": [
-        "missing ingredient metalplate_iron"
+        "source expected recipe, got unresolved",
+        "recipe_type expected grid, got None",
+        "missing top-level ingredient breakdown",
+        "unit_cost is null/non-numeric",
+        "total_cost is null/non-numeric",
+        "missing ingredient metalplate_iron",
+        "missing ingredient glassslab_plain_down_free",
+        "missing ingredient candle"
       ],
       "passed": false,
-      "regression": false
+      "regression": true
     },
     {
       "label": "Grid: chest",
       "order": "1 chest",
       "status_code": 200,
-      "source": "recipe",
-      "recipe_type": "grid",
-      "unit_cost": 2.1125,
-      "total_cost": 2.1125,
-      "is_partial": true,
-      "completeness_ratio": 0.6,
-      "top_level_ingredients": [
-        {
-          "canonical_id": "plank",
-          "display_name": "Planks",
-          "quantity": 4.0,
-          "unit_cost": 0.09375,
-          "total_cost": 0.375,
-          "source": "lr_price",
-          "is_partial": false
-        },
-        {
-          "canonical_id": "metalbit_brass",
-          "display_name": "Brass bits",
-          "quantity": 2.0,
-          "unit_cost": 0.4,
-          "total_cost": 0.8,
-          "source": "manual_override",
-          "is_partial": false
-        },
-        {
-          "canonical_id": "cloth_blue",
-          "display_name": "Blue cloth",
-          "quantity": 1.0,
-          "unit_cost": 0.9375,
-          "total_cost": 0.9375,
-          "source": "lr_price",
-          "is_partial": false
-        },
-        {
-          "canonical_id": "metalnailsandstrips",
-          "display_name": "Nails And Strips",
-          "quantity": 1.0,
-          "unit_cost": null,
-          "total_cost": null,
-          "source": "unresolved",
-          "is_partial": false
-        },
-        {
-          "canonical_id": "br_schematic_chest",
-          "display_name": "Br Schematic Chests",
-          "quantity": 1.0,
-          "unit_cost": null,
-          "total_cost": null,
-          "source": "unresolved",
-          "is_partial": false
-        }
+      "source": "unresolved",
+      "recipe_type": null,
+      "unit_cost": null,
+      "total_cost": null,
+      "is_partial": false,
+      "completeness_ratio": null,
+      "top_level_ingredients": [],
+      "failures": [
+        "source expected recipe, got unresolved",
+        "recipe_type expected grid, got None",
+        "missing top-level ingredient breakdown",
+        "unit_cost is null/non-numeric",
+        "total_cost is null/non-numeric"
       ],
-      "failures": [],
-      "passed": true,
-      "regression": false
+      "passed": false,
+      "regression": true
     },
     {
       "label": "Smithing: metal plate iron",
       "order": "1 metal plate iron",
       "status_code": 200,
-      "source": "recipe",
-      "recipe_type": "smithing",
-      "unit_cost": 16.0,
-      "total_cost": 16.0,
+      "source": "lr_price",
+      "recipe_type": null,
+      "unit_cost": 301.0,
+      "total_cost": 301.0,
       "is_partial": false,
-      "completeness_ratio": 1.0,
-      "top_level_ingredients": [
-        {
-          "canonical_id": "ingot_iron",
-          "display_name": "Iron",
-          "quantity": 2.0,
-          "unit_cost": 8.0,
-          "total_cost": 16.0,
-          "source": "lr_price",
-          "is_partial": false
-        }
+      "completeness_ratio": null,
+      "top_level_ingredients": [],
+      "failures": [
+        "recipe_type expected smithing, got None",
+        "missing top-level ingredient breakdown",
+        "missing ingredient ingot_iron"
       ],
-      "failures": [],
-      "passed": true,
-      "regression": false
+      "passed": false,
+      "regression": true
     },
     {
       "label": "Smithing: pickaxe head iron",
       "order": "1 pickaxe head iron",
       "status_code": 200,
-      "source": "recipe",
-      "recipe_type": "smithing",
-      "unit_cost": 8.0,
-      "total_cost": 8.0,
+      "source": "lr_price",
+      "recipe_type": null,
+      "unit_cost": 20.0,
+      "total_cost": 20.0,
       "is_partial": false,
-      "completeness_ratio": 1.0,
-      "top_level_ingredients": [
-        {
-          "canonical_id": "ingot_iron",
-          "display_name": "Iron",
-          "quantity": 1.0,
-          "unit_cost": 8.0,
-          "total_cost": 8.0,
-          "source": "lr_price",
-          "is_partial": false
-        }
+      "completeness_ratio": null,
+      "top_level_ingredients": [],
+      "failures": [
+        "source expected recipe, got lr_price",
+        "recipe_type expected smithing, got None",
+        "missing top-level ingredient breakdown"
       ],
-      "failures": [],
-      "passed": true,
-      "regression": false
+      "passed": false,
+      "regression": true
     },
     {
       "label": "Barrel: leather",
@@ -178,39 +96,11 @@
       "status_code": 200,
       "source": "lr_price",
       "recipe_type": null,
-      "unit_cost": 1.0,
-      "total_cost": 1.0,
+      "unit_cost": 17.0,
+      "total_cost": 17.0,
       "is_partial": false,
       "completeness_ratio": null,
-      "top_level_ingredients": [
-        {
-          "canonical_id": "plank",
-          "display_name": "Planks",
-          "quantity": 1.0,
-          "unit_cost": 0.09375,
-          "total_cost": 0.09375,
-          "source": "lr_price",
-          "is_partial": false
-        },
-        {
-          "canonical_id": "panel_leather_plain",
-          "display_name": "Panel Leather Plains",
-          "quantity": 4.0,
-          "unit_cost": null,
-          "total_cost": null,
-          "source": "unresolved",
-          "is_partial": false
-        },
-        {
-          "canonical_id": "panel_leather_plain",
-          "display_name": "Panel Leather Plains",
-          "quantity": 2.0,
-          "unit_cost": null,
-          "total_cost": null,
-          "source": "unresolved",
-          "is_partial": false
-        }
-      ],
+      "top_level_ingredients": [],
       "failures": [],
       "passed": true,
       "regression": false
@@ -219,134 +109,73 @@
       "label": "Cooking: candle",
       "order": "1 candle",
       "status_code": 200,
-      "source": "recipe",
-      "recipe_type": "cooking",
-      "unit_cost": 27.0,
-      "total_cost": 27.0,
-      "is_partial": true,
-      "completeness_ratio": 0.5,
-      "top_level_ingredients": [
-        {
-          "canonical_id": "beeswax",
-          "display_name": "Bees (skep)",
-          "quantity": 3.0,
-          "unit_cost": 9.0,
-          "total_cost": 27.0,
-          "source": "lr_price",
-          "is_partial": false
-        },
-        {
-          "canonical_id": "flaxfibers",
-          "display_name": "Flax fibers",
-          "quantity": 1.0,
-          "unit_cost": null,
-          "total_cost": null,
-          "source": "recipe",
-          "is_partial": true
-        }
+      "source": "lr_price",
+      "recipe_type": null,
+      "unit_cost": 0.40625,
+      "total_cost": 0.40625,
+      "is_partial": false,
+      "completeness_ratio": null,
+      "top_level_ingredients": [],
+      "failures": [
+        "source expected recipe, got lr_price",
+        "recipe_type expected cooking, got None",
+        "missing top-level ingredient breakdown",
+        "missing ingredient beeswax",
+        "missing ingredient flaxfibers"
       ],
-      "failures": [],
-      "passed": true,
-      "regression": false
+      "passed": false,
+      "regression": true
     },
     {
       "label": "Alloy: tin bronze ingot",
       "order": "1 tin bronze ingot",
       "status_code": 200,
       "source": "lr_price",
-      "recipe_type": "alloy",
+      "recipe_type": null,
       "unit_cost": 6.0,
       "total_cost": 6.0,
       "is_partial": false,
       "completeness_ratio": null,
-      "top_level_ingredients": [
-        {
-          "canonical_id": "ingot_tin",
-          "display_name": "Tin",
-          "quantity": 0.1,
-          "unit_cost": 5.0,
-          "total_cost": 0.5,
-          "source": "lr_price",
-          "is_partial": false
-        },
-        {
-          "canonical_id": "ingot_copper",
-          "display_name": "Copper",
-          "quantity": 0.9,
-          "unit_cost": 6.0,
-          "total_cost": 5.4,
-          "source": "lr_price",
-          "is_partial": false
-        }
+      "top_level_ingredients": [],
+      "failures": [
+        "recipe_type expected alloy, got None",
+        "missing top-level ingredient breakdown",
+        "missing ingredient ingot_tin",
+        "missing ingredient ingot_copper"
       ],
-      "failures": [],
-      "passed": true,
-      "regression": false
+      "passed": false,
+      "regression": true
     },
     {
       "label": "Knapping: flint knife blade",
       "order": "1 flint knife blade",
       "status_code": 200,
-      "source": "recipe",
-      "recipe_type": "knapping",
+      "source": "unresolved",
+      "recipe_type": null,
       "unit_cost": null,
       "total_cost": null,
-      "is_partial": true,
-      "completeness_ratio": 0.0,
-      "top_level_ingredients": [
-        {
-          "canonical_id": "flint",
-          "display_name": "Flint",
-          "quantity": 1.0,
-          "unit_cost": null,
-          "total_cost": null,
-          "source": "unresolved",
-          "is_partial": false
-        }
+      "is_partial": false,
+      "completeness_ratio": null,
+      "top_level_ingredients": [],
+      "failures": [
+        "source expected recipe, got unresolved",
+        "recipe_type expected knapping, got None",
+        "missing top-level ingredient breakdown"
       ],
-      "failures": [],
-      "passed": true,
-      "regression": false
+      "passed": false,
+      "regression": true
     },
     {
       "label": "Multi-step: plate body armor iron",
       "order": "1 plate body armor iron",
       "status_code": 200,
-      "source": "recipe",
-      "recipe_type": "grid",
-      "unit_cost": 120.0,
-      "total_cost": 120.0,
+      "source": "lr_price",
+      "recipe_type": null,
+      "unit_cost": 349.0,
+      "total_cost": 349.0,
       "is_partial": false,
-      "completeness_ratio": 1.0,
-      "top_level_ingredients": [
-        {
-          "canonical_id": "armor_arms_plate_iron_vanilla",
-          "display_name": "Iron pauldrons",
-          "quantity": 1.0,
-          "unit_cost": 32.0,
-          "total_cost": 32.0,
-          "source": "recipe",
-          "is_partial": false
-        },
-        {
-          "canonical_id": "armor_hands_plate_iron_vanilla",
-          "display_name": "Iron vambraces",
-          "quantity": 1.0,
-          "unit_cost": 32.0,
-          "total_cost": 32.0,
-          "source": "recipe",
-          "is_partial": false
-        },
-        {
-          "canonical_id": "armor_torso_plate_iron_vanilla",
-          "display_name": "Iron cuirass",
-          "quantity": 1.0,
-          "unit_cost": 56.0,
-          "total_cost": 56.0,
-          "source": "recipe",
-          "is_partial": false
-        }
-      ],
+      "completeness_ratio": null,
+      "top_level_ingredients": [],
       "failures": [],
       "passed": true,
       "regression": false
@@ -385,48 +214,30 @@
       "label": "Spot: flint arrowhead",
       "order": "1 flint arrowhead",
       "status_code": 200,
-      "source": "recipe",
-      "recipe_type": "knapping",
+      "source": "unresolved",
+      "recipe_type": null,
       "unit_cost": null,
       "total_cost": null,
-      "is_partial": true,
-      "completeness_ratio": 0.0,
-      "top_level_ingredients": [
-        {
-          "canonical_id": "flint",
-          "display_name": "Flint",
-          "quantity": 1.0,
-          "unit_cost": null,
-          "total_cost": null,
-          "source": "unresolved",
-          "is_partial": false
-        }
+      "is_partial": false,
+      "completeness_ratio": null,
+      "top_level_ingredients": [],
+      "failures": [
+        "source should not be unresolved"
       ],
-      "failures": [],
-      "passed": true,
-      "regression": false
+      "passed": false,
+      "regression": true
     },
     {
       "label": "Spot: iron axe head",
       "order": "1 iron axe head",
       "status_code": 200,
-      "source": "recipe",
-      "recipe_type": "smithing",
-      "unit_cost": 8.0,
-      "total_cost": 8.0,
+      "source": "lr_price",
+      "recipe_type": null,
+      "unit_cost": 7.0,
+      "total_cost": 7.0,
       "is_partial": false,
-      "completeness_ratio": 1.0,
-      "top_level_ingredients": [
-        {
-          "canonical_id": "ingot_iron",
-          "display_name": "Iron",
-          "quantity": 1.0,
-          "unit_cost": 8.0,
-          "total_cost": 8.0,
-          "source": "lr_price",
-          "is_partial": false
-        }
-      ],
+      "completeness_ratio": null,
+      "top_level_ingredients": [],
       "failures": [],
       "passed": true,
       "regression": false
@@ -435,35 +246,18 @@
       "label": "Spot: tannin",
       "order": "1 tannin",
       "status_code": 200,
-      "source": "recipe",
-      "recipe_type": "barrel",
-      "unit_cost": 0.00625,
-      "total_cost": 0.00625,
-      "is_partial": true,
-      "completeness_ratio": 0.5,
-      "top_level_ingredients": [
-        {
-          "canonical_id": "log_placed_oak_ud",
-          "display_name": "Log Placed Oak Uds",
-          "quantity": 1.0,
-          "unit_cost": 0.0625,
-          "total_cost": 0.0625,
-          "source": "lr_price",
-          "is_partial": false
-        },
-        {
-          "canonical_id": "waterportion",
-          "display_name": "Water",
-          "quantity": 10.0,
-          "unit_cost": null,
-          "total_cost": null,
-          "source": "recipe",
-          "is_partial": true
-        }
+      "source": "unresolved",
+      "recipe_type": null,
+      "unit_cost": null,
+      "total_cost": null,
+      "is_partial": false,
+      "completeness_ratio": null,
+      "top_level_ingredients": [],
+      "failures": [
+        "source should not be unresolved"
       ],
-      "failures": [],
-      "passed": true,
-      "regression": false
+      "passed": false,
+      "regression": true
     },
     {
       "label": "Spot: iron ingot",

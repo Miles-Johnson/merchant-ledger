@@ -593,3 +593,3580 @@ Timestamp: 2026-04-06T15:20:11
 - Spot: iron axe head: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
 - Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
 - Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-09T19:47:57
+Final Validation Gate
+Passed 3 / 15
+Regressions: 11
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=unresolved recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - source expected recipe, got unresolved
+  - recipe_type expected grid, got None
+  - missing top-level ingredient breakdown
+  - unit_cost is null/non-numeric
+  - total_cost is null/non-numeric
+  - missing ingredient metalplate_iron
+  - missing ingredient glassslab_plain_down_free
+  - missing ingredient candle
+
+[REGRESSION] Grid: chest (1 chest)
+  status=200 source=unresolved recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - source expected recipe, got unresolved
+  - recipe_type expected grid, got None
+  - missing top-level ingredient breakdown
+  - unit_cost is null/non-numeric
+  - total_cost is null/non-numeric
+
+[REGRESSION] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=None unit=301.0 total=301.0 partial=False
+  top_ingredients=
+  - source expected recipe, got lr_price
+  - recipe_type expected smithing, got None
+  - missing top-level ingredient breakdown
+  - missing ingredient ingot_iron
+
+[REGRESSION] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=unresolved recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - source expected recipe, got unresolved
+  - recipe_type expected smithing, got None
+  - missing top-level ingredient breakdown
+  - unit_cost is null/non-numeric
+  - total_cost is null/non-numeric
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=1.0 total=1.0 partial=False
+  top_ingredients=
+
+[REGRESSION] Cooking: candle (1 candle)
+  status=200 source=lr_price recipe_type=None unit=0.40625 total=0.40625 partial=False
+  top_ingredients=
+  - source expected recipe, got lr_price
+  - recipe_type expected cooking, got None
+  - missing top-level ingredient breakdown
+  - missing ingredient beeswax
+  - missing ingredient flaxfibers
+
+[REGRESSION] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+  - recipe_type expected alloy, got None
+  - missing top-level ingredient breakdown
+  - missing ingredient ingot_tin
+  - missing ingredient ingot_copper
+
+[REGRESSION] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=unresolved recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - source expected recipe, got unresolved
+  - recipe_type expected knapping, got None
+  - missing top-level ingredient breakdown
+
+[REGRESSION] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=unresolved recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - source expected one of ['lr_price', 'recipe'], got unresolved
+  - unit_cost must be non-null positive
+  - total_cost must be non-null positive
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[REGRESSION] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=unresolved recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - source should not be unresolved
+
+[REGRESSION] Spot: iron axe head (1 iron axe head)
+  status=200 source=unresolved recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - source should not be unresolved
+
+[REGRESSION] Spot: tannin (1 tannin)
+  status=200 source=unresolved recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - source should not be unresolved
+
+[REGRESSION] Spot: iron ingot (1 iron ingot)
+  status=200 source=unresolved recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - source should not be unresolved
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-09T19:47:57
+- Grid: lantern up (iron): FAIL | source=unresolved | recipe_type=None | unit_cost=None
+- Grid: chest: REGRESSION | source=unresolved | recipe_type=None | unit_cost=None
+- Smithing: metal plate iron: REGRESSION | source=lr_price | recipe_type=None | unit_cost=301.0
+- Smithing: pickaxe head iron: REGRESSION | source=unresolved | recipe_type=None | unit_cost=None
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=1.0
+- Cooking: candle: REGRESSION | source=lr_price | recipe_type=None | unit_cost=0.40625
+- Alloy: tin bronze ingot: REGRESSION | source=lr_price | recipe_type=None | unit_cost=6.0
+- Knapping: flint knife blade: REGRESSION | source=unresolved | recipe_type=None | unit_cost=None
+- Multi-step: plate body armor iron: REGRESSION | source=unresolved | recipe_type=None | unit_cost=None
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: REGRESSION | source=unresolved | recipe_type=None | unit_cost=None
+- Spot: iron axe head: REGRESSION | source=unresolved | recipe_type=None | unit_cost=None
+- Spot: tannin: REGRESSION | source=unresolved | recipe_type=None | unit_cost=None
+- Spot: iron ingot: REGRESSION | source=unresolved | recipe_type=None | unit_cost=None
+
+Run Timestamp: 2026-04-09T19:49:05
+Final Validation Gate
+Passed 14 / 15
+Regressions: 0
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=66.75 total=66.75 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_bismuthbronze x1.0, metalplate_electrum x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=recipe recipe_type=smithing unit=16.0 total=16.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=1.0 total=1.0 partial=False
+  top_ingredients=
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=recipe recipe_type=grid unit=318.0 total=318.0 partial=False
+  top_ingredients=metalplate_iron x8.0, armor_body_chain_iron x1.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=log_placed_oak_ud x1.0, waterportion x10.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-09T19:49:05
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=66.75
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=recipe | recipe_type=smithing | unit_cost=16.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=1.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=recipe | recipe_type=grid | unit_cost=318.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-09T20:56:08
+Final Validation Gate
+Passed 13 / 15
+Regressions: 1
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_molybdochalkos x1.0, metalplate_electrum x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[REGRESSION] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+  - source expected recipe, got lr_price
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=1.0 total=1.0 partial=False
+  top_ingredients=
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=metalplate_iron x8.0, armor_body_chain_iron x1.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=log_placed_oak_ud x1.0, waterportion x10.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-09T20:56:08
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: REGRESSION | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=1.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-09T20:59:36
+Final Validation Gate
+Passed 13 / 15
+Regressions: 0
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_molybdochalkos x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[FAIL] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+  - source expected recipe, got lr_price
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=1.0 total=1.0 partial=False
+  top_ingredients=
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-09T20:59:36
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: FAIL | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=1.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-09T21:16:15
+Final Validation Gate
+Passed 14 / 15
+Regressions: 0
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_molybdochalkos x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=1.0 total=1.0 partial=False
+  top_ingredients=
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-09T21:16:15
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=1.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-09T21:18:22
+Final Validation Gate
+Passed 14 / 15
+Regressions: 0
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_molybdochalkos x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=1.0 total=1.0 partial=False
+  top_ingredients=
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-09T21:18:22
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=1.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-09T21:29:48
+Final Validation Gate
+Passed 14 / 15
+Regressions: 0
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_molybdochalkos x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=metalnailsandstrips x1.0, plank x8.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=1.0 total=1.0 partial=False
+  top_ingredients=
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-09T21:29:48
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=1.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-09T21:54:18
+Final Validation Gate
+Passed 13 / 15
+Regressions: 1
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_molybdochalkos x1.0, metalplate_electrum x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[REGRESSION] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=lr_price recipe_type=smithing unit=7.0 total=7.0 partial=False
+  top_ingredients=ingot_iron x1.0
+  - source expected recipe, got lr_price
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=1.0 total=1.0 partial=False
+  top_ingredients=
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=metalplate_iron x8.0, armor_body_chain_iron x1.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=log_placed_oak_ud x1.0, waterportion x10.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-09T21:54:18
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: REGRESSION | source=lr_price | recipe_type=smithing | unit_cost=7.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=1.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-09T21:55:50
+Final Validation Gate
+Passed 14 / 15
+Regressions: 0
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_molybdochalkos x1.0, metalplate_electrum x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=1.0 total=1.0 partial=False
+  top_ingredients=
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=metalplate_iron x8.0, armor_body_chain_iron x1.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=log_placed_oak_ud x1.0, waterportion x10.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-09T21:55:50
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=1.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-09T21:57:12
+Final Validation Gate
+Passed 14 / 15
+Regressions: 0
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_molybdochalkos x1.0, metalplate_electrum x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=1.0 total=1.0 partial=False
+  top_ingredients=
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=metalplate_iron x8.0, armor_body_chain_iron x1.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=log_placed_oak_ud x1.0, waterportion x10.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-09T21:57:12
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=1.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-09T22:14:14
+Final Validation Gate
+Passed 13 / 15
+Regressions: 1
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=11.23125 total=11.23125 partial=False
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_molybdochalkos x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=1.0 total=1.0 partial=False
+  top_ingredients=
+
+[REGRESSION] Cooking: candle (1 candle)
+  status=200 source=lr_price recipe_type=cooking unit=0.28125 total=0.28125 partial=False
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+  - source expected recipe, got lr_price
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=metalplate_iron x8.0, armor_body_chain_iron x1.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=log_placed_oak_ud x1.0, waterportion x10.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-09T22:14:14
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=11.23125
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=1.0
+- Cooking: candle: REGRESSION | source=lr_price | recipe_type=cooking | unit_cost=0.28125
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-09T22:16:24
+Final Validation Gate
+Passed 14 / 15
+Regressions: 0
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_molybdochalkos x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-09T22:16:24
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-09T22:17:31
+Final Validation Gate
+Passed 14 / 15
+Regressions: 0
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_molybdochalkos x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-09T22:17:31
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-09T22:18:02
+Final Validation Gate
+Passed 14 / 15
+Regressions: 0
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_molybdochalkos x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-09T22:18:02
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-16T13:31:10
+Final Validation Gate
+Passed 14 / 15
+Regressions: 0
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_molybdochalkos x1.0, metalplate_electrum x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x2.0, leather_normal_plain x12.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=metalplate_iron x8.0, armor_body_chain_iron x1.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=log_placed_oak_ud x1.0, waterportion x10.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-16T13:31:10
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-16T13:31:37
+Final Validation Gate
+Passed 14 / 15
+Regressions: 0
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_molybdochalkos x1.0, metalplate_electrum x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x2.0, leather_normal_plain x12.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=metalplate_iron x8.0, armor_body_chain_iron x1.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=log_placed_oak_ud x1.0, waterportion x10.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-16T13:31:37
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-16T14:35:50
+Final Validation Gate
+Passed 14 / 15
+Regressions: 0
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_molybdochalkos x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-16T14:35:50
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-16T14:36:12
+Final Validation Gate
+Passed 14 / 15
+Regressions: 0
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_molybdochalkos x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-16T14:36:12
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-16T21:36:31
+Final Validation Gate
+Passed 14 / 15
+Regressions: 0
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_molybdochalkos x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=metalnailsandstrips x1.0, plank x8.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-16T21:36:31
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-16T21:37:12
+Final Validation Gate
+Passed 14 / 15
+Regressions: 0
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_molybdochalkos x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=metalnailsandstrips x1.0, plank x8.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-16T21:37:12
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-16T21:56:14
+Final Validation Gate
+Passed 0 / 15
+Regressions: 14
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=500 source=None recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - HTTP status 500
+  - source expected recipe, got None
+  - recipe_type expected grid, got None
+  - missing top-level ingredient breakdown
+  - unit_cost is null/non-numeric
+  - total_cost is null/non-numeric
+  - missing ingredient metalplate_iron
+  - missing ingredient glassslab_plain_down_free
+  - missing ingredient candle
+
+[REGRESSION] Grid: chest (1 chest)
+  status=500 source=None recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - HTTP status 500
+  - source expected recipe, got None
+  - recipe_type expected grid, got None
+  - missing top-level ingredient breakdown
+  - unit_cost is null/non-numeric
+  - total_cost is null/non-numeric
+
+[REGRESSION] Smithing: metal plate iron (1 metal plate iron)
+  status=500 source=None recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - HTTP status 500
+  - source expected lr_price, got None
+  - recipe_type expected smithing, got None
+  - missing top-level ingredient breakdown
+  - unit_cost is null/non-numeric
+  - total_cost is null/non-numeric
+  - missing ingredient ingot_iron
+
+[REGRESSION] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=500 source=None recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - HTTP status 500
+  - source expected recipe, got None
+  - recipe_type expected smithing, got None
+  - missing top-level ingredient breakdown
+  - unit_cost is null/non-numeric
+  - total_cost is null/non-numeric
+
+[REGRESSION] Barrel: leather (1 leather)
+  status=500 source=None recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - HTTP status 500
+  - source expected one of ['lr_price', 'recipe'], got None
+  - unit_cost must be non-null positive
+  - total_cost must be non-null positive
+
+[REGRESSION] Cooking: candle (1 candle)
+  status=500 source=None recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - HTTP status 500
+  - source expected recipe, got None
+  - recipe_type expected cooking, got None
+  - missing top-level ingredient breakdown
+  - unit_cost is null/non-numeric
+  - total_cost is null/non-numeric
+  - missing ingredient beeswax
+  - missing ingredient flaxfibers
+
+[REGRESSION] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=500 source=None recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - HTTP status 500
+  - source expected lr_price, got None
+  - recipe_type expected alloy, got None
+  - missing top-level ingredient breakdown
+  - unit_cost is null/non-numeric
+  - total_cost is null/non-numeric
+  - missing ingredient ingot_tin
+  - missing ingredient ingot_copper
+
+[REGRESSION] Knapping: flint knife blade (1 flint knife blade)
+  status=500 source=None recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - HTTP status 500
+  - source expected recipe, got None
+  - recipe_type expected knapping, got None
+  - missing top-level ingredient breakdown
+
+[REGRESSION] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=500 source=None recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - HTTP status 500
+  - source expected one of ['lr_price', 'recipe'], got None
+  - unit_cost must be non-null positive
+  - total_cost must be non-null positive
+
+[REGRESSION] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=500 source=None recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - HTTP status 500
+  - source is None
+
+[REGRESSION] Spot: copper ingot (1 copper ingot)
+  status=500 source=None recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - HTTP status 500
+  - source is None
+
+[REGRESSION] Spot: flint arrowhead (1 flint arrowhead)
+  status=500 source=None recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - HTTP status 500
+  - source is None
+
+[REGRESSION] Spot: iron axe head (1 iron axe head)
+  status=500 source=None recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - HTTP status 500
+  - source is None
+
+[REGRESSION] Spot: tannin (1 tannin)
+  status=500 source=None recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - HTTP status 500
+  - source is None
+
+[REGRESSION] Spot: iron ingot (1 iron ingot)
+  status=500 source=None recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - HTTP status 500
+  - source is None
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-16T21:56:14
+- Grid: lantern up (iron): FAIL | source=None | recipe_type=None | unit_cost=None
+- Grid: chest: REGRESSION | source=None | recipe_type=None | unit_cost=None
+- Smithing: metal plate iron: REGRESSION | source=None | recipe_type=None | unit_cost=None
+- Smithing: pickaxe head iron: REGRESSION | source=None | recipe_type=None | unit_cost=None
+- Barrel: leather: REGRESSION | source=None | recipe_type=None | unit_cost=None
+- Cooking: candle: REGRESSION | source=None | recipe_type=None | unit_cost=None
+- Alloy: tin bronze ingot: REGRESSION | source=None | recipe_type=None | unit_cost=None
+- Knapping: flint knife blade: REGRESSION | source=None | recipe_type=None | unit_cost=None
+- Multi-step: plate body armor iron: REGRESSION | source=None | recipe_type=None | unit_cost=None
+- Spot: bismuth bronze ingot: REGRESSION | source=None | recipe_type=None | unit_cost=None
+- Spot: copper ingot: REGRESSION | source=None | recipe_type=None | unit_cost=None
+- Spot: flint arrowhead: REGRESSION | source=None | recipe_type=None | unit_cost=None
+- Spot: iron axe head: REGRESSION | source=None | recipe_type=None | unit_cost=None
+- Spot: tannin: REGRESSION | source=None | recipe_type=None | unit_cost=None
+- Spot: iron ingot: REGRESSION | source=None | recipe_type=None | unit_cost=None
+
+Run Timestamp: 2026-04-16T21:56:41
+Final Validation Gate
+Passed 14 / 15
+Regressions: 0
+
+[FAIL] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=69.95 total=69.95 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_molybdochalkos x1.0
+  - missing ingredient metalplate_iron
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=metalnailsandstrips x1.0, plank x8.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-16T21:56:41
+- Grid: lantern up (iron): FAIL | source=recipe | recipe_type=grid | unit_cost=69.95
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-16T21:58:26
+Final Validation Gate
+Passed 15 / 15
+Regressions: 0
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=360.75 total=360.75 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_iron x1.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=metalnailsandstrips x1.0, plank x8.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-16T21:58:26
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=360.75
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-16T21:59:00
+Final Validation Gate
+Passed 15 / 15
+Regressions: 0
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=360.75 total=360.75 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_iron x1.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=metalnailsandstrips x1.0, plank x8.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-16T21:59:00
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=360.75
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-16T22:03:09
+Final Validation Gate
+Passed 15 / 15
+Regressions: 0
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=360.75 total=360.75 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_iron x1.0, metalplate_electrum x1.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x2.0, leather_normal_plain x12.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=metalplate_iron x8.0, armor_body_chain_iron x1.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=log_placed_oak_ud x1.0, waterportion x10.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-16T22:03:09
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=360.75
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-16T22:04:55
+Final Validation Gate
+Passed 15 / 15
+Regressions: 0
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=360.75 total=360.75 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_iron x1.0, metalplate_electrum x1.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x2.0, leather_normal_plain x12.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=metalplate_iron x8.0, armor_body_chain_iron x1.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=log_placed_oak_ud x1.0, waterportion x10.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-16T22:04:55
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=360.75
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-16T22:13:00
+Final Validation Gate
+Passed 15 / 15
+Regressions: 0
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=360.75 total=360.75 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_iron x1.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=flaxfibers x1.0, beeswax x3.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-16T22:13:00
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=360.75
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-16T22:14:32
+Final Validation Gate
+Passed 15 / 15
+Regressions: 0
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=360.75 total=360.75 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_iron x1.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=flaxfibers x1.0, beeswax x3.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-16T22:14:32
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=360.75
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-16T22:21:40
+Final Validation Gate
+Passed 15 / 15
+Regressions: 0
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=360.75 total=360.75 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_iron x1.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=metalnailsandstrips x1.0, plank x8.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=flaxfibers x1.0, beeswax x3.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-16T22:21:40
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=360.75
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-16T22:23:12
+Final Validation Gate
+Passed 15 / 15
+Regressions: 0
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=360.75 total=360.75 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_iron x1.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=metalnailsandstrips x1.0, plank x8.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=flaxfibers x1.0, beeswax x3.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-16T22:23:12
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=360.75
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-17T00:24:17
+Final Validation Gate
+Passed 12 / 15
+Regressions: 3
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=302.15625 total=302.15625 partial=False
+  top_ingredients=candle x1.0, metalplate_iron x1.0, glassslab_plain_down_free x2.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[REGRESSION] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=lr_price recipe_type=smithing unit=20.0 total=20.0 partial=False
+  top_ingredients=ingot_meteoriciron x1.0
+  - source expected recipe, got lr_price
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[REGRESSION] Cooking: candle (1 candle)
+  status=200 source=lr_price recipe_type=cooking unit=0.40625 total=0.40625 partial=False
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+  - source expected recipe, got lr_price
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[REGRESSION] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=None total=None partial=True
+  top_ingredients=weaktanninportion x10.0, log_placed_oak_ud x1.0
+  - unit_cost is null/non-numeric for priced source
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-17T00:24:17
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=302.15625
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: REGRESSION | source=lr_price | recipe_type=smithing | unit_cost=20.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: REGRESSION | source=lr_price | recipe_type=cooking | unit_cost=0.40625
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: REGRESSION | source=recipe | recipe_type=barrel | unit_cost=None
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-17T17:41:19
+Final Validation Gate
+Passed 14 / 15
+Regressions: 0
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=302.15625 total=302.15625 partial=False
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_iron x1.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x2.0, leather_normal_plain x12.0
+
+[FAIL] Cooking: candle (1 candle)
+  status=200 source=lr_price recipe_type=cooking unit=0.40625 total=0.40625 partial=False
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+  - source expected recipe, got lr_price
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_tin x0.1, ingot_copper x0.9
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=metalplate_iron x8.0, armor_body_chain_iron x1.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=log_placed_oak_ud x1.0, waterportion x10.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-17T17:41:19
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=302.15625
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: FAIL | source=lr_price | recipe_type=cooking | unit_cost=0.40625
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-17T18:02:40
+Final Validation Gate
+Passed 15 / 15
+Regressions: 0
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=360.75 total=360.75 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_iron x1.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-17T18:02:40
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=360.75
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-17T18:02:58
+Final Validation Gate
+Passed 15 / 15
+Regressions: 0
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=360.75 total=360.75 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_iron x1.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-17T18:02:58
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=360.75
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-17T19:16:47
+Final Validation Gate
+Passed 15 / 15
+Regressions: 0
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=360.75 total=360.75 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_iron x1.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-17T19:16:47
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=360.75
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-17T19:25:25
+Final Validation Gate
+Passed 15 / 15
+Regressions: 0
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=360.75 total=360.75 partial=True
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_electrum x1.0, metalplate_iron x1.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.0 total=27.0 partial=True
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-17T19:25:25
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=360.75
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.0
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-18T13:06:17
+Final Validation Gate
+Passed 15 / 15
+Regressions: 0
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=328.765625 total=328.765625 partial=False
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_iron x1.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.015625 total=27.015625 partial=False
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=True
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-18T13:06:17
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=328.765625
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.015625
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-18T13:25:55
+Final Validation Gate
+Passed 13 / 15
+Regressions: 2
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=328.765625 total=328.765625 partial=False
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_iron x1.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.015625 total=27.015625 partial=False
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[REGRESSION] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=unresolved recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - source expected recipe, got unresolved
+  - recipe_type expected knapping, got None
+  - missing top-level ingredient breakdown
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[REGRESSION] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=unresolved recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - source should not be unresolved
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=False
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-18T13:25:55
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=328.765625
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.015625
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: REGRESSION | source=unresolved | recipe_type=None | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: REGRESSION | source=unresolved | recipe_type=None | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-18T13:26:57
+Final Validation Gate
+Passed 15 / 15
+Regressions: 0
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=328.765625 total=328.765625 partial=False
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_iron x1.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.015625 total=27.015625 partial=False
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=False
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-18T13:26:57
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=328.765625
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.015625
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-18T13:27:25
+Final Validation Gate
+Passed 15 / 15
+Regressions: 0
+
+[PASS] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=recipe recipe_type=grid unit=328.765625 total=328.765625 partial=False
+  top_ingredients=glassslab_plain_down_free x2.0, candle x1.0, metalplate_iron x1.0
+
+[PASS] Grid: chest (1 chest)
+  status=200 source=recipe recipe_type=grid unit=0.75 total=0.75 partial=True
+  top_ingredients=plank x8.0, metalnailsandstrips x1.0
+
+[PASS] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=smithing unit=301.0 total=301.0 partial=False
+  top_ingredients=ingot_iron x2.0
+
+[PASS] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=recipe recipe_type=smithing unit=8.0 total=8.0 partial=False
+  top_ingredients=ingot_iron x1.0
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=leather_normal_plain x12.0, leather_normal_plain x2.0
+
+[PASS] Cooking: candle (1 candle)
+  status=200 source=recipe recipe_type=cooking unit=27.015625 total=27.015625 partial=False
+  top_ingredients=beeswax x3.0, flaxfibers x1.0
+
+[PASS] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=alloy unit=6.0 total=6.0 partial=False
+  top_ingredients=ingot_copper x0.9, ingot_tin x0.1
+
+[PASS] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=armor_body_chain_iron x1.0, metalplate_iron x8.0
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=recipe recipe_type=knapping unit=None total=None partial=True
+  top_ingredients=flint x1.0
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: tannin (1 tannin)
+  status=200 source=recipe recipe_type=barrel unit=0.00625 total=0.00625 partial=False
+  top_ingredients=waterportion x10.0, log_placed_oak_ud x1.0
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-18T13:27:25
+- Grid: lantern up (iron): PASS | source=recipe | recipe_type=grid | unit_cost=328.765625
+- Grid: chest: PASS | source=recipe | recipe_type=grid | unit_cost=0.75
+- Smithing: metal plate iron: PASS | source=lr_price | recipe_type=smithing | unit_cost=301.0
+- Smithing: pickaxe head iron: PASS | source=recipe | recipe_type=smithing | unit_cost=8.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: PASS | source=recipe | recipe_type=cooking | unit_cost=27.015625
+- Alloy: tin bronze ingot: PASS | source=lr_price | recipe_type=alloy | unit_cost=6.0
+- Knapping: flint knife blade: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: PASS | source=recipe | recipe_type=knapping | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: PASS | source=recipe | recipe_type=barrel | unit_cost=0.00625
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0
+
+Run Timestamp: 2026-04-18T17:33:00
+Final Validation Gate
+Passed 6 / 15
+Regressions: 9
+
+[REGRESSION] Grid: lantern up (iron) (1 lantern up)
+  status=200 source=unresolved recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - source expected recipe, got unresolved
+  - recipe_type expected grid, got None
+  - missing top-level ingredient breakdown
+  - unit_cost is null/non-numeric
+  - total_cost is null/non-numeric
+  - missing ingredient metalplate_iron
+  - missing ingredient glassslab_plain_down_free
+  - missing ingredient candle
+
+[REGRESSION] Grid: chest (1 chest)
+  status=200 source=unresolved recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - source expected recipe, got unresolved
+  - recipe_type expected grid, got None
+  - missing top-level ingredient breakdown
+  - unit_cost is null/non-numeric
+  - total_cost is null/non-numeric
+
+[REGRESSION] Smithing: metal plate iron (1 metal plate iron)
+  status=200 source=lr_price recipe_type=None unit=301.0 total=301.0 partial=False
+  top_ingredients=
+  - recipe_type expected smithing, got None
+  - missing top-level ingredient breakdown
+  - missing ingredient ingot_iron
+
+[REGRESSION] Smithing: pickaxe head iron (1 pickaxe head iron)
+  status=200 source=lr_price recipe_type=None unit=20.0 total=20.0 partial=False
+  top_ingredients=
+  - source expected recipe, got lr_price
+  - recipe_type expected smithing, got None
+  - missing top-level ingredient breakdown
+
+[PASS] Barrel: leather (1 leather)
+  status=200 source=lr_price recipe_type=None unit=17.0 total=17.0 partial=False
+  top_ingredients=
+
+[REGRESSION] Cooking: candle (1 candle)
+  status=200 source=lr_price recipe_type=None unit=0.40625 total=0.40625 partial=False
+  top_ingredients=
+  - source expected recipe, got lr_price
+  - recipe_type expected cooking, got None
+  - missing top-level ingredient breakdown
+  - missing ingredient beeswax
+  - missing ingredient flaxfibers
+
+[REGRESSION] Alloy: tin bronze ingot (1 tin bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+  - recipe_type expected alloy, got None
+  - missing top-level ingredient breakdown
+  - missing ingredient ingot_tin
+  - missing ingredient ingot_copper
+
+[REGRESSION] Knapping: flint knife blade (1 flint knife blade)
+  status=200 source=unresolved recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - source expected recipe, got unresolved
+  - recipe_type expected knapping, got None
+  - missing top-level ingredient breakdown
+
+[PASS] Multi-step: plate body armor iron (1 plate body armor iron)
+  status=200 source=lr_price recipe_type=None unit=349.0 total=349.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: bismuth bronze ingot (1 bismuth bronze ingot)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[PASS] Spot: copper ingot (1 copper ingot)
+  status=200 source=lr_price recipe_type=None unit=6.0 total=6.0 partial=False
+  top_ingredients=
+
+[REGRESSION] Spot: flint arrowhead (1 flint arrowhead)
+  status=200 source=unresolved recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - source should not be unresolved
+
+[PASS] Spot: iron axe head (1 iron axe head)
+  status=200 source=lr_price recipe_type=None unit=7.0 total=7.0 partial=False
+  top_ingredients=
+
+[REGRESSION] Spot: tannin (1 tannin)
+  status=200 source=unresolved recipe_type=None unit=None total=None partial=False
+  top_ingredients=
+  - source should not be unresolved
+
+[PASS] Spot: iron ingot (1 iron ingot)
+  status=200 source=lr_price recipe_type=None unit=8.0 total=8.0 partial=False
+  top_ingredients=
+
+Regression Baseline Snapshot
+Timestamp: 2026-04-18T17:33:00
+- Grid: lantern up (iron): REGRESSION | source=unresolved | recipe_type=None | unit_cost=None
+- Grid: chest: REGRESSION | source=unresolved | recipe_type=None | unit_cost=None
+- Smithing: metal plate iron: REGRESSION | source=lr_price | recipe_type=None | unit_cost=301.0
+- Smithing: pickaxe head iron: REGRESSION | source=lr_price | recipe_type=None | unit_cost=20.0
+- Barrel: leather: PASS | source=lr_price | recipe_type=None | unit_cost=17.0
+- Cooking: candle: REGRESSION | source=lr_price | recipe_type=None | unit_cost=0.40625
+- Alloy: tin bronze ingot: REGRESSION | source=lr_price | recipe_type=None | unit_cost=6.0
+- Knapping: flint knife blade: REGRESSION | source=unresolved | recipe_type=None | unit_cost=None
+- Multi-step: plate body armor iron: PASS | source=lr_price | recipe_type=None | unit_cost=349.0
+- Spot: bismuth bronze ingot: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: copper ingot: PASS | source=lr_price | recipe_type=None | unit_cost=6.0
+- Spot: flint arrowhead: REGRESSION | source=unresolved | recipe_type=None | unit_cost=None
+- Spot: iron axe head: PASS | source=lr_price | recipe_type=None | unit_cost=7.0
+- Spot: tannin: REGRESSION | source=unresolved | recipe_type=None | unit_cost=None
+- Spot: iron ingot: PASS | source=lr_price | recipe_type=None | unit_cost=8.0

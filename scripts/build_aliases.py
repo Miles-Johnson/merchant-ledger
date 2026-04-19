@@ -141,6 +141,37 @@ def aliases_for_plate_armor(display_name: Optional[str]) -> Set[str]:
     return aliases
 
 
+def aliases_from_armor_plate_game_code(game_code: Optional[str]) -> Set[str]:
+    """Generate armor-oriented aliases for item:armor-*-plate-<metal> rows."""
+    aliases: Set[str] = set()
+    if not game_code:
+        return aliases
+
+    tail = game_code_tail(game_code)
+    match = re.match(r"^armor-(body|head|legs)-plate-(.+)$", tail)
+    if not match:
+        return aliases
+
+    part = match.group(1)
+    metal = humanize_code_fragment(match.group(2))
+    if not metal:
+        return aliases
+
+    part_label = {
+        "body": "body armor",
+        "head": "helmet",
+        "legs": "leg armor",
+    }.get(part, "armor")
+
+    aliases.add(normalize_alias(f"{metal} plate armor"))
+    aliases.add(normalize_alias(f"{metal} plate armour"))
+    aliases.add(normalize_alias(f"plate armor {metal}"))
+    aliases.add(normalize_alias(f"plate armour {metal}"))
+    aliases.add(normalize_alias(f"{metal} plate {part_label}"))
+    aliases.add(normalize_alias(f"{part_label} {metal} plate"))
+    return aliases
+
+
 def aliases_from_game_code(game_code: Optional[str]) -> Set[str]:
     aliases: Set[str] = set()
     if not game_code:
@@ -357,13 +388,21 @@ def build_alias_rows(
         fta_display_name,
     ) in canonical_rows:
         aliases: Set[str] = set()
-        is_plate_armor = (lr_sub_category or "").strip().upper() == "PLATE"
+        is_plate_armor = bool(
+            game_code
+            and re.match(r"^armor-(body|head|legs)-plate-[a-z0-9]+$", game_code_tail(game_code))
+        )
         looks_like_plate_armor_name = " plate (" in normalize_alias(display_name or "")
 
         if is_plate_armor:
-            # Intentionally avoid generic "{metal} plate" aliases for PLATE armor
-            # rows to prevent collision with crafting material metal plates.
+            aliases.update(
+                aliases_from_display_name(
+                    display_name,
+                    include_parenthetical_stripped=False,
+                )
+            )
             aliases.update(aliases_for_plate_armor(display_name))
+            aliases.update(aliases_from_armor_plate_game_code(game_code))
         elif lr_item_id is not None and looks_like_plate_armor_name:
             # Avoid stripping parentheticals for LR plate armor style names
             # like "Iron Plate (Viking / Hussar / Templar)" -> "iron plate".

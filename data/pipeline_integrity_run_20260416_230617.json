@@ -1,0 +1,43 @@
+{
+    "timestamp":  "20260416_230617",
+    "failed":  false,
+    "results":  [
+                    {
+                        "script":  "scripts/ingest_lr_prices.py",
+                        "exit_code":  0,
+                        "elapsed_ms":  2786,
+                        "ran":  true
+                    },
+                    {
+                        "script":  "scripts/parse_recipes_json.py",
+                        "exit_code":  0,
+                        "elapsed_ms":  6901,
+                        "ran":  true
+                    },
+                    {
+                        "script":  "scripts/build_canonical_items.py",
+                        "exit_code":  0,
+                        "elapsed_ms":  22647,
+                        "ran":  true
+                    },
+                    {
+                        "script":  "scripts/build_aliases.py",
+                        "exit_code":  0,
+                        "elapsed_ms":  1779,
+                        "ran":  true
+                    },
+                    {
+                        "script":  "scripts/link_recipes.py",
+                        "exit_code":  0,
+                        "elapsed_ms":  388,
+                        "ran":  true
+                    },
+                    {
+                        "script":  "scripts/apply_manual_lr_links.py",
+                        "exit_code":  0,
+                        "elapsed_ms":  499,
+                        "ran":  true
+                    }
+                ],
+    "log_path":  "data\\pipeline_integrity_run_20260416_230617.log"
+}

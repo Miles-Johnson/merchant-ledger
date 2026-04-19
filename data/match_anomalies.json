@@ -1,0 +1,902 @@
+{
+  "timestamp": "2026-04-19T17:07:19",
+  "total_processed": 13555,
+  "total_flagged": 67,
+  "flagged_pct": 0.49,
+  "anomalies": [
+    {
+      "game_code": "block:bell-bismuthbronze-small1-east",
+      "matched_lr_name": "Bismuth Bronze Scale",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.7555555555555555,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.5,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "block:bell-bismuthbronze-small2-east",
+      "matched_lr_name": "Bismuth Bronze Scale",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.7555555555555555,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.5,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "block:fruitpress-ns",
+      "matched_lr_name": "Fruitpress",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.3,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "block:spile-blackbronze-north",
+      "matched_lr_name": "Black Bronze ingot",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.7567567567567568,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.2778,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "item:candy-sunflower-raw",
+      "matched_lr_name": "Sunflower",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.3333,
+      "length_ratio": 2.1111,
+      "reasons": [
+        "contains_low_overlap",
+        "length_mismatch",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:agedfirewood",
+      "matched_lr_name": "Firewood",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.5,
+      "reasons": [
+        "contains_low_overlap",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:boss-bismuthbronze",
+      "matched_lr_name": "Bismuth bronze Pike",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.7647058823529411,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.0556,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "item:dough-amaranth",
+      "matched_lr_name": "Amaranth",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.75,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:dough-cassava",
+      "matched_lr_name": "Cassava",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.8571,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:dough-sunflower",
+      "matched_lr_name": "Sunflower",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.6667,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:dye-lime",
+      "matched_lr_name": "Lime",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 2.0,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:fruit-pineapple",
+      "matched_lr_name": "Pineapple",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.6667,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:hardtack-flax-raw",
+      "matched_lr_name": "Hardtack",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.3333,
+      "length_ratio": 2.125,
+      "reasons": [
+        "contains_low_overlap",
+        "length_mismatch",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:hardtack-rice-raw",
+      "matched_lr_name": "Hardtack",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.3333,
+      "length_ratio": 2.125,
+      "reasons": [
+        "contains_low_overlap",
+        "length_mismatch",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:hardtack-rye-raw",
+      "matched_lr_name": "Hardtack",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.3333,
+      "length_ratio": 2.0,
+      "reasons": [
+        "contains_low_overlap",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:harp",
+      "matched_lr_name": "Hare",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.75,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.0,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "item:hide-prepared-huge",
+      "matched_lr_name": "Prepared Huge Hide",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.75,
+      "confidence": "low",
+      "overlap_score": 1.0,
+      "length_ratio": 1.0,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "item:hide-prepared-large",
+      "matched_lr_name": "Prepared Large Hide",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.7647058823529411,
+      "confidence": "low",
+      "overlap_score": 1.0,
+      "length_ratio": 1.0,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "item:hide-prepared-medium",
+      "matched_lr_name": "Prepared Medium Hide",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.7777777777777778,
+      "confidence": "low",
+      "overlap_score": 1.0,
+      "length_ratio": 1.0,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "item:hide-prepared-small",
+      "matched_lr_name": "Prepared Small Hide",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.7647058823529411,
+      "confidence": "low",
+      "overlap_score": 1.0,
+      "length_ratio": 1.0,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "item:hook-bismuthbronze",
+      "matched_lr_name": "Bismuth bronze Pike",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.7647058823529411,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.0556,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "item:hoop-bismuthbronze",
+      "matched_lr_name": "Bismuth bronze Pike",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.7647058823529411,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.0556,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "item:meal-porridge",
+      "matched_lr_name": "Porridge (Sealed)",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.3333,
+      "length_ratio": 1.3077,
+      "reasons": [
+        "contains_low_overlap",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:pasta-cut",
+      "matched_lr_name": "Pasta (Sealed)",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.3333,
+      "length_ratio": 1.5556,
+      "reasons": [
+        "contains_low_overlap",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:pasta-flat",
+      "matched_lr_name": "Pasta (Sealed)",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.3333,
+      "length_ratio": 1.4,
+      "reasons": [
+        "contains_low_overlap",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:rod-bismuthbronze",
+      "matched_lr_name": "Bismuth bronze Pike",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.7878787878787878,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.1176,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "item:rod-meteoriciron",
+      "matched_lr_name": "Meteoric Iron ingot",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.75,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.1875,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "item:seeds-amaranth",
+      "matched_lr_name": "Amaranth",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.75,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:seeds-cabbage",
+      "matched_lr_name": "Cabbage",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.8571,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:seeds-carrot",
+      "matched_lr_name": "Carrot",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 2.0,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:seeds-cassava",
+      "matched_lr_name": "Cassava",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.8571,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:seeds-parsnip",
+      "matched_lr_name": "Parsnip",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.8571,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:seeds-peanut",
+      "matched_lr_name": "Peanut",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 2.0,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:seeds-pineapple",
+      "matched_lr_name": "Pineapple",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.6667,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:seeds-pumpkin",
+      "matched_lr_name": "Pumpkin",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.8571,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:seeds-soybean",
+      "matched_lr_name": "Soybean",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.8571,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:seeds-sunflower",
+      "matched_lr_name": "Sunflower",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.6667,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:seeds-turnip",
+      "matched_lr_name": "Turnip",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 2.0,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:bolt-bismuthbronze",
+      "matched_lr_name": "Bismuth bronze Pike",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.7647058823529411,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.0556,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "item:awl-bismuthbronze",
+      "matched_lr_name": "Bismuth bronze Pike",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.7878787878787878,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.1176,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "item:awl-meteoriciron",
+      "matched_lr_name": "Meteoric Iron ingot",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.75,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.1875,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "item:chocolate-chocolate",
+      "matched_lr_name": "White Chocolate",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.75,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.2667,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "item:chocolate-milkchocolate",
+      "matched_lr_name": "Milk Chocolate",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.3333,
+      "length_ratio": 1.6429,
+      "reasons": [
+        "contains_low_overlap",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:chocolate-whitechocolate",
+      "matched_lr_name": "White Chocolate",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.3333,
+      "length_ratio": 1.6,
+      "reasons": [
+        "contains_low_overlap",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:soakedsoybean",
+      "matched_lr_name": "Soybean",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.8571,
+      "reasons": [
+        "contains_low_overlap",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:log-*",
+      "matched_lr_name": "Logs",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.75,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.25,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "block:log-*",
+      "matched_lr_name": "Logs",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.75,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.25,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "block:planks-*-ns",
+      "matched_lr_name": "Planks",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.8333,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "block:planks-*-ud",
+      "matched_lr_name": "Planks",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.8333,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "block:planks-oak-ud",
+      "matched_lr_name": "Planks",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.3333,
+      "length_ratio": 2.1667,
+      "reasons": [
+        "contains_low_overlap",
+        "length_mismatch",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "block:plankslab-*",
+      "matched_lr_name": "Planks",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.8333,
+      "reasons": [
+        "contains_low_overlap",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "block:pumpkin-fruit-4",
+      "matched_lr_name": "Pumpkin",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.3333,
+      "length_ratio": 2.1429,
+      "reasons": [
+        "contains_low_overlap",
+        "length_mismatch",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "block:quicklimeinpot-*",
+      "matched_lr_name": "Quicklime",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.7778,
+      "reasons": [
+        "contains_low_overlap",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:dryfruit-pineapple",
+      "matched_lr_name": "Pineapple",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 2.0,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:bamboostakes",
+      "matched_lr_name": "Bamboo Shoots",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.75,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.0833,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "item:beeswax",
+      "matched_lr_name": "Bees (skep)",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.5714,
+      "reasons": [
+        "contains_low_overlap",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:clothes-arm-silver-chain",
+      "matched_lr_name": "Silver Chain",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 2.0,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:crushed-cinnabar",
+      "matched_lr_name": "Cinnabar",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 2.0,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:flour-amaranth",
+      "matched_lr_name": "Amaranth",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.75,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:flour-cassava",
+      "matched_lr_name": "Cassava",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.8571,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:flour-sunflower",
+      "matched_lr_name": "Sunflower",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 1.6667,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:legume-soybean",
+      "matched_lr_name": "Soybean",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 2.0,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:pickledvegetable-*",
+      "matched_lr_name": "Pickled Vegetable",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.0,
+      "length_ratio": 1.0588,
+      "reasons": [
+        "contains_low_overlap",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:stone-halite",
+      "matched_lr_name": "Halite",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 2.0,
+      "reasons": [
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:panel-leather-*",
+      "matched_lr_name": "Leather",
+      "internal_tier": "contains",
+      "db_tier": "exact",
+      "score": 1.0,
+      "confidence": "low",
+      "overlap_score": 0.5,
+      "length_ratio": 2.1429,
+      "reasons": [
+        "length_mismatch",
+        "low_confidence_nonfuzzy"
+      ]
+    },
+    {
+      "game_code": "item:nut-bearnut",
+      "matched_lr_name": "Nut Bar",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.75,
+      "confidence": "low",
+      "overlap_score": 0.3333,
+      "length_ratio": 1.5714,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    },
+    {
+      "game_code": "item:vegetable-oxheart",
+      "matched_lr_name": "Vegetable Gelatin",
+      "internal_tier": "fuzzy",
+      "db_tier": "low",
+      "score": 0.75,
+      "confidence": "low",
+      "overlap_score": 0.3333,
+      "length_ratio": 1.0,
+      "reasons": [
+        "fuzzy_low_score"
+      ]
+    }
+  ]
+}

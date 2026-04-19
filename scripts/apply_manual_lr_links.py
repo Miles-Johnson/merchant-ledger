@@ -23,6 +23,7 @@ load_dotenv()
 
 
 NORMALIZE_LINK_RE = re.compile(r"[^a-z0-9]+")
+VALID_MATCH_TIERS = ("exact", "high", "low", "unmatched", "manual", "mapped")
 
 
 def normalize_for_exact_link(value: Optional[str]) -> str:
@@ -46,9 +47,34 @@ BASE_MANUAL_LINKS: List[Dict[str, Optional[str]]] = [
     {"pattern": "item:plank-%", "lr_item_id": None, "lr_display": "Planks", "match": "like"},
     {"pattern": "item:firewood%", "lr_item_id": None, "lr_display": "Firewood", "match": "like"},
     # --- Textile / tailoring ---
+    # --- Candle ---
+    {"pattern": "item:candle", "lr_item_id": None, "lr_display": "Regular Candles", "match": "exact"},
+    {"pattern": "item:candle-%", "lr_item_id": None, "lr_display": "Regular Candles", "match": "like"},
+
+    # --- Glass ---
+    {"pattern": "block:glassslab-%", "lr_item_id": None, "lr_display": "Glass", "match": "like"},
+
+    # --- Linen block orientation variants ---
+    {"pattern": "block:linen-%", "lr_item_id": None, "lr_display": "Linen / Cloth", "match": "like"},
+
     {"pattern": "item:twine-%", "lr_item_id": None, "lr_display": "Twine (Processed, not flax fibers) (NOT BUYING)", "match": "like"},
     {"pattern": "item:linen-%", "lr_item_id": None, "lr_display": "Linen / Cloth", "match": "like"},
     {"pattern": "item:cloth-%", "lr_item_id": None, "lr_display": "Linen / Cloth", "match": "like"},
+    # --- Mushrooms ---
+    {"pattern": "item:mushroom-%", "lr_item_id": None, "lr_display": "Mushrooms", "match": "like"},
+    {"pattern": "block:mushroom-%", "lr_item_id": None, "lr_display": "Mushrooms", "match": "like"},
+    {"pattern": "item:cookedmushroom-%", "lr_item_id": None, "lr_display": "Mushrooms", "match": "like"},
+    {"pattern": "item:choppedmushroom-%", "lr_item_id": None, "lr_display": "Mushrooms", "match": "like"},
+    {"pattern": "item:cookedchoppedmushroom-%", "lr_item_id": None, "lr_display": "Mushrooms", "match": "like"},
+    {"pattern": "block:mushroombasket-%", "lr_item_id": None, "lr_display": "Mushrooms", "match": "like"},
+    {"pattern": "item:sporeprint-%", "lr_item_id": None, "lr_display": "Mushrooms", "match": "like"},
+    {"pattern": "item:acornbreadedmushroom-%", "lr_item_id": None, "lr_display": "Mushrooms", "match": "like"},
+    {"pattern": "item:breadedmushroom-%", "lr_item_id": None, "lr_display": "Mushrooms", "match": "like"},
+    # --- Additional LR-backed blockers ---
+    {"pattern": "item:pipeleaf", "lr_item_id": None, "lr_display": "Pipeleaf", "match": "exact"},
+    {"pattern": "item:smokable-pipeleaf-%", "lr_item_id": None, "lr_display": "Pipeleaf", "match": "like"},
+    {"pattern": "item:saltpeter", "lr_item_id": None, "lr_display": "Saltpeter", "match": "exact"},
+    {"pattern": "item:smellingsalts-%", "lr_item_id": None, "lr_display": "Smelling Salt", "match": "like"},
     # --- Common crafting intermediates ---
     {"pattern": "item:sewingkit", "lr_item_id": None, "lr_display": "Sewing Kit", "match": "exact"},
     {"pattern": "item:armor-tailoring-kit", "lr_item_id": None, "lr_display": "Armor Tailoring Kit", "match": "exact"},
@@ -482,22 +508,30 @@ def ensure_manual_match_tier_allowed(cur) -> None:
     )
     rows = cur.fetchall()
 
-    has_manual = any("manual" in (definition or "").lower() for _, definition in rows)
-    if has_manual:
-        print("match_tier CHECK already allows 'manual'.")
+    expected_tokens = {f"'{tier}'" for tier in VALID_MATCH_TIERS}
+    has_expected = False
+    for _, definition in rows:
+        definition_lower = (definition or "").lower()
+        if all(token in definition_lower for token in expected_tokens):
+            has_expected = True
+            break
+
+    if has_expected:
+        print("match_tier CHECK already allows required tiers.")
         return
 
     for conname, _ in rows:
         cur.execute(f'ALTER TABLE canonical_items DROP CONSTRAINT IF EXISTS "{conname}"')
 
+    allowed = ", ".join(f"'{tier}'" for tier in VALID_MATCH_TIERS)
     cur.execute(
-        """
+        f"""
         ALTER TABLE canonical_items
         ADD CONSTRAINT canonical_items_match_tier_check
-        CHECK (match_tier IN ('exact', 'high', 'low', 'unmatched', 'manual'))
+        CHECK (match_tier IN ({allowed}))
         """
     )
-    print("Updated match_tier CHECK to include 'manual'.")
+    print("Updated match_tier CHECK to include required tiers.")
 
 
 def lookup_lr_item_id(cur, lr_display: str) -> Optional[int]:

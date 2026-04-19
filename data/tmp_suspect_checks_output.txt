@@ -1,0 +1,190 @@
+DATABASE_URL set: True
+
+========================
+STEP1_TARGETED_SUSPECTS
+========================
+row_count=96
+{'id': 2750, 'output_canonical_id': 'flaxfibers', 'output_game_code': 'item:flaxfibers', 'recipe_type': 'grid', 'source_mod': 'Accessorize', 'input_count': 1, 'inputs': 'clothes_face_eyepatchr'}
+{'id': 2751, 'output_canonical_id': 'flaxfibers', 'output_game_code': 'item:flaxfibers', 'recipe_type': 'grid', 'source_mod': 'Accessorize', 'input_count': 1, 'inputs': 'clothes_face_eyepatchl'}
+{'id': 699, 'output_canonical_id': 'ingot_copper', 'output_game_code': 'item:ingot-copper', 'recipe_type': 'grid', 'source_mod': 'Base Game', 'input_count': 1, 'inputs': 'anvil_copper'}
+{'id': 2781, 'output_canonical_id': 'ingot_copper', 'output_game_code': 'item:ingot-copper', 'recipe_type': 'grid', 'source_mod': 'ACulinaryArtillery 2.0.0-dev.11', 'input_count': 1, 'inputs': 'cauldron_copper_2'}
+{'id': 715, 'output_canonical_id': 'ingot_iron', 'output_game_code': 'item:ingot-iron', 'recipe_type': 'grid', 'source_mod': 'Base Game', 'input_count': 1, 'inputs': 'anvil_iron'}
+{'id': 716, 'output_canonical_id': 'ingot_iron', 'output_game_code': 'item:ingot-iron', 'recipe_type': 'grid', 'source_mod': 'Base Game', 'input_count': 1, 'inputs': 'anvil_iron'}
+{'id': 717, 'output_canonical_id': 'ingot_iron', 'output_game_code': 'item:ingot-iron', 'recipe_type': 'grid', 'source_mod': 'Base Game', 'input_count': 1, 'inputs': 'anvil_iron'}
+{'id': 1504, 'output_canonical_id': 'ingot_iron', 'output_game_code': 'item:ingot-iron', 'recipe_type': 'smithing', 'source_mod': 'Base Game', 'input_count': 1, 'inputs': 'ironbloom'}
+{'id': 2784, 'output_canonical_id': 'ingot_iron', 'output_game_code': 'item:ingot-iron', 'recipe_type': 'grid', 'source_mod': 'ACulinaryArtillery 2.0.0-dev.11', 'input_count': 1, 'inputs': 'cauldron_iron'}
+{'id': 1156, 'output_canonical_id': 'rope', 'output_game_code': 'item:rope', 'recipe_type': 'grid', 'source_mod': 'Base Game', 'input_count': 1, 'inputs': 'wildvine_section_north'}
+{'id': 1157, 'output_canonical_id': 'rope', 'output_game_code': 'item:rope', 'recipe_type': 'grid', 'source_mod': 'Base Game', 'input_count': 1, 'inputs': 'wildvine_tropical_section_north'}
+{'id': 1158, 'output_canonical_id': 'rope', 'output_game_code': 'item:rope', 'recipe_type': 'grid', 'source_mod': 'Base Game', 'input_count': 1, 'inputs': 'cattailtops'}
+{'id': 1159, 'output_canonical_id': 'rope', 'output_game_code': 'item:rope', 'recipe_type': 'grid', 'source_mod': 'Base Game', 'input_count': 1, 'inputs': 'papyrustops'}
+{'id': 5302, 'output_canonical_id': 'rope', 'output_game_code': 'item:rope', 'recipe_type': 'grid', 'source_mod': 'BetterRuinsv0.5.5', 'input_count': 2, 'inputs': 'br_schematic_shipwright, cattailtops'}
+{'id': 5303, 'output_canonical_id': 'rope', 'output_game_code': 'item:rope', 'recipe_type': 'grid', 'source_mod': 'BetterRuinsv0.5.5', 'input_count': 2, 'inputs': 'br_schematic_shipwright, wildvine_section_north'}
+{'id': 15005, 'output_canonical_id': 'rope', 'output_game_code': 'item:rope', 'recipe_type': 'grid', 'source_mod': 'primitivesurvival_4.0.3', 'input_count': 1, 'inputs': 'cordage'}
+{'id': 16505, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'tailors_delight-2.1.2', 'input_count': 1, 'inputs': 'flotsam_driftwood_1'}
+{'id': 16506, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'tailors_delight-2.1.2', 'input_count': 1, 'inputs': 'flotsam_driftwood_2'}
+{'id': 16507, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'tailors_delight-2.1.2', 'input_count': 1, 'inputs': 'flotsam_driftwood_3'}
+{'id': 16508, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'tailors_delight-2.1.2', 'input_count': 1, 'inputs': 'flotsam_driftwood_4'}
+{'id': 17465, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'toolsmith_1.2.14', 'input_count': 1, 'inputs': 'crudehandle'}
+{'id': 21374, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_pricklyheath_dry'}
+{'id': 21375, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_cranberry_dry'}
+{'id': 21376, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_blueberry_dry'}
+{'id': 21377, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_huckleberry_dry'}
+{'id': 21378, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_snowberry_dry'}
+{'id': 21379, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_honeysuckle_dry'}
+{'id': 21380, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_beautyberry_dry'}
+{'id': 21381, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_numnum_dry'}
+{'id': 21382, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_gooseberry_dry'}
+{'id': 21383, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_redcurrant_dry'}
+{'id': 21384, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_blackcurrant_dry'}
+{'id': 21385, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_whitecurrant_dry'}
+{'id': 21386, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_dogrose_dry'}
+{'id': 21387, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_blueraspberry_dry'}
+{'id': 21388, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_brambleberry_dry'}
+{'id': 21389, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_raspberry_dry'}
+{'id': 21390, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_bushlawyer_dry'}
+{'id': 21391, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_sallowthorn_dry'}
+{'id': 21392, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_deserthackberry_dry'}
+{'id': 21393, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_spindle_dry'}
+{'id': 21394, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_ugni_dry'}
+{'id': 21395, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_feijoa_dry'}
+{'id': 21396, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_wolfberry_dry'}
+{'id': 21397, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_kumquat_dry'}
+{'id': 21398, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_sumac_dry'}
+{'id': 21399, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_pistachio_dry'}
+{'id': 21400, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_kawakawa_dry'}
+{'id': 21401, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_dwarfpine_dry'}
+{'id': 21402, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_juniper_dry'}
+{'id': 21403, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_lillypillypink_dry'}
+{'id': 21404, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_lillypillywhite_dry'}
+{'id': 21405, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_lillypillyblue_dry'}
+{'id': 21406, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_fingerlime_dry'}
+{'id': 21407, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_seamango_dry'}
+{'id': 21408, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_munthari_dry'}
+{'id': 21409, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_midyimberry_dry'}
+{'id': 21410, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_bluetongue_dry'}
+{'id': 21411, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_pilo_dry'}
+{'id': 21412, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_mingimingi_dry'}
+{'id': 21413, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_marita_dry'}
+{'id': 21414, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_blackelder_dry'}
+{'id': 21415, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_caper_dry'}
+{'id': 21416, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_hazel_dry'}
+{'id': 21417, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_sloe_dry'}
+{'id': 21418, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_bilberry_dry'}
+{'id': 21419, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_beachrose_dry'}
+{'id': 21420, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_swamphuckle_dry'}
+{'id': 21421, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_dewberry_dry'}
+{'id': 21422, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_boysenberry_dry'}
+{'id': 21423, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_loganberry_dry'}
+{'id': 21424, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_josta_dry'}
+{'id': 21425, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_bearberry_dry'}
+{'id': 21426, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_blossomquince_dry'}
+{'id': 21427, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_bladdernut_dry'}
+{'id': 21428, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_trifoliate_dry'}
+{'id': 21429, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_meyerlemon_dry'}
+{'id': 21430, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_shangjuan_dry'}
+{'id': 21431, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_yuzu_dry'}
+{'id': 21432, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_clementine_dry'}
+{'id': 21433, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_tangelo_dry'}
+{'id': 21434, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_oroblanco_dry'}
+{'id': 21435, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_desertlime_dry'}
+{'id': 21436, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_calamansi_dry'}
+{'id': 21437, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'clipping_ballart_dry'}
+{'id': 21438, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'vineclipping_blackgrape_dry'}
+{'id': 21439, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'vineclipping_redgrape_dry'}
+{'id': 21440, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'vineclipping_whitegrape_dry'}
+{'id': 21441, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'vineclipping_foxgrape_dry'}
+{'id': 21442, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'vineclipping_virgingrape_dry'}
+{'id': 21443, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'vineclipping_ivy_dry'}
+{'id': 21444, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'vineclipping_kiwi_dry'}
+{'id': 21445, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'vineclipping_hairyappleberry_dry'}
+{'id': 21446, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'vineclipping_purpleappleberry_dry'}
+{'id': 21447, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'vineclipping_kolomikta_dry'}
+{'id': 21448, 'output_canonical_id': 'stick', 'output_game_code': 'item:stick', 'recipe_type': 'grid', 'source_mod': 'wildcraftfruit_1.4.5', 'input_count': 1, 'inputs': 'vineclipping_woodbine_dry'}
+
+========================
+STEP2_GLOBAL_SUSPECT_SCAN
+========================
+row_count=30
+{'output_canonical_id': 'smellingsalts_strong', 'suspect_recipe_count': 3960}
+{'output_canonical_id': 'banner_banner', 'suspect_recipe_count': 1118}
+{'output_canonical_id': 'shield_woodmetalleather', 'suspect_recipe_count': 1008}
+{'output_canonical_id': 'gacha_north', 'suspect_recipe_count': 900}
+{'output_canonical_id': 'clutter', 'suspect_recipe_count': 829}
+{'output_canonical_id': 'smellingsalts_weak', 'suspect_recipe_count': 660}
+{'output_canonical_id': 'shield_metal', 'suspect_recipe_count': 640}
+{'output_canonical_id': 'liquidbarrel_north', 'suspect_recipe_count': 540}
+{'output_canonical_id': 'helmetstand_north', 'suspect_recipe_count': 540}
+{'output_canonical_id': 'tellermachine_north', 'suspect_recipe_count': 540}
+{'output_canonical_id': 'liquiddispenser_north', 'suspect_recipe_count': 540}
+{'output_canonical_id': 'register_north', 'suspect_recipe_count': 540}
+{'output_canonical_id': 'matdouble_north', 'suspect_recipe_count': 468}
+{'output_canonical_id': 'lantern_up', 'suspect_recipe_count': 405}
+{'output_canonical_id': 'cobblestonefan_mixed_north', 'suspect_recipe_count': 304}
+{'output_canonical_id': 'purchasecrate_north', 'suspect_recipe_count': 288}
+{'output_canonical_id': 'drystone_mixed', 'suspect_recipe_count': 252}
+{'output_canonical_id': 'cartsmisc_wheelsolid', 'suspect_recipe_count': 198}
+{'output_canonical_id': 'jonas_lamp', 'suspect_recipe_count': 168}
+{'output_canonical_id': 'cartsmisc_wheelspoked', 'suspect_recipe_count': 132}
+{'output_canonical_id': 'ruler_type', 'suspect_recipe_count': 126}
+{'output_canonical_id': 'coinpress_oak_ns', 'suspect_recipe_count': 120}
+{'output_canonical_id': 'coinpress_ebony_ns', 'suspect_recipe_count': 120}
+{'output_canonical_id': 'coinpress_walnut_ns', 'suspect_recipe_count': 120}
+{'output_canonical_id': 'fruitcooler_normal_east', 'suspect_recipe_count': 100}
+{'output_canonical_id': 'meatfreezer_normal_east', 'suspect_recipe_count': 100}
+{'output_canonical_id': 'canmailbox_east', 'suspect_recipe_count': 90}
+{'output_canonical_id': 'pickledvegetable_bellpepper', 'suspect_recipe_count': 84}
+{'output_canonical_id': 'awl_horn', 'suspect_recipe_count': 84}
+{'output_canonical_id': 'pickledvegetable_chilipepper', 'suspect_recipe_count': 80}
+
+========================
+STEP3_OVERRIDE_RECIPE_CONFLICT
+========================
+row_count=30
+{'id': 'stick', 'game_code': 'item:stick', 'unit_price': Decimal('0.03125'), 'recipe_count': 80}
+{'id': 'cobblestonefan_mixed_north', 'game_code': 'block:cobblestonefan-mixed-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 38}
+{'id': 'drygrass', 'game_code': 'item:drygrass', 'unit_price': Decimal('0.015625'), 'recipe_count': 34}
+{'id': 'drystone_mixed', 'game_code': 'block:drystone-mixed', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 28}
+{'id': 'metalbit_gold', 'game_code': 'item:metalbit-gold', 'unit_price': Decimal('0.35'), 'recipe_count': 15}
+{'id': 'metalbit_copper', 'game_code': 'item:metalbit-copper', 'unit_price': Decimal('0.2'), 'recipe_count': 11}
+{'id': 'cobblestonefan_claystone_north', 'game_code': 'block:cobblestonefan-claystone-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 10}
+{'id': 'cobblestonefan_conglomerate_north', 'game_code': 'block:cobblestonefan-conglomerate-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 10}
+{'id': 'cobblestonefan_chert_north', 'game_code': 'block:cobblestonefan-chert-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 10}
+{'id': 'cobblestonefan_sandstone_north', 'game_code': 'block:cobblestonefan-sandstone-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 10}
+{'id': 'soil_high_none', 'game_code': 'block:soil-high-none', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 9}
+{'id': 'sandpaper', 'game_code': 'item:sandpaper', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 9}
+{'id': 'metalbit_tinbronze', 'game_code': 'item:metalbit-tinbronze', 'unit_price': Decimal('0.2'), 'recipe_count': 9}
+{'id': 'cobblestonefan_phyllite_north', 'game_code': 'block:cobblestonefan-phyllite-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 8}
+{'id': 'cobblestonefan_andesite_north', 'game_code': 'block:cobblestonefan-andesite-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 8}
+{'id': 'cobblestonefan_suevite_north', 'game_code': 'block:cobblestonefan-suevite-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 8}
+{'id': 'cobblestonefan_bauxite_north', 'game_code': 'block:cobblestonefan-bauxite-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 8}
+{'id': 'cobblestonefan_kimberlite_north', 'game_code': 'block:cobblestonefan-kimberlite-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 8}
+{'id': 'cobblestonefan_peridotite_north', 'game_code': 'block:cobblestonefan-peridotite-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 8}
+{'id': 'metalbit_silver', 'game_code': 'item:metalbit-silver', 'unit_price': Decimal('0.25'), 'recipe_count': 8}
+{'id': 'nugget_nativecopper', 'game_code': 'item:nugget-nativecopper', 'unit_price': Decimal('0.3'), 'recipe_count': 8}
+{'id': 'cobblestonefan_granite_north', 'game_code': 'block:cobblestonefan-granite-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 8}
+{'id': 'grindstone_shale_north', 'game_code': 'item:grindstone-shale-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 7}
+{'id': 'grindstone_sandstone_north', 'game_code': 'item:grindstone-sandstone-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 7}
+{'id': 'grindstone_andesite_north', 'game_code': 'item:grindstone-andesite-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 7}
+{'id': 'grindstone_granite_north', 'game_code': 'item:grindstone-granite-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 7}
+{'id': 'metalbit_brass', 'game_code': 'item:metalbit-brass', 'unit_price': Decimal('0.25'), 'recipe_count': 6}
+{'id': 'needle_horn', 'game_code': 'item:needle-horn', 'unit_price': Decimal('0.015625'), 'recipe_count': 6}
+{'id': 'cobblestonefan_slate_north', 'game_code': 'block:cobblestonefan-slate-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 6}
+{'id': 'cobblestonefan_shale_north', 'game_code': 'block:cobblestonefan-shale-north', 'unit_price': Decimal('0.004166666666666666666666666667'), 'recipe_count': 6}
+
+========================
+STEP6_SCALE_TOTAL_RECIPES
+========================
+row_count=1
+{'total_recipes': 22489}
+
+========================
+STEP6_SCALE_TOTAL_RECIPE_INGREDIENTS
+========================
+row_count=1
+{'total_recipe_ingredients': 56564}
+
+========================
+STEP6_SCALE_DISTINCT_OUTPUTS
+========================
+row_count=1
+{'distinct_outputs': 11474}

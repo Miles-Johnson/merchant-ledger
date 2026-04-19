@@ -1,0 +1,530 @@
+{
+  "timestamp": "2026-04-16T23:16:35",
+  "threshold_ms": 500.0,
+  "consistency_runs": 3,
+  "summary": {
+    "total_tests": 16,
+    "total_issues": 0,
+    "slow_count": 0,
+    "consistency_failures": 0
+  },
+  "analyses": [
+    {
+      "label": "Simple: copper ingot",
+      "category": "simple",
+      "elapsed_ms": 38.74,
+      "is_slow": false,
+      "tree_depth": 2,
+      "total_nodes": 3,
+      "repeated_subtrees": [
+        {
+          "canonical_id": "ingot_copper",
+          "count": 2
+        }
+      ],
+      "missing_breakdowns": [],
+      "issues": []
+    },
+    {
+      "label": "Simple: iron ingot",
+      "category": "simple",
+      "elapsed_ms": 34.13,
+      "is_slow": false,
+      "tree_depth": 2,
+      "total_nodes": 3,
+      "repeated_subtrees": [
+        {
+          "canonical_id": "ingot_iron",
+          "count": 2
+        }
+      ],
+      "missing_breakdowns": [],
+      "issues": []
+    },
+    {
+      "label": "Simple: leather",
+      "category": "simple",
+      "elapsed_ms": 88.73,
+      "is_slow": false,
+      "tree_depth": 10,
+      "total_nodes": 44,
+      "repeated_subtrees": [
+        {
+          "canonical_id": "waterportion",
+          "count": 6
+        },
+        {
+          "canonical_id": "slush",
+          "count": 6
+        },
+        {
+          "canonical_id": "log_placed_oak_ud",
+          "count": 6
+        },
+        {
+          "canonical_id": "leather_normal_plain",
+          "count": 4
+        },
+        {
+          "canonical_id": "hide_prepared_small",
+          "count": 4
+        },
+        {
+          "canonical_id": "weaktanninportion",
+          "count": 4
+        },
+        {
+          "canonical_id": "armor_body_jerkin_leather",
+          "count": 2
+        },
+        {
+          "canonical_id": "hide_scraped_small",
+          "count": 2
+        },
+        {
+          "canonical_id": "hide_soaked_small",
+          "count": 2
+        },
+        {
+          "canonical_id": "dilutedboraxportion",
+          "count": 2
+        },
+        {
+          "canonical_id": "powder_borax",
+          "count": 2
+        },
+        {
+          "canonical_id": "hide_raw_small",
+          "count": 2
+        },
+        {
+          "canonical_id": "strongtanninportion",
+          "count": 2
+        }
+      ],
+      "missing_breakdowns": [],
+      "issues": []
+    },
+    {
+      "label": "Simple: bismuth bronze ingot",
+      "category": "simple",
+      "elapsed_ms": 42.3,
+      "is_slow": false,
+      "tree_depth": 4,
+      "total_nodes": 7,
+      "repeated_subtrees": [
+        {
+          "canonical_id": "ingot_bismuthbronze",
+          "count": 2
+        },
+        {
+          "canonical_id": "ingot_copper",
+          "count": 2
+        }
+      ],
+      "missing_breakdowns": [],
+      "issues": []
+    },
+    {
+      "label": "Complex: lantern up (grid, multi-ingredient, deep)",
+      "category": "complex",
+      "elapsed_ms": 126.21,
+      "is_slow": false,
+      "tree_depth": 5,
+      "total_nodes": 17,
+      "repeated_subtrees": [
+        {
+          "canonical_id": "ingot_electrum",
+          "count": 2
+        },
+        {
+          "canonical_id": "ingot_copper",
+          "count": 2
+        }
+      ],
+      "missing_breakdowns": [],
+      "issues": []
+    },
+    {
+      "label": "Complex: plate body armor iron (multi-step smithing+chain)",
+      "category": "complex",
+      "elapsed_ms": 116.73,
+      "is_slow": false,
+      "tree_depth": 14,
+      "total_nodes": 61,
+      "repeated_subtrees": [
+        {
+          "canonical_id": "waterportion",
+          "count": 6
+        },
+        {
+          "canonical_id": "slush",
+          "count": 6
+        },
+        {
+          "canonical_id": "log_placed_oak_ud",
+          "count": 6
+        },
+        {
+          "canonical_id": "ingot_iron",
+          "count": 6
+        },
+        {
+          "canonical_id": "leather_normal_plain",
+          "count": 4
+        },
+        {
+          "canonical_id": "hide_prepared_small",
+          "count": 4
+        },
+        {
+          "canonical_id": "weaktanninportion",
+          "count": 4
+        },
+        {
+          "canonical_id": "anvil_iron",
+          "count": 3
+        },
+        {
+          "canonical_id": "armor_body_plate_iron",
+          "count": 2
+        },
+        {
+          "canonical_id": "armor_body_chain_iron",
+          "count": 2
+        },
+        {
+          "canonical_id": "armor_body_jerkin_leather",
+          "count": 2
+        },
+        {
+          "canonical_id": "hide_scraped_small",
+          "count": 2
+        },
+        {
+          "canonical_id": "hide_soaked_small",
+          "count": 2
+        },
+        {
+          "canonical_id": "dilutedboraxportion",
+          "count": 2
+        },
+        {
+          "canonical_id": "powder_borax",
+          "count": 2
+        },
+        {
+          "canonical_id": "hide_raw_small",
+          "count": 2
+        },
+        {
+          "canonical_id": "strongtanninportion",
+          "count": 2
+        },
+        {
+          "canonical_id": "metalchain_iron",
+          "count": 2
+        },
+        {
+          "canonical_id": "metalplate_iron",
+          "count": 2
+        }
+      ],
+      "missing_breakdowns": [],
+      "issues": []
+    },
+    {
+      "label": "Complex: chest (grid with unresolved ingredient)",
+      "category": "complex",
+      "elapsed_ms": 25.69,
+      "is_slow": false,
+      "tree_depth": 1,
+      "total_nodes": 3,
+      "repeated_subtrees": [],
+      "missing_breakdowns": [],
+      "issues": []
+    },
+    {
+      "label": "Complex: candle (cooking, partial)",
+      "category": "complex",
+      "elapsed_ms": 26.03,
+      "is_slow": false,
+      "tree_depth": 1,
+      "total_nodes": 3,
+      "repeated_subtrees": [],
+      "missing_breakdowns": [],
+      "issues": []
+    },
+    {
+      "label": "Complex: tannin (barrel recipe, partial)",
+      "category": "complex",
+      "elapsed_ms": 28.09,
+      "is_slow": false,
+      "tree_depth": 2,
+      "total_nodes": 4,
+      "repeated_subtrees": [],
+      "missing_breakdowns": [],
+      "issues": []
+    },
+    {
+      "label": "No-LR: flint knife blade (knapping, unresolved ingredient)",
+      "category": "no_lr",
+      "elapsed_ms": 38.13,
+      "is_slow": false,
+      "tree_depth": 1,
+      "total_nodes": 2,
+      "repeated_subtrees": [],
+      "missing_breakdowns": [],
+      "issues": []
+    },
+    {
+      "label": "No-LR: flint arrowhead (knapping, unresolved)",
+      "category": "no_lr",
+      "elapsed_ms": 33.35,
+      "is_slow": false,
+      "tree_depth": 1,
+      "total_nodes": 2,
+      "repeated_subtrees": [],
+      "missing_breakdowns": [],
+      "issues": []
+    },
+    {
+      "label": "No-LR: pickaxe head iron (smithing, recipe-priced)",
+      "category": "no_lr",
+      "elapsed_ms": 40.38,
+      "is_slow": false,
+      "tree_depth": 3,
+      "total_nodes": 4,
+      "repeated_subtrees": [
+        {
+          "canonical_id": "ingot_iron",
+          "count": 2
+        }
+      ],
+      "missing_breakdowns": [],
+      "issues": []
+    },
+    {
+      "label": "Not-found: totally made up item",
+      "category": "not_found",
+      "elapsed_ms": 43.66,
+      "is_slow": false,
+      "tree_depth": 0,
+      "total_nodes": 1,
+      "repeated_subtrees": [],
+      "missing_breakdowns": [],
+      "issues": []
+    },
+    {
+      "label": "Batch: copper ingot + iron ingot + leather",
+      "category": "batch",
+      "elapsed_ms": 156.34,
+      "is_slow": false,
+      "tree_depth": 10,
+      "total_nodes": 50,
+      "repeated_subtrees": [
+        {
+          "canonical_id": "waterportion",
+          "count": 6
+        },
+        {
+          "canonical_id": "slush",
+          "count": 6
+        },
+        {
+          "canonical_id": "log_placed_oak_ud",
+          "count": 6
+        },
+        {
+          "canonical_id": "leather_normal_plain",
+          "count": 4
+        },
+        {
+          "canonical_id": "hide_prepared_small",
+          "count": 4
+        },
+        {
+          "canonical_id": "weaktanninportion",
+          "count": 4
+        },
+        {
+          "canonical_id": "ingot_copper",
+          "count": 2
+        },
+        {
+          "canonical_id": "ingot_iron",
+          "count": 2
+        },
+        {
+          "canonical_id": "armor_body_jerkin_leather",
+          "count": 2
+        },
+        {
+          "canonical_id": "hide_scraped_small",
+          "count": 2
+        },
+        {
+          "canonical_id": "hide_soaked_small",
+          "count": 2
+        },
+        {
+          "canonical_id": "dilutedboraxportion",
+          "count": 2
+        },
+        {
+          "canonical_id": "powder_borax",
+          "count": 2
+        },
+        {
+          "canonical_id": "hide_raw_small",
+          "count": 2
+        },
+        {
+          "canonical_id": "strongtanninportion",
+          "count": 2
+        }
+      ],
+      "missing_breakdowns": [],
+      "issues": []
+    },
+    {
+      "label": "Batch: lantern up + candle + chest + tannin",
+      "category": "batch",
+      "elapsed_ms": 209.24,
+      "is_slow": false,
+      "tree_depth": 5,
+      "total_nodes": 27,
+      "repeated_subtrees": [
+        {
+          "canonical_id": "candle",
+          "count": 2
+        },
+        {
+          "canonical_id": "flaxfibers",
+          "count": 2
+        },
+        {
+          "canonical_id": "beeswax",
+          "count": 2
+        },
+        {
+          "canonical_id": "ingot_electrum",
+          "count": 2
+        },
+        {
+          "canonical_id": "ingot_copper",
+          "count": 2
+        }
+      ],
+      "missing_breakdowns": [],
+      "issues": []
+    },
+    {
+      "label": "Batch: mix of simple + complex + not_found",
+      "category": "batch",
+      "elapsed_ms": 200.39,
+      "is_slow": false,
+      "tree_depth": 5,
+      "total_nodes": 21,
+      "repeated_subtrees": [
+        {
+          "canonical_id": "ingot_copper",
+          "count": 4
+        },
+        {
+          "canonical_id": "anvil_copper",
+          "count": 2
+        },
+        {
+          "canonical_id": "ingot_electrum",
+          "count": 2
+        }
+      ],
+      "missing_breakdowns": [],
+      "issues": []
+    }
+  ],
+  "consistency_issues": [],
+  "timings_per_case": {
+    "Simple: copper ingot": [
+      31.89,
+      32.2,
+      31.33
+    ],
+    "Simple: iron ingot": [
+      32.44,
+      32.07,
+      32.16
+    ],
+    "Simple: leather": [
+      87.71,
+      91.67,
+      87.51
+    ],
+    "Simple: bismuth bronze ingot": [
+      44.33,
+      42.68,
+      42.44
+    ],
+    "Complex: lantern up (grid, multi-ingredient, deep)": [
+      126.47,
+      123.46,
+      127.16
+    ],
+    "Complex: plate body armor iron (multi-step smithing+chain)": [
+      113.5,
+      114.5,
+      115.82
+    ],
+    "Complex: chest (grid with unresolved ingredient)": [
+      25.76,
+      25.3,
+      25.28
+    ],
+    "Complex: candle (cooking, partial)": [
+      25.54,
+      26.06,
+      25.55
+    ],
+    "Complex: tannin (barrel recipe, partial)": [
+      27.9,
+      28.52,
+      28.11
+    ],
+    "No-LR: flint knife blade (knapping, unresolved ingredient)": [
+      36.4,
+      36.75,
+      36.24
+    ],
+    "No-LR: flint arrowhead (knapping, unresolved)": [
+      33.36,
+      32.85,
+      33.55
+    ],
+    "No-LR: pickaxe head iron (smithing, recipe-priced)": [
+      38.97,
+      40.33,
+      39.37
+    ],
+    "Not-found: totally made up item": [
+      45.63,
+      43.34,
+      50.89
+    ],
+    "Batch: copper ingot + iron ingot + leather": [
+      152.92,
+      153.68,
+      154.37
+    ],
+    "Batch: lantern up + candle + chest + tannin": [
+      203.43,
+      209.05,
+      209.9
+    ],
+    "Batch: mix of simple + complex + not_found": [
+      207.94,
+      203.22,
+      214.82
+    ]
+  }
+}

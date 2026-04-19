@@ -1,0 +1,6 @@
+rope: unit_cost=0.09375, partial=False, source=recipe
+flaxtwine: unit_cost=0.00390625, partial=False, source=recipe
+flaxfibers: unit_cost=1.03125, partial=False, source=recipe
+hook_copper: unit_cost=4.0, partial=False, source=recipe
+arrowhead_copper: unit_cost=4.0, partial=False, source=recipe
+coinpress_oak_ns: unit_cost=14.625, partial=False, source=recipe

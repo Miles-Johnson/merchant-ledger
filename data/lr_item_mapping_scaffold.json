@@ -1,0 +1,830 @@
+{
+  "_schema": "LR item_id -> list of authoritative game_code targets",
+  "_version": 1,
+  "_status": "scaffold",
+  "_generated_at": "2026-04-09T20:55:16",
+  "_notes": [
+    "This is a scaffold file. Review and promote curated entries to data/lr_item_mapping.json with _status='active'.",
+    "Re-running this script preserves existing scaffold entries and appends missing LR item_id keys."
+  ],
+  "_force_unlinked": [],
+  "AG001": [
+    "item:vegetable-cabbage"
+  ],
+  "AG002": [
+    "item:vegetable-carrot"
+  ],
+  "AG003": [
+    "item:dough-cassava",
+    "item:flour-cassava",
+    "item:rawcassava-raw",
+    "item:vegetable-cassava"
+  ],
+  "AG004": [],
+  "AG005": [],
+  "AG006": [],
+  "AG007": [
+    "item:vegetable-parsnip"
+  ],
+  "AG008": [],
+  "AG009": [
+    "block:pineapple",
+    "item:fruit-pineapple"
+  ],
+  "AG010": [],
+  "AG011": [
+    "block:pumpkin-fruit-4",
+    "item:seeds-pumpkin"
+  ],
+  "AG012": [
+    "item:legume-soybean"
+  ],
+  "AG013": [],
+  "AG014": [
+    "item:dough-sunflower",
+    "item:flour-sunflower"
+  ],
+  "AG015": [],
+  "AG016": [
+    "item:dough-amaranth",
+    "item:flour-amaranth"
+  ],
+  "AG017": [
+    "item:mushroom-*"
+  ],
+  "AG018": [],
+  "AG019": [],
+  "AG020": [],
+  "AG021": [
+    "item:bamboostakes"
+  ],
+  "AG022": [],
+  "AG023": [
+    "item:beeswax"
+  ],
+  "AG024": [],
+  "AG025": [],
+  "AG026": [],
+  "AG027": [],
+  "AG028": [],
+  "AG029": [],
+  "AG030": [],
+  "AG031": [],
+  "AG032": [],
+  "AG033": [],
+  "AG034": [
+    "item:hide-prepared-small"
+  ],
+  "AG035": [
+    "item:hide-prepared-medium"
+  ],
+  "AG036": [
+    "item:hide-prepared-large"
+  ],
+  "AG037": [
+    "item:hide-prepared-huge"
+  ],
+  "AG038": [
+    "item:fat"
+  ],
+  "AG039": [
+    "block:log-*",
+    "block:log-placed-*-ud",
+    "block:log-placed-acacia-ud",
+    "block:log-placed-aged-ud",
+    "block:log-placed-baldcypress-ud",
+    "block:log-placed-birch-ud",
+    "block:log-placed-kapok-ud",
+    "block:log-placed-larch-ud",
+    "block:log-placed-maple-ud",
+    "block:log-placed-oak-ud",
+    "block:log-placed-pine-ud",
+    "block:log-placed-redwood-ud",
+    "block:log-placed-walnut-ud"
+  ],
+  "AG040": [
+    "block:planks-*-ns",
+    "block:planks-*-ud",
+    "item:plank-*",
+    "item:plank-acacia",
+    "item:plank-aged",
+    "item:plank-baldcypress",
+    "item:plank-birch",
+    "item:plank-ebony",
+    "item:plank-kapok",
+    "item:plank-larch",
+    "item:plank-maple",
+    "item:plank-oak",
+    "item:plank-pine",
+    "item:plank-purpleheart",
+    "item:plank-redwood",
+    "item:plank-walnut",
+    "item:plank-{wood}"
+  ],
+  "AG041": [
+    "item:agedfirewood",
+    "item:firewood"
+  ],
+  "AG042": [
+    "item:resin"
+  ],
+  "AG043": [],
+  "AG044": [],
+  "AG045": [],
+  "AG046": [],
+  "AR001": [],
+  "AR002": [],
+  "AR003": [],
+  "AR004": [],
+  "AR005": [
+    "item:meal-porridge"
+  ],
+  "AR006": [],
+  "AR007": [],
+  "AR008": [],
+  "AR009": [],
+  "AR010": [],
+  "AR011": [],
+  "AR012": [],
+  "AR013": [],
+  "AR014": [],
+  "AR015": [],
+  "AR016": [],
+  "AR017": [],
+  "AR018": [],
+  "AR019": [],
+  "AR020": [],
+  "AR021": [],
+  "AR022": [],
+  "AR023": [],
+  "AR024": [],
+  "AR025": [],
+  "AR026": [],
+  "AR027": [],
+  "AR028": [
+    "item:vegetable-olive",
+    "item:vegetable-onion"
+  ],
+  "AR029": [],
+  "AR030": [],
+  "AR031": [],
+  "AR032": [],
+  "AR033": [],
+  "AR034": [],
+  "AR035": [],
+  "AR036": [],
+  "AR037": [],
+  "AR038": [],
+  "AR039": [],
+  "AR040": [],
+  "AR041": [],
+  "AR042": [],
+  "AR043": [],
+  "AR044": [],
+  "AR045": [],
+  "AR046": [],
+  "AR047": [],
+  "AR048": [
+    "item:meal-soup"
+  ],
+  "AR049": [
+    "item:meal-meatystew"
+  ],
+  "AR050": [
+    "item:vegetable-turnip"
+  ],
+  "AR051": [
+    "item:meal-vegetablestew"
+  ],
+  "AR052": [],
+  "AR053": [],
+  "AR054": [],
+  "AR055": [],
+  "AR056": [],
+  "AR057": [],
+  "AR058": [],
+  "AR059": [],
+  "AR060": [],
+  "AR061": [],
+  "AR062": [],
+  "AR063": [],
+  "AR064": [],
+  "AR065": [],
+  "AR066": [],
+  "AR067": [],
+  "AR068": [],
+  "AR069": [],
+  "AR070": [],
+  "AR071": [],
+  "AR072": [],
+  "AR073": [],
+  "AR074": [],
+  "AR075": [],
+  "AR076": [],
+  "AR077": [],
+  "AR078": [],
+  "AR079": [],
+  "AR080": [],
+  "AR081": [],
+  "AR082": [],
+  "AR083": [],
+  "AR084": [],
+  "AR085": [],
+  "AR086": [],
+  "AR087": [],
+  "AR088": [],
+  "AR089": [],
+  "AR090": [],
+  "AR091": [],
+  "AR092": [],
+  "AR093": [],
+  "AR094": [],
+  "AR095": [],
+  "AR096": [],
+  "AR097": [],
+  "AR098": [],
+  "AR099": [],
+  "AR100": [],
+  "AR101": [],
+  "AR102": [],
+  "AR103": [],
+  "AR104": [],
+  "AR105": [],
+  "AR106": [],
+  "AR107": [],
+  "AR108": [],
+  "AR109": [],
+  "AR110": [],
+  "AR111": [],
+  "AR112": [],
+  "AR113": [],
+  "AR114": [],
+  "AR115": [],
+  "AR116": [],
+  "AR117": [],
+  "AR118": [],
+  "AR119": [],
+  "AR120": [],
+  "AR121": [],
+  "AR122": [],
+  "AR123": [],
+  "AR124": [
+    "item:fruit-cranberry"
+  ],
+  "AR125": [
+    "item:honeyportion"
+  ],
+  "AR126": [],
+  "AR127": [],
+  "AR128": [],
+  "AR129": [],
+  "AR130": [],
+  "AR131": [],
+  "AR132": [],
+  "AR133": [],
+  "AR134": [],
+  "AR135": [],
+  "AR136": [],
+  "AR137": [],
+  "AR138": [],
+  "AR139": [],
+  "AR140": [],
+  "AR141": [],
+  "AR142": [],
+  "AR143": [],
+  "AR144": [],
+  "AR145": [],
+  "AR146": [],
+  "AR147": [],
+  "AR148": [],
+  "AR149": [
+    "item:pickledvegetable-*",
+    "item:pickledvegetable-bellpepper",
+    "item:pickledvegetable-cabbage",
+    "item:pickledvegetable-carrot",
+    "item:pickledvegetable-olive",
+    "item:pickledvegetable-onion",
+    "item:pickledvegetable-parsnip",
+    "item:pickledvegetable-pumpkin",
+    "item:pickledvegetable-turnip"
+  ],
+  "AR150": [],
+  "AR151": [],
+  "AR152": [],
+  "AR153": [],
+  "AR154": [],
+  "AR155": [],
+  "AR156": [],
+  "AR157": [
+    "item:quicklime"
+  ],
+  "AR285": [],
+  "AR286": [],
+  "AR287": [],
+  "AR288": [],
+  "AR289": [],
+  "AR290": [],
+  "AR291": [],
+  "AR292": [],
+  "AR293": [],
+  "AR294": [],
+  "AR295": [],
+  "AR296": [],
+  "AR297": [],
+  "AR298": [],
+  "AR299": [],
+  "AR300": [],
+  "AR301": [],
+  "AR302": [],
+  "AR303": [],
+  "AR304": [],
+  "AR305": [],
+  "AR306": [],
+  "AR307": [],
+  "AR308": [],
+  "AR309": [],
+  "AR310": [
+    "item:hoovedwearables-middleback-saddle1"
+  ],
+  "AR311": [],
+  "AR312": [],
+  "AR313": [],
+  "AR314": [],
+  "AR315": [],
+  "AR316": [],
+  "AR317": [],
+  "AR318": [],
+  "AR319": [],
+  "AR320": [
+    "block:bomb-ore"
+  ],
+  "AR321": [
+    "block:bomb-stone"
+  ],
+  "AR322": [
+    "block:bomb-scrap"
+  ],
+  "AR323": [],
+  "AR324": [
+    "block:fruitpress-ns"
+  ],
+  "AR325": [
+    "item:feather",
+    "item:leather",
+    "item:leather-normal-*",
+    "item:leather-normal-black",
+    "item:leather-normal-blue",
+    "item:leather-normal-gray",
+    "item:leather-normal-green",
+    "item:leather-normal-orange",
+    "item:leather-normal-pink",
+    "item:leather-normal-plain",
+    "item:leather-normal-purple",
+    "item:leather-normal-red",
+    "item:leather-normal-white",
+    "item:leather-normal-yellow"
+  ],
+  "AR326": [],
+  "AR327": [],
+  "AR328": [
+    "item:sewingkit"
+  ],
+  "AR329": [
+    "block:glass-blue",
+    "block:glass-pink",
+    "block:glass-plain",
+    "block:glass-red"
+  ],
+  "AR330": [],
+  "AR331": [],
+  "AR332": [
+    "item:cloth-black",
+    "item:cloth-blue",
+    "item:cloth-brown",
+    "item:cloth-gray",
+    "item:cloth-green",
+    "item:cloth-mordant",
+    "item:cloth-orange",
+    "item:cloth-pink",
+    "item:cloth-plain",
+    "item:cloth-purple",
+    "item:cloth-red",
+    "item:cloth-white",
+    "item:cloth-yellow"
+  ],
+  "AR333": [],
+  "AR334": [],
+  "AR335": [],
+  "AR336": [],
+  "AR337": [],
+  "AR338": [],
+  "AR339": [],
+  "AR340": [],
+  "IN001": [
+    "item:ingot-bismuth"
+  ],
+  "IN002": [
+    "item:ingot-brass"
+  ],
+  "IN003": [
+    "block:anvil-copper",
+    "block:hopper",
+    "item:ingot-copper",
+    "item:rod-copper"
+  ],
+  "IN004": [
+    "item:ingot-cupronickel",
+    "item:metalplate-cupronickel",
+    "item:rod-cupronickel"
+  ],
+  "IN005": [
+    "item:ingot-electrum",
+    "item:rod-electrum"
+  ],
+  "IN006": [
+    "item:ingot-gold",
+    "item:rod-gold"
+  ],
+  "IN007": [
+    "item:ingot-iron",
+    "item:powder-iron-oxide",
+    "item:rod-iron"
+  ],
+  "IN008": [
+    "item:ingot-lead"
+  ],
+  "IN009": [
+    "block:anvil-meteoriciron",
+    "item:arrowhead-meteoriciron",
+    "item:axe-felling-meteoriciron",
+    "item:axehead-meteoriciron",
+    "item:blade-falx-meteoriciron",
+    "item:boss-meteoriciron",
+    "item:chisel-meteoriciron",
+    "item:cleaver-meteoriciron",
+    "item:hammerhead-meteoriciron",
+    "item:helvehammer-meteoriciron",
+    "item:hoehead-meteoriciron",
+    "item:hoop-meteoriciron",
+    "item:ingot-meteoriciron",
+    "item:knifeblade-meteoriciron",
+    "item:metalplate-meteoriciron",
+    "item:metalscale-meteoriciron",
+    "item:padlock-meteoriciron",
+    "item:pickaxehead-meteoriciron",
+    "item:poundercap-meteoriciron",
+    "item:rod-meteoriciron",
+    "item:sawblade-meteoriciron",
+    "item:scythehead-meteoriciron",
+    "item:shears-meteoriciron",
+    "item:shovelhead-meteoriciron",
+    "item:wrench-meteoriciron"
+  ],
+  "IN010": [
+    "item:ingot-nickel"
+  ],
+  "IN011": [
+    "item:boss-silver",
+    "item:hoop-silver",
+    "item:ingot-silver",
+    "item:rod-silver"
+  ],
+  "IN012": [
+    "item:boss-steel",
+    "item:hoop-steel",
+    "item:ingot-steel",
+    "item:rod-steel"
+  ],
+  "IN013": [
+    "item:ingot-tin"
+  ],
+  "IN014": [
+    "item:ingot-zinc"
+  ],
+  "IN015": [
+    "block:anvil-bismuthbronze",
+    "item:arrowhead-bismuthbronze",
+    "item:axe-felling-bismuthbronze",
+    "item:axehead-bismuthbronze",
+    "item:blade-falx-bismuthbronze",
+    "item:boss-bismuthbronze",
+    "item:chisel-bismuthbronze",
+    "item:cleaver-bismuthbronze",
+    "item:hammerhead-bismuthbronze",
+    "item:helvehammer-bismuthbronze",
+    "item:hoehead-bismuthbronze",
+    "item:hoop-bismuthbronze",
+    "item:ingot-bismuthbronze",
+    "item:knifeblade-bismuthbronze",
+    "item:metalplate-bismuthbronze",
+    "item:metalscale-bismuthbronze",
+    "item:padlock-bismuthbronze",
+    "item:pickaxehead-bismuthbronze",
+    "item:poundercap-bismuthbronze",
+    "item:rod-bismuthbronze",
+    "item:sawblade-bismuthbronze",
+    "item:scythehead-bismuthbronze",
+    "item:shears-bismuthbronze",
+    "item:shovelhead-bismuthbronze",
+    "item:spear-generic-bismuthbronze",
+    "item:spearhead-bismuthbronze",
+    "item:wrench-bismuthbronze"
+  ],
+  "IN016": [
+    "block:anvil-tinbronze",
+    "item:axehead-tinbronze",
+    "item:boss-tinbronze",
+    "item:chisel-tinbronze",
+    "item:cleaver-tinbronze",
+    "item:hoehead-tinbronze",
+    "item:hoop-tinbronze",
+    "item:ingot-tinbronze",
+    "item:padlock-tinbronze",
+    "item:rod-tinbronze",
+    "item:sawblade-tinbronze",
+    "item:shears-tinbronze",
+    "item:wrench-tinbronze"
+  ],
+  "IN017": [
+    "block:anvil-blackbronze",
+    "item:arrowhead-blackbronze",
+    "item:axe-felling-blackbronze",
+    "item:axehead-blackbronze",
+    "item:blade-falx-blackbronze",
+    "item:boss-blackbronze",
+    "item:chisel-blackbronze",
+    "item:cleaver-blackbronze",
+    "item:hammerhead-blackbronze",
+    "item:hoehead-blackbronze",
+    "item:hoop-blackbronze",
+    "item:ingot-blackbronze",
+    "item:knifeblade-blackbronze",
+    "item:metalplate-blackbronze",
+    "item:metalscale-blackbronze",
+    "item:padlock-blackbronze",
+    "item:poundercap-blackbronze",
+    "item:rod-blackbronze",
+    "item:sawblade-blackbronze",
+    "item:scythehead-blackbronze",
+    "item:shears-blackbronze",
+    "item:shovelhead-blackbronze",
+    "item:spearhead-blackbronze",
+    "item:wrench-blackbronze"
+  ],
+  "IN018": [
+    "item:crushed-lapislazuli"
+  ],
+  "IN019": [
+    "item:potash"
+  ],
+  "IN020": [
+    "item:saltpeter"
+  ],
+  "IN021": [
+    "item:powder-sulfur"
+  ],
+  "IN022": [
+    "item:clay-blue"
+  ],
+  "IN023": [
+    "item:blastingpowder"
+  ],
+  "IN024": [],
+  "IN025": [
+    "item:crushed-cinnabar"
+  ],
+  "IN026": [],
+  "IN027": [
+    "item:powder-sylvite"
+  ],
+  "IN028": [],
+  "IN029": [],
+  "IN030": [],
+  "IN031": [],
+  "IN032": [],
+  "IN033": [
+    "item:ore-olivine"
+  ],
+  "IN034": [
+    "item:amethyst"
+  ],
+  "IN035": [],
+  "IN036": [],
+  "IN037": [
+    "item:axe-peridotite"
+  ],
+  "IN038": [],
+  "IN039": [],
+  "IN040": [],
+  "IN041": [],
+  "IN042": [],
+  "IN043": [],
+  "IN044": [
+    "item:lime"
+  ],
+  "IN045": [],
+  "IN046": [
+    "item:charcoal",
+    "item:powder-charcoal"
+  ],
+  "IN047": [
+    "item:mortar"
+  ],
+  "IN048": [
+    "item:powder-borax"
+  ],
+  "IN049": [],
+  "IN050": [
+    "item:ore-bituminouscoal"
+  ],
+  "IN051": [],
+  "IN052": [],
+  "IN053": [],
+  "IN054": [],
+  "IN055": [],
+  "IN056": [],
+  "IN057": [],
+  "IN058": [],
+  "IN059": [],
+  "IN060": [],
+  "IN061": [],
+  "IN062": [],
+  "IN063": [],
+  "IN064": [],
+  "IN065": [
+    "item:crushed-chromite"
+  ],
+  "IN066": [],
+  "IN067": [
+    "item:clay-fire"
+  ],
+  "IN068": [
+    "item:clearquartz"
+  ],
+  "IN069": [
+    "block:anvil-iron"
+  ],
+  "IN070": [],
+  "IN071": [
+    "block:anvil-steel"
+  ],
+  "IN072": [],
+  "IN073": [],
+  "IN074": [],
+  "IN075": [],
+  "IN076": [],
+  "IN077": [],
+  "IN078": [],
+  "IN079": [],
+  "IN080": [],
+  "IN081": [],
+  "IN082": [],
+  "IN083": [],
+  "IN084": [],
+  "IN085": [],
+  "IN086": [],
+  "IN087": [],
+  "IN088": [],
+  "IN089": [],
+  "IN090": [],
+  "IN091": [],
+  "IN092": [],
+  "IN093": [],
+  "IN094": [],
+  "IN095": [],
+  "IN096": [],
+  "IN097": [],
+  "IN098": [],
+  "IN099": [],
+  "IN100": [],
+  "IN101": [],
+  "IN102": [],
+  "IN103": [],
+  "IN104": [],
+  "IN105": [],
+  "IN106": [],
+  "IN107": [],
+  "IN108": [],
+  "IN109": [],
+  "IN110": [],
+  "IN111": [],
+  "IN112": [],
+  "IN113": [],
+  "IN114": [],
+  "IN115": [],
+  "IN116": [],
+  "IN117": [],
+  "IN118": [],
+  "IN119": [],
+  "IN120": [],
+  "IN121": [],
+  "IN122": [],
+  "IN123": [],
+  "IN124": [],
+  "IN125": [],
+  "IN126": [],
+  "IN127": [],
+  "IN128": [],
+  "IN129": [],
+  "IN130": [],
+  "IN131": [],
+  "IN132": [],
+  "IN133": [],
+  "IN134": [],
+  "IN135": [],
+  "IN136": [],
+  "IN137": [],
+  "IN138": [],
+  "IN139": [],
+  "IN140": [],
+  "IN141": [],
+  "IN142": [],
+  "IN143": [],
+  "IN144": [],
+  "IN145": [],
+  "IN146": [],
+  "IN147": [],
+  "IN148": [],
+  "IN149": [],
+  "IN150": [],
+  "IN151": [],
+  "IN152": [],
+  "IN153": [],
+  "IN154": [],
+  "IN155": [],
+  "IN156": [],
+  "IN157": [],
+  "IN158": [],
+  "IN159": [],
+  "IN160": [],
+  "IN161": [],
+  "IN162": [],
+  "IN163": [],
+  "IN164": [
+    "item:bow-long"
+  ],
+  "IN165": [
+    "item:bow-recurve"
+  ],
+  "IN166": [],
+  "IN167": [],
+  "IN168": [],
+  "IN169": [],
+  "IN170": [],
+  "IN171": [],
+  "IN172": [],
+  "IN173": [],
+  "IN174": [],
+  "IN175": [],
+  "IN176": [],
+  "IN177": [],
+  "IN178": [],
+  "IN179": [],
+  "IN180": [],
+  "IN181": [],
+  "IN182": [],
+  "IN183": [
+    "item:clothes-arm-silver-chain"
+  ],
+  "IN184": [],
+  "IN185": [],
+  "IN186": [],
+  "IN187": [],
+  "IN188": [],
+  "IN189": [],
+  "IN190": [],
+  "IN191": [],
+  "IN192": [],
+  "IN193": [],
+  "IN194": [],
+  "IN195": [],
+  "IN196": [],
+  "IN197": [],
+  "IN198": [],
+  "IN199": [
+    "item:metalplate-copper"
+  ],
+  "IN200": [
+    "item:metalplate-gold"
+  ],
+  "IN201": [
+    "item:metalplate-silver"
+  ],
+  "IN202": [],
+  "IN203": [
+    "item:metalplate-tinbronze"
+  ],
+  "IN204": [],
+  "IN205": [],
+  "IN206": [],
+  "IN207": [],
+  "IN208": [],
+  "IN209": [],
+  "IN210": [],
+  "IN211": [],
+  "IN212": [],
+  "IN213": [],
+  "IN214": [],
+  "IN215": [],
+  "IN216": []
+}

@@ -1,0 +1,220 @@
+{
+  "wall_clock_s": 74.58,
+  "db_time_s": 0.519,
+  "python_time_s": 74.061,
+  "db_pct": 0.7,
+  "python_pct": 99.3,
+  "query_stats": [
+    {
+      "sql": "INSERT INTO canonical_items ( id, display_name, game_code, lr_item_id, fta_item_id, match_tier, match_score ) VALUES (%s",
+      "count": 1,
+      "total_s": 0.2495,
+      "max_s": 0.2495,
+      "mean_s": 0.2495,
+      "rows_affected": 2440
+    },
+    {
+      "sql": "DELETE FROM canonical_items",
+      "count": 1,
+      "total_s": 0.0873,
+      "max_s": 0.0873,
+      "mean_s": 0.0873,
+      "rows_affected": 2440
+    },
+    {
+      "sql": "UPDATE recipe_ingredients SET input_canonical_id = NULL",
+      "count": 1,
+      "total_s": 0.0586,
+      "max_s": 0.0586,
+      "mean_s": 0.0586,
+      "rows_affected": 6695
+    },
+    {
+      "sql": "UPDATE canonical_items SET variant_family = %s, variant_material = %s WHERE id = %s",
+      "count": 1,
+      "total_s": 0.052,
+      "max_s": 0.052,
+      "mean_s": 0.052,
+      "rows_affected": 404
+    },
+    {
+      "sql": "UPDATE recipes SET output_canonical_id = NULL",
+      "count": 1,
+      "total_s": 0.0372,
+      "max_s": 0.0372,
+      "mean_s": 0.0372,
+      "rows_affected": 2736
+    },
+    {
+      "sql": "SELECT po.canonical_id, ci.game_code, po.unit_price, po.note FROM price_overrides po LEFT JOIN canonical_items ci ON ci.",
+      "count": 1,
+      "total_s": 0.0073,
+      "max_s": 0.0073,
+      "mean_s": 0.0073,
+      "rows_affected": 22
+    },
+    {
+      "sql": "SELECT id FROM canonical_items WHERE game_code = %s LIMIT 1",
+      "count": 22,
+      "total_s": 0.0061,
+      "max_s": 0.0004,
+      "mean_s": 0.0003,
+      "rows_affected": 22
+    },
+    {
+      "sql": "SELECT DISTINCT input_game_code FROM recipe_ingredients WHERE input_game_code IS NOT NULL AND btrim(input_game_code) <> ",
+      "count": 1,
+      "total_s": 0.0056,
+      "max_s": 0.0056,
+      "mean_s": 0.0056,
+      "rows_affected": 967
+    },
+    {
+      "sql": "SELECT conname, pg_get_constraintdef(oid) FROM pg_constraint WHERE conrelid = 'canonical_items'::regclass AND contype = ",
+      "count": 1,
+      "total_s": 0.0035,
+      "max_s": 0.0035,
+      "mean_s": 0.0035,
+      "rows_affected": 1
+    },
+    {
+      "sql": "INSERT INTO price_overrides (canonical_id, unit_price, note) VALUES (%s, %s, %s) ON CONFLICT (canonical_id) DO UPDATE SE",
+      "count": 22,
+      "total_s": 0.0033,
+      "max_s": 0.0003,
+      "mean_s": 0.0001,
+      "rows_affected": 22
+    },
+    {
+      "sql": "SELECT DISTINCT output_game_code FROM recipes WHERE output_game_code IS NOT NULL AND btrim(output_game_code) <> '' ORDER",
+      "count": 1,
+      "total_s": 0.0029,
+      "max_s": 0.0029,
+      "mean_s": 0.0029,
+      "rows_affected": 1583
+    },
+    {
+      "sql": "SELECT item_id, id, display_name, lr_category, lr_sub_category FROM lr_items ORDER BY id",
+      "count": 1,
+      "total_s": 0.0016,
+      "max_s": 0.0016,
+      "mean_s": 0.0016,
+      "rows_affected": 475
+    },
+    {
+      "sql": "SELECT id, display_name FROM fta_items WHERE display_name IS NOT NULL AND btrim(display_name) <> '' ORDER BY id",
+      "count": 1,
+      "total_s": 0.0011,
+      "max_s": 0.0011,
+      "mean_s": 0.0011,
+      "rows_affected": 277
+    },
+    {
+      "sql": "SELECT id, game_code FROM canonical_items WHERE game_code IS NOT NULL AND game_code LIKE 'item:%'",
+      "count": 1,
+      "total_s": 0.0007,
+      "max_s": 0.0007,
+      "mean_s": 0.0007,
+      "rows_affected": 1180
+    },
+    {
+      "sql": "ALTER TABLE canonical_items ADD COLUMN IF NOT EXISTS variant_family TEXT",
+      "count": 1,
+      "total_s": 0.0007,
+      "max_s": 0.0007,
+      "mean_s": 0.0007,
+      "rows_affected": 0
+    },
+    {
+      "sql": "SELECT COUNT(*) FROM recipes WHERE output_canonical_id IS NULL",
+      "count": 1,
+      "total_s": 0.0005,
+      "max_s": 0.0005,
+      "mean_s": 0.0005,
+      "rows_affected": 1
+    },
+    {
+      "sql": "SELECT to_regclass(%s)",
+      "count": 3,
+      "total_s": 0.0005,
+      "max_s": 0.0003,
+      "mean_s": 0.0002,
+      "rows_affected": 3
+    },
+    {
+      "sql": "DELETE FROM price_overrides",
+      "count": 1,
+      "total_s": 0.0003,
+      "max_s": 0.0003,
+      "mean_s": 0.0003,
+      "rows_affected": 22
+    },
+    {
+      "sql": "ALTER TABLE canonical_items ADD COLUMN IF NOT EXISTS variant_material TEXT",
+      "count": 1,
+      "total_s": 0.0001,
+      "max_s": 0.0001,
+      "mean_s": 0.0001,
+      "rows_affected": 0
+    }
+  ],
+  "top3_bottlenecks": [
+    {
+      "rank": 1,
+      "type": "Python",
+      "description": "difflib.py:305(find_longest_match)",
+      "tottime_s": 24.0317,
+      "cumtime_s": 37.3334,
+      "pct_of_wall": 32.2,
+      "ncalls": 3821684
+    },
+    {
+      "rank": 2,
+      "type": "Python",
+      "description": "difflib.py:421(get_matching_blocks)",
+      "tottime_s": 7.0665,
+      "cumtime_s": 49.4793,
+      "pct_of_wall": 9.5,
+      "ncalls": 796100
+    },
+    {
+      "rank": 3,
+      "type": "Python",
+      "description": "difflib.py:266(__chain_b)",
+      "tottime_s": 4.8963,
+      "cumtime_s": 8.5627,
+      "pct_of_wall": 6.6,
+      "ncalls": 796100
+    }
+  ],
+  "improvement_opportunities": [
+    {
+      "area": "LR fuzzy matching (choose_best_lr_match + SequenceMatcher)",
+      "current_s": 3.588,
+      "pct_of_wall": 4.8,
+      "suggestion": "Pre-index LR names into normalized lookup dict; batch fuzzy only for non-exact residuals. Potential 50-80% reduction of this segment.",
+      "estimated_savings_s": "1.794-2.871"
+    },
+    {
+      "area": "FTA trigram similarity matching",
+      "current_s": 0.028,
+      "pct_of_wall": 0.0,
+      "suggestion": "Pre-compute trigram sets once; use inverted index (already partially done). Potential 30-60% reduction.",
+      "estimated_savings_s": "0.009-0.017"
+    },
+    {
+      "area": "Repeated normalization calls (normalize_for_compare, normalize_lr_name_for_match, etc.)",
+      "current_s": 3.624,
+      "pct_of_wall": 4.9,
+      "suggestion": "Memoize/pre-compute normalized LR names once before matching loop. Potential 60-90% reduction of normalize overhead.",
+      "estimated_savings_s": "2.174-3.261"
+    },
+    {
+      "area": "Slowest DB query: INSERT INTO canonical_items ( id, display_name, game_code, l",
+      "current_s": 0.249,
+      "pct_of_wall": 0.3,
+      "suggestion": "Batch operations where possible; ensure indexes on FK columns.",
+      "estimated_savings_s": "0.075-0.150"
+    }
+  ]
+}
