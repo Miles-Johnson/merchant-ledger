@@ -1,0 +1,670 @@
+  [WARN] industrial_goods: duplicate item_id values detected: ['IN067', 'IN068']. Keeping first occurrence.
+Starting Lost Realm price ingestion...
+Workbook: data\raw\lr_economy_workbook.xlsx
+
+Parsing sheet: AGRICULTURAL GOODS
+  Saved debug CSV: data\raw\deprecated_prices_20260416\lr_agricultural_goods_parsed.csv
+  Parsed 47 rows (skipped 977)
+
+Parsing sheet: INDUSTRIAL GOODS
+  Saved debug CSV: data\raw\deprecated_prices_20260416\lr_industrial_goods_parsed.csv
+  Parsed 201 rows (skipped 2788)
+
+Parsing sheet: ARTISANAL GOODS
+  Saved debug CSV: data\raw\deprecated_prices_20260416\lr_artisanal_goods_parsed.csv
+  Parsed 156 rows (skipped 2073)
+
+Parsing sheet: Settlement Specialization
+  Saved debug CSV: data\raw\deprecated_prices_20260416\lr_settlement_specialization_parsed.csv
+  Parsed 0 rows (skipped 1000)
+
+Ingestion summary:
+  agricultural_goods: parsed=47, skipped=977, inserted=0, updated=47
+  industrial_goods: parsed=203, skipped=2788, inserted=0, updated=201
+  artisanal_goods: parsed=156, skipped=2073, inserted=0, updated=156
+
+Done.
+[MEMORY BANK: ACTIVE]
+[INFO] Slab source: display_name='Giant Quarried Stone', unit_price_current=9.0000000000000000, computed_rock_price=0.04166666666666666666666666667, computed_stone_price=0.004166666666666666666666666667
+[INFO] Dynamic prices: cattail=0.03125, parchment=0.062500
+[INFO] Dynamic prices: clay=0.31250000000000000000, bowl=0.31250000000000000000
+[INFO] Dynamic prices: log=0.06250000000000000000, debarkedlog=0.015625
+[INFO] Dynamic prices: supportbeam=0.015625, bone_base=0.015625
+
+Primitive computed override run summary
+------------------------------------------------------------------------
+Rule 7/8 (dynamic) — metal nails/strips from parent ingot / 4: applied=15, skipped=0
+Rule 6d (dynamic) — hoops from ingot LR price x 1.4: targets=7, applied=7, skipped_manual=0, skipped_missing_ingot=0
+Rule 6k (dynamic) — anvils from ingot LR price x 10: targets=5, applied=5, skipped_manual=0, skipped_missing_ingot=0
+Rule 6q (dynamic) — pelts from prepared hide LR by size tier: targets=4, applied=4, skipped_manual=0, skipped_missing_parent=0
+[WARN] Rule 6r — missing LR price for parent 'ingot_bauxite'/'bauxite' required by 'crushed_bauxite', skipping.
+Rule 6r (dynamic) — crushed materials from LR parent / 20: targets=8, applied=0, skipped_manual=7, skipped_missing_parent=1
+[WARN] Rule 6s — missing LR price for parent 'ingot_metal_chromite'/'metal_chromite' required by 'powdered_metal_chromite', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_metal_copper'/'metal_copper' required by 'powdered_metal_copper', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_metal_gold'/'metal_gold' required by 'powdered_metal_gold', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_metal_lead'/'metal_lead' required by 'powdered_metal_lead', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_metal_nickel'/'metal_nickel' required by 'powdered_metal_nickel', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_metal_rusty'/'metal_rusty' required by 'powdered_metal_rusty', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_metal_silver'/'metal_silver' required by 'powdered_metal_silver', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_metal_uranium'/'metal_uranium' required by 'powdered_metal_uranium', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_ore_boneash'/'ore_boneash' required by 'powdered_ore_boneash', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_ore_chromiumoxide'/'ore_chromiumoxide' required by 'powdered_ore_chromiumoxide', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_ore_fluorite'/'ore_fluorite' required by 'powdered_ore_fluorite', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_ore_kernite'/'ore_kernite' required by 'powdered_ore_kernite', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_ore_leadoxide'/'ore_leadoxide' required by 'powdered_ore_leadoxide', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_ore_litharge'/'ore_litharge' required by 'powdered_ore_litharge', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_ore_magnesiumhydroxide'/'ore_magnesiumhydroxide' required by 'powdered_ore_magnesiumhydroxide', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_ore_magnesiumoxide'/'ore_magnesiumoxide' required by 'powdered_ore_magnesiumoxide', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_ore_manganesedioxide'/'ore_manganesedioxide' required by 'powdered_ore_manganesedioxide', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_ore_manganeseoxide'/'ore_manganeseoxide' required by 'powdered_ore_manganeseoxide', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_ore_massicot'/'ore_massicot' required by 'powdered_ore_massicot', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_ore_whitelead'/'ore_whitelead' required by 'powdered_ore_whitelead', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_ore_yellowcake'/'ore_yellowcake' required by 'powdered_ore_yellowcake', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_ore_zincoxide'/'ore_zincoxide' required by 'powdered_ore_zincoxide', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_stone_andesite'/'stone_andesite' required by 'powdered_stone_andesite', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_stone_basalt'/'stone_basalt' required by 'powdered_stone_basalt', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_stone_bauxite'/'stone_bauxite' required by 'powdered_stone_bauxite', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_stone_obsidian'/'stone_obsidian' required by 'powdered_stone_obsidian', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_stone_phyllite'/'stone_phyllite' required by 'powdered_stone_phyllite', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_stone_shale'/'stone_shale' required by 'powdered_stone_shale', skipping.
+[WARN] Rule 6s — missing LR price for parent 'ingot_stone_slate'/'stone_slate' required by 'powdered_stone_slate', skipping.
+Rule 6s (dynamic) — powdered materials from LR parent / 40: targets=32, applied=1, skipped_manual=2, skipped_missing_parent=29
+Rule 1 — Rock from LR slab price: targets=84, inserted=0, updated=84, skipped_manual=0
+Rule 2 — Stone from rock: targets=359, inserted=0, updated=359, skipped_manual=0
+Rule 3 — Sand and soil from stone: targets=66, inserted=0, updated=66, skipped_manual=0
+Rule 4 — Flint from stone: targets=26, inserted=0, updated=26, skipped_manual=0
+Rule 5 — Drygrass (primitive harvest): targets=1, inserted=0, updated=1, skipped_manual=0
+Rule 6 — Brineportion (primitive harvest): targets=1, inserted=0, updated=1, skipped_manual=0
+Rule 6b — Salt (= stone price, rock family): targets=123, inserted=0, updated=123, skipped_manual=0
+Rule 6c — Needle (primitive, 1/64 CS): targets=4, inserted=0, updated=4, skipped_manual=0
+Rule 6e — Parchment (2x cheapest cattail/papyrus): targets=1, inserted=0, updated=1, skipped_manual=0
+Rule 6f — Bowl fired (1x clay): targets=10, inserted=0, updated=10, skipped_manual=0
+Rule 6g — Debarked log (1/4 log price): targets=21, inserted=0, updated=21, skipped_manual=0
+Rule 6p — gear_rusty (foraged primitive, flat): targets=1, inserted=0, updated=1, skipped_manual=0
+Rule 6l — Driftwood/flotsam (foraged primitive = stick price): targets=4, inserted=0, updated=4, skipped_manual=0
+Rule 6m — Slush (zero-price world resource): targets=1, inserted=0, updated=1, skipped_manual=0
+Rule 6n — Support beams (component wood cost): targets=25, inserted=0, updated=25, skipped_manual=0
+Rule 6o — Primitive bones fallback: targets=4, inserted=0, updated=4, skipped_manual=0
+[INFO] Base recipe roots: [WindowsPath('C:/Games/Vintagestory/assets/survival/recipes')]
+[INFO] Mod cache root: C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ACulinaryArtillery 2.0.0-dev.11.zip_1d7d0dd8603f\assets\aculinaryartillery\recipes\simmering\boiledbark.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ACulinaryArtillery 2.0.0-dev.11.zip_1d7d0dd8603f\assets\aculinaryartillery\recipes\simmering\ancienttools\boiledbark.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ACulinaryArtillery 2.0.0-dev.11.zip_1d7d0dd8603f\assets\aculinaryartillery\recipes\simmering\indappledgroves\boiledbark.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\butchering_1.12.0.zip_5ea6b7a3b34e\assets\butchering\recipes\kneading\bloodmeatnuggetsausages.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\butchering_1.12.0.zip_5ea6b7a3b34e\assets\butchering\recipes\kneading\cleaningoffal.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\butchering_1.12.0.zip_5ea6b7a3b34e\assets\butchering\recipes\kneading\fishnuggetsausages.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\butchering_1.12.0.zip_5ea6b7a3b34e\assets\butchering\recipes\kneading\meatnuggetsausages.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\cannibalism_1.2.3.zip_bf8e56e21f26\assets\cannibalism\compatibility\butchering\recipes\kneading\palemeatnuggetsausages.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\cannibalism_1.2.3.zip_bf8e56e21f26\assets\cannibalism\compatibility\butchering\recipes\kneading\sapientbloodmeatnuggetsausages.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\cannibalism_1.2.3.zip_bf8e56e21f26\assets\cannibalism\compatibility\expandedfoods\recipes\kneading\breadedpalemeatnugget.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\cannibalism_1.2.3.zip_bf8e56e21f26\assets\cannibalism\compatibility\expandedfoods\recipes\kneading\palemeatsausage.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\cannibalism_1.2.3.zip_bf8e56e21f26\assets\cannibalism\compatibility\expandedfoods\recipes\simmering\agedpalemeat.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\cannibalism_1.2.3.zip_bf8e56e21f26\assets\cannibalism\compatibility\expandedfoods\recipes\simmering\breadedpalemeatnugget.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\cannibalism_1.2.3.zip_bf8e56e21f26\assets\cannibalism\compatibility\expandedfoods\recipes\simmering\heart.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\cannibalism_1.2.3.zip_bf8e56e21f26\assets\cannibalism\compatibility\expandedfoods\recipes\simmering\heartbroth.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\cannibalism_1.2.3.zip_bf8e56e21f26\assets\cannibalism\compatibility\expandedfoods\recipes\simmering\palemeat.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\cannibalism_1.2.3.zip_bf8e56e21f26\assets\cannibalism\compatibility\expandedfoods\recipes\simmering\palemeatbroth.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\cannibalism_1.2.3.zip_bf8e56e21f26\assets\cannibalism\compatibility\expandedfoods\recipes\simmering\palemeatnugget.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\cannibalism_1.2.3.zip_bf8e56e21f26\assets\cannibalism\compatibility\expandedfoods\recipes\simmering\palemeatsausage.json. Best-effort insert: output=no, ingredients=0
+[SKIP] Malformed recipe file C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\envelopes_2.8.0.zip_89abcb35c0a5\assets\envelopes\recipes\grid\remove-wax-parcel.json (grid): <string>:26 Unexpected end of input at column 1
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\berrydough.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\breadberrysyrup.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\breadedball.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\breadedballoiled.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\breadedballsyrup.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\breadedfishnugget.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\breadedfishnuggetoiled.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\breadedfishnuggetsyrup.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\breadedmeatnugget.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\breadedmeatnuggetoiled.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\breadedmeatnuggetsyrup.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\breadedmushroom.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\breadedmushroomoiled.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\breadedmushroomsyrup.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\breadedvegetable.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\breadedvegetableoiled.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\breadedvegetablesyrup.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\breadstarter.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\candy.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\cottagecheese.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\dough.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\doughball.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\dressing.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\dumpling.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\eggcombine.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\fishpemmican.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\fruitbar.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\gozinaki.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\gozinakisyrup.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\hardtack.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\muffindough.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\muffinsyrup.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\pasta.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\peanutbutter.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\peanutsauce.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\pemmican.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\sausage.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\sausagefish.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\soulstormbrew.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\soyculture.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\stuffedpepper.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\stuffedpepperoiled.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\stuffedpeppersyrup.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\sushi.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\sushioil.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\sushiveg.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\sushivegoil.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\trailmix.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\trailmixvegetarian.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\yogurtfruit.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'mixing' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\mixing\pastacold.json. Best-effort insert: output=no, ingredients=14
+[WARN] Unknown recipe type 'mixing' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\mixing\salad.json. Best-effort insert: output=no, ingredients=17
+[WARN] Unknown recipe type 'mixing' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\mixing\yogurtmeal.json. Best-effort insert: output=no, ingredients=10
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\agedmeat.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\boiledegg.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\breadedball.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\breadedfishnugget.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\breadedmeatnugget.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\breadedmushroom.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\breadedvegetable.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\broth.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\bushmeat.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\candiedfruit.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\choppedmushroom.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\choppedvegetable.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\clarifiedbroth.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\cookedmushroom.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\cookedvegetable.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\fish.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\fishnugget.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\fruitsyrup.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\gelatin.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\lard.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\meatnugget.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\pasta.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\peanut.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\poultry.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\redmeat.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\sausage.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\sausagefish.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\soulstormbrew.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\stuffedpepper.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\yogurtferment.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornberrydough.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornbreadberrysyrup.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornbreadedball.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornbreadedballoiled.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornbreadedballsyrup.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornbreadedfishnugget.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornbreadedfishnuggetoiled.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornbreadedfishnuggetsyrup.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornbreadedmeatnugget.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornbreadedmeatnuggetoiled.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornbreadedmeatnuggetsyrup.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornbreadedmushroom.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornbreadedmushroomoiled.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornbreadedmushroomsyrup.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornbreadedvegetable.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornbreadedvegetableoiled.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornbreadedvegetablesyrup.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acorndough.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acorndoughball.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acorndumpling.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornhardtack.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornmuffindough.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornmuffinsyrup.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornpasta.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornstuffedpepper.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornstuffedpepperoiled.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\acornstuffedpeppersyrup.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\acorns\candy.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\ancienttools\dough.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\ancienttools\doughball.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\ancienttools\pasta.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\primitivesurvival\crabpemmican.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\primitivesurvival\sausagecrab.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\primitivesurvival\sausagesnake.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\primitivesurvival\snakepemmican.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\ancienttools\acorns\acornberrydough.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'kneading' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\kneading\ancienttools\acorns\acorndough.json. Best-effort insert: output=yes, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\acorns\acornbreadedball.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\acorns\acornbreadedfishnugget.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\acorns\acornbreadedmeatnugget.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\acorns\acornbreadedmushroom.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\acorns\acornbreadedvegetable.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\acorns\acorncoffee.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\acorns\acornpasta.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\acorns\acornstuffedpepper.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\ancienttools\breadedball.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\ancienttools\breadedmeatnugget.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\ancienttools\breadedmushroom.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\ancienttools\breadedvegetable.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\ancienttools\saltedmeat.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\ancienttools\saltedmeatnugget.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\ancienttools\stuffedpepper.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\moreanimals\boiledegg.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\primitivesurvival\broth.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\primitivesurvival\crabnugget.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\primitivesurvival\meats.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\primitivesurvival\sausagecrab.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\primitivesurvival\sausagesnake.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'simmering' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\ExpandedFoods 2.0.0-dev.7.zip_51125e8da261\assets\expandedfoods\recipes\simmering\primitivesurvival\snakenugget.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'teapot' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\maketeaforked_0.7.6.zip_33d5af15ab5a\assets\maketea\recipes\teapot\flowertea.json. Best-effort insert: output=yes, ingredients=2
+[WARN] Unknown recipe type 'loompatterns' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\spinningwheel_1.1.0.zip_b8d06c39f57c\assets\spinningwheel\recipes\loompatterns\checkered-black.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'loompatterns' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\spinningwheel_1.1.0.zip_b8d06c39f57c\assets\spinningwheel\recipes\loompatterns\checkered-blue-white.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'loompatterns' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\spinningwheel_1.1.0.zip_b8d06c39f57c\assets\spinningwheel\recipes\loompatterns\checkered-brown.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'loompatterns' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\spinningwheel_1.1.0.zip_b8d06c39f57c\assets\spinningwheel\recipes\loompatterns\checkered-darkblue.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'loompatterns' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\spinningwheel_1.1.0.zip_b8d06c39f57c\assets\spinningwheel\recipes\loompatterns\checkered-darkbrown.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'loompatterns' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\spinningwheel_1.1.0.zip_b8d06c39f57c\assets\spinningwheel\recipes\loompatterns\checkered-darkgreen.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'loompatterns' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\spinningwheel_1.1.0.zip_b8d06c39f57c\assets\spinningwheel\recipes\loompatterns\checkered-darkred.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'loompatterns' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\spinningwheel_1.1.0.zip_b8d06c39f57c\assets\spinningwheel\recipes\loompatterns\checkered-gray.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'loompatterns' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\spinningwheel_1.1.0.zip_b8d06c39f57c\assets\spinningwheel\recipes\loompatterns\checkered-green.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'loompatterns' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\spinningwheel_1.1.0.zip_b8d06c39f57c\assets\spinningwheel\recipes\loompatterns\checkered-orange.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'loompatterns' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\spinningwheel_1.1.0.zip_b8d06c39f57c\assets\spinningwheel\recipes\loompatterns\checkered-pink.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'loompatterns' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\spinningwheel_1.1.0.zip_b8d06c39f57c\assets\spinningwheel\recipes\loompatterns\checkered-plain.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'loompatterns' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\spinningwheel_1.1.0.zip_b8d06c39f57c\assets\spinningwheel\recipes\loompatterns\checkered-purple.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'loompatterns' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\spinningwheel_1.1.0.zip_b8d06c39f57c\assets\spinningwheel\recipes\loompatterns\checkered-red.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'loompatterns' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\spinningwheel_1.1.0.zip_b8d06c39f57c\assets\spinningwheel\recipes\loompatterns\checkered-white.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'loompatterns' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\spinningwheel_1.1.0.zip_b8d06c39f57c\assets\spinningwheel\recipes\loompatterns\checkered-wool-gray-white.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'loompatterns' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\spinningwheel_1.1.0.zip_b8d06c39f57c\assets\spinningwheel\recipes\loompatterns\checkered-yellow.json. Best-effort insert: output=no, ingredients=0
+[WARN] Unknown recipe type 'gridcrafting.json' at C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\tablet_v0.2.0.zip_b8725b2ef947\assets\tablet\recipes\gridCrafting.json. Best-effort insert: output=yes, ingredients=2
+[SKIP] Malformed recipe file C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack\xskills_v0.9.0-pre.2.zip_daaf844dbd58\assets\xskills\recipes\barrel\mead.json (barrel): <string>:16 Unexpected end of input at column 4
+=== parse_recipes_json.py summary ===
+Files walked: 2139
+Recipe counts by type:
+- alloy: 9
+- barrel: 614
+- clayforming: 72
+- cooking: 75
+- grid: 8608
+- gridcrafting.json: 3
+- knapping: 29
+- kneading: 429
+- loompatterns: 17
+- mixing: 3
+- simmering: 209
+- smithing: 152
+- teapot: 17
+Total recipes discovered: 10237
+Total recipes inserted: 22489
+Files skipped (malformed): 2
+Suppressed duplicate unknown-type warnings: 498
+Done.
+[GUARDRAIL] game_code=item:spearbarrel rejected tier=fuzzy lr=Ales (Per barrel) (Limit 25) rule=2
+[GUARDRAIL] game_code=item:dyedcandle-skyblue rejected tier=contains lr=Dyed Candles rule=1
+[GUARDRAIL] game_code=item:peanutliquid-butter rejected tier=fuzzy lr=Peanut Butter (LIMIT 5) rule=2
+[GUARDRAIL] game_code=item:axe-peridotite rejected tier=contains lr=Peridot rule=1
+[GUARDRAIL] game_code=item:meal-augratin rejected tier=fuzzy lr=Au Grautin (Sealed) rule=2
+[GUARDRAIL] game_code=item:meal-vegetablestew rejected tier=contains lr=Vegetable Stew (Sealed) rule=1
+[GUARDRAIL] game_code=item:pickledvegetable-bellpepper rejected tier=contains lr=Pickled Vegetable rule=1
+[GUARDRAIL] game_code=item:pickledvegetable-cabbage rejected tier=contains lr=Pickled Vegetable rule=1
+[GUARDRAIL] game_code=item:pickledvegetable-carrot rejected tier=contains lr=Pickled Vegetable rule=1
+[GUARDRAIL] game_code=item:pickledvegetable-olive rejected tier=contains lr=Pickled Vegetable rule=1
+[GUARDRAIL] game_code=item:pickledvegetable-onion rejected tier=contains lr=Pickled Vegetable rule=1
+[GUARDRAIL] game_code=item:pickledvegetable-parsnip rejected tier=contains lr=Pickled Vegetable rule=1
+[GUARDRAIL] game_code=item:pickledvegetable-pumpkin rejected tier=contains lr=Pickled Vegetable rule=1
+[GUARDRAIL] game_code=item:pickledvegetable-turnip rejected tier=contains lr=Pickled Vegetable rule=1
+[GUARDRAIL] game_code=item:rawcheese-waxed rejected tier=fuzzy lr=Cheese (Waxxed) (LIMIT 10) rule=2
+[GUARDRAIL] game_code=item:smellingsalts-strong rejected tier=contains lr=Smelling Salt rule=1
+[GUARDRAIL] game_code=item:smellingsalts-weak rejected tier=contains lr=Smelling Salt rule=1
+[GUARDRAIL] game_code=item:pickledvegetable-caper rejected tier=contains lr=Pickled Vegetable rule=1
+[GUARDRAIL] game_code=item:pickledvegetable-caperberry rejected tier=contains lr=Pickled Vegetable rule=1
+[GUARDRAIL] game_code=item:pickledvegetable-chilipepper rejected tier=contains lr=Pickled Vegetable rule=1
+[GUARDRAIL] game_code=item:pickledvegetable-cucumber rejected tier=contains lr=Pickled Vegetable rule=1
+[GUARDRAIL] game_code=item:pickledvegetable-jonjoli rejected tier=contains lr=Pickled Vegetable rule=1
+[GUARDRAIL] game_code=item:pickledvegetable-tomato rejected tier=contains lr=Pickled Vegetable rule=1
+[GUARDRAIL] game_code=item:bread-* rejected tier=contains lr=Bread (All Base Variants) rule=3
+[GUARDRAIL] game_code=item:crushed-lapislazuli rejected tier=contains lr=Lapis Lazuli rule=1
+[GUARDRAIL] game_code=item:rawcassava-raw rejected tier=contains lr=Cassava rule=1
+[GUARDRAIL] game_code=item:vegetable-* rejected tier=fuzzy lr=Vegetable Soup (Sealed) rule=2
+[GUARDRAIL] game_code=item:vegetable-olive rejected tier=fuzzy lr=Vegetable (Open) (2000 Sat) rule=2
+[GUARDRAIL] game_code=item:vegetable-onion rejected tier=fuzzy lr=Vegetable (Open) (2000 Sat) rule=2
+[GUARDRAIL] game_code=item:vegetable-jalapeno rejected tier=fuzzy lr=Vegetable (Open) (2000 Sat) rule=2
+[GUARDRAIL] game_code=item:vegetable-tabasco rejected tier=fuzzy lr=Vegetable Soup (Sealed) rule=2
+[GUARDRAIL] game_code=item:plank-sal rejected tier=contains lr=Planks rule=1
+[GUARDRAIL] game_code=item:plank-sapele rejected tier=contains lr=Planks rule=1
+[GUARDRAIL] game_code=item:plank-saxaul rejected tier=contains lr=Planks rule=1
+[GUARDRAIL] game_code=item:plank-spruce rejected tier=contains lr=Planks rule=1
+Price overrides restored: 742
+Price overrides skipped (unmapped): 17
+  Fuzzy backend: difflib
+Total canonical items created: 14193
+  Exact matches (tier 1): 13
+  Normalized matches (tier 2): 23
+  Contains matches (tier 3): 49
+  Fuzzy high matches (tier 4, >=0.90): 0
+  Fuzzy low matches (tier 4, 0.75-0.89): 25
+  Mapped matches: 230
+  Force-unlinked entries: 31
+  Unmatched game codes: 13476
+  LR-only items: 368
+  Ingredient-only items: 2307
+  FTA exact display-name links: 222
+  FTA trigram links: 46
+  FTA-only items: 9
+  Lang-derived game-code labels loaded: 5132
+  Lang display_name overrides applied: 1922
+  Variant-family rows assigned: 1406
+  Match-tier distribution:
+    - exact: 85
+    - low: 25
+    - mapped: 230
+    - none: 377
+    - unmatched: 13476
+WARNING: Recipe linkage appears broken - 22489 recipes have no canonical link. Run: python scripts/link_recipes.py
+[OK] Done.
+
+--- Instrumentation Summary ---
+{
+  "total_items": 13555,
+  "exact": 13,
+  "normalized": 23,
+  "contains": 49,
+  "fuzzy": 25,
+  "none": 13476,
+  "fuzzy_calls": 1820788,
+  "runtime_seconds": 91.963,
+  "confidence": {
+    "high": 36,
+    "medium": 4,
+    "low": 13515
+  },
+  "contains_confidence": {
+    "medium": 4,
+    "low": 45
+  },
+  "fuzzy_confidence": {
+    "medium": 0,
+    "low": 25
+  },
+  "guardrail_rejections": {
+    "rule_1": 25,
+    "rule_2": 9,
+    "rule_3": 1,
+    "total": 35
+  }
+}
+  fuzzy_share: 22.7% of matched items [FAIL — target <10%]
+
+--- Match Anomaly Report ---
+Total processed : 13555
+Flagged         : 67 (0.49%)
+Written to      : data\match_anomalies.json
+[MEMORY BANK: ACTIVE]
+match_tier CHECK already allows required tiers.
+price_overrides table already exists.
+Created nugget canonical: nugget_bismuth (item:nugget-bismuth)
+Nugget override upserted: nugget_bismuth (item:nugget-bismuth) -> 0.200000
+Created nugget canonical: nugget_bismuthbronze (item:nugget-bismuthbronze)
+Nugget override upserted: nugget_bismuthbronze (item:nugget-bismuthbronze) -> 0.200000
+Created nugget canonical: nugget_blackbronze (item:nugget-blackbronze)
+Nugget override upserted: nugget_blackbronze (item:nugget-blackbronze) -> 0.250000
+Created nugget canonical: nugget_brass (item:nugget-brass)
+Nugget override upserted: nugget_brass (item:nugget-brass) -> 0.250000
+Created nugget canonical: nugget_copper (item:nugget-copper)
+Nugget override upserted: nugget_copper (item:nugget-copper) -> 0.200000
+Created nugget canonical: nugget_cupronickel (item:nugget-cupronickel)
+Nugget override upserted: nugget_cupronickel (item:nugget-cupronickel) -> 0.250000
+Created nugget canonical: nugget_electrum (item:nugget-electrum)
+Nugget override upserted: nugget_electrum (item:nugget-electrum) -> 0.500000
+Created nugget canonical: nugget_gold (item:nugget-gold)
+Nugget override upserted: nugget_gold (item:nugget-gold) -> 0.350000
+Created nugget canonical: nugget_iron (item:nugget-iron)
+Nugget override upserted: nugget_iron (item:nugget-iron) -> 0.250000
+Created nugget canonical: nugget_lead (item:nugget-lead)
+Nugget override upserted: nugget_lead (item:nugget-lead) -> 0.150000
+Created nugget canonical: nugget_meteoriciron (item:nugget-meteoriciron)
+Nugget override upserted: nugget_meteoriciron (item:nugget-meteoriciron) -> 0.500000
+Created nugget canonical: nugget_nickel (item:nugget-nickel)
+Nugget override upserted: nugget_nickel (item:nugget-nickel) -> 0.200000
+Created nugget canonical: nugget_silver (item:nugget-silver)
+Nugget override upserted: nugget_silver (item:nugget-silver) -> 0.250000
+Created nugget canonical: nugget_steel (item:nugget-steel)
+Nugget override upserted: nugget_steel (item:nugget-steel) -> 0.100000
+Created nugget canonical: nugget_tin (item:nugget-tin)
+Nugget override upserted: nugget_tin (item:nugget-tin) -> 0.150000
+Created nugget canonical: nugget_tinbronze (item:nugget-tinbronze)
+Nugget override upserted: nugget_tinbronze (item:nugget-tinbronze) -> 0.200000
+Created nugget canonical: nugget_zinc (item:nugget-zinc)
+Nugget override upserted: nugget_zinc (item:nugget-zinc) -> 0.150000
+Nugget override pass complete. Total nugget overrides upserted: 17
+Metalbit override: metalbit_bismuth (item:metalbit-bismuth) -> 0.200000 from item:ingot-bismuth (lr)
+Metalbit override: metalbit_bismuthbronze (item:metalbit-bismuthbronze) -> 0.200000 from item:ingot-bismuthbronze (lr)
+Metalbit override: metalbit_blackbronze (item:metalbit-blackbronze) -> 0.250000 from item:ingot-blackbronze (lr)
+Metalbit override: metalbit_brass (item:metalbit-brass) -> 0.250000 from item:ingot-brass (lr)
+Metalbit override: metalbit_copper (item:metalbit-copper) -> 0.200000 from item:ingot-copper (lr)
+Metalbit override: metalbit_cupronickel (item:metalbit-cupronickel) -> 0.250000 from item:ingot-cupronickel (lr)
+Metalbit override: metalbit_electrum (item:metalbit-electrum) -> 0.500000 from item:ingot-electrum (lr)
+Metalbit override: metalbit_gold (item:metalbit-gold) -> 0.350000 from item:ingot-gold (lr)
+Metalbit override: metalbit_iron (item:metalbit-iron) -> 0.250000 from item:ingot-iron (lr)
+Metalbit override: metalbit_lead (item:metalbit-lead) -> 0.150000 from item:ingot-lead (lr)
+Metalbit override: metalbit_meteoriciron (item:metalbit-meteoriciron) -> 0.500000 from item:ingot-meteoriciron (lr)
+Metalbit override: metalbit_nickel (item:metalbit-nickel) -> 0.200000 from item:ingot-nickel (lr)
+Metalbit override: metalbit_silver (item:metalbit-silver) -> 0.250000 from item:ingot-silver (lr)
+Metalbit override: metalbit_steel (item:metalbit-steel) -> 0.100000 from item:ingot-steel (lr)
+Metalbit override: metalbit_tin (item:metalbit-tin) -> 0.150000 from item:ingot-tin (lr)
+Metalbit override: metalbit_tinbronze (item:metalbit-tinbronze) -> 0.200000 from item:ingot-tinbronze (lr)
+Metalbit override: metalbit_zinc (item:metalbit-zinc) -> 0.150000 from item:ingot-zinc (lr)
+Metalbit override pass complete. Total overrides upserted: 17
+[WARN] Ore-chain fallback ratio used: crushed_alum (item:crushed-alum) ore='alum', output_per_chunk=5
+Ore-chain override: crushed_alum (item:crushed-alum) -> 0.075000 (chunk=0.375000, out/chunk=5)
+[WARN] Ore-chain skip crushed: crushed_bauxite (item:crushed-bauxite) chunk price not found for ore='bauxite'
+[WARN] Ore-chain fallback ratio used: crushed_cassiterite (item:crushed-cassiterite) ore='cassiterite', output_per_chunk=5
+Ore-chain override: crushed_cassiterite (item:crushed-cassiterite) -> 0.071875 (chunk=0.359375, out/chunk=5)
+[WARN] Ore-chain fallback ratio used: crushed_chromite (item:crushed-chromite) ore='chromite', output_per_chunk=5
+Ore-chain override: crushed_chromite (item:crushed-chromite) -> 0.118750 (chunk=0.593750, out/chunk=5)
+[WARN] Ore-chain fallback ratio used: crushed_cinnabar (item:crushed-cinnabar) ore='cinnabar', output_per_chunk=5
+Ore-chain override: crushed_cinnabar (item:crushed-cinnabar) -> 0.312500 (chunk=1.562500, out/chunk=5)
+[WARN] Ore-chain fallback ratio used: crushed_ilmenite (item:crushed-ilmenite) ore='ilmenite', output_per_chunk=5
+Ore-chain override: crushed_ilmenite (item:crushed-ilmenite) -> 0.059375 (chunk=0.296875, out/chunk=5)
+[WARN] Ore-chain fallback ratio used: crushed_lapislazuli (item:crushed-lapislazuli) ore='lapislazuli', output_per_chunk=5
+Ore-chain override: crushed_lapislazuli (item:crushed-lapislazuli) -> 0.250000 (chunk=1.250000, out/chunk=5)
+[WARN] Ore-chain skip crushed: crushed_metal_gold (item:crushed-metal-gold) chunk price not found for ore='metal-gold'
+[WARN] Ore-chain fallback ratio used: crushed_olivine (item:crushed-olivine) ore='olivine', output_per_chunk=5
+Ore-chain override: crushed_olivine (item:crushed-olivine) -> 0.012500 (chunk=0.062500, out/chunk=5)
+[WARN] Ore-chain fallback ratio used: crushed_ore_coal (item:crushed-ore-coal) ore='coal', output_per_chunk=5
+Ore-chain override: crushed_ore_coal (item:crushed-ore-coal) -> 0.040000 (chunk=0.200000, out/chunk=5)
+[WARN] Ore-chain fallback ratio used: crushed_ore_galena (item:crushed-ore-galena) ore='galena', output_per_chunk=5
+Ore-chain override: crushed_ore_galena (item:crushed-ore-galena) -> 0.056250 (chunk=0.281250, out/chunk=5)
+[WARN] Ore-chain fallback ratio used: crushed_quartz (item:crushed-quartz) ore='quartz', output_per_chunk=5
+Ore-chain override: crushed_quartz (item:crushed-quartz) -> 0.087500 (chunk=0.437500, out/chunk=5)
+[WARN] Ore-chain skip powdered: powdered_ore_boneash (item:powdered-ore-boneash) no crushed price available for ore='boneash'
+Ore-chain override: powdered_ore_cassiterite (item:powdered-ore-cassiterite) -> 0.071875 (same-as-crushed)
+Ore-chain override: powdered_ore_chromite (item:powdered-ore-chromite) -> 0.118750 (same-as-crushed)
+[WARN] Ore-chain skip powdered: powdered_ore_chromiumoxide (item:powdered-ore-chromiumoxide) no crushed price available for ore='chromiumoxide'
+Ore-chain override: powdered_ore_coal (item:powdered-ore-coal) -> 0.040000 (same-as-crushed)
+[WARN] Ore-chain skip powdered: powdered_ore_fluorite (item:powdered-ore-fluorite) no crushed price available for ore='fluorite'
+Ore-chain override: powdered_ore_galena (item:powdered-ore-galena) -> 0.056250 (same-as-crushed)
+[WARN] Ore-chain skip powdered: powdered_ore_graphite (item:powdered-ore-graphite) no crushed price available for ore='graphite'
+[WARN] Ore-chain skip powdered: powdered_ore_hematite (item:powdered-ore-hematite) no crushed price available for ore='hematite'
+Ore-chain override: powdered_ore_ilmenite (item:powdered-ore-ilmenite) -> 0.059375 (same-as-crushed)
+[WARN] Ore-chain skip powdered: powdered_ore_kernite (item:powdered-ore-kernite) no crushed price available for ore='kernite'
+[WARN] Ore-chain skip powdered: powdered_ore_leadoxide (item:powdered-ore-leadoxide) no crushed price available for ore='leadoxide'
+[WARN] Ore-chain skip powdered: powdered_ore_limonite (item:powdered-ore-limonite) no crushed price available for ore='limonite'
+[WARN] Ore-chain skip powdered: powdered_ore_litharge (item:powdered-ore-litharge) no crushed price available for ore='litharge'
+[WARN] Ore-chain skip powdered: powdered_ore_magnesiumhydroxide (item:powdered-ore-magnesiumhydroxide) no crushed price available for ore='magnesiumhydroxide'
+[WARN] Ore-chain skip powdered: powdered_ore_magnesiumoxide (item:powdered-ore-magnesiumoxide) no crushed price available for ore='magnesiumoxide'
+[WARN] Ore-chain skip powdered: powdered_ore_magnetite (item:powdered-ore-magnetite) no crushed price available for ore='magnetite'
+[WARN] Ore-chain skip powdered: powdered_ore_manganesedioxide (item:powdered-ore-manganesedioxide) no crushed price available for ore='manganesedioxide'
+[WARN] Ore-chain skip powdered: powdered_ore_manganeseoxide (item:powdered-ore-manganeseoxide) no crushed price available for ore='manganeseoxide'
+[WARN] Ore-chain skip powdered: powdered_ore_massicot (item:powdered-ore-massicot) no crushed price available for ore='massicot'
+Ore-chain override: powdered_ore_olivine (item:powdered-ore-olivine) -> 0.012500 (same-as-crushed)
+[WARN] Ore-chain skip powdered: powdered_ore_rhodochrosite (item:powdered-ore-rhodochrosite) no crushed price available for ore='rhodochrosite'
+[WARN] Ore-chain skip powdered: powdered_ore_sphalerite (item:powdered-ore-sphalerite) no crushed price available for ore='sphalerite'
+[WARN] Ore-chain skip powdered: powdered_ore_whitelead (item:powdered-ore-whitelead) no crushed price available for ore='whitelead'
+[WARN] Ore-chain skip powdered: powdered_ore_yellowcake (item:powdered-ore-yellowcake) no crushed price available for ore='yellowcake'
+[WARN] Ore-chain skip powdered: powdered_ore_zincoxide (item:powdered-ore-zincoxide) no crushed price available for ore='zincoxide'
+Ore-chain override pass complete. Total overrides upserted: 16
+Chain ingot-suffix cleanup complete. Rows updated: 0
+Metalbit ingot-suffix cleanup complete. Rows updated: 0
+Rule: LIKE  item:leather-normal-%        -> Leather (lr_items.id=6066) | updated=26
+Rule: EXACT item:hide-prepared-small     -> Prepared Small Hide (lr_items.id=179) | updated=1
+Rule: EXACT item:hide-prepared-medium    -> Prepared Medium Hide (lr_items.id=180) | updated=1
+Rule: EXACT item:hide-prepared-large     -> Prepared Large Hide (lr_items.id=181) | updated=1
+Rule: EXACT item:hide-prepared-huge      -> Prepared Huge Hide (lr_items.id=182) | updated=1
+Rule: LIKE  item:leatherbundle-%         -> Leather (lr_items.id=6066) | updated=22
+Rule: LIKE  block:log-%                  -> Logs (lr_items.id=171) | updated=29
+Rule: LIKE  block:log-placed-%           -> Logs (lr_items.id=171) | updated=14
+Rule: LIKE  item:plank-%                 -> Planks (lr_items.id=172) | updated=68
+Rule: LIKE  item:firewood%               -> Firewood (lr_items.id=173) | updated=1
+Rule: EXACT item:candle                  -> Regular Candles (lr_items.id=6074) | updated=1
+Rule: LIKE  item:candle-%                -> Regular Candles (lr_items.id=6074) | updated=0
+Rule: LIKE  block:glassslab-%            -> Glass (lr_items.id=6070) | updated=14
+Rule: LIKE  block:linen-%                -> Linen / Cloth (lr_items.id=6073) | updated=8
+Rule: LIKE  item:twine-%                 -> Twine (Processed, not flax fibers) (NOT BUYING) (lr_items.id=6072) | updated=35
+Rule: LIKE  item:linen-%                 -> Linen / Cloth (lr_items.id=6073) | updated=0
+Rule: LIKE  item:cloth-%                 -> Linen / Cloth (lr_items.id=6073) | updated=36
+Rule: LIKE  item:mushroom-%              -> Mushrooms (lr_items.id=153) | updated=1
+Rule: LIKE  block:mushroom-%             -> Mushrooms (lr_items.id=153) | updated=16
+Rule: LIKE  item:cookedmushroom-%        -> Mushrooms (lr_items.id=153) | updated=3
+Rule: LIKE  item:choppedmushroom-%       -> Mushrooms (lr_items.id=153) | updated=1
+Rule: LIKE  item:cookedchoppedmushroom-% -> Mushrooms (lr_items.id=153) | updated=3
+Rule: LIKE  block:mushroombasket-%       -> Mushrooms (lr_items.id=153) | updated=1
+Rule: LIKE  item:sporeprint-%            -> Mushrooms (lr_items.id=153) | updated=1
+Rule: LIKE  item:acornbreadedmushroom-%  -> Mushrooms (lr_items.id=153) | updated=5
+Rule: LIKE  item:breadedmushroom-%       -> Mushrooms (lr_items.id=153) | updated=5
+Rule: EXACT item:pipeleaf                -> Pipeleaf (lr_items.id=154) | updated=0
+Rule: LIKE  item:smokable-pipeleaf-%     -> Pipeleaf (lr_items.id=154) | updated=2
+Rule: EXACT item:saltpeter               -> Saltpeter (lr_items.id=20) | updated=1
+Rule: LIKE  item:smellingsalts-%         -> Smelling Salt (lr_items.id=6047) | updated=2
+Rule: EXACT item:sewingkit               -> Sewing Kit (lr_items.id=6069) | updated=1
+Rule: EXACT item:armor-tailoring-kit     -> Armor Tailoring Kit (lr_items.id=6068) | updated=0
+[WARN] Skipped: 'Lanterns/Chandeleries/Torch Holders' not found in lr_items
+Rule: LIKE  item:glass-%                 -> Glass (lr_items.id=6070) | updated=1
+Rule: EXACT item:ore-chromite            -> Chromite Chunk (lr_items.id=67) | updated=0
+Rule: EXACT item:nugget-chromite         -> Chromite Chunk (lr_items.id=67) | updated=1
+[WARN] Skipped: 'Water' not found in lr_items
+[WARN] Skipped: 'Lead' not found in lr_items
+Rule: EXACT item:crushed-chromite        -> Chromite Chunk (lr_items.id=67) | updated=1
+Rule: EXACT item:powdered-ore-chromite   -> Chromite Chunk (lr_items.id=67) | updated=1
+[WARN] Skipped: 'Lead' not found in lr_items
+[WARN] Skipped: 'Bismuth' not found in lr_items
+[WARN] Skipped: 'Bismuth' not found in lr_items
+[WARN] Skipped: 'Black Bronze' not found in lr_items
+[WARN] Skipped: 'Black Bronze' not found in lr_items
+[WARN] Skipped: 'Brass' not found in lr_items
+[WARN] Skipped: 'Brass' not found in lr_items
+[WARN] Skipped: 'Copper' not found in lr_items
+[WARN] Skipped: 'Copper' not found in lr_items
+[WARN] Skipped: 'Cupronickel' not found in lr_items
+[WARN] Skipped: 'Cupronickel' not found in lr_items
+[WARN] Skipped: 'Electrum' not found in lr_items
+[WARN] Skipped: 'Electrum' not found in lr_items
+[WARN] Skipped: 'Gold' not found in lr_items
+[WARN] Skipped: 'Gold' not found in lr_items
+[WARN] Skipped: 'Iron' not found in lr_items
+[WARN] Skipped: 'Iron' not found in lr_items
+[WARN] Skipped: 'Lead' not found in lr_items
+[WARN] Skipped: 'Lead' not found in lr_items
+[WARN] Skipped: 'Meteoric Iron' not found in lr_items
+[WARN] Skipped: 'Meteoric Iron' not found in lr_items
+[WARN] Skipped: 'Nickel' not found in lr_items
+[WARN] Skipped: 'Nickel' not found in lr_items
+[WARN] Skipped: 'Silver' not found in lr_items
+[WARN] Skipped: 'Silver' not found in lr_items
+[WARN] Skipped: 'Steel' not found in lr_items
+[WARN] Skipped: 'Steel' not found in lr_items
+[WARN] Skipped: 'Tin' not found in lr_items
+[WARN] Skipped: 'Tin' not found in lr_items
+[WARN] Skipped: 'Tin Bronze' not found in lr_items
+[WARN] Skipped: 'Tin Bronze' not found in lr_items
+[WARN] Skipped: 'Zinc' not found in lr_items
+[WARN] Skipped: 'Zinc' not found in lr_items
+Rule: EXACT item:ore-chromite            -> Chromite Chunk (lr_items.id=67) | updated=0
+Rule: EXACT item:crushed-ore-chromite    -> Chromite Chunk (lr_items.id=67) | updated=0
+Rule: EXACT item:powdered-ore-chromite   -> Chromite Chunk (lr_items.id=67) | updated=1
+Rule: EXACT item:ore-cassiterite         -> Cassiterite Chunk (lr_items.id=56) | updated=0
+Rule: EXACT item:crushed-ore-cassiterite -> Cassiterite Chunk (lr_items.id=56) | updated=0
+Rule: EXACT item:powdered-ore-cassiterite -> Cassiterite Chunk (lr_items.id=56) | updated=1
+Rule: EXACT item:ore-galena              -> Galena Chunk (lr_items.id=57) | updated=0
+Rule: EXACT item:crushed-ore-galena      -> Galena Chunk (lr_items.id=57) | updated=1
+Rule: EXACT item:powdered-ore-galena     -> Galena Chunk (lr_items.id=57) | updated=1
+Rule: EXACT item:ore-hematite            -> Hematite Chunk (lr_items.id=62) | updated=0
+Rule: EXACT item:crushed-ore-hematite    -> Hematite Chunk (lr_items.id=62) | updated=0
+Rule: EXACT item:powdered-ore-hematite   -> Hematite Chunk (lr_items.id=62) | updated=1
+Rule: EXACT item:ore-limonite            -> Limonite Chunk (lr_items.id=63) | updated=0
+Rule: EXACT item:crushed-ore-limonite    -> Limonite Chunk (lr_items.id=63) | updated=0
+Rule: EXACT item:powdered-ore-limonite   -> Limonite Chunk (lr_items.id=63) | updated=1
+Rule: EXACT item:ore-magnetite           -> Magnetite Chunk (lr_items.id=64) | updated=0
+Rule: EXACT item:crushed-ore-magnetite   -> Magnetite Chunk (lr_items.id=64) | updated=0
+Rule: EXACT item:powdered-ore-magnetite  -> Magnetite Chunk (lr_items.id=64) | updated=1
+Rule: EXACT item:ore-malachite           -> Malachite Chunk (lr_items.id=55) | updated=0
+Rule: EXACT item:crushed-ore-malachite   -> Malachite Chunk (lr_items.id=55) | updated=0
+Rule: EXACT item:powdered-ore-malachite  -> Malachite Chunk (lr_items.id=55) | updated=0
+Rule: EXACT item:ore-bismuthinite        -> Bismuthinite Chunk (lr_items.id=61) | updated=0
+Rule: EXACT item:crushed-ore-bismuthinite -> Bismuthinite Chunk (lr_items.id=61) | updated=0
+Rule: EXACT item:powdered-ore-bismuthinite -> Bismuthinite Chunk (lr_items.id=61) | updated=0
+Rule: EXACT item:ore-sphalerite          -> Sphalerite Chunk (lr_items.id=60) | updated=0
+Rule: EXACT item:crushed-ore-sphalerite  -> Sphalerite Chunk (lr_items.id=60) | updated=0
+Rule: EXACT item:powdered-ore-sphalerite -> Sphalerite Chunk (lr_items.id=60) | updated=1
+Rule: EXACT item:ore-ilmenite            -> Ilmenite Chunk (lr_items.id=65) | updated=0
+Rule: EXACT item:crushed-ore-ilmenite    -> Ilmenite Chunk (lr_items.id=65) | updated=0
+Rule: EXACT item:powdered-ore-ilmenite   -> Ilmenite Chunk (lr_items.id=65) | updated=1
+Rule: EXACT item:ore-pentlandite         -> Pentlandite Chunk (lr_items.id=66) | updated=0
+Rule: EXACT item:crushed-ore-pentlandite -> Pentlandite Chunk (lr_items.id=66) | updated=0
+Rule: EXACT item:powdered-ore-pentlandite -> Pentlandite Chunk (lr_items.id=66) | updated=0
+Rule: EXACT item:ore-rhodochrosite       -> Rhodochrosite Chunk (lr_items.id=68) | updated=0
+Rule: EXACT item:crushed-ore-rhodochrosite -> Rhodochrosite Chunk (lr_items.id=68) | updated=0
+Rule: EXACT item:powdered-ore-rhodochrosite -> Rhodochrosite Chunk (lr_items.id=68) | updated=1
+Rule: EXACT item:ore-gold                -> Gold Chunk (lr_items.id=58) | updated=0
+Rule: EXACT item:crushed-ore-gold        -> Gold Chunk (lr_items.id=58) | updated=0
+Rule: EXACT item:powdered-ore-gold       -> Gold Chunk (lr_items.id=58) | updated=0
+Rule: EXACT item:ore-silver              -> Silver Chunk (lr_items.id=59) | updated=0
+Rule: EXACT item:crushed-ore-silver      -> Silver Chunk (lr_items.id=59) | updated=0
+Rule: EXACT item:powdered-ore-silver     -> Silver Chunk (lr_items.id=59) | updated=0
+Exact-normalized link: ales_per_barrel_limit_25_2 ('Ales (Per barrel) (Limit 25)') -> Ales (Per barrel) (Limit 25) (lr_items.id=6053)
+Exact-normalized link: anvil_iron ('Iron anvil') -> Iron anvil (lr_items.id=2378)
+Exact-normalized link: anvil_steel ('Steel anvil') -> Steel anvil (lr_items.id=2380)
+Exact-normalized link: bomb_ore ('Ore blasting bomb') -> Ore Blasting Bomb (lr_items.id=6061)
+Exact-normalized link: bomb_scrap ('Scrap bomb') -> Scrap Bomb (lr_items.id=6063)
+Exact-normalized link: bomb_stone ('Stone blasting bomb') -> Stone Blasting Bomb (lr_items.id=6062)
+Exact-normalized link: clay_blue ('Blue clay') -> Blue Clay (lr_items.id=22)
+Exact-normalized link: clay_fire ('Fire clay') -> Fire Clay (lr_items.id=32)
+Exact-normalized link: hoovedwearables_middleback_saddle1 ('Saddle') -> Saddle (lr_items.id=6051)
+Exact-normalized link: mead_per_barrel_2 ('Mead (Per barrel)') -> Mead (Per barrel) (lr_items.id=6056)
+Exact-normalized link: ore_bituminouscoal ('Black coal') -> Black Coal (lr_items.id=52)
+Exact-normalized link: rawcassava_dried ('Dried cassava') -> Dried Cassava (lr_items.id=140)
+Exact-normalized link: vegetable_cabbage ('Cabbage') -> Cabbage (lr_items.id=137)
+Exact-normalized link: vegetable_carrot ('Carrot') -> Carrot (lr_items.id=138)
+Exact-normalized link: vegetable_cassava ('Cassava') -> Cassava (lr_items.id=139)
+Exact-normalized link: vegetable_onion ('Onion') -> Onion (lr_items.id=142)
+Exact-normalized link: vegetable_parsnip ('Parsnip') -> Parsnip (lr_items.id=143)
+Exact-normalized link: vegetable_turnip ('Turnip') -> Turnip (lr_items.id=149)
+Exact-normalized link: wolf_limit_10_2 ('Wolf (Limit 10)') -> Wolf (Limit 10) (lr_items.id=167)
+Exact-normalized linking pass complete. Rows updated: 19. Ambiguous skipped: 0.
+[WARN] Explicit canonical link skipped: lr_items.display_name='Copper' not found
+Explicit canonical-link pass complete. Rows updated: 0
+Forced chain unlink policy applied. Rows updated: 0
+Primary alias cleanup: removed 0 conflicting 'copper' aliases
+Primary alias ensure: ingot_copper <- 'copper' inserted=1
+[OK] Manual linking complete. Total rows updated: 384
+Total aliases generated: 58453
+Lang-derived game-code labels loaded: 5132
+Display-name fallback updates from generated aliases: 11261
+[OK] Done.
+Recipes linked: 22489
+Recipes unlinked: 0
+Ingredients linked: 56483
+Ingredients unlinked: 81
+Variant groups processed: 121
+[OK] Done.
+
+=== Running: python scripts/ingest_lr_prices.py ===
+
+=== Running: python scripts/compute_primitive_prices.py ===
+
+=== Running: python scripts/parse_recipes_json.py ===
+
+=== Running: python scripts/build_canonical_items.py ===
+
+=== Running: python scripts/apply_manual_lr_links.py ===
+
+=== Running: python scripts/build_aliases.py ===
+
+=== Running: python scripts/link_recipes.py ===
+
+=== Verification query results ===
+lr_items_loaded: 476
+canonical_with_lr_link: 1013
+
+[OK] Pipeline + verification complete.

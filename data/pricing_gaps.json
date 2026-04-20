@@ -1,17 +1,57 @@
 {
-  "timestamp": "2026-04-19T22:15:18",
+  "timestamp": "2026-04-20T01:04:28",
   "total_canonicals": 14210,
-  "priced": 7011,
-  "gaps": 7449,
-  "no_lr_no_recipe": 2271,
-  "no_lr_recipe_incomplete": 4928,
-  "no_lr_no_price_override": 250,
+  "priced": 7077,
+  "gaps": 7389,
+  "no_lr_no_recipe": 2266,
+  "no_lr_recipe_incomplete": 4867,
+  "no_lr_no_price_override": 256,
   "ignored_edges_total": 1110,
   "gap_details": [
+    {
+      "canonical_id": "anvil_bismuthbronze",
+      "game_code": "block:anvil-bismuthbronze",
+      "display_name": "Bismuth bronze anvil",
+      "match_tier": "unmatched",
+      "has_recipe": false,
+      "gap_reason": "no_lr_no_price_override",
+      "blocking_ingredient_id": null,
+      "blocking_ingredient_game_code": null
+    },
+    {
+      "canonical_id": "anvil_blackbronze",
+      "game_code": "block:anvil-blackbronze",
+      "display_name": "Black bronze anvil",
+      "match_tier": "unmatched",
+      "has_recipe": false,
+      "gap_reason": "no_lr_no_price_override",
+      "blocking_ingredient_id": null,
+      "blocking_ingredient_game_code": null
+    },
     {
       "canonical_id": "anvil_copper",
       "game_code": "block:anvil-copper",
       "display_name": "Copper anvil",
+      "match_tier": "unmatched",
+      "has_recipe": false,
+      "gap_reason": "no_lr_no_price_override",
+      "blocking_ingredient_id": null,
+      "blocking_ingredient_game_code": null
+    },
+    {
+      "canonical_id": "anvil_meteoriciron",
+      "game_code": "block:anvil-meteoriciron",
+      "display_name": "Meteoric iron Anvil",
+      "match_tier": "unmatched",
+      "has_recipe": false,
+      "gap_reason": "no_lr_no_price_override",
+      "blocking_ingredient_id": null,
+      "blocking_ingredient_game_code": null
+    },
+    {
+      "canonical_id": "anvil_tinbronze",
+      "game_code": "block:anvil-tinbronze",
+      "display_name": "Tin bronze anvil",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_price_override",
@@ -1579,6 +1619,16 @@
       "blocking_ingredient_game_code": null
     },
     {
+      "canonical_id": "metalstrip",
+      "game_code": "item:metalstrip-*",
+      "display_name": "Metalstrip *S",
+      "match_tier": "unmatched",
+      "has_recipe": false,
+      "gap_reason": "no_lr_no_price_override",
+      "blocking_ingredient_id": null,
+      "blocking_ingredient_game_code": null
+    },
+    {
       "canonical_id": "needle",
       "game_code": "item:needle-*",
       "display_name": "Needle *S",
@@ -1852,6 +1902,16 @@
       "canonical_id": "powder_flint",
       "game_code": "item:powder-flint",
       "display_name": "Powdered calcined flint",
+      "match_tier": "unmatched",
+      "has_recipe": false,
+      "gap_reason": "no_lr_no_price_override",
+      "blocking_ingredient_id": null,
+      "blocking_ingredient_game_code": null
+    },
+    {
+      "canonical_id": "powdered_ore_graphite",
+      "game_code": "item:powdered-ore-graphite",
+      "display_name": "Powdered Ore Graphites",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_price_override",
@@ -6329,46 +6389,6 @@
       "blocking_ingredient_game_code": null
     },
     {
-      "canonical_id": "anvil_bismuthbronze",
-      "game_code": "block:anvil-bismuthbronze",
-      "display_name": "Bismuth bronze anvil",
-      "match_tier": "unmatched",
-      "has_recipe": false,
-      "gap_reason": "no_lr_no_recipe",
-      "blocking_ingredient_id": null,
-      "blocking_ingredient_game_code": null
-    },
-    {
-      "canonical_id": "anvil_blackbronze",
-      "game_code": "block:anvil-blackbronze",
-      "display_name": "Black bronze anvil",
-      "match_tier": "unmatched",
-      "has_recipe": false,
-      "gap_reason": "no_lr_no_recipe",
-      "blocking_ingredient_id": null,
-      "blocking_ingredient_game_code": null
-    },
-    {
-      "canonical_id": "anvil_meteoriciron",
-      "game_code": "block:anvil-meteoriciron",
-      "display_name": "Meteoric iron Anvil",
-      "match_tier": "unmatched",
-      "has_recipe": false,
-      "gap_reason": "no_lr_no_recipe",
-      "blocking_ingredient_id": null,
-      "blocking_ingredient_game_code": null
-    },
-    {
-      "canonical_id": "anvil_tinbronze",
-      "game_code": "block:anvil-tinbronze",
-      "display_name": "Tin bronze anvil",
-      "match_tier": "unmatched",
-      "has_recipe": false,
-      "gap_reason": "no_lr_no_recipe",
-      "blocking_ingredient_id": null,
-      "blocking_ingredient_game_code": null
-    },
-    {
       "canonical_id": "barrelcactus_normal",
       "game_code": "block:barrelcactus-normal",
       "display_name": "Barrel cactus",
@@ -7279,9 +7299,9 @@
       "blocking_ingredient_game_code": null
     },
     {
-      "canonical_id": "cauldron_iron",
-      "game_code": "block:cauldron-iron",
-      "display_name": "Cauldron Irons",
+      "canonical_id": "cauldron_blackbronze_2",
+      "game_code": "block:cauldron-blackbronze",
+      "display_name": "Cauldron Blackbronzes",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_recipe",
@@ -7289,9 +7309,19 @@
       "blocking_ingredient_game_code": null
     },
     {
-      "canonical_id": "cauldron_meteoriciron_2",
-      "game_code": "block:cauldron-meteoriciron",
-      "display_name": "Cauldron Meteoricirons",
+      "canonical_id": "cauldron_copper_2",
+      "game_code": "block:cauldron-copper",
+      "display_name": "Cauldron Coppers",
+      "match_tier": "unmatched",
+      "has_recipe": false,
+      "gap_reason": "no_lr_no_recipe",
+      "blocking_ingredient_id": null,
+      "blocking_ingredient_game_code": null
+    },
+    {
+      "canonical_id": "cauldron_iron",
+      "game_code": "block:cauldron-iron",
+      "display_name": "Cauldron Irons",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_recipe",
@@ -11199,16 +11229,6 @@
       "blocking_ingredient_game_code": null
     },
     {
-      "canonical_id": "bottlerack_woodframe_ash_north",
-      "game_code": "item:bottlerack-{woodframe}-ash-north",
-      "display_name": "Bottlerack {Woodframe} Ash North",
-      "match_tier": "unmatched",
-      "has_recipe": false,
-      "gap_reason": "no_lr_no_recipe",
-      "blocking_ingredient_id": null,
-      "blocking_ingredient_game_code": null
-    },
-    {
       "canonical_id": "bottlerack_woodframe_azobe_north",
       "game_code": "item:bottlerack-{woodframe}-azobe-north",
       "display_name": "Bottlerack {Woodframe} Azobe North",
@@ -11239,19 +11259,9 @@
       "blocking_ingredient_game_code": null
     },
     {
-      "canonical_id": "bottlerack_woodframe_beech_north",
-      "game_code": "item:bottlerack-{woodframe}-beech-north",
-      "display_name": "Bottlerack {Woodframe} Beech North",
-      "match_tier": "unmatched",
-      "has_recipe": false,
-      "gap_reason": "no_lr_no_recipe",
-      "blocking_ingredient_id": null,
-      "blocking_ingredient_game_code": null
-    },
-    {
-      "canonical_id": "bottlerack_woodframe_birch_north",
-      "game_code": "item:bottlerack-{woodframe}-birch-north",
-      "display_name": "Bottlerack {Woodframe} Birch North",
+      "canonical_id": "bottlerack_woodframe_bearnut_north",
+      "game_code": "item:bottlerack-{woodframe}-bearnut-north",
+      "display_name": "Bottlerack {Woodframe} Bearnut North",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_recipe",
@@ -11269,9 +11279,9 @@
       "blocking_ingredient_game_code": null
     },
     {
-      "canonical_id": "bottlerack_woodframe_dalbergia_north",
-      "game_code": "item:bottlerack-{woodframe}-dalbergia-north",
-      "display_name": "Bottlerack {Woodframe} Dalbergia North",
+      "canonical_id": "bottlerack_woodframe_cedar_north",
+      "game_code": "item:bottlerack-{woodframe}-cedar-north",
+      "display_name": "Bottlerack {Woodframe} Cedar North",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_recipe",
@@ -11279,9 +11289,9 @@
       "blocking_ingredient_game_code": null
     },
     {
-      "canonical_id": "bottlerack_woodframe_douglasfir_north",
-      "game_code": "item:bottlerack-{woodframe}-douglasfir-north",
-      "display_name": "Bottlerack {Woodframe} Douglasfir North",
+      "canonical_id": "bottlerack_woodframe_charred_north",
+      "game_code": "item:bottlerack-{woodframe}-charred-north",
+      "display_name": "Bottlerack {Woodframe} Charred North",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_recipe",
@@ -11289,9 +11299,9 @@
       "blocking_ingredient_game_code": null
     },
     {
-      "canonical_id": "bottlerack_woodframe_ebony_north",
-      "game_code": "item:bottlerack-{woodframe}-ebony-north",
-      "display_name": "Bottlerack {Woodframe} Ebony North",
+      "canonical_id": "bottlerack_woodframe_chlorociboria_north",
+      "game_code": "item:bottlerack-{woodframe}-chlorociboria-north",
+      "display_name": "Bottlerack {Woodframe} Chlorociboria North",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_recipe",
@@ -11299,9 +11309,29 @@
       "blocking_ingredient_game_code": null
     },
     {
-      "canonical_id": "bottlerack_woodframe_ginkgo_north",
-      "game_code": "item:bottlerack-{woodframe}-ginkgo-north",
-      "display_name": "Bottlerack {Woodframe} Ginkgo North",
+      "canonical_id": "bottlerack_woodframe_eucalyptus_north",
+      "game_code": "item:bottlerack-{woodframe}-eucalyptus-north",
+      "display_name": "Bottlerack {Woodframe} Eucalyptus North",
+      "match_tier": "unmatched",
+      "has_recipe": false,
+      "gap_reason": "no_lr_no_recipe",
+      "blocking_ingredient_id": null,
+      "blocking_ingredient_game_code": null
+    },
+    {
+      "canonical_id": "bottlerack_woodframe_fir_north",
+      "game_code": "item:bottlerack-{woodframe}-fir-north",
+      "display_name": "Bottlerack {Woodframe} Fir North",
+      "match_tier": "unmatched",
+      "has_recipe": false,
+      "gap_reason": "no_lr_no_recipe",
+      "blocking_ingredient_id": null,
+      "blocking_ingredient_game_code": null
+    },
+    {
+      "canonical_id": "bottlerack_woodframe_ghostgum_north",
+      "game_code": "item:bottlerack-{woodframe}-ghostgum-north",
+      "display_name": "Bottlerack {Woodframe} Ghostgum North",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_recipe",
@@ -11319,9 +11349,9 @@
       "blocking_ingredient_game_code": null
     },
     {
-      "canonical_id": "bottlerack_woodframe_horsechestnut_north",
-      "game_code": "item:bottlerack-{woodframe}-horsechestnut-north",
-      "display_name": "Bottlerack {Woodframe} Horsechestnut North",
+      "canonical_id": "bottlerack_woodframe_honeylocust_north",
+      "game_code": "item:bottlerack-{woodframe}-honeylocust-north",
+      "display_name": "Bottlerack {Woodframe} Honeylocust North",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_recipe",
@@ -11339,9 +11369,9 @@
       "blocking_ingredient_game_code": null
     },
     {
-      "canonical_id": "bottlerack_woodframe_kauri_north",
-      "game_code": "item:bottlerack-{woodframe}-kauri-north",
-      "display_name": "Bottlerack {Woodframe} Kauri North",
+      "canonical_id": "bottlerack_woodframe_kapok_north",
+      "game_code": "item:bottlerack-{woodframe}-kapok-north",
+      "display_name": "Bottlerack {Woodframe} Kapok North",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_recipe",
@@ -11369,9 +11399,19 @@
       "blocking_ingredient_game_code": null
     },
     {
-      "canonical_id": "bottlerack_woodframe_mangrove_north",
-      "game_code": "item:bottlerack-{woodframe}-mangrove-north",
-      "display_name": "Bottlerack {Woodframe} Mangrove North",
+      "canonical_id": "bottlerack_woodframe_maple_north",
+      "game_code": "item:bottlerack-{woodframe}-maple-north",
+      "display_name": "Bottlerack {Woodframe} Maple North",
+      "match_tier": "unmatched",
+      "has_recipe": false,
+      "gap_reason": "no_lr_no_recipe",
+      "blocking_ingredient_id": null,
+      "blocking_ingredient_game_code": null
+    },
+    {
+      "canonical_id": "bottlerack_woodframe_oak_north",
+      "game_code": "item:bottlerack-{woodframe}-oak-north",
+      "display_name": "Bottlerack {Woodframe} Oak North",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_recipe",
@@ -11409,6 +11449,16 @@
       "blocking_ingredient_game_code": null
     },
     {
+      "canonical_id": "bottlerack_woodframe_purpleheart_north",
+      "game_code": "item:bottlerack-{woodframe}-purpleheart-north",
+      "display_name": "Bottlerack {Woodframe} Purpleheart North",
+      "match_tier": "unmatched",
+      "has_recipe": false,
+      "gap_reason": "no_lr_no_recipe",
+      "blocking_ingredient_id": null,
+      "blocking_ingredient_game_code": null
+    },
+    {
       "canonical_id": "bottlerack_woodframe_redcedar_north",
       "game_code": "item:bottlerack-{woodframe}-redcedar-north",
       "display_name": "Bottlerack {Woodframe} Redcedar North",
@@ -11419,19 +11469,9 @@
       "blocking_ingredient_game_code": null
     },
     {
-      "canonical_id": "bottlerack_woodframe_redwood_north",
-      "game_code": "item:bottlerack-{woodframe}-redwood-north",
-      "display_name": "Bottlerack {Woodframe} Redwood North",
-      "match_tier": "unmatched",
-      "has_recipe": false,
-      "gap_reason": "no_lr_no_recipe",
-      "blocking_ingredient_id": null,
-      "blocking_ingredient_game_code": null
-    },
-    {
-      "canonical_id": "bottlerack_woodframe_sapele_north",
-      "game_code": "item:bottlerack-{woodframe}-sapele-north",
-      "display_name": "Bottlerack {Woodframe} Sapele North",
+      "canonical_id": "bottlerack_woodframe_sal_north",
+      "game_code": "item:bottlerack-{woodframe}-sal-north",
+      "display_name": "Bottlerack {Woodframe} Sal North",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_recipe",
@@ -11442,6 +11482,26 @@
       "canonical_id": "bottlerack_woodframe_satinash_north",
       "game_code": "item:bottlerack-{woodframe}-satinash-north",
       "display_name": "Bottlerack {Woodframe} Satinash North",
+      "match_tier": "unmatched",
+      "has_recipe": false,
+      "gap_reason": "no_lr_no_recipe",
+      "blocking_ingredient_id": null,
+      "blocking_ingredient_game_code": null
+    },
+    {
+      "canonical_id": "bottlerack_woodframe_saxaul_north",
+      "game_code": "item:bottlerack-{woodframe}-saxaul-north",
+      "display_name": "Bottlerack {Woodframe} Saxaul North",
+      "match_tier": "unmatched",
+      "has_recipe": false,
+      "gap_reason": "no_lr_no_recipe",
+      "blocking_ingredient_id": null,
+      "blocking_ingredient_game_code": null
+    },
+    {
+      "canonical_id": "bottlerack_woodframe_spurgetree_north",
+      "game_code": "item:bottlerack-{woodframe}-spurgetree-north",
+      "display_name": "Bottlerack {Woodframe} Spurgetree North",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_recipe",
@@ -11472,26 +11532,6 @@
       "canonical_id": "bottlerack_woodframe_umnini_north",
       "game_code": "item:bottlerack-{woodframe}-umnini-north",
       "display_name": "Bottlerack {Woodframe} Umnini North",
-      "match_tier": "unmatched",
-      "has_recipe": false,
-      "gap_reason": "no_lr_no_recipe",
-      "blocking_ingredient_id": null,
-      "blocking_ingredient_game_code": null
-    },
-    {
-      "canonical_id": "bottlerack_woodframe_walnut_north",
-      "game_code": "item:bottlerack-{woodframe}-walnut-north",
-      "display_name": "Bottlerack {Woodframe} Walnut North",
-      "match_tier": "unmatched",
-      "has_recipe": false,
-      "gap_reason": "no_lr_no_recipe",
-      "blocking_ingredient_id": null,
-      "blocking_ingredient_game_code": null
-    },
-    {
-      "canonical_id": "bottlerack_woodframe_willow_north",
-      "game_code": "item:bottlerack-{woodframe}-willow-north",
-      "display_name": "Bottlerack {Woodframe} Willow North",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_recipe",
@@ -12909,19 +12949,9 @@
       "blocking_ingredient_game_code": null
     },
     {
-      "canonical_id": "cauldron_blackbronze",
-      "game_code": "item:cauldron-blackbronze",
-      "display_name": "Cauldron Blackbronzes",
-      "match_tier": "unmatched",
-      "has_recipe": false,
-      "gap_reason": "no_lr_no_recipe",
-      "blocking_ingredient_id": null,
-      "blocking_ingredient_game_code": null
-    },
-    {
-      "canonical_id": "cauldron_copper",
-      "game_code": "item:cauldron-copper",
-      "display_name": "Cauldron Coppers",
+      "canonical_id": "cauldron_meteoriciron",
+      "game_code": "item:cauldron-meteoriciron",
+      "display_name": "Cauldron Meteoricirons",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_recipe",
@@ -13272,16 +13302,6 @@
       "canonical_id": "clarifiedbrothportion",
       "game_code": "item:clarifiedbrothportion-*",
       "display_name": "Clarifiedbrothportion *S",
-      "match_tier": "unmatched",
-      "has_recipe": false,
-      "gap_reason": "no_lr_no_recipe",
-      "blocking_ingredient_id": null,
-      "blocking_ingredient_game_code": null
-    },
-    {
-      "canonical_id": "claypotionflask_blue_raw",
-      "game_code": "item:claypotionflask-blue-raw",
-      "display_name": "Claypotionflask Blue Raws",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_recipe",
@@ -19809,16 +19829,6 @@
       "blocking_ingredient_game_code": null
     },
     {
-      "canonical_id": "metalstrip",
-      "game_code": "item:metalstrip-*",
-      "display_name": "Metalstrip *S",
-      "match_tier": "unmatched",
-      "has_recipe": false,
-      "gap_reason": "no_lr_no_recipe",
-      "blocking_ingredient_id": null,
-      "blocking_ingredient_game_code": null
-    },
-    {
       "canonical_id": "milkportion",
       "game_code": "item:milkportion",
       "display_name": "Milk",
@@ -20992,16 +21002,6 @@
       "canonical_id": "powdered_ore_fluorite",
       "game_code": "item:powdered-ore-fluorite",
       "display_name": "Powdered Ore Fluorites",
-      "match_tier": "unmatched",
-      "has_recipe": false,
-      "gap_reason": "no_lr_no_recipe",
-      "blocking_ingredient_id": null,
-      "blocking_ingredient_game_code": null
-    },
-    {
-      "canonical_id": "powdered_ore_graphite",
-      "game_code": "item:powdered-ore-graphite",
-      "display_name": "Powdered Ore Graphites",
       "match_tier": "unmatched",
       "has_recipe": false,
       "gap_reason": "no_lr_no_recipe",
@@ -24499,6 +24499,16 @@
       "blocking_ingredient_game_code": null
     },
     {
+      "canonical_id": "tankard_metal_platinum_2",
+      "game_code": "item:tankard-metal-platinum",
+      "display_name": "Tankard Metal Platinums",
+      "match_tier": "unmatched",
+      "has_recipe": false,
+      "gap_reason": "no_lr_no_recipe",
+      "blocking_ingredient_id": null,
+      "blocking_ingredient_game_code": null
+    },
+    {
       "canonical_id": "tobtlocatorpart",
       "game_code": "item:tobtlocatorpart",
       "display_name": "Illuminal divergence manifold",
@@ -26509,14 +26519,34 @@
       "blocking_ingredient_game_code": "item:bottlerackcorner-*-aged-north"
     },
     {
-      "canonical_id": "bottlerack_woodframe_bearnut_north_2",
-      "game_code": "block:bottlerack-{woodframe}-bearnut-north",
-      "display_name": "Bottlerack {Woodframe} Bearnut North",
+      "canonical_id": "bottlerack_woodframe_ash_north_2",
+      "game_code": "block:bottlerack-{woodframe}-ash-north",
+      "display_name": "Bottlerack {Woodframe} Ash North",
       "match_tier": "unmatched",
       "has_recipe": true,
       "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "bottlerackcorner_bearnut_north",
-      "blocking_ingredient_game_code": "item:bottlerackcorner-*-bearnut-north"
+      "blocking_ingredient_id": "bottlerackcorner_ash_north",
+      "blocking_ingredient_game_code": "item:bottlerackcorner-*-ash-north"
+    },
+    {
+      "canonical_id": "bottlerack_woodframe_beech_north_2",
+      "game_code": "block:bottlerack-{woodframe}-beech-north",
+      "display_name": "Bottlerack {Woodframe} Beech North",
+      "match_tier": "unmatched",
+      "has_recipe": true,
+      "gap_reason": "no_lr_recipe_incomplete",
+      "blocking_ingredient_id": "bottlerackcorner_beech_north",
+      "blocking_ingredient_game_code": "item:bottlerackcorner-*-beech-north"
+    },
+    {
+      "canonical_id": "bottlerack_woodframe_birch_north_2",
+      "game_code": "block:bottlerack-{woodframe}-birch-north",
+      "display_name": "Bottlerack {Woodframe} Birch North",
+      "match_tier": "unmatched",
+      "has_recipe": true,
+      "gap_reason": "no_lr_recipe_incomplete",
+      "blocking_ingredient_id": "bottlerackcorner_birch_north",
+      "blocking_ingredient_game_code": "item:bottlerackcorner-*-birch-north"
     },
     {
       "canonical_id": "bottlerack_woodframe_bluemahoe_north_2",
@@ -26529,34 +26559,34 @@
       "blocking_ingredient_game_code": "item:bottlerackcorner-*-bluemahoe-north"
     },
     {
-      "canonical_id": "bottlerack_woodframe_cedar_north_2",
-      "game_code": "block:bottlerack-{woodframe}-cedar-north",
-      "display_name": "Bottlerack {Woodframe} Cedar North",
+      "canonical_id": "bottlerack_woodframe_dalbergia_north_2",
+      "game_code": "block:bottlerack-{woodframe}-dalbergia-north",
+      "display_name": "Bottlerack {Woodframe} Dalbergia North",
       "match_tier": "unmatched",
       "has_recipe": true,
       "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "bottlerackcorner_cedar_north",
-      "blocking_ingredient_game_code": "item:bottlerackcorner-*-cedar-north"
+      "blocking_ingredient_id": "bottlerackcorner_dalbergia_north",
+      "blocking_ingredient_game_code": "item:bottlerackcorner-*-dalbergia-north"
     },
     {
-      "canonical_id": "bottlerack_woodframe_charred_north_2",
-      "game_code": "block:bottlerack-{woodframe}-charred-north",
-      "display_name": "Bottlerack {Woodframe} Charred North",
+      "canonical_id": "bottlerack_woodframe_douglasfir_north_2",
+      "game_code": "block:bottlerack-{woodframe}-douglasfir-north",
+      "display_name": "Bottlerack {Woodframe} Douglasfir North",
       "match_tier": "unmatched",
       "has_recipe": true,
       "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "bottlerackcorner_charred_north",
-      "blocking_ingredient_game_code": "item:bottlerackcorner-*-charred-north"
+      "blocking_ingredient_id": "bottlerackcorner_douglasfir_north",
+      "blocking_ingredient_game_code": "item:bottlerackcorner-*-douglasfir-north"
     },
     {
-      "canonical_id": "bottlerack_woodframe_chlorociboria_north_2",
-      "game_code": "block:bottlerack-{woodframe}-chlorociboria-north",
-      "display_name": "Bottlerack {Woodframe} Chlorociboria North",
+      "canonical_id": "bottlerack_woodframe_ebony_north_2",
+      "game_code": "block:bottlerack-{woodframe}-ebony-north",
+      "display_name": "Bottlerack {Woodframe} Ebony North",
       "match_tier": "unmatched",
       "has_recipe": true,
       "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "bottlerackcorner_chlorociboria_north",
-      "blocking_ingredient_game_code": "item:bottlerackcorner-*-chlorociboria-north"
+      "blocking_ingredient_id": "bottlerackcorner_ebony_north",
+      "blocking_ingredient_game_code": "item:bottlerackcorner-*-ebony-north"
     },
     {
       "canonical_id": "bottlerack_woodframe_elm_north_2",
@@ -26579,54 +26609,34 @@
       "blocking_ingredient_game_code": "item:bottlerackcorner-*-empresstree-north"
     },
     {
-      "canonical_id": "bottlerack_woodframe_eucalyptus_north_2",
-      "game_code": "block:bottlerack-{woodframe}-eucalyptus-north",
-      "display_name": "Bottlerack {Woodframe} Eucalyptus North",
+      "canonical_id": "bottlerack_woodframe_ginkgo_north_2",
+      "game_code": "block:bottlerack-{woodframe}-ginkgo-north",
+      "display_name": "Bottlerack {Woodframe} Ginkgo North",
       "match_tier": "unmatched",
       "has_recipe": true,
       "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "bottlerackcorner_eucalyptus_north",
-      "blocking_ingredient_game_code": "item:bottlerackcorner-*-eucalyptus-north"
+      "blocking_ingredient_id": "bottlerackcorner_ginkgo_north",
+      "blocking_ingredient_game_code": "item:bottlerackcorner-*-ginkgo-north"
     },
     {
-      "canonical_id": "bottlerack_woodframe_fir_north_2",
-      "game_code": "block:bottlerack-{woodframe}-fir-north",
-      "display_name": "Bottlerack {Woodframe} Fir North",
+      "canonical_id": "bottlerack_woodframe_horsechestnut_north_2",
+      "game_code": "block:bottlerack-{woodframe}-horsechestnut-north",
+      "display_name": "Bottlerack {Woodframe} Horsechestnut North",
       "match_tier": "unmatched",
       "has_recipe": true,
       "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "bottlerackcorner_fir_north",
-      "blocking_ingredient_game_code": "item:bottlerackcorner-*-fir-north"
+      "blocking_ingredient_id": "bottlerackcorner_horsechestnut_north",
+      "blocking_ingredient_game_code": "item:bottlerackcorner-*-horsechestnut-north"
     },
     {
-      "canonical_id": "bottlerack_woodframe_ghostgum_north_2",
-      "game_code": "block:bottlerack-{woodframe}-ghostgum-north",
-      "display_name": "Bottlerack {Woodframe} Ghostgum North",
+      "canonical_id": "bottlerack_woodframe_kauri_north_2",
+      "game_code": "block:bottlerack-{woodframe}-kauri-north",
+      "display_name": "Bottlerack {Woodframe} Kauri North",
       "match_tier": "unmatched",
       "has_recipe": true,
       "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "bottlerackcorner_ghostgum_north",
-      "blocking_ingredient_game_code": "item:bottlerackcorner-*-ghostgum-north"
-    },
-    {
-      "canonical_id": "bottlerack_woodframe_honeylocust_north_2",
-      "game_code": "block:bottlerack-{woodframe}-honeylocust-north",
-      "display_name": "Bottlerack {Woodframe} Honeylocust North",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "bottlerackcorner_honeylocust_north",
-      "blocking_ingredient_game_code": "item:bottlerackcorner-*-honeylocust-north"
-    },
-    {
-      "canonical_id": "bottlerack_woodframe_kapok_north_2",
-      "game_code": "block:bottlerack-{woodframe}-kapok-north",
-      "display_name": "Bottlerack {Woodframe} Kapok North",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "bottlerackcorner_kapok_north",
-      "blocking_ingredient_game_code": "item:bottlerackcorner-*-kapok-north"
+      "blocking_ingredient_id": "bottlerackcorner_kauri_north",
+      "blocking_ingredient_game_code": "item:bottlerackcorner-*-kauri-north"
     },
     {
       "canonical_id": "bottlerack_woodframe_larch_north_2",
@@ -26649,24 +26659,14 @@
       "blocking_ingredient_game_code": "item:bottlerackcorner-*-mahogany-north"
     },
     {
-      "canonical_id": "bottlerack_woodframe_maple_north_2",
-      "game_code": "block:bottlerack-{woodframe}-maple-north",
-      "display_name": "Bottlerack {Woodframe} Maple North",
+      "canonical_id": "bottlerack_woodframe_mangrove_north_2",
+      "game_code": "block:bottlerack-{woodframe}-mangrove-north",
+      "display_name": "Bottlerack {Woodframe} Mangrove North",
       "match_tier": "unmatched",
       "has_recipe": true,
       "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "bottlerackcorner_maple_north",
-      "blocking_ingredient_game_code": "item:bottlerackcorner-*-maple-north"
-    },
-    {
-      "canonical_id": "bottlerack_woodframe_oak_north_2",
-      "game_code": "block:bottlerack-{woodframe}-oak-north",
-      "display_name": "Bottlerack {Woodframe} Oak North",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "bottlerackcorner_oak_north",
-      "blocking_ingredient_game_code": "item:bottlerackcorner-*-oak-north"
+      "blocking_ingredient_id": "bottlerackcorner_mangrove_north",
+      "blocking_ingredient_game_code": "item:bottlerackcorner-*-mangrove-north"
     },
     {
       "canonical_id": "bottlerack_woodframe_poplar_north_2",
@@ -26679,34 +26679,24 @@
       "blocking_ingredient_game_code": "item:bottlerackcorner-*-poplar-north"
     },
     {
-      "canonical_id": "bottlerack_woodframe_purpleheart_north_2",
-      "game_code": "block:bottlerack-{woodframe}-purpleheart-north",
-      "display_name": "Bottlerack {Woodframe} Purpleheart North",
+      "canonical_id": "bottlerack_woodframe_redwood_north_2",
+      "game_code": "block:bottlerack-{woodframe}-redwood-north",
+      "display_name": "Bottlerack {Woodframe} Redwood North",
       "match_tier": "unmatched",
       "has_recipe": true,
       "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "bottlerackcorner_purpleheart_north",
-      "blocking_ingredient_game_code": "item:bottlerackcorner-*-purpleheart-north"
+      "blocking_ingredient_id": "bottlerackcorner_redwood_north",
+      "blocking_ingredient_game_code": "item:bottlerackcorner-*-redwood-north"
     },
     {
-      "canonical_id": "bottlerack_woodframe_sal_north_2",
-      "game_code": "block:bottlerack-{woodframe}-sal-north",
-      "display_name": "Bottlerack {Woodframe} Sal North",
+      "canonical_id": "bottlerack_woodframe_sapele_north_2",
+      "game_code": "block:bottlerack-{woodframe}-sapele-north",
+      "display_name": "Bottlerack {Woodframe} Sapele North",
       "match_tier": "unmatched",
       "has_recipe": true,
       "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "bottlerackcorner_sal_north",
-      "blocking_ingredient_game_code": "item:bottlerackcorner-*-sal-north"
-    },
-    {
-      "canonical_id": "bottlerack_woodframe_saxaul_north_2",
-      "game_code": "block:bottlerack-{woodframe}-saxaul-north",
-      "display_name": "Bottlerack {Woodframe} Saxaul North",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "bottlerackcorner_saxaul_north",
-      "blocking_ingredient_game_code": "item:bottlerackcorner-*-saxaul-north"
+      "blocking_ingredient_id": "bottlerackcorner_sapele_north",
+      "blocking_ingredient_game_code": "item:bottlerackcorner-*-sapele-north"
     },
     {
       "canonical_id": "bottlerack_woodframe_spruce_north_2",
@@ -26717,16 +26707,6 @@
       "gap_reason": "no_lr_recipe_incomplete",
       "blocking_ingredient_id": "bottlerackcorner_spruce_north",
       "blocking_ingredient_game_code": "item:bottlerackcorner-*-spruce-north"
-    },
-    {
-      "canonical_id": "bottlerack_woodframe_spurgetree_north_2",
-      "game_code": "block:bottlerack-{woodframe}-spurgetree-north",
-      "display_name": "Bottlerack {Woodframe} Spurgetree North",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "bottlerackcorner_spurgetree_north",
-      "blocking_ingredient_game_code": "item:bottlerackcorner-*-spurgetree-north"
     },
     {
       "canonical_id": "bottlerack_woodframe_tamanu_north_2",
@@ -26747,6 +26727,26 @@
       "gap_reason": "no_lr_recipe_incomplete",
       "blocking_ingredient_id": "bottlerackcorner_tigerwood_north",
       "blocking_ingredient_game_code": "item:bottlerackcorner-*-tigerwood-north"
+    },
+    {
+      "canonical_id": "bottlerack_woodframe_walnut_north_2",
+      "game_code": "block:bottlerack-{woodframe}-walnut-north",
+      "display_name": "Bottlerack {Woodframe} Walnut North",
+      "match_tier": "unmatched",
+      "has_recipe": true,
+      "gap_reason": "no_lr_recipe_incomplete",
+      "blocking_ingredient_id": "bottlerackcorner_walnut_north",
+      "blocking_ingredient_game_code": "item:bottlerackcorner-*-walnut-north"
+    },
+    {
+      "canonical_id": "bottlerack_woodframe_willow_north_2",
+      "game_code": "block:bottlerack-{woodframe}-willow-north",
+      "display_name": "Bottlerack {Woodframe} Willow North",
+      "match_tier": "unmatched",
+      "has_recipe": true,
+      "gap_reason": "no_lr_recipe_incomplete",
+      "blocking_ingredient_id": "bottlerackcorner_willow_north",
+      "blocking_ingredient_game_code": "item:bottlerackcorner-*-willow-north"
     },
     {
       "canonical_id": "bottlerack_woodframe_yew_north_2",
@@ -27449,19 +27449,9 @@
       "blocking_ingredient_game_code": "block:carvedlog-acacia-aged-middle-plain-ud"
     },
     {
-      "canonical_id": "cauldron_blackbronze_2",
-      "game_code": "block:cauldron-blackbronze",
-      "display_name": "Cauldron Blackbronzes",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "solderbar",
-      "blocking_ingredient_game_code": "item:solderbar-*"
-    },
-    {
-      "canonical_id": "cauldron_copper_2",
-      "game_code": "block:cauldron-copper",
-      "display_name": "Cauldron Coppers",
+      "canonical_id": "cauldron_meteoriciron_2",
+      "game_code": "block:cauldron-meteoriciron",
+      "display_name": "Cauldron Meteoricirons",
       "match_tier": "unmatched",
       "has_recipe": true,
       "gap_reason": "no_lr_recipe_incomplete",
@@ -31359,16 +31349,6 @@
       "blocking_ingredient_game_code": "block:plankslab-*-down-free"
     },
     {
-      "canonical_id": "seedshelf_normal_east",
-      "game_code": "block:seedshelf-normal-east",
-      "display_name": "Seedshelf Normal Easts",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "pieshelf_normal_east_2",
-      "blocking_ingredient_game_code": "item:pieshelf-normal-east"
-    },
-    {
       "canonical_id": "seedshelf_short_east",
       "game_code": "block:seedshelf-short-east",
       "display_name": "Seedshelf Short Easts",
@@ -32637,6 +32617,16 @@
       "gap_reason": "no_lr_recipe_incomplete",
       "blocking_ingredient_id": "metalplate",
       "blocking_ingredient_game_code": "item:metalplate-*"
+    },
+    {
+      "canonical_id": "tunrack_top_north",
+      "game_code": "block:tunrack-top-north",
+      "display_name": "Tunrack Top Norths",
+      "match_tier": "unmatched",
+      "has_recipe": true,
+      "gap_reason": "no_lr_recipe_incomplete",
+      "blocking_ingredient_id": "tunrack_normal_north_2",
+      "blocking_ingredient_game_code": "item:tunrack-normal-north"
     },
     {
       "canonical_id": "wallpaper_blue4",
@@ -34979,26 +34969,6 @@
       "blocking_ingredient_game_code": "block:seashell-*-latte"
     },
     {
-      "canonical_id": "cartcanopy_basic_gray",
-      "game_code": "item:cartcanopy-basic-gray",
-      "display_name": "Cartcanopy Basic Grays",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dye_gray",
-      "blocking_ingredient_game_code": "item:dye-gray"
-    },
-    {
-      "canonical_id": "cartcanopy_closed_gray",
-      "game_code": "item:cartcanopy-closed-gray",
-      "display_name": "Cartcanopy Closed Grays",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dye_gray",
-      "blocking_ingredient_game_code": "item:dye-gray"
-    },
-    {
       "canonical_id": "cartcanopy_closed_material",
       "game_code": "item:cartcanopy-closed-{material}",
       "display_name": "Cartcanopy Closed {Material}",
@@ -35009,56 +34979,6 @@
       "blocking_ingredient_game_code": "item:cartcanopy-basic-*"
     },
     {
-      "canonical_id": "cartcanopy_leather_gray",
-      "game_code": "item:cartcanopy-leather-gray",
-      "display_name": "Cartcanopy Leather Grays",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dye_gray",
-      "blocking_ingredient_game_code": "item:dye-gray"
-    },
-    {
-      "canonical_id": "cartcanopy_ornate_gray",
-      "game_code": "item:cartcanopy-ornate-gray",
-      "display_name": "Cartcanopy Ornate Grays",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dye_gray",
-      "blocking_ingredient_game_code": "item:dye-gray"
-    },
-    {
-      "canonical_id": "cartsideboard_cloth_gray",
-      "game_code": "item:cartsideboard-cloth-gray",
-      "display_name": "Cartsideboard Cloth Grays",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dye_gray",
-      "blocking_ingredient_game_code": "item:dye-gray"
-    },
-    {
-      "canonical_id": "cartsideboard_leather_gray",
-      "game_code": "item:cartsideboard-leather-gray",
-      "display_name": "Cartsideboard Leather Grays",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dye_gray",
-      "blocking_ingredient_game_code": "item:dye-gray"
-    },
-    {
-      "canonical_id": "cartsidetent_cloth_high_gray",
-      "game_code": "item:cartsidetent-cloth-high-gray",
-      "display_name": "Cartsidetent Cloth High Grays",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dye_gray",
-      "blocking_ingredient_game_code": "item:dye-gray"
-    },
-    {
       "canonical_id": "cartsidetent_cloth_high_material",
       "game_code": "item:cartsidetent-cloth-high-{material}",
       "display_name": "Cartsidetent Cloth High {Material}",
@@ -35067,16 +34987,6 @@
       "gap_reason": "no_lr_recipe_incomplete",
       "blocking_ingredient_id": "cartsidetent_cloth_low",
       "blocking_ingredient_game_code": "item:cartsidetent-cloth-low-*"
-    },
-    {
-      "canonical_id": "cartsidetent_cloth_low_gray",
-      "game_code": "item:cartsidetent-cloth-low-gray",
-      "display_name": "Cartsidetent Cloth Low Grays",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dye_gray",
-      "blocking_ingredient_game_code": "item:dye-gray"
     },
     {
       "canonical_id": "cartsidetent_cloth_low_material",
@@ -35369,16 +35279,6 @@
       "blocking_ingredient_game_code": "block:chest-*"
     },
     {
-      "canonical_id": "cartswearable_saddlelong_basic_gray",
-      "game_code": "item:cartswearable-saddlelong-basic-gray",
-      "display_name": "Cartswearable Saddlelong Basic Grays",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dye_gray",
-      "blocking_ingredient_game_code": "item:dye-gray"
-    },
-    {
       "canonical_id": "cartswearable_saddlelong_basic_material",
       "game_code": "item:cartswearable-saddlelong-basic-{material}",
       "display_name": "Cartswearable Saddlelong Basic {Material}",
@@ -35387,16 +35287,6 @@
       "gap_reason": "no_lr_recipe_incomplete",
       "blocking_ingredient_id": "cartswearable_saddleshort_basic",
       "blocking_ingredient_game_code": "item:cartswearable-saddleshort-basic-*"
-    },
-    {
-      "canonical_id": "cartswearable_saddlelong_leather_gray",
-      "game_code": "item:cartswearable-saddlelong-leather-gray",
-      "display_name": "Cartswearable Saddlelong Leather Grays",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dye_gray",
-      "blocking_ingredient_game_code": "item:dye-gray"
     },
     {
       "canonical_id": "cartswearable_saddlelong_leather_material",
@@ -35429,16 +35319,6 @@
       "blocking_ingredient_game_code": "item:cartswearable-saddleshort-primitive-*"
     },
     {
-      "canonical_id": "cartswearable_saddleshort_basic_gray",
-      "game_code": "item:cartswearable-saddleshort-basic-gray",
-      "display_name": "Cartswearable Saddleshort Basic Grays",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dye_gray",
-      "blocking_ingredient_game_code": "item:dye-gray"
-    },
-    {
       "canonical_id": "cartswearable_saddleshort_basic_material",
       "game_code": "item:cartswearable-saddleshort-basic-{material}",
       "display_name": "Cartswearable Saddleshort Basic {Material}",
@@ -35447,16 +35327,6 @@
       "gap_reason": "no_lr_recipe_incomplete",
       "blocking_ingredient_id": "cartswearable_saddlelong_basic",
       "blocking_ingredient_game_code": "item:cartswearable-saddlelong-basic-*"
-    },
-    {
-      "canonical_id": "cartswearable_saddleshort_leather_gray",
-      "game_code": "item:cartswearable-saddleshort-leather-gray",
-      "display_name": "Cartswearable Saddleshort Leather Grays",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dye_gray",
-      "blocking_ingredient_game_code": "item:dye-gray"
     },
     {
       "canonical_id": "cartswearable_saddleshort_leather_material",
@@ -35499,9 +35369,19 @@
       "blocking_ingredient_game_code": "item:ledger"
     },
     {
-      "canonical_id": "cauldron_meteoriciron",
-      "game_code": "item:cauldron-meteoriciron",
-      "display_name": "Cauldron Meteoricirons",
+      "canonical_id": "cauldron_blackbronze",
+      "game_code": "item:cauldron-blackbronze",
+      "display_name": "Cauldron Blackbronzes",
+      "match_tier": "unmatched",
+      "has_recipe": true,
+      "gap_reason": "no_lr_recipe_incomplete",
+      "blocking_ingredient_id": "solderbar",
+      "blocking_ingredient_game_code": "item:solderbar-*"
+    },
+    {
+      "canonical_id": "cauldron_copper",
+      "game_code": "item:cauldron-copper",
+      "display_name": "Cauldron Coppers",
       "match_tier": "unmatched",
       "has_recipe": true,
       "gap_reason": "no_lr_recipe_incomplete",
@@ -39889,26 +39769,6 @@
       "blocking_ingredient_game_code": "item:gem-emerald-rough"
     },
     {
-      "canonical_id": "clothes_neck_gear_amulet_gold",
-      "game_code": "item:clothes-neck-gear-amulet-gold",
-      "display_name": "Gold gear amulet",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "goldgear",
-      "blocking_ingredient_game_code": "item:goldgear"
-    },
-    {
-      "canonical_id": "clothes_neck_gear_amulet_rusty",
-      "game_code": "item:clothes-neck-gear-amulet-rusty",
-      "display_name": "Rusty gear amulet",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
       "canonical_id": "clothes_neck_gear_amulet_temporal",
       "game_code": "item:clothes-neck-gear-amulet-temporal",
       "display_name": "Temporal gear amulet",
@@ -40845,8 +40705,8 @@
       "match_tier": "unmatched",
       "has_recipe": true,
       "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
+      "blocking_ingredient_id": "gear_temporal",
+      "blocking_ingredient_game_code": "item:gear-temporal"
     },
     {
       "canonical_id": "crabnugget_charred",
@@ -47069,16 +46929,6 @@
       "blocking_ingredient_game_code": "item:bottle-*-fired"
     },
     {
-      "canonical_id": "dye_gray",
-      "game_code": "item:dye-gray",
-      "display_name": "Gray dye",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
       "canonical_id": "dye_spindle",
       "game_code": "item:dye-spindle",
       "display_name": "Dye Spindles",
@@ -47107,16 +46957,6 @@
       "gap_reason": "no_lr_recipe_incomplete",
       "blocking_ingredient_id": "flower_woad_free",
       "blocking_ingredient_game_code": "block:flower-woad-free"
-    },
-    {
-      "canonical_id": "dyedcandle_gray",
-      "game_code": "item:dyedcandle-gray",
-      "display_name": "Dyedcandle Grays",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dye_gray",
-      "blocking_ingredient_game_code": "item:dye-gray"
     },
     {
       "canonical_id": "dyedcandle_woad",
@@ -47165,8 +47005,8 @@
       "match_tier": "unmatched",
       "has_recipe": true,
       "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dyedcandle_gray",
-      "blocking_ingredient_game_code": "item:dyedcandle-gray"
+      "blocking_ingredient_id": "clutter",
+      "blocking_ingredient_game_code": "block:clutter"
     },
     {
       "canonical_id": "dyedscribetable_green_north",
@@ -50429,16 +50269,6 @@
       "blocking_ingredient_game_code": "item:fa-templar-body-heavy-meteoriciron-bear-polar"
     },
     {
-      "canonical_id": "fa_templar_body_heavy_meteoriciron_gray",
-      "game_code": "item:fa-templar-body-heavy-meteoriciron-gray",
-      "display_name": "Fa Templar Body Heavy Meteoriciron Grays",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dye_gray",
-      "blocking_ingredient_game_code": "item:dye-gray"
-    },
-    {
       "canonical_id": "fa_templar_body_heavy_meteoriciron_none",
       "game_code": "item:fa-templar-body-heavy-meteoriciron-none",
       "display_name": "Fa Templar Body Heavy Meteoriciron Nones",
@@ -50477,16 +50307,6 @@
       "gap_reason": "no_lr_recipe_incomplete",
       "blocking_ingredient_id": "fa_templar_body_heavy_steel_bear_polar",
       "blocking_ingredient_game_code": "item:fa-templar-body-heavy-steel-bear-polar"
-    },
-    {
-      "canonical_id": "fa_templar_body_heavy_steel_gray",
-      "game_code": "item:fa-templar-body-heavy-steel-gray",
-      "display_name": "Fa Templar Body Heavy Steel Grays",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dye_gray",
-      "blocking_ingredient_game_code": "item:dye-gray"
     },
     {
       "canonical_id": "fa_templar_body_heavy_steel_none",
@@ -59369,216 +59189,6 @@
       "blocking_ingredient_game_code": "item:fish-partbaked"
     },
     {
-      "canonical_id": "flamedcandle_black_iron",
-      "game_code": "item:flamedcandle-black-iron",
-      "display_name": "Flamedcandle Black Irons",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "flamedcandle_blue_iron",
-      "game_code": "item:flamedcandle-blue-iron",
-      "display_name": "Flamedcandle Blue Irons",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "flamedcandle_brown_iron",
-      "game_code": "item:flamedcandle-brown-iron",
-      "display_name": "Flamedcandle Brown Irons",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "flamedcandle_gray_bismuth",
-      "game_code": "item:flamedcandle-gray-bismuth",
-      "display_name": "Flamedcandle Gray Bismuths",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dyedcandle_gray",
-      "blocking_ingredient_game_code": "item:dyedcandle-gray"
-    },
-    {
-      "canonical_id": "flamedcandle_gray_copper",
-      "game_code": "item:flamedcandle-gray-copper",
-      "display_name": "Flamedcandle Gray Coppers",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dyedcandle_gray",
-      "blocking_ingredient_game_code": "item:dyedcandle-gray"
-    },
-    {
-      "canonical_id": "flamedcandle_gray_iron",
-      "game_code": "item:flamedcandle-gray-iron",
-      "display_name": "Flamedcandle Gray Irons",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "flamedcandle_gray_lithium",
-      "game_code": "item:flamedcandle-gray-lithium",
-      "display_name": "Flamedcandle Gray Lithiums",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dyedcandle_gray",
-      "blocking_ingredient_game_code": "item:dyedcandle-gray"
-    },
-    {
-      "canonical_id": "flamedcandle_gray_potassium",
-      "game_code": "item:flamedcandle-gray-potassium",
-      "display_name": "Flamedcandle Gray Potassiums",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dyedcandle_gray",
-      "blocking_ingredient_game_code": "item:dyedcandle-gray"
-    },
-    {
-      "canonical_id": "flamedcandle_gray_sodium",
-      "game_code": "item:flamedcandle-gray-sodium",
-      "display_name": "Flamedcandle Gray Sodiums",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dyedcandle_gray",
-      "blocking_ingredient_game_code": "item:dyedcandle-gray"
-    },
-    {
-      "canonical_id": "flamedcandle_green_iron",
-      "game_code": "item:flamedcandle-green-iron",
-      "display_name": "Flamedcandle Green Irons",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "flamedcandle_lavender_iron",
-      "game_code": "item:flamedcandle-lavender-iron",
-      "display_name": "Flamedcandle Lavender Irons",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "flamedcandle_lime_iron",
-      "game_code": "item:flamedcandle-lime-iron",
-      "display_name": "Flamedcandle Lime Irons",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "flamedcandle_mint_iron",
-      "game_code": "item:flamedcandle-mint-iron",
-      "display_name": "Flamedcandle Mint Irons",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "flamedcandle_orange_iron",
-      "game_code": "item:flamedcandle-orange-iron",
-      "display_name": "Flamedcandle Orange Irons",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "flamedcandle_pink_iron",
-      "game_code": "item:flamedcandle-pink-iron",
-      "display_name": "Flamedcandle Pink Irons",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "flamedcandle_plain_iron",
-      "game_code": "item:flamedcandle-plain-iron",
-      "display_name": "Flamedcandle Plain Irons",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "flamedcandle_purple_iron",
-      "game_code": "item:flamedcandle-purple-iron",
-      "display_name": "Flamedcandle Purple Irons",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "flamedcandle_red_iron",
-      "game_code": "item:flamedcandle-red-iron",
-      "display_name": "Flamedcandle Red Irons",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "flamedcandle_skyblue_iron",
-      "game_code": "item:flamedcandle-skyblue-iron",
-      "display_name": "Flamedcandle Skyblue Irons",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "flamedcandle_teal_iron",
-      "game_code": "item:flamedcandle-teal-iron",
-      "display_name": "Flamedcandle Teal Irons",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "flamedcandle_white_iron",
-      "game_code": "item:flamedcandle-white-iron",
-      "display_name": "Flamedcandle White Irons",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
       "canonical_id": "flamedcandle_woad_bismuth",
       "game_code": "item:flamedcandle-woad-bismuth",
       "display_name": "Flamedcandle Woad Bismuths",
@@ -59605,8 +59215,8 @@
       "match_tier": "unmatched",
       "has_recipe": true,
       "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
+      "blocking_ingredient_id": "dyedcandle_woad",
+      "blocking_ingredient_game_code": "item:dyedcandle-woad"
     },
     {
       "canonical_id": "flamedcandle_woad_lithium",
@@ -59637,16 +59247,6 @@
       "gap_reason": "no_lr_recipe_incomplete",
       "blocking_ingredient_id": "dyedcandle_woad",
       "blocking_ingredient_game_code": "item:dyedcandle-woad"
-    },
-    {
-      "canonical_id": "flamedcandle_yellow_iron",
-      "game_code": "item:flamedcandle-yellow-iron",
-      "display_name": "Flamedcandle Yellow Irons",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
     },
     {
       "canonical_id": "flaxbundle_clear",
@@ -59879,16 +59479,6 @@
       "blocking_ingredient_game_code": "item:grain-*"
     },
     {
-      "canonical_id": "gear_rusty",
-      "game_code": "item:gear-rusty",
-      "display_name": "Rusty gear",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "clothes_neck_gear_amulet_rusty",
-      "blocking_ingredient_game_code": "item:clothes-neck-gear-amulet-rusty"
-    },
-    {
       "canonical_id": "gear_temporal",
       "game_code": "item:gear-temporal",
       "display_name": "Temporal gear",
@@ -59917,16 +59507,6 @@
       "gap_reason": "no_lr_recipe_incomplete",
       "blocking_ingredient_id": "sinew_ground",
       "blocking_ingredient_game_code": "item:sinew-ground"
-    },
-    {
-      "canonical_id": "goldgear",
-      "game_code": "item:goldgear",
-      "display_name": "Goldgears",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
     },
     {
       "canonical_id": "grain_flax",
@@ -61749,126 +61329,6 @@
       "blocking_ingredient_game_code": "item:hpflyshuttleloombeater-*"
     },
     {
-      "canonical_id": "hpmoaitem_acacia",
-      "game_code": "item:hpmoaitem-acacia",
-      "display_name": "Hpmoaitem Acacias",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "hpmoaitem_baldcypress",
-      "game_code": "item:hpmoaitem-baldcypress",
-      "display_name": "Hpmoaitem Baldcypress",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "hpmoaitem_birch",
-      "game_code": "item:hpmoaitem-birch",
-      "display_name": "Hpmoaitem Birchs",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "hpmoaitem_ebony",
-      "game_code": "item:hpmoaitem-ebony",
-      "display_name": "Hpmoaitem Ebonys",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "hpmoaitem_kapok",
-      "game_code": "item:hpmoaitem-kapok",
-      "display_name": "Hpmoaitem Kapoks",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "hpmoaitem_larch",
-      "game_code": "item:hpmoaitem-larch",
-      "display_name": "Hpmoaitem Larchs",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "hpmoaitem_maple",
-      "game_code": "item:hpmoaitem-maple",
-      "display_name": "Hpmoaitem Maples",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "hpmoaitem_oak",
-      "game_code": "item:hpmoaitem-oak",
-      "display_name": "Hpmoaitem Oaks",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "hpmoaitem_pine",
-      "game_code": "item:hpmoaitem-pine",
-      "display_name": "Hpmoaitem Pines",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "hpmoaitem_purpleheart",
-      "game_code": "item:hpmoaitem-purpleheart",
-      "display_name": "Hpmoaitem Purplehearts",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "hpmoaitem_redwood",
-      "game_code": "item:hpmoaitem-redwood",
-      "display_name": "Hpmoaitem Redwoods",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "hpmoaitem_walnut",
-      "game_code": "item:hpmoaitem-walnut",
-      "display_name": "Hpmoaitem Walnuts",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
       "canonical_id": "hpspinningwheel_wood_north",
       "game_code": "item:hpspinningwheel-{wood}-north",
       "display_name": "Hpspinningwheel {Wood} North",
@@ -62537,36 +61997,6 @@
       "gap_reason": "no_lr_recipe_incomplete",
       "blocking_ingredient_id": "metalplate",
       "blocking_ingredient_game_code": "item:metalplate-*"
-    },
-    {
-      "canonical_id": "lock_wheellock_bismuthbronze",
-      "game_code": "item:lock-wheellock-bismuthbronze",
-      "display_name": "Lock Wheellock Bismuthbronzes",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "lock_wheellock_blackbronze",
-      "game_code": "item:lock-wheellock-blackbronze",
-      "display_name": "Lock Wheellock Blackbronzes",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
-    },
-    {
-      "canonical_id": "lock_wheellock_tinbronze",
-      "game_code": "item:lock-wheellock-tinbronze",
-      "display_name": "Lock Wheellock Tinbronzes",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
     },
     {
       "canonical_id": "meal_augratin",
@@ -63935,8 +63365,8 @@
       "match_tier": "unmatched",
       "has_recipe": true,
       "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
+      "blocking_ingredient_id": "metal_parts",
+      "blocking_ingredient_game_code": "block:metal-parts"
     },
     {
       "canonical_id": "pitchpot_empty",
@@ -64877,16 +64307,6 @@
       "gap_reason": "no_lr_recipe_incomplete",
       "blocking_ingredient_id": "powdered_metal_uranium",
       "blocking_ingredient_game_code": "item:powdered-metal-uranium"
-    },
-    {
-      "canonical_id": "pressautofeed_north",
-      "game_code": "item:pressautofeed-north",
-      "display_name": "Pressautofeed Norths",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "gear_rusty",
-      "blocking_ingredient_game_code": "item:gear-rusty"
     },
     {
       "canonical_id": "primemeat_curedhealing",
@@ -71719,16 +71139,6 @@
       "blocking_ingredient_game_code": "item:spytube-*"
     },
     {
-      "canonical_id": "stainbrush_gray_wet",
-      "game_code": "item:stainbrush-gray-wet",
-      "display_name": "Stainbrush Gray Wets",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "dye_gray",
-      "blocking_ingredient_game_code": "item:dye-gray"
-    },
-    {
       "canonical_id": "storagevesselsortable_ashforest",
       "game_code": "item:storagevesselsortable-ashforest",
       "display_name": "Storagevesselsortable Ashforests",
@@ -72287,16 +71697,6 @@
       "gap_reason": "no_lr_recipe_incomplete",
       "blocking_ingredient_id": "tailmeat_raw",
       "blocking_ingredient_game_code": "item:tailmeat-raw"
-    },
-    {
-      "canonical_id": "tankard_metal_platinum_2",
-      "game_code": "item:tankard-metal-platinum",
-      "display_name": "Tankard Metal Platinums",
-      "match_tier": "unmatched",
-      "has_recipe": true,
-      "gap_reason": "no_lr_recipe_incomplete",
-      "blocking_ingredient_id": "ingot_platinum",
-      "blocking_ingredient_game_code": "item:ingot-platinum"
     },
     {
       "canonical_id": "taxidermy_baby_elephasmaximus_00",
@@ -74499,7 +73899,7 @@
       "blocking_ingredient_game_code": "item:citruspeel-trifoliate"
     }
   ],
-  "gap_pct": 52.42,
+  "gap_pct": 52.0,
   "non_consumable_tool_policy": {
     "ignored_edges_total": 1110,
     "top_impacted_outputs": [

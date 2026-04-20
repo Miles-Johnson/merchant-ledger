@@ -128,6 +128,427 @@ def get_price(cur, canonical_id: str) -> Decimal | None:
     return None
 
 
+def apply_metal_nails_and_strips_rules(cur) -> None:
+    """Price metal nails/strips at 1/4 of their parent ingot where resolvable."""
+    cur.execute(
+        """
+        SELECT ci.id, ci.game_code
+        FROM canonical_items ci
+        WHERE ci.id = 'metalnailsandstrips'
+           OR ci.id LIKE 'metalnailsandstrips_%'
+           OR ci.id = 'metalstrip'
+        ORDER BY ci.id
+        """
+    )
+    rows = cur.fetchall()
+
+    # Canonical material mapping for known families/wildcards.
+    material_overrides = {
+        "metalnailsandstrips": "iron",
+        "metalstrip": "iron",
+        "metalnailsandstrips_iron_2": "iron",
+        "metalnailsandstrips_bronze": "tinbronze",
+    }
+
+    applied = 0
+    skipped = 0
+
+    for canonical_id, game_code in rows:
+        material = material_overrides.get(canonical_id)
+
+        if not material:
+            game_code_text = (game_code or "").strip().lower()
+            if game_code_text.startswith("item:metalnailsandstrips-"):
+                material = game_code_text.split("item:metalnailsandstrips-", 1)[1]
+
+        if not material or "*" in material:
+            skipped += 1
+            continue
+
+        ingot_price = get_price(cur, f"ingot_{material}")
+        if ingot_price is None:
+            skipped += 1
+            continue
+
+        nailstrip_price = (ingot_price / Decimal("4")).quantize(Decimal("0.000001"))
+        note = f"computed: {canonical_id} = ingot_{material} / 4"
+
+        cur.execute(
+            "SELECT note FROM price_overrides WHERE canonical_id = %s",
+            (canonical_id,),
+        )
+        existing = cur.fetchone()
+
+        if existing is not None and not _is_computed_note(existing[0]):
+            skipped += 1
+            continue
+
+        if _upsert_computed(cur, canonical_id, nailstrip_price, note):
+            applied += 1
+
+    print(
+        f"Rule 7/8 (dynamic) — metal nails/strips from parent ingot / 4: "
+        f"applied={applied}, skipped={skipped}"
+    )
+
+
+def get_lr_price(cur, canonical_id: str) -> Decimal | None:
+    """Get LR unit price only (ignore overrides)."""
+    cur.execute(
+        """
+        SELECT li.unit_price_current
+        FROM canonical_items ci
+        JOIN lr_items li ON li.id = ci.lr_item_id
+        WHERE ci.id = %s
+        """,
+        (canonical_id,),
+    )
+    row = cur.fetchone()
+    if row and row[0] is not None:
+        return Decimal(str(row[0]))
+    return None
+
+
+def apply_dynamic_hoop_rules(cur) -> None:
+    """Rule 6d — Price hoop_<metal> at 1.4x ingot_<metal> LR price."""
+    cur.execute(
+        """
+        SELECT ci.id
+        FROM canonical_items ci
+        LEFT JOIN lr_items li ON li.id = ci.lr_item_id
+        WHERE ci.id ILIKE 'hoop\\_%' ESCAPE '\\'
+          AND ci.id NOT ILIKE '%toolmold%'
+          AND (ci.lr_item_id IS NULL OR li.unit_price_current IS NULL)
+        ORDER BY ci.id
+        """
+    )
+    hoop_ids = [row[0] for row in cur.fetchall() if row and row[0]]
+
+    applied = 0
+    skipped_manual = 0
+    skipped_missing_ingot = 0
+
+    for hoop_id in hoop_ids:
+        metal = hoop_id.split("hoop_", 1)[1].strip().lower()
+        if not metal:
+            skipped_missing_ingot += 1
+            print(f"[WARN] Rule 6d — unable to parse metal for hoop id '{hoop_id}', skipping.")
+            continue
+
+        ingot_id = f"ingot_{metal}"
+        ingot_price = get_lr_price(cur, ingot_id)
+        if ingot_price is None:
+            skipped_missing_ingot += 1
+            print(
+                f"[WARN] Rule 6d — missing LR price for '{ingot_id}' required by '{hoop_id}', skipping."
+            )
+            continue
+
+        cur.execute(
+            "SELECT note FROM price_overrides WHERE canonical_id = %s",
+            (hoop_id,),
+        )
+        existing = cur.fetchone()
+        if existing is not None and not _is_computed_note(existing[0]):
+            skipped_manual += 1
+            continue
+
+        hoop_price = (ingot_price * Decimal("1.4")).quantize(Decimal("0.000001"))
+        note = f"computed:hoop_{metal} = 1.4 x {metal}_ingot_price"
+        if _upsert_computed(cur, hoop_id, hoop_price, note):
+            applied += 1
+
+    print(
+        "Rule 6d (dynamic) — hoops from ingot LR price x 1.4: "
+        f"targets={len(hoop_ids)}, applied={applied}, "
+        f"skipped_manual={skipped_manual}, skipped_missing_ingot={skipped_missing_ingot}"
+    )
+
+
+def apply_dynamic_anvil_rules(cur) -> None:
+    """Rule 6k — Price anvil_<metal> at 10x ingot_<metal> LR price."""
+    cur.execute(
+        """
+        SELECT ci.id
+        FROM canonical_items ci
+        LEFT JOIN lr_items li ON li.id = ci.lr_item_id
+        WHERE ci.id ILIKE 'anvil\\_%' ESCAPE '\\'
+          AND (ci.lr_item_id IS NULL OR li.unit_price_current IS NULL)
+        ORDER BY ci.id
+        """
+    )
+    anvil_ids = [row[0] for row in cur.fetchall() if row and row[0]]
+
+    applied = 0
+    skipped_manual = 0
+    skipped_missing_ingot = 0
+
+    for anvil_id in anvil_ids:
+        metal = anvil_id.split("anvil_", 1)[1].strip().lower()
+        if not metal:
+            skipped_missing_ingot += 1
+            continue
+
+        ingot_id = f"ingot_{metal}"
+        ingot_price = get_lr_price(cur, ingot_id)
+        if ingot_price is None:
+            skipped_missing_ingot += 1
+            print(
+                f"[WARN] Rule 6k — missing LR price for '{ingot_id}' required by '{anvil_id}', skipping."
+            )
+            continue
+
+        cur.execute(
+            "SELECT note FROM price_overrides WHERE canonical_id = %s",
+            (anvil_id,),
+        )
+        existing = cur.fetchone()
+        if existing is not None and not _is_computed_note(existing[0]):
+            skipped_manual += 1
+            continue
+
+        anvil_price = (ingot_price * Decimal("10")).quantize(Decimal("0.000001"))
+        note = f"computed:anvil_{metal} = 10 x {metal}_ingot_price"
+        if _upsert_computed(cur, anvil_id, anvil_price, note):
+            applied += 1
+
+    print(
+        "Rule 6k (dynamic) — anvils from ingot LR price x 10: "
+        f"targets={len(anvil_ids)}, applied={applied}, "
+        f"skipped_manual={skipped_manual}, skipped_missing_ingot={skipped_missing_ingot}"
+    )
+
+
+def apply_pelt_rules(cur) -> None:
+    """Rule 6q — Price hide_pelt_* from prepared hide LR rows by size tier."""
+    # Task 1 LR mapping results:
+    # AG039 -> Prepared Small Hide
+    # AG040 -> Prepared Medium Hide
+    # AG041 -> Prepared Large Hide
+    # AG042 -> Prepared Huge Hide
+    tier_config = {
+        "small": {"canonical_id": "hide_pelt_small", "lr_item_id": "AG039", "stack_size": Decimal("64")},
+        "medium": {"canonical_id": "hide_pelt_medium", "lr_item_id": "AG040", "stack_size": Decimal("32")},
+        "large": {"canonical_id": "hide_pelt_large", "lr_item_id": "AG041", "stack_size": Decimal("16")},
+        "huge": {"canonical_id": "hide_pelt_huge", "lr_item_id": "AG042", "stack_size": Decimal("8")},
+    }
+
+    applied = 0
+    skipped_manual = 0
+    skipped_missing_parent = 0
+    targets = 0
+
+    for size, cfg in tier_config.items():
+        canonical_id = cfg["canonical_id"]
+        lr_item_id = cfg["lr_item_id"]
+        stack_size = cfg["stack_size"]
+
+        cur.execute("SELECT 1 FROM canonical_items WHERE id = %s", (canonical_id,))
+        if cur.fetchone() is None:
+            print(f"[WARN] Rule 6q — target canonical '{canonical_id}' not found, skipping.")
+            skipped_missing_parent += 1
+            continue
+
+        targets += 1
+
+        cur.execute(
+            "SELECT note FROM price_overrides WHERE canonical_id = %s",
+            (canonical_id,),
+        )
+        existing = cur.fetchone()
+        if existing is not None and not _is_computed_note(existing[0]):
+            skipped_manual += 1
+            continue
+
+        cur.execute(
+            """
+            SELECT item_id, display_name, unit_price_current
+            FROM lr_items
+            WHERE item_id = %s
+               OR (
+                    display_name ILIKE %s
+                AND (display_name ILIKE '%%hide%%' OR display_name ILIKE '%%pelt%%')
+               )
+            ORDER BY CASE WHEN item_id = %s THEN 0 ELSE 1 END, id
+            LIMIT 1
+            """,
+            (lr_item_id, f"%{size}%", lr_item_id),
+        )
+        lr_row = cur.fetchone()
+        if lr_row is None or lr_row[2] is None:
+            skipped_missing_parent += 1
+            print(
+                f"[WARN] Rule 6q — missing prepared hide LR price for size '{size}' "
+                f"(expected item_id={lr_item_id}) required by '{canonical_id}', skipping."
+            )
+            continue
+
+        prepared_hide_lr = Decimal(str(lr_row[2]))
+        pelt_price = (prepared_hide_lr * Decimal("0.8")).quantize(Decimal("0.000001"))
+        note = f"computed:hide_pelt_{size} = 0.8 × prepared_{size}_hide_lr"
+
+        if _upsert_computed(cur, canonical_id, pelt_price, note):
+            applied += 1
+
+    print(
+        "Rule 6q (dynamic) — pelts from prepared hide LR by size tier: "
+        f"targets={targets}, applied={applied}, skipped_manual={skipped_manual}, "
+        f"skipped_missing_parent={skipped_missing_parent}"
+    )
+
+
+def apply_crushed_rules(cur) -> None:
+    """Rule 6r — Price crushed_* at parent LR / 20 (ingot first, then base material)."""
+    cur.execute(
+        """
+        SELECT ci.id
+        FROM canonical_items ci
+        LEFT JOIN lr_items li ON li.id = ci.lr_item_id
+        WHERE ci.id ILIKE 'crushed\\_%' ESCAPE '\\'
+          AND (ci.lr_item_id IS NULL OR li.unit_price_current IS NULL)
+        ORDER BY ci.id
+        """
+    )
+    crushed_ids = [row[0] for row in cur.fetchall() if row and row[0]]
+
+    applied = 0
+    skipped_manual = 0
+    skipped_missing_parent = 0
+
+    for crushed_id in crushed_ids:
+        material = crushed_id.split("crushed_", 1)[1].strip().lower()
+        if not material:
+            skipped_missing_parent += 1
+            print(f"[WARN] Rule 6r — unable to parse material from '{crushed_id}', skipping.")
+            continue
+
+        cur.execute(
+            "SELECT note FROM price_overrides WHERE canonical_id = %s",
+            (crushed_id,),
+        )
+        existing = cur.fetchone()
+        if existing is not None and not _is_computed_note(existing[0]):
+            skipped_manual += 1
+            continue
+
+        parent_id = f"ingot_{material}"
+        parent_price = get_lr_price(cur, parent_id)
+        if parent_price is None:
+            parent_id = material
+            parent_price = get_lr_price(cur, parent_id)
+
+        if parent_price is None:
+            skipped_missing_parent += 1
+            print(
+                f"[WARN] Rule 6r — missing LR price for parent 'ingot_{material}'/'{material}' "
+                f"required by '{crushed_id}', skipping."
+            )
+            continue
+
+        crushed_price = (parent_price / Decimal("20")).quantize(Decimal("0.000001"))
+        note = f"computed:crushed_{material} = lr_price / 20 (1 nugget equivalent)"
+        if _upsert_computed(cur, crushed_id, crushed_price, note):
+            applied += 1
+
+    print(
+        "Rule 6r (dynamic) — crushed materials from LR parent / 20: "
+        f"targets={len(crushed_ids)}, applied={applied}, skipped_manual={skipped_manual}, "
+        f"skipped_missing_parent={skipped_missing_parent}"
+    )
+
+
+def apply_powdered_rules(cur) -> None:
+    """Rule 6s — Price powdered_* at parent LR / 40 (ingot first, then base material)."""
+    cur.execute(
+        """
+        SELECT ci.id
+        FROM canonical_items ci
+        LEFT JOIN lr_items li ON li.id = ci.lr_item_id
+        WHERE ci.id ILIKE 'powdered\\_%' ESCAPE '\\'
+          AND (ci.lr_item_id IS NULL OR li.unit_price_current IS NULL)
+        ORDER BY ci.id
+        """
+    )
+    powdered_ids = [row[0] for row in cur.fetchall() if row and row[0]]
+
+    applied = 0
+    skipped_manual = 0
+    skipped_missing_parent = 0
+
+    for powdered_id in powdered_ids:
+        material = powdered_id.split("powdered_", 1)[1].strip().lower()
+        if not material:
+            skipped_missing_parent += 1
+            print(f"[WARN] Rule 6s — unable to parse material from '{powdered_id}', skipping.")
+            continue
+
+        parent_material_candidates = []
+
+        def _add_parent_material(candidate: str) -> None:
+            normalized = (candidate or "").strip().lower()
+            if normalized and normalized not in parent_material_candidates:
+                parent_material_candidates.append(normalized)
+
+        _add_parent_material(material)
+
+        stripped_material = material
+        while True:
+            next_material = stripped_material
+            if next_material.startswith("metal_"):
+                next_material = next_material[len("metal_") :]
+            elif next_material.startswith("ore_"):
+                next_material = next_material[len("ore_") :]
+
+            if next_material == stripped_material:
+                break
+
+            stripped_material = next_material
+            _add_parent_material(stripped_material)
+
+        cur.execute(
+            "SELECT note FROM price_overrides WHERE canonical_id = %s",
+            (powdered_id,),
+        )
+        existing = cur.fetchone()
+        if existing is not None and not _is_computed_note(existing[0]):
+            skipped_manual += 1
+            continue
+
+        parent_id = None
+        parent_price = None
+        attempted_parents = []
+
+        for parent_material in parent_material_candidates:
+            for candidate_parent_id in (f"ingot_{parent_material}", parent_material):
+                attempted_parents.append(candidate_parent_id)
+                candidate_parent_price = get_lr_price(cur, candidate_parent_id)
+                if candidate_parent_price is not None:
+                    parent_id = candidate_parent_id
+                    parent_price = candidate_parent_price
+                    break
+            if parent_price is not None:
+                break
+
+        if parent_price is None:
+            skipped_missing_parent += 1
+            print(
+                f"[WARN] Rule 6s — missing LR price for parent candidates {attempted_parents} "
+                f"required by '{powdered_id}', skipping."
+            )
+            continue
+
+        powdered_price = (parent_price / Decimal("40")).quantize(Decimal("0.000001"))
+        note = f"computed:{powdered_id} = {parent_id}_lr_price / 40 (0.5 crushed equivalent)"
+        if _upsert_computed(cur, powdered_id, powdered_price, note):
+            applied += 1
+
+    print(
+        "Rule 6s (dynamic) — powdered materials from LR parent / 40: "
+        f"targets={len(powdered_ids)}, applied={applied}, skipped_manual={skipped_manual}, "
+        f"skipped_missing_parent={skipped_missing_parent}"
+    )
+
+
 def main() -> int:
     print("[MEMORY BANK: ACTIVE]")
 
@@ -190,9 +611,6 @@ def main() -> int:
                 stone_price = rock_price / Decimal("10")
 
                 # Dynamic prices derived from other items
-                iron_ingot_price = get_price(cur, "ingot_iron") or Decimal("8")
-                hoop_price = (iron_ingot_price * Decimal("1.4")).quantize(Decimal("0.000001"))
-
                 cattail_price = get_price(cur, "cattailtops") or Decimal("0.015625")
                 papyrus_price = get_price(cur, "papyrustops") or cattail_price
                 parchment_price = (min(cattail_price, papyrus_price) * Decimal("2")).quantize(
@@ -219,7 +637,6 @@ def main() -> int:
                 # Log price (Logs LR item)
                 log_price = get_price(cur, "log_placed_oak_ud") or Decimal("1")
                 debarkedlog_price = (log_price / Decimal("4")).quantize(Decimal("0.000001"))
-                copper_ingot_price = get_price(cur, "ingot_copper") or Decimal("4")
                 supportbeam_price = debarkedlog_price
                 bone_base_price = get_price(cur, "bone") or (Decimal("1") / Decimal("64"))
 
@@ -230,13 +647,12 @@ def main() -> int:
                     f"computed_rock_price={rock_price}, "
                     f"computed_stone_price={stone_price}"
                 )
-                print(f"[INFO] Dynamic prices: iron_ingot={iron_ingot_price}, hoop={hoop_price}")
                 print(f"[INFO] Dynamic prices: cattail={cattail_price}, parchment={parchment_price}")
                 print(f"[INFO] Dynamic prices: clay={clay_price}, bowl={bowl_price}")
                 print(f"[INFO] Dynamic prices: log={log_price}, debarkedlog={debarkedlog_price}")
                 print(
-                    f"[INFO] Dynamic prices: copper_ingot={copper_ingot_price}, "
-                    f"supportbeam={supportbeam_price}, bone_base={bone_base_price}"
+                    f"[INFO] Dynamic prices: supportbeam={supportbeam_price}, "
+                    f"bone_base={bone_base_price}"
                 )
 
                 rules = [
@@ -275,6 +691,7 @@ def main() -> int:
                             FROM canonical_items ci
                             LEFT JOIN lr_items li ON li.id = ci.lr_item_id
                             WHERE (ci.game_code ILIKE '%sand%' OR ci.game_code ILIKE '%soil%')
+                              AND ci.id NOT ILIKE 'metalnailsandstrips%'
                               AND (ci.lr_item_id IS NULL OR li.unit_price_current IS NULL)
                               {non_manual_override_filter}
                             ORDER BY ci.id
@@ -359,19 +776,6 @@ def main() -> int:
                         note="computed: needle = 1/64 primitive",
                     ),
                     Rule(
-                        name="Rule 6d — Iron hoop (1.4x iron ingot)",
-                        target_query="""
-                            SELECT ci.id FROM canonical_items ci
-                            LEFT JOIN lr_items li ON li.id = ci.lr_item_id
-                            WHERE ci.game_code ILIKE '%hoop%iron%'
-                              AND (ci.lr_item_id IS NULL OR li.unit_price_current IS NULL)
-                              AND ci.id NOT IN (SELECT canonical_id FROM price_overrides WHERE note NOT ILIKE 'computed:%')
-                            ORDER BY ci.id
-                        """,
-                        unit_price=hoop_price,
-                        note="computed: hoop_iron = 1.4 x iron_ingot_price",
-                    ),
-                    Rule(
                         name="Rule 6e — Parchment (2x cheapest cattail/papyrus)",
                         target_query="""
                             SELECT ci.id FROM canonical_items ci
@@ -411,17 +815,21 @@ def main() -> int:
                         note="computed: debarkedlog = log_price / 4",
                     ),
                     Rule(
-                        name="Rule 6k — Copper anvil (= copper ingot price)",
+                        name="Rule 6p — gear_rusty (foraged primitive, flat)",
                         target_query="""
-                            SELECT ci.id FROM canonical_items ci
+                            SELECT ci.id
+                            FROM canonical_items ci
                             LEFT JOIN lr_items li ON li.id = ci.lr_item_id
-                            WHERE ci.id ILIKE '%anvil%copper%'
+                            WHERE ci.id = 'gear_rusty'
                               AND (ci.lr_item_id IS NULL OR li.unit_price_current IS NULL)
-                              AND ci.id NOT IN (SELECT canonical_id FROM price_overrides WHERE note NOT ILIKE 'computed:%')
+                              AND ci.id NOT IN (
+                                  SELECT canonical_id FROM price_overrides
+                                  WHERE note NOT ILIKE 'computed:%'
+                              )
                             ORDER BY ci.id
                         """,
-                        unit_price=copper_ingot_price,
-                        note="computed: anvil_copper = copper ingot price",
+                        unit_price=Decimal("5.0"),
+                        note="computed:gear_rusty — foraged primitive, 5 CS flat",
                     ),
                     Rule(
                         name="Rule 6l — Driftwood/flotsam (foraged primitive = stick price)",
@@ -475,36 +883,18 @@ def main() -> int:
                         unit_price=bone_base_price,
                         note="computed: primitive bones = base bone price or 1/64 CS fallback",
                     ),
-                    Rule(
-                        name="Rule 7 — metalnailsandstrips generic",
-                        target_query=f"""
-                            SELECT ci.id
-                            FROM canonical_items ci
-                            LEFT JOIN lr_items li ON li.id = ci.lr_item_id
-                            WHERE ci.id = 'metalnailsandstrips'
-                              {primitive_gap_filter}
-                            ORDER BY ci.id
-                        """,
-                        unit_price=Decimal("2.00"),
-                        note="computed: metalnailsandstrips = iron ingot baseline / 4",
-                    ),
-                    Rule(
-                        name="Rule 8 — metalnailsandstrips_cupronickel",
-                        target_query=f"""
-                            SELECT ci.id
-                            FROM canonical_items ci
-                            LEFT JOIN lr_items li ON li.id = ci.lr_item_id
-                            WHERE ci.id = 'metalnailsandstrips_cupronickel'
-                              {primitive_gap_filter}
-                            ORDER BY ci.id
-                        """,
-                        unit_price=Decimal("2.25"),
-                        note="computed: metalnailsandstrips_cupronickel = cupronickel ingot / 4",
-                    ),
                 ]
 
                 print("\nPrimitive computed override run summary")
                 print("-" * 72)
+
+                apply_metal_nails_and_strips_rules(cur)
+                apply_dynamic_hoop_rules(cur)
+                apply_dynamic_anvil_rules(cur)
+                apply_pelt_rules(cur)
+                apply_crushed_rules(cur)
+                apply_powdered_rules(cur)
+
                 for rule in rules:
                     inserted, updated, skipped_manual, targets = apply_rule(cur, rule)
                     print(

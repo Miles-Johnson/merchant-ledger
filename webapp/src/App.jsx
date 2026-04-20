@@ -15,12 +15,8 @@ const SOURCE_STYLES = {
     label: 'Empire Price',
     classes: 'bg-blue-900/40 text-blue-300 border border-blue-700/70',
   },
-  fta_price: {
-    label: 'Guild Price',
-    classes: 'bg-emerald-900/40 text-emerald-300 border border-emerald-700/70',
-  },
   manual_override: {
-    label: 'Manual Override',
+    label: 'Set Price',
     classes: 'bg-purple-900/40 text-purple-300 border border-purple-700/70',
   },
   recipe: {
@@ -292,8 +288,7 @@ function App() {
 
         if (
           entry?.item?.source === 'lr_price' ||
-          entry?.item?.source === 'manual_override' ||
-          entry?.item?.source === 'fta_price'
+          entry?.item?.source === 'manual_override'
         ) {
           acc.totalLR += totalCostValue
         } else if (entry?.item?.source === 'recipe') {
@@ -338,7 +333,7 @@ function App() {
       if (!itemName) return
 
       const { before, qtyPrefix } = getActiveSegment(order)
-      const rebuiltSegment = `${qtyPrefix}${itemName}`.trim()
+      const rebuiltSegment = qtyPrefix ? `${qtyPrefix} ${itemName}`.trim() : itemName
 
       const previousPrefix = before.trimEnd()
       const nextOrder = previousPrefix
@@ -667,6 +662,14 @@ function App() {
           </div>
         </section>
 
+        {loading ? (
+          <section className="mt-8 space-y-4 animate-pulse">
+            <div className="h-8 w-48 rounded bg-zinc-800/80" />
+            <div className="h-64 w-full rounded-lg border border-stone-700/70 bg-zinc-900/60" />
+            <div className="h-24 w-full rounded-lg border border-amber-800/60 bg-zinc-900/60" />
+          </section>
+        ) : null}
+
         {result ? (
           <section className="mt-8 space-y-4">
             <h2 className="font-serif text-2xl text-amber-100">Results</h2>
@@ -694,10 +697,8 @@ function App() {
                     const cleanedDisplayName = cleanDisplayName(item.display_name)
                     const completenessLabel = formatCompleteness(recipeDetail)
                     const isPartialRecipe = !!recipeDetail && !!recipeDetail.is_partial
-                    const hasLRAndFTA = item?.lr_unit_price !== null && item?.lr_unit_price !== undefined && item?.fta_unit_price !== null && item?.fta_unit_price !== undefined
                     const showLaborIndicator =
                       laborMarkupEnabled && item?.unit_cost !== null && item?.unit_cost !== undefined && !['unresolved', 'not_found'].includes(item?.source)
-                    const isFTAOnly = item?.source === 'fta_price' && (item?.lr_unit_price === null || item?.lr_unit_price === undefined)
 
                     return (
                       <tr key={`${item.canonical_id || item.display_name || 'item'}-${index}`}>
@@ -705,11 +706,6 @@ function App() {
                         <td className="px-3 py-3 font-mono text-amber-200">{formatCost(item.quantity)}</td>
                         <td className="px-3 py-3 font-mono text-amber-200">
                           <div>{formatCost(item?.lr_unit_price)}</div>
-                          {hasLRAndFTA && item?.source !== 'fta_price' ? (
-                            <div className="mt-1 text-xs font-normal text-emerald-300">
-                              Guild Price: {formatCost(item.fta_unit_price)} CS
-                            </div>
-                          ) : null}
                         </td>
                         <td className="px-3 py-3 font-mono text-amber-200">
                           <div>{formatCost(item?.crafting_cost)}</div>
@@ -723,16 +719,6 @@ function App() {
                             <span className={`inline-flex rounded-full px-2 py-1 text-xs font-semibold ${sourceMeta.classes}`}>
                               {sourceMeta.label}
                             </span>
-                            {hasLRAndFTA && item?.source !== 'fta_price' ? (
-                              <span className="inline-flex rounded-full border border-emerald-700/70 bg-emerald-900/30 px-2 py-1 text-xs font-semibold text-emerald-300">
-                                Guild Price Available
-                              </span>
-                            ) : null}
-                            {isFTAOnly ? (
-                              <span className="inline-flex rounded-full border border-emerald-500/80 bg-emerald-900/50 px-2 py-1 text-xs font-bold text-emerald-200">
-                                Only Price Source
-                              </span>
-                            ) : null}
                             {isPartialRecipe ? (
                               <span className="inline-flex rounded-full border border-rose-700/70 bg-rose-900/40 px-2 py-1 text-xs font-semibold text-rose-300">
                                 Partial Cost
@@ -742,11 +728,8 @@ function App() {
                         </td>
                         <td className="px-3 py-3">
                           <div className="space-y-2">
-                            {isPartialRecipe ? (
-                              <div className="rounded border border-rose-700/70 bg-rose-950/30 p-2 text-xs text-rose-200">
-                                This recipe cost is partial because one or more ingredients could not be fully priced.
-                                {completenessLabel ? <div className="mt-1 text-rose-300">{completenessLabel}</div> : null}
-                              </div>
+                            {isPartialRecipe && completenessLabel ? (
+                              <div className="text-xs text-rose-300">{completenessLabel}</div>
                             ) : null}
 
                             {hasQualityPrices ? (
@@ -794,7 +777,7 @@ function App() {
                             {hasRecipe ? (
                               <details className="rounded border border-stone-700/70 bg-zinc-900/60 p-2">
                                 <summary className="cursor-pointer text-xs font-semibold uppercase tracking-wide text-amber-300">
-                                  {item.source === 'recipe' ? 'Recipe Breakdown' : 'Recipe Breakdown (Alternative)'}
+                                  Recipe Breakdown
                                 </summary>
                                 <div className="mt-2 text-xs">{renderIngredientTree(recipeDetail.ingredients)}</div>
                               </details>
@@ -816,7 +799,7 @@ function App() {
               <h3 className="font-serif text-xl text-amber-100">Order Totals</h3>
               <div className="mt-2 grid gap-2 text-sm sm:grid-cols-2">
                 <p>
-                  <span className="text-stone-400">Empire/Guild Price Total: </span>
+                  <span className="text-stone-400">Empire Price Total: </span>
                   <span className="font-mono text-emerald-300">{formatCost(displayedTotals.totalLRCost)}</span>
                 </p>
                 <p>

@@ -1,0 +1,9 @@
+--- Pricing Gap Audit ---
+Total canonicals   : 14210
+Priced             : 7077 (49.8%)
+Gaps               : 7389 (52.0%)
+  no_lr_no_recipe          : 2266
+  no_lr_recipe_incomplete  : 4867
+  no_lr_no_price_override  : 256
+Ignored tool edges : 1110
+Written to: data\pricing_gaps.json

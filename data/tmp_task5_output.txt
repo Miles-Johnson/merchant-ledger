@@ -1,0 +1,10 @@
+hide_pelt_small: unit_cost=0.3333333333333333, source=recipe
+hide_pelt_medium: unit_cost=0.975, source=manual_override
+hide_pelt_large: unit_cost=2.015625, source=recipe
+hide_pelt_huge: unit_cost=3.03125, source=recipe
+crushed_chromite: unit_cost=0.59375, source=lr_price
+crushed_cassiterite: unit_cost=0.071875, source=manual_override
+crushed_ore_coal: unit_cost=0.0375, source=recipe
+powdered_metal_gold: unit_cost=None, source=unresolved
+powdered_metal_copper: unit_cost=None, source=unresolved
+powdered_ore_cassiterite: unit_cost=0.359375, source=lr_price

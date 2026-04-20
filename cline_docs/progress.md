@@ -14,9 +14,16 @@
 - Confirmed isTool flag is present in game recipe JSON and already handled at parse time.
 - Confirmed smithing recipes have no tool ingredient by structure.
 - Identified deconstruction recipe problem (eyepatch → flaxfibers) — not yet deleted.
-- Identified anvil rule 6k is wrong (1× ingot, should be 10×).
+- Applied pricing rule corrections/additions:
+  - Hoops now dynamic for all metal variants (`1.4 × ingot LR`).
+  - Anvils now dynamic for all metal variants (`10 × ingot LR`).
+  - gear_rusty set to 5.0 CS flat.
+  - metalnailsandstrips now dynamic (`ingot / 4`, all metal variants).
+  - Rule 3 sand/soil matcher fixed to exclude metalnailsandstrips substring collisions.
 - Identified hook_copper chisel blocker as likely missing isTool flag in mod recipe.
-- Memory bank updated to reflect correct system state.
+- UI cleanup completed: removed FTA/Guild Price, renamed Manual Override badge to Set Price, simplified partial recipe warning, fixed applySuggestion qty+name spacing, added loading skeleton, removed dead App.css.
+- Open parser bug identified: `parse_recipes_json.py` persists incorrect `recipes.output_qty` for multi-output smithing/casting recipes (example: bighook should output 4, DB stores 1).
+- Memory bank updated to reflect corrected system state and parser blocker.
 
 ## Current Snapshot (2026-04-19)
 - Canonicals: 14,210
@@ -30,5 +37,5 @@
 - Audit does not call resolver — numbers are conservative lower bounds.
 - Final gate baseline is stale — needs rewrite after pricing stabilises.
 - Bad deconstruction recipes in DB (recipes 2750, 2751) — cleanup pending.
-- Anvil rule 6k price is wrong — correction pending.
-- Pending rule families: pelts, crushed, powdered, hooks, anvil correction, gear_rusty.
+- Parser bug in `parse_recipes_json.py`: wrong `recipes.output_qty` for multi-output smithing/casting outputs.
+- Pending rule families (pelts, crushed, powdered, hooks) are blocked until parser output quantity bug is fixed and data is re-ingested.

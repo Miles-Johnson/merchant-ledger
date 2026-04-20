@@ -25,6 +25,7 @@
 - scripts/audit_pricing_gaps.py — gap snapshot (does NOT call resolver, known debt)
 - scripts/diagnose_item.py — recipe tree + pricing status for one item
 - scripts/final_gate_validate.py — gate check (baseline stale, needs rewrite)
+- scripts/parse_recipes_json.py — authoritative recipe JSON parser; currently has a known multi-output `output_qty` persistence bug to fix
 
 ## Schema Notes
 - Primary IDs: canonical_items.id
@@ -43,3 +44,4 @@
 - Never add tool cost logic to resolver — tools are excluded at ingestion
 - Never use dated snapshot LR columns — Current Price only
 - Run pipeline serially — no overlapping runs
+- Do not trust multi-output smithing/casting per-unit prices until parser-correct `recipes.output_qty` values are persisted and re-ingested

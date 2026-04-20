@@ -17,6 +17,7 @@
 - Current scale: ~2,139 files, ~22,489 recipes, ~56,564 ingredients.
 - `isTool: true` flag in recipe JSON is already handled at ingestion — tool ingredients are excluded from `recipe_ingredients` at parse time for grid recipes.
 - Smithing recipes have no tool ingredient by structure (anvil is implicit crafting station).
+- Known parser defect: multi-output smithing/casting recipes are currently persisted with incorrect `recipes.output_qty` (often `1`), causing downstream per-unit pricing distortion.
 
 ## 4) Resolver safety + fallback behavior
 - Cycle guard is mandatory.
@@ -31,23 +32,23 @@
 - Drygrass / Brineportion / Needle = `1/64`
 - Debarked log = `log_price / 4`
 - Parchment = `2 × min(cattail, papyrus) price`
-- Iron hoop = `1.4 × iron ingot price`
-- Anvils = `10 × parent ingot LR price` (all metal variants)
+- Hoops (all metal variants) = `1.4 × parent ingot LR price`
+- Anvils (all metal variants) = `10 × parent ingot LR price`
 - gear_rusty = `5.0 CS` (foraged flat rate)
-- metalnailsandstrips = `2.0 CS`
-- metalnailsandstrips_cupronickel = `2.25 CS`
+- metalnailsandstrips (all metal variants) = `parent ingot LR price / 4`
 - Bowl fired = `1 × clay price`
 - Support beams = component wood cost
 - Bones = primitive fallback
 - Driftwood / flotsam = stick price
 - Slush = 0
+- Rule 3 sand/soil matching excludes `metalnailsandstrips*` variants (substring collision fix).
 
 ## 6) Pending pricing rules (designed, not yet implemented)
 - Pelts = `0.8 × (prepared hide LR current price ÷ stack size)` per size tier (small/medium/large/huge)
 - Crushed materials = `ingot_price / 20` (1 nugget = 1/20 ingot)
 - Powdered materials = `ingot_price / 40` (1 crushed → 2 powdered)
 - Bighook = `ingot_price / 20` (5 units of metal, 1 unit = 5 material, 100 units = 1 ingot)
-- These are blocked pending resolver cleanup (deconstruction filter) being confirmed stable first.
+- These are blocked pending parser fix for multi-output `output_qty` correctness (not resolver priority).
 
 ## 7) Manual LR linking policy
 - Keep explicit targeted mappings in `scripts/apply_manual_lr_links.py`.

@@ -25,5 +25,7 @@ empire market (LR) data, and recipe decomposition.
 ## Current Project Status (2026-04-19)
 - Resolver priority order corrected (override now evaluated before recipe).
 - isTool flag confirmed present in game JSON and handled correctly at ingestion.
+- Pricing rules expanded and corrected: dynamic hoops (all metals), dynamic anvils (all metals, 10× ingot), dynamic metalnailsandstrips (ingot/4), gear_rusty flat 5.0 CS, and sand/soil exclusion bug fix.
+- UI cleanup completed: FTA/Guild Price removed, Manual Override badge renamed to Set Price, partial warning simplified, applySuggestion spacing fixed, loading skeleton added.
 - Audit script still uses independent logic — rewrite to call resolver is pending.
-- Pending rule families: pelts, crushed/powdered materials, hooks (waiting on resolver stability).
+- Open blocker: `parse_recipes_json.py` currently stores wrong `output_qty` for multi-output smithing/casting recipes (e.g. bighook), which blocks safe rollout of Section 6 rule families (pelts/crushed/powdered/hooks).
