@@ -1,31 +1,39 @@
 # Product Context
 
 ## Purpose
-Price Vintage Story items and orders in Copper Sovereigns using canonical item identity,
-empire market (LR) data, and recipe decomposition.
+Price Vintage Story items and orders in Copper Sovereigns using canonical item identity, LR market data, manual/computed overrides, and recipe decomposition.
 
 ## Core Pricing Workflow (AUTHORITATIVE ORDER)
 1. Resolve user input to canonical item ID.
 2. Check LR direct market price — use immediately if present.
-3. Check manual/computed override — use if present and recipe is worse or absent.
-4. Fall back to recipe decomposition only when neither LR nor override exists or recipe is cheaper.
+3. Check manual/computed override.
+4. Evaluate recipe decomposition.
+5. Use the cheapest valid non-partial result between override and recipe when LR is absent.
 
 ## Key Design Decisions
-- User selects metal variant / recipe choice before or after cost calculation — resolver surfaces all valid options, does not auto-select.
-- Tools in recipes are non-consumed and invisible to pricing (excluded at ingestion).
-- Deconstruction recipes are excluded from pricing traversal.
-- LR "Current Price" column is the authoritative market input — updated weekly.
-- Computed primitive pricing is pipeline-managed, not ad-hoc.
+- User selects metal variant / recipe choice before or after calculation — resolver surfaces valid options and does not auto-select.
+- Tools are non-consumed and excluded at ingestion; resolver never prices tool usage.
+- Reverse/deconstruction recipe contamination is handled by targeted DB cleanup of known-bad rows (not broad recipe-class filtering).
+- LR `Current Price` column is authoritative market input.
+- Computed primitive and special-case pricing rules are pipeline-managed, not ad-hoc.
+
+## Armor Set Policy (Current)
+- Do **not** duplicate canonical entries for set-vs-piece behavior.
+- Individual armor pieces are priced via recipe decomposition.
+- Full armor sets are priced via manual LR links in `scripts/apply_manual_lr_links.py` mapped to LR set rows.
+- Resulting UX: searching a full set returns LR set price; searching a specific piece returns crafting cost.
 
 ## Scope
 - Active runtime: `api/app.py` + `scripts/resolver.py`
-- Authoritative data: JSON recipe ingestion + canonical pipeline
-- Out of scope: pipeleaf, br_schematic_banner, cartschematics_carts (admin/schematic items)
+- Authoritative data path: JSON recipe ingestion + canonical pipeline + manual LR linking
+- Out of scope: pipeleaf, `br_schematic_banner`, `cartschematics_carts` (admin/schematic items)
 
-## Current Project Status (2026-04-19)
-- Resolver priority order corrected (override now evaluated before recipe).
-- isTool flag confirmed present in game JSON and handled correctly at ingestion.
-- Pricing rules expanded and corrected: dynamic hoops (all metals), dynamic anvils (all metals, 10× ingot), dynamic metalnailsandstrips (ingot/4), gear_rusty flat 5.0 CS, and sand/soil exclusion bug fix.
-- UI cleanup completed: FTA/Guild Price removed, Manual Override badge renamed to Set Price, partial warning simplified, applySuggestion spacing fixed, loading skeleton added.
-- Audit script still uses independent logic — rewrite to call resolver is pending.
-- Open blocker: `parse_recipes_json.py` currently stores wrong `output_qty` for multi-output smithing/casting recipes (e.g. bighook), which blocks safe rollout of Section 6 rule families (pelts/crushed/powdered/hooks).
+## Current Project Status (2026-04-20)
+- Resolver hardened: precedence and cycle handling corrected.
+- `crafting_breakdown` partial-flag bug fixed.
+- `_is_reverse_recipe` broad general filter was removed after regressions (rope/flaxtwine breakage).
+- Known bad reverse recipes are addressed via targeted DB deletion.
+- Pricing updates in place: anvils (10× ingot), metalnailsandstrips (ingot/4), gear_rusty (5 CS), pelts (0.8× prepared hide LR), crushed/powdered materials.
+- Dynamic hoops rule was tested and removed as unnecessary (recipe behavior already correct).
+- UI cleanup complete: FTA/Guild removed, Set Price badge, loading skeleton, spacing fix, partial-cost badge fix.
+- Railway workflow established: code deploy via GitHub + DB sync using `scripts/sync_railway.py` (partial sync script included).

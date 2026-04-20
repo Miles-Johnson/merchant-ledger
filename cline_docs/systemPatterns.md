@@ -17,7 +17,7 @@
 - Current scale: ~2,139 files, ~22,489 recipes, ~56,564 ingredients.
 - `isTool: true` flag in recipe JSON is already handled at ingestion — tool ingredients are excluded from `recipe_ingredients` at parse time for grid recipes.
 - Smithing recipes have no tool ingredient by structure (anvil is implicit crafting station).
-- Known parser defect: multi-output smithing/casting recipes are currently persisted with incorrect `recipes.output_qty` (often `1`), causing downstream per-unit pricing distortion.
+- Keep recipe output quantity handling explicit and regression-tested when changing parser logic for multi-output smithing/casting recipes.
 
 ## 4) Resolver safety + fallback behavior
 - Cycle guard is mandatory.
@@ -32,10 +32,12 @@
 - Drygrass / Brineportion / Needle = `1/64`
 - Debarked log = `log_price / 4`
 - Parchment = `2 × min(cattail, papyrus) price`
-- Hoops (all metal variants) = `1.4 × parent ingot LR price`
 - Anvils (all metal variants) = `10 × parent ingot LR price`
 - gear_rusty = `5.0 CS` (foraged flat rate)
 - metalnailsandstrips (all metal variants) = `parent ingot LR price / 4`
+- Pelts = `0.8 × prepared hide LR unit price` (tier-mapped)
+- Crushed materials = ingot-derived conversion (`ingot / 20` family)
+- Powdered materials = ingot-derived conversion (`ingot / 40` family)
 - Bowl fired = `1 × clay price`
 - Support beams = component wood cost
 - Bones = primitive fallback
@@ -43,12 +45,9 @@
 - Slush = 0
 - Rule 3 sand/soil matching excludes `metalnailsandstrips*` variants (substring collision fix).
 
-## 6) Pending pricing rules (designed, not yet implemented)
-- Pelts = `0.8 × (prepared hide LR current price ÷ stack size)` per size tier (small/medium/large/huge)
-- Crushed materials = `ingot_price / 20` (1 nugget = 1/20 ingot)
-- Powdered materials = `ingot_price / 40` (1 crushed → 2 powdered)
-- Bighook = `ingot_price / 20` (5 units of metal, 1 unit = 5 material, 100 units = 1 ingot)
-- These are blocked pending parser fix for multi-output `output_qty` correctness (not resolver priority).
+## 6) Rule lifecycle notes
+- Dynamic hoops rule was tested and removed as unnecessary because existing recipe handling already produced correct outcomes.
+- Prefer removing temporary rules when canonical recipe behavior is sufficient.
 
 ## 7) Manual LR linking policy
 - Keep explicit targeted mappings in `scripts/apply_manual_lr_links.py`.
@@ -58,10 +57,9 @@
 
 ## 8) Deconstruction / reverse recipe policy
 - Deconstruction recipes (complex item → raw material) must not be used for forward pricing.
-- Known confirmed bad recipes: Accessorize eyepatch → flaxfibers (recipes 2750, 2751).
-- These are currently still in the DB. Priority fix is override precedence (Pattern #2), which makes them harmless for now. DB cleanup is pending.
-- Detection method: structural (output is simpler than inputs). No reliable JSON flag found yet for all cases.
-- Diagnostic to detect more bad recipes is pending.
+- Known confirmed bad recipes (example: Accessorize eyepatch → flaxfibers) are removed via targeted DB deletion when identified.
+- Broad reverse-recipe filters in resolver (e.g., generic `_is_reverse_recipe`) are considered high risk and should not be used without regression coverage; one such filter was removed after rope/flaxtwine regressions.
+- Preferred strategy: targeted cleanup + explicit diagnostics, not broad heuristics in hot-path resolver logic.
 
 ## 9) Tool handling in recipes
 - `isTool: true` in raw recipe JSON = non-consumed tool ingredient.
@@ -79,3 +77,9 @@
 - Run pipeline serially; avoid overlapping sessions.
 - Confirm compile before pipeline run.
 - Confirm audit numbers after every significant change.
+
+## 12) Armor set linking architecture
+- Do not create duplicate canonical entries solely to force set-vs-piece pricing behavior.
+- Individual armor pieces remain recipe-priced.
+- Full armor sets are linked manually to LR set rows in `scripts/apply_manual_lr_links.py`.
+- Canonical search behavior should differentiate set names from piece names while preserving one canonical per real item identity.

@@ -209,62 +209,6 @@ def get_lr_price(cur, canonical_id: str) -> Decimal | None:
     return None
 
 
-def apply_dynamic_hoop_rules(cur) -> None:
-    """Rule 6d — Price hoop_<metal> at 1.4x ingot_<metal> LR price."""
-    cur.execute(
-        """
-        SELECT ci.id
-        FROM canonical_items ci
-        LEFT JOIN lr_items li ON li.id = ci.lr_item_id
-        WHERE ci.id ILIKE 'hoop\\_%' ESCAPE '\\'
-          AND ci.id NOT ILIKE '%toolmold%'
-          AND (ci.lr_item_id IS NULL OR li.unit_price_current IS NULL)
-        ORDER BY ci.id
-        """
-    )
-    hoop_ids = [row[0] for row in cur.fetchall() if row and row[0]]
-
-    applied = 0
-    skipped_manual = 0
-    skipped_missing_ingot = 0
-
-    for hoop_id in hoop_ids:
-        metal = hoop_id.split("hoop_", 1)[1].strip().lower()
-        if not metal:
-            skipped_missing_ingot += 1
-            print(f"[WARN] Rule 6d — unable to parse metal for hoop id '{hoop_id}', skipping.")
-            continue
-
-        ingot_id = f"ingot_{metal}"
-        ingot_price = get_lr_price(cur, ingot_id)
-        if ingot_price is None:
-            skipped_missing_ingot += 1
-            print(
-                f"[WARN] Rule 6d — missing LR price for '{ingot_id}' required by '{hoop_id}', skipping."
-            )
-            continue
-
-        cur.execute(
-            "SELECT note FROM price_overrides WHERE canonical_id = %s",
-            (hoop_id,),
-        )
-        existing = cur.fetchone()
-        if existing is not None and not _is_computed_note(existing[0]):
-            skipped_manual += 1
-            continue
-
-        hoop_price = (ingot_price * Decimal("1.4")).quantize(Decimal("0.000001"))
-        note = f"computed:hoop_{metal} = 1.4 x {metal}_ingot_price"
-        if _upsert_computed(cur, hoop_id, hoop_price, note):
-            applied += 1
-
-    print(
-        "Rule 6d (dynamic) — hoops from ingot LR price x 1.4: "
-        f"targets={len(hoop_ids)}, applied={applied}, "
-        f"skipped_manual={skipped_manual}, skipped_missing_ingot={skipped_missing_ingot}"
-    )
-
-
 def apply_dynamic_anvil_rules(cur) -> None:
     """Rule 6k — Price anvil_<metal> at 10x ingot_<metal> LR price."""
     cur.execute(
@@ -889,7 +833,6 @@ def main() -> int:
                 print("-" * 72)
 
                 apply_metal_nails_and_strips_rules(cur)
-                apply_dynamic_hoop_rules(cur)
                 apply_dynamic_anvil_rules(cur)
                 apply_pelt_rules(cur)
                 apply_crushed_rules(cur)

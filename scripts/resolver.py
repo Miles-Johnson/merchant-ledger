@@ -146,34 +146,6 @@ def _is_non_consumable_tool_ingredient(
     )
 
 
-def _is_reverse_recipe(output_canonical_id, ingredient_canonical_ids, db_conn):
-    """
-    Returns True if this recipe is a deconstruction/salvage recipe.
-    Heuristic: output has a price override (is a primitive/base material)
-    AND at least one ingredient is itself a crafted item (has recipes as output).
-    These recipes run counter to forward-pricing direction and must be excluded.
-    """
-    with db_conn.cursor() as cur:
-        cur.execute(
-            "SELECT 1 FROM price_overrides WHERE canonical_id = %s LIMIT 1",
-            (output_canonical_id,)
-        )
-        if cur.fetchone() is None:
-            return False
-
-        for ing_id in ingredient_canonical_ids:
-            if not ing_id:
-                continue
-            cur.execute(
-                "SELECT 1 FROM recipes WHERE output_canonical_id = %s LIMIT 1",
-                (ing_id,)
-            )
-            if cur.fetchone() is not None:
-                return True
-
-    return False
-
-
 def _filter_recipe_results_for_material(recipe_results, material):
     normalized_material = (material or "").strip().lower()
     if not normalized_material:
@@ -406,10 +378,6 @@ def _build_recipe_result(
                 (recipe_id,),
             )
             ingredient_rows = cur.fetchall()
-
-        ingredient_ids = [row[0] for row in ingredient_rows if row[0]]
-        if _is_reverse_recipe(canonical_id, ingredient_ids, db_conn):
-            continue
 
         ingredient_results = []
         recipe_partial = False
@@ -1169,7 +1137,15 @@ def calculate_cost(
                 "price_source": override_price_source or "manual_override",
                 "lr_unit_price": None,
                 "crafting_cost": crafting_unit_cost,
-                "crafting_breakdown": recipe_result,
+                "crafting_breakdown": (
+                    recipe_result
+                    if (
+                        recipe_result
+                        and not recipe_result.get("is_partial")
+                        and recipe_result.get("unit_cost") is not None
+                    )
+                    else None
+                ),
                 "is_partial": False,
                 "match_tier": match_tier,
                 "recipe_type": None,

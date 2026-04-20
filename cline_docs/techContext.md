@@ -25,7 +25,8 @@
 - scripts/audit_pricing_gaps.py — gap snapshot (does NOT call resolver, known debt)
 - scripts/diagnose_item.py — recipe tree + pricing status for one item
 - scripts/final_gate_validate.py — gate check (baseline stale, needs rewrite)
-- scripts/parse_recipes_json.py — authoritative recipe JSON parser; currently has a known multi-output `output_qty` persistence bug to fix
+- scripts/parse_recipes_json.py — authoritative recipe JSON parser
+- scripts/sync_railway.py — synchronises local canonical/pricing state into Railway DB
 
 ## Schema Notes
 - Primary IDs: canonical_items.id
@@ -44,4 +45,8 @@
 - Never add tool cost logic to resolver — tools are excluded at ingestion
 - Never use dated snapshot LR columns — Current Price only
 - Run pipeline serially — no overlapping runs
-- Do not trust multi-output smithing/casting per-unit prices until parser-correct `recipes.output_qty` values are persisted and re-ingested
+
+## Deployment Notes (Railway)
+- App code deploys via GitHub integration.
+- DB updates are applied explicitly via `scripts/sync_railway.py`.
+- Partial sync flows are acceptable for targeted updates when full re-sync is unnecessary.
