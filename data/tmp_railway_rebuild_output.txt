@@ -1,0 +1,4 @@
+
+=== Running scripts/parse_recipes_json.py ===
+[INFO] Base recipe roots: [WindowsPath('C:/Games/Vintagestory/assets/survival/recipes')]
+[INFO] Mod cache root: C:\Users\Kjol\AppData\Roaming\VintagestoryData\Cache\unpack

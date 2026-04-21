@@ -699,6 +699,12 @@ def choose_best_lr_match(
         "length_ratio": None,
     }
     resolved_game_code = game_code or game_tail
+    normalized_code_for_guard = normalize_mapping_game_code(resolved_game_code)
+    if normalized_code_for_guard.startswith("item:metalplate-") or normalized_code_for_guard == "item:metalplate-*":
+        if counters is not None:
+            counters["force_unlinked"] = counters.get("force_unlinked", 0) + 1
+        return dict(_NONE_RESULT)
+
     norm_tail = normalize_for_compare(game_tail)
     if not norm_tail:
         return dict(_NONE_RESULT)

@@ -1199,6 +1199,8 @@ def apply_exact_normalized_name_links(cur) -> int:
         # These are handled via explicit chain cleanup rules and should not be
         # re-linked by normalized display-name matching.
         code = (canonical_game_code or "").lower()
+        if code.startswith("item:metalplate-") or code == "item:metalplate-*" or canonical_id.startswith("metalplate"):
+            continue
         if code.startswith("item:chain-") or code.startswith("item:metalchain-"):
             continue
 
