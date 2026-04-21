@@ -41,3 +41,26 @@
 - Rewrite `scripts/audit_pricing_gaps.py` to call resolver directly.
 - Refresh final gate baseline after post-change metrics stabilise.
 - Complete armor set LR mapping confirmation + link coverage.
+
+## Session 2026-04-21 (Rebrand + Ops Capture)
+
+### Brand and UX Identity
+- Rebrand applied in project context docs: app is now **Runic Abacus**.
+- Confirmed thematic framing: **Bomrek, runesmith of Tharagdum**.
+- Added canonical tagline: **"Carved in stone, priced in gold"**.
+- Captured visual language tokens (dark stone / amber glow / arcane blue-white) and font stack (Cinzel + Crimson Pro).
+- Captured preferred UI terminology set: Commission, Market Conditions, Appraise, Smith's Tithe, Reveal Runes, Empire Rate.
+
+### Railway Runtime Facts Captured
+- Active Postgres service: **Postgres-YbNR**.
+- Active DSN recorded (`shinkansen.proxy.rlwy.net:38376`).
+- Active web app recorded: `web-production-7eee5.up.railway.app`.
+- Dead legacy DB endpoint recorded and marked avoid: `maglev.proxy.rlwy.net:33597`.
+
+### Known Fixes Recorded
+- Metalplate items are correctly unlinked from LR (recipe decomposition path restored).
+- Guards in `scripts/build_canonical_items.py` and `scripts/apply_manual_lr_links.py` captured as part of fix history.
+- FTA system removal from codebase documented as complete.
+- `scripts/build_aliases.py` FTA join removal documented.
+- `api/app.py` `sslmode` kwarg bug documented as fixed.
+- Railway healthcheck route change (`/search?q=iron` → `/health`) documented.

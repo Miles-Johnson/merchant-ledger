@@ -42,3 +42,34 @@
 2. Keep reverse recipe mitigation targeted (no broad classifier unless proven safe by regression tests).
 3. Rewrite `scripts/audit_pricing_gaps.py` to call resolver directly for authoritative metrics.
 4. Rerun full pipeline + audit and refresh final gate baseline once metrics stabilise.
+
+## Rebrand + Operations Addendum (2026-04-21)
+
+### Brand / Theme (Now Active)
+- App identity is **Runic Abacus**.
+- Explicitly retired names for copy and docs: **Merchant Ledger**, **Runiic**.
+- Character framing for UX/copy: **Bomrek, runesmith of Tharagdum (far north)**.
+- Tagline: **"Carved in stone, priced in gold"**.
+
+### UI Language + Visual Direction
+- Preferred UX copy terms: Commission, Market Conditions, Appraise, Smith's Tithe, Reveal Runes, Empire Rate.
+- Color anchors:
+  - Base dark stone: `#0d0d0f`
+  - Amber rune glow: `#c8922a`, `#e8a830`
+  - Arcane accent: `#7eb8d4`
+- Typography:
+  - Headings: **Cinzel**
+  - Body: **Crimson Pro**
+
+### Railway Live DB / Deployment Pointers
+- Active Railway Postgres service: **Postgres-YbNR**.
+- Active external DSN: `postgresql://postgres:gMilkqIwIFsQgJRQYonBHKJyFgZGPfaE@shinkansen.proxy.rlwy.net:38376/railway`.
+- Active web app: `web-production-7eee5.up.railway.app`.
+- Dead/legacy DB endpoint to avoid: `maglev.proxy.rlwy.net:33597`.
+
+### Rebuild Method (if full restore needed again)
+1. `pg_dump` local (`--no-owner --no-acl`) to `full_snapshot.sql`.
+2. Restore snapshot to Railway with `psql <RAILWAY_DSN> -f full_snapshot.sql`.
+3. Run `scripts/build_aliases.py` **locally first**, then dump/push `item_aliases`.
+4. Re-enable trigram search with `CREATE EXTENSION pg_trgm` on Railway.
+5. Do **not** run aliases build via `railway_wrapper.py` (too slow over network).

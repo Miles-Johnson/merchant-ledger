@@ -83,3 +83,21 @@
 - Individual armor pieces remain recipe-priced.
 - Full armor sets are linked manually to LR set rows in `scripts/apply_manual_lr_links.py`.
 - Canonical search behavior should differentiate set names from piece names while preserving one canonical per real item identity.
+
+## 13) Brand language + UI semantics (Runic Abacus)
+- Product name in docs/UI is **Runic Abacus**.
+- Avoid legacy names in new copy: **Merchant Ledger**, **Runiic**.
+- Preferred domain terms are rune-smith themed: Commission, Market Conditions, Appraise, Smith's Tithe, Reveal Runes, Empire Rate.
+- Thematic voice anchor: **Bomrek, runesmith of Tharagdum**.
+
+## 14) Railway source-of-truth pattern (live endpoints)
+- Active DB service: **Postgres-YbNR** (`shinkansen.proxy.rlwy.net:38376`).
+- Treat `maglev.proxy.rlwy.net:33597` as dead/legacy and never target it for restores/sync.
+- Web deployment target currently tracked as `web-production-7eee5.up.railway.app`.
+
+## 15) Full DB rebuild playbook constraints
+- Safe snapshot: `pg_dump --no-owner --no-acl` from local source.
+- Restore via `psql` directly to active Railway DSN.
+- Run `scripts/build_aliases.py` locally before exporting/pushing `item_aliases`.
+- Ensure `pg_trgm` extension exists after restore.
+- Do not run alias-building over `railway_wrapper.py` due network latency/perf failure mode.

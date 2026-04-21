@@ -338,8 +338,6 @@ def load_canonical_items(
         Optional[str],
         Optional[int],
         Optional[str],
-        Optional[int],
-        Optional[str],
     ]
 ]:
     cur.execute(
@@ -349,12 +347,9 @@ def load_canonical_items(
             ci.display_name,
             ci.game_code,
             ci.lr_item_id,
-            li.lr_sub_category,
-            ci.fta_item_id,
-            fi.display_name AS fta_display_name
+            li.lr_sub_category
         FROM canonical_items ci
         LEFT JOIN lr_items li ON li.id = ci.lr_item_id
-        LEFT JOIN fta_items fi ON fi.id = ci.fta_item_id
         ORDER BY ci.id
         """
     )
@@ -366,8 +361,6 @@ def build_alias_rows(
         Tuple[
             str,
             Optional[str],
-            Optional[str],
-            Optional[int],
             Optional[str],
             Optional[int],
             Optional[str],
@@ -384,8 +377,6 @@ def build_alias_rows(
         game_code,
         lr_item_id,
         lr_sub_category,
-        fta_item_id,
-        fta_display_name,
     ) in canonical_rows:
         aliases: Set[str] = set()
         is_plate_armor = bool(
@@ -414,10 +405,6 @@ def build_alias_rows(
             )
         else:
             aliases.update(aliases_from_display_name(display_name))
-
-        # Generate display-name aliases from linked FTA items as well.
-        if fta_item_id is not None and fta_display_name:
-            aliases.update(aliases_from_display_name(fta_display_name))
 
         lang_display_name = lang_alias_map.get(game_code or "")
         if lang_display_name:

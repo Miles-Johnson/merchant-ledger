@@ -12,8 +12,8 @@ const SETTLEMENT_OPTIONS = [
 
 const SOURCE_STYLES = {
   lr_price: {
-    label: 'Empire Price',
-    classes: 'bg-blue-900/40 text-blue-300 border border-blue-700/70',
+    label: 'Empire Rate ✓',
+    classes: 'bg-sky-950/45 text-sky-200 border border-sky-700/70',
   },
   manual_override: {
     label: 'Set Price',
@@ -48,8 +48,8 @@ function formatCost(value) {
 }
 
 function getUnresolvedReason(source) {
-  if (source === 'not_found') return 'Item not recognized'
-  return 'No market price or recipe found'
+  if (source === 'not_found') return 'These runes are unknown to Bomrek.'
+  return 'The runes do not glow.'
 }
 
 function formatCompleteness(item) {
@@ -389,7 +389,7 @@ function App() {
 
   const handleCalculate = useCallback(async () => {
     if (!order.trim()) {
-      setError('Please write an order before calculating.')
+      setError('Speak your commission, traveller.')
       setResult(null)
       return
     }
@@ -410,12 +410,20 @@ function App() {
 
       const data = await response.json()
       if (!response.ok) {
-        throw new Error(data?.error || 'Calculation failed.')
+        throw new Error(data?.error || 'The runes do not glow.')
       }
 
       setResult(data)
     } catch (err) {
-      setError(err.message || 'Something went wrong while calculating.')
+      const rawMessage = String(err?.message || '').trim()
+      const normalized = rawMessage.toLowerCase()
+
+      if (normalized.includes('not found') || normalized.includes('not recognized') || normalized.includes('unknown')) {
+        setError('These runes are unknown to Bomrek.')
+      } else {
+        setError('The runes do not glow.')
+      }
+
       setResult(null)
     } finally {
       setLoading(false)
@@ -516,38 +524,28 @@ function App() {
 
   return (
     <div
-      className="min-h-screen bg-zinc-950 px-4 py-8 text-stone-100"
-      style={{
-        backgroundImage:
-          'radial-gradient(circle at 18% 12%, rgba(251,191,36,0.13) 0%, rgba(251,191,36,0.02) 30%, transparent 55%), radial-gradient(circle at 82% 78%, rgba(120,53,15,0.2) 0%, transparent 45%), linear-gradient(180deg, #18120e 0%, #0f0c09 70%)',
-      }}
+      className="runic-app min-h-screen px-4 py-8 text-stone-100"
     >
       <div
-        className="mx-auto w-full max-w-7xl rounded-2xl border border-amber-900/60 bg-stone-900/85 p-4 shadow-2xl shadow-black/60 backdrop-blur-sm sm:p-6"
-        style={{
-          backgroundImage:
-            'linear-gradient(135deg, rgba(245, 158, 11, 0.04), rgba(120, 53, 15, 0.02)), repeating-linear-gradient(45deg, rgba(245, 158, 11, 0.03) 0 1px, transparent 1px 6px)',
-        }}
+        className="runic-panel mx-auto w-full max-w-7xl rounded-2xl p-4 shadow-2xl shadow-black/70 backdrop-blur-sm sm:p-6"
       >
         <header className="mb-6 border-b border-amber-800/40 pb-4">
-          <p className="text-xs uppercase tracking-[0.25em] text-amber-400">Merchant Ledger</p>
-          <h1 className="mt-2 font-serif text-2xl text-amber-100 sm:text-4xl">Vintage Story Price Calculator</h1>
-          <p className="mt-2 text-sm text-stone-300 sm:text-base">
-            Enter your order as if writing in a tavern account book, then value it by settlement market conditions.
-          </p>
+          <p className="text-xs uppercase tracking-[0.25em] text-amber-400">Bomrek — Runesmith of Tharagdum</p>
+          <h1 className="runic-heading mt-2 text-2xl text-amber-100 sm:text-4xl">Runic Abacus</h1>
+          <p className="mt-2 text-sm text-stone-300 sm:text-base">Carved in stone, priced in gold</p>
+          <div className="runic-divider mt-4" aria-hidden="true" />
         </header>
 
         <section className="grid gap-4 lg:grid-cols-3">
           <div className="relative lg:col-span-2">
-            <label className="mb-2 block font-serif text-lg text-amber-100">Order Input</label>
-            <p className="mb-2 text-sm text-stone-400">Example: 4 iron plates, 1 iron brigandine, 10 copper ingots</p>
+            <label className="runic-heading mb-2 block text-lg text-amber-100">Commission</label>
             <textarea
               value={order}
               onChange={(event) => setOrder(event.target.value)}
               onBlur={() => setTimeout(() => setSuggestions([]), 150)}
               onKeyDown={onOrderKeyDown}
               rows={6}
-              className="w-full rounded-lg border border-amber-900/70 bg-zinc-950/70 p-3 text-stone-100 outline-none transition focus:border-amber-500 focus:ring-2 focus:ring-amber-500/40"
+              className="stone-input w-full rounded-lg p-3 text-stone-100 outline-none transition"
               placeholder="e.g. 4 iron plates, 1 iron brigandine, 10 copper ingots"
             />
 
@@ -623,11 +621,11 @@ function App() {
           </div>
 
           <div className="space-y-3">
-            <label className="block font-serif text-lg text-amber-100">Settlement Selector</label>
+            <label className="runic-heading block text-lg text-amber-100">Market Conditions</label>
             <select
               value={settlementType}
               onChange={(event) => setSettlementType(event.target.value)}
-              className="w-full rounded-lg border border-amber-900/70 bg-zinc-950/70 p-3 text-stone-100 outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/40"
+              className="stone-input w-full rounded-lg p-3 text-stone-100 outline-none"
             >
               {SETTLEMENT_OPTIONS.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -646,16 +644,16 @@ function App() {
                 onChange={(event) => setLaborMarkupEnabled(event.target.checked)}
                 className="h-4 w-4 rounded border-amber-700 bg-zinc-900 text-amber-500 focus:ring-amber-500"
               />
-              <span>Labor Markup (+20%)</span>
+              <span>Smith&apos;s Tithe (+20%)</span>
             </label>
 
             <button
               type="button"
               onClick={handleCalculate}
               disabled={loading}
-              className="w-full rounded-lg border border-amber-500/70 bg-amber-700/70 px-4 py-3 font-semibold text-amber-100 transition hover:bg-amber-600/80 disabled:cursor-not-allowed disabled:opacity-60"
+              className="rune-button w-full rounded-lg px-4 py-3 font-semibold text-amber-100 transition disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {loading ? 'Calculating Ledger…' : 'Calculate'}
+              {loading ? 'Consulting the runes...' : 'Appraise'}
             </button>
 
             {error ? <p className="rounded border border-red-700/60 bg-red-950/40 p-2 text-sm text-red-300">{error}</p> : null}
@@ -664,6 +662,7 @@ function App() {
 
         {loading ? (
           <section className="mt-8 space-y-4 animate-pulse">
+            <p className="text-sm text-amber-300">Consulting the runes...</p>
             <div className="h-8 w-48 rounded bg-zinc-800/80" />
             <div className="h-64 w-full rounded-lg border border-stone-700/70 bg-zinc-900/60" />
             <div className="h-24 w-full rounded-lg border border-amber-800/60 bg-zinc-900/60" />
@@ -672,7 +671,8 @@ function App() {
 
         {result ? (
           <section className="mt-8 space-y-4">
-            <h2 className="font-serif text-2xl text-amber-100">Results</h2>
+            <h2 className="runic-heading text-2xl text-amber-100">Results</h2>
+            <p className="rounded border border-emerald-700/50 bg-emerald-950/30 p-2 text-sm text-emerald-200">The runes hold true.</p>
 
             <div className="overflow-x-auto rounded-lg border border-stone-700/70">
               <table className="min-w-full divide-y divide-stone-700/70 text-left text-sm">
@@ -680,7 +680,7 @@ function App() {
                   <tr>
                     <th className="px-3 py-2">Item</th>
                     <th className="px-3 py-2">Quantity</th>
-                    <th className="px-3 py-2">Empire Price</th>
+                    <th className="px-3 py-2">Empire Rate</th>
                     <th className="px-3 py-2">Crafting Cost</th>
                     <th className="px-3 py-2">Total Cost</th>
                     <th className="px-3 py-2">Source</th>
@@ -775,11 +775,18 @@ function App() {
                             ) : null}
 
                             {hasRecipe ? (
-                              <details className="rounded border border-stone-700/70 bg-zinc-900/60 p-2">
+                              <details className="group rounded border border-stone-700/70 bg-zinc-900/60 p-2">
                                 <summary className="cursor-pointer text-xs font-semibold uppercase tracking-wide text-amber-300">
-                                  Recipe Breakdown
+                                  <span className="group-open:hidden">Reveal Runes</span>
+                                  <span className="hidden group-open:inline">Conceal Runes</span>
                                 </summary>
-                                <div className="mt-2 text-xs">{renderIngredientTree(recipeDetail.ingredients)}</div>
+                                <div className="mt-2 text-xs">
+                                  <div className="mb-2 grid grid-cols-[1fr_auto] gap-2 border-b border-stone-700/60 pb-1 text-[11px] uppercase tracking-wider text-stone-400">
+                                    <span>Material</span>
+                                    <span>Unit Price</span>
+                                  </div>
+                                  {renderIngredientTree(recipeDetail.ingredients)}
+                                </div>
                               </details>
                             ) : null}
 

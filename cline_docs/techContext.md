@@ -50,3 +50,16 @@
 - App code deploys via GitHub integration.
 - DB updates are applied explicitly via `scripts/sync_railway.py`.
 - Partial sync flows are acceptable for targeted updates when full re-sync is unnecessary.
+
+## Railway Live Environment (2026-04-21)
+- Service: **Postgres-YbNR**
+- Active External DSN: `postgresql://postgres:gMilkqIwIFsQgJRQYonBHKJyFgZGPfaE@shinkansen.proxy.rlwy.net:38376/railway`
+- Active web app URL: `web-production-7eee5.up.railway.app`
+- Deprecated/dead DB endpoint (do not use): `maglev.proxy.rlwy.net:33597`
+
+## DB Rebuild Procedure (Operational)
+1. Create local snapshot: `pg_dump --no-owner --no-acl > full_snapshot.sql`
+2. Restore to Railway: `psql <RAILWAY_DSN> -f full_snapshot.sql`
+3. Run `scripts/build_aliases.py` locally, then dump/push `item_aliases`
+4. Run `CREATE EXTENSION pg_trgm` on Railway after restore
+5. Avoid `railway_wrapper.py` for `build_aliases` execution (too slow over network)

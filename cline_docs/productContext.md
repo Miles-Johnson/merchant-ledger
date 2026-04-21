@@ -37,3 +37,22 @@ Price Vintage Story items and orders in Copper Sovereigns using canonical item i
 - Dynamic hoops rule was tested and removed as unnecessary (recipe behavior already correct).
 - UI cleanup complete: FTA/Guild removed, Set Price badge, loading skeleton, spacing fix, partial-cost badge fix.
 - Railway workflow established: code deploy via GitHub + DB sync using `scripts/sync_railway.py` (partial sync script included).
+
+## Rebrand + Identity Update (2026-04-21)
+- Product name is now **Runic Abacus**.
+- Deprecated naming to avoid in all user-facing copy: **Merchant Ledger**, **Runiic**.
+- Character voice/theme anchor: **Bomrek, runesmith of Tharagdum (far north)**.
+- Tagline: **"Carved in stone, priced in gold"**.
+- UI copy lexicon to prefer:
+  - Commission
+  - Market Conditions
+  - Appraise
+  - Smith's Tithe
+  - Reveal Runes
+  - Empire Rate
+- Visual identity:
+  - Dark stone base: `#0d0d0f`
+  - Amber rune glow: `#c8922a`, `#e8a830`
+  - Arcane blue-white accent: `#7eb8d4`
+  - Headings font: **Cinzel**
+  - Body font: **Crimson Pro**
