@@ -26,8 +26,6 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 pool_kwargs = {"minconn": 1, "maxconn": 10}
 if DATABASE_URL:
     pool_kwargs["dsn"] = DATABASE_URL
-    if os.getenv("RAILWAY_ENVIRONMENT"):
-        pool_kwargs["sslmode"] = "require"
 else:
     db_name = os.getenv("DB_NAME") or os.getenv("PGDATABASE")
     if not db_name:
